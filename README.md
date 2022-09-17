@@ -21,7 +21,7 @@ For now, download and install the apk directly [here](https://github.com/iakmds/
 - Take pictures and record videos with your rear and front camera
 - Privacy: No EXIF Metadata saved by default when taking pictures (enable optionally in settings)
 - Themes: Material Design with a Dark, Light or system theme
-- Languages currently supported: English, German – [Contribute translating your language!](#contribute)
+- Languages currently supported: English, German – [Contribute translating your language!](#contributing)
 - Zoom: Zoom with 2 fingers or with an optional slider
 - Flashlight modes: On at capture, Off, Auto, Always on
 - Focus: Auto focus, locked focus and manual focus by touching the screen
