@@ -2,8 +2,8 @@
 
 A free and open source camera app for Android written in Flutter and Dart licensed under the [GPLv3](LICENSE)
 
-[App icon]
-[4 Screenshots]
+<img src="https://github.com/iakmds/librecamera/blob/master/.github/icon/icon.png" alt="Libre Camera app icon" height="128">
+<img src="https://github.com/iakmds/librecamera/blob/master/.github/screenshots/screenshots.png" alt="Screenshots" height="512">
 
 # Download
 
