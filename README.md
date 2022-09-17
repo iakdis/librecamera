@@ -51,7 +51,7 @@ Currently supported languages: English, German
 1. If not already supported (see above), request a new language by [opening an issue](https://github.com/iakmds/librecamera/issues) on GitHub and I will add the necessary code for the second step
 2. Translate an already existing language (see below)
 
-Translating guide: Go to the .arb file of the language you want to translate (for example, [this](link) file for German) and change the text inside the "" quotation marks.
+Translating guide: Go to the .arb file of the language you want to translate (for example, [this](https://github.com/iakmds/librecamera/blob/master/assets/l10n/app_de.arb) file for German) and change the text inside the "" quotation marks.
 
 Additionally, if you want to translate the local app name (default: "Camera"), go to the strings.xml file of the language you want to translate (for example, [this](https://github.com/iakmds/librecamera/blob/master/android/app/src/main/res/values-de/styles.xml) file for German and translate the "Camera" text inside ```<string name="AppName">Camera</string>```
 
