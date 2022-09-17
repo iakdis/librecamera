@@ -53,7 +53,7 @@ Currently supported languages: English, German
 
 Translating guide: Go to the .arb file of the language you want to translate (for example, [this](link) file for German) and change the text inside the "" quotation marks.
 
-Additionally, if you want to translate the local app name (default: "Camera"), go to the strings.xml file of the language you want to translate (for example, [this](link) file for German) and translate the "Camera" text inside ```<string name="AppName">Camera</string>```
+Additionally, if you want to translate the local app name (default: "Camera"), go to the strings.xml file of the language you want to translate (for example, [this](https://github.com/iakmds/librecamera/blob/master/android/app/src/main/res/values-de/styles.xml) file for German) and translate the "Camera" text inside ```<string name="AppName">Camera</string>```
 
 - **Bug Reporting or a Feature Request**
 
