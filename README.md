@@ -1,9 +1,15 @@
 # Libre Camera
-
 A free and open source camera app for Android written in Flutter and Dart licensed under the [GPLv3](LICENSE)
 
 <img src="https://github.com/iakmds/librecamera/blob/master/.github/icon/icon.png" alt="Libre Camera app icon" height="128">
-<img src="https://github.com/iakmds/librecamera/blob/master/.github/screenshots/screenshots.png" alt="Screenshots" height="512">
+
+## Screenshots
+<p float="left">
+  <img src="https://github.com/iakmds/librecamera/blob/master/.github/screenshots/screenshot01.png" alt="Screenshot 1" height="420">
+  <img src="https://github.com/iakmds/librecamera/blob/master/.github/screenshots/screenshot02.png" alt="Screenshot 2" height="420">
+  <img src="https://github.com/iakmds/librecamera/blob/master/.github/screenshots/screenshot03.png" alt="Screenshot 3" height="420">
+  <img src="https://github.com/iakmds/librecamera/blob/master/.github/screenshots/screenshot04.png" alt="Screenshot 4" height="420">
+</p>
 
 # Download
 
@@ -84,4 +90,4 @@ The packages used for this app, also listed in the pubspec.yaml file. See their 
 
 # License
 
-This project is licensed under the [GNU General Public License Version 3](https://www.gnu.org/licenses/gpl-3.0.html). For details, see [License](LICENSE)
+This project is licensed under the [GNU General Public License Version 3](https://www.gnu.org/licenses/gpl-3.0.html). For details, see [LICENSE](LICENSE)
