@@ -1,0 +1,129 @@
+{
+    "@_ONBOARDING_PAGE": {},
+
+
+
+    "permissionsTitle": "BERECHTIGUNGEN",
+    "permissionsTitle_description": "Um die Kamera zu benutzen, musst du die Berechtigung für die Nutzung der Kamera und des Mikrofons erlauben.",
+    "giveCameraPermission": "Kamera Berechtigung erlauben",
+    "giveMicrophonePermission": "Mikrofon Berechtigung erlauben",
+
+    "savePathTitle": "SPEICHERPFAD",
+    "savePathTitle_description": "Wähle einen Speicherpfad aus. In Android ist dies normalerweise der DCIM Pfad.",
+    "selectPath": "Pfad auswählen",
+
+    "welcomeTitle": "WILLKOMMEN",
+    "welcomeTitle_description": "Herzlichen Glückwunsch! Du bist bereit, diese Kamera App zu nutzen.",
+    "getStarted": "Jetzt loslegen",
+
+
+
+    "@_CAMERA_PAGE": {},
+
+    "switchToPictureMode": "Zum Foto-Modus wechseln",
+    "switchToVideoRecordingMode": "Zum Videoaufnahme-Modus wechseln",
+
+    "openCapturedPictureOrVideo": "Öffne das aufgenommene Foto oder Video",
+
+    "takePicture": "Foto aufnehmen",
+
+    "startRecordingVideo": "Videoaufnahme starten",
+    "pauseVideo": "Videoaufnahme pausieren",
+    "resumeVideo": "Videoaufnahme fortsetzen",
+    "stopVideo": "Videoaufnahme stoppen",
+
+    "exposureMode": "Belichtungsmodus",
+    "exposureModeAuto": "AUTOMATISCHE BELICHTUNG",
+    "exposureModeLocked": "GESPERRTE BELICHTUNG",
+    "defaultExposure": "Standard Belichtung",
+
+    "flashlight": "Taschenlampe",
+
+    "selectResolution": "Auflösung auswählen",
+
+    "lockCaptureOrientation": "[NEUSTART ERFORDERLICH] Automatische Bildschirmausrichtung sperren",
+    "lockCaptureOrientation_description": "Sperrt die Bildschirmausrichtung zum Portrait-Modus, auch wenn die automatische Bildschirmausrichtung aktiviert ist",
+
+    "focusMode": "Fokusmodus",
+    "focusModeAuto": "AUTOMATISCHER FOKUS",
+    "focusModeLocked": "GESPERRTER FOKUS",
+
+    "reset": "Zurücksetzen",
+
+    "flipToFrontCamera": "Zur Frontkamera wechseln",
+    "flipToRearCamera": "Zur Rückkamera wechseln",
+
+    "autoSmall": "AUTOM.",
+    "lockedSmall": "GESPERRT",
+
+
+
+    "@_SETTINGS_PAGE": {},
+
+
+
+    "back": "Zurück",
+    "next": "Weiter",
+    "settings": "Einstellungen",
+
+    "appSettings": "APP EINSTELLUNGEN",
+    
+    "language": "Sprache",
+    "language_description": "Sprache der App ändern",
+    "systemLanguage": "Systemsprache",
+
+    "theme": "Thema",
+    "theme_description": "Thema der App wechseln",
+    "themeSystem": "Thema des Systems",
+    "themeLight": "Helles Thema",
+    "themeDark": "Dunkles Thema",
+
+    "enableModeRow": "Reihe für den Fokus- und Belichtungsmodus aktivieren",
+    "enableModeRow_description": "Zeige unten eine Reihe zum wechseln des Fokus- und Belichtungsmodus an",
+
+    "enableZoomSlider": "Zoom-Schieberegler aktiveren",
+    "enableZoomSlider_description": "Wenn aktiviert, erscheint ein Schieberegler an der Seite, um den Zoom manuell zu verstellen",
+
+    "enableExposureSlider": "Belichtungs-Schieberegler aktiveren",
+    "enableExposureSlider_description": "Wenn aktiviert, erscheint ein Schieberegler an der Seite, um die Belichtung manuell zu verstellen",
+
+    "cameraBehaviour": "KAMERAVERHALTEN",
+
+    "resolution": "Auflösung",
+    "resolution_description": "Ändere die Kameraauflösung",
+
+    "flipPhotosFrontCamera": "Fotos der Frontkamera horizontal drehen",
+    "flipPhotosFrontCamera_description": "Drehe die mit der Frontkamera aufgenommenen Fotos horizontal um",
+
+    "startWithFrontCamera": "Mit der Frontkamera starten",
+    "startWithFrontCamera_description": "Beim Öffnen der App immer mit der Frontkamera starten",
+
+    "disableAudio": "Ton deaktivieren",
+    "disableAudio_description": "Deaktiviere den Ton beim Aufnahmen von Videos",
+
+    "saving": "SPEICHERN",
+
+    "imageCompressionQuality": "Komprimierungsqualität",
+    "imageCompressionQuality_description": "Geringere Komprimierungsqualität führt zu schlechterer Qualität mit geringerer Dateigröße, während höhere Komprimierungsqualität zu höherer Qualität mit größerer Dateigröße führt",
+
+    "keepEXIFMetadata": "EXIF-Metadateien speichern",
+    "keepEXIFMetadata_description": "EXIF-Metadateien des aufgenommenen Fotos speichern wie Handymodell, GPS-Standort, etc.",
+
+    "savePath": "Speicherpfad",
+    "savePath_description": "Ausgewählter Pfad: {path}",
+    "choosePath": "Pfad auswählen",
+
+    "onboardingScreen": "Einführungsseite",
+    "onboardingScreen_description": "Öffne die Einführungsseite",
+
+
+
+    "@_ABOUT": {},
+
+
+
+    "more": "MEHR",
+    "less": "WENIGER ANZEIGEN",
+    "version": "Version {versionNumber}",
+    "license": "Der Quellcode ist unter der GPLv3 lizenziert und auf GitHub verfügbar. Wenn irgendwelche Probleme auftreten oder du einen Wunsch für ein Feature hast, öffne bitte ein sogenanntes 'Issue' auf GitHub. Danke!"
+}

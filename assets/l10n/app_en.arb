@@ -1,0 +1,143 @@
+{
+    "@_ONBOARDING_PAGE": {},
+
+
+
+    "permissionsTitle": "PERMISSIONS",
+    "permissionsTitle_description": "To use the camera, you need to give permission to your camera and microphone.",
+    "giveCameraPermission": "Give camera permission",
+    "giveMicrophonePermission": "Give microphone permission",
+
+    "savePathTitle": "SAVE PATH",
+    "savePathTitle_description": "Select a save path. Typically, images get saved to the DCIM path on Android.",
+    "selectPath": "Select path",
+
+    "welcomeTitle": "WELCOME",
+    "welcomeTitle_description": "Congratulations! You are ready to use this camera app.",
+    "getStarted": "Get started",
+
+
+
+    "@_CAMERA_PAGE": {},
+
+    "switchToPictureMode": "Switch to picture mode",
+    "switchToVideoRecordingMode": "Switch to video recording mode",
+
+    "openCapturedPictureOrVideo": "Open captured picture or video",
+
+    "takePicture": "Take picture",
+
+    "startRecordingVideo": "Start recording video",
+    "pauseVideo": "Pause video",
+    "resumeVideo": "Resume video",
+    "stopVideo": "Stop video",
+
+    "exposureMode": "Exposure mode",
+    "exposureModeAuto": "AUTO EXPOSURE",
+    "exposureModeLocked": "LOCKED EXPOSURE",
+    "defaultExposure": "Default exposure",
+
+    "flashlight": "Flashlight",
+
+    "selectResolution": "Select resolution",
+
+    "lockCaptureOrientation": "[RESTART REQUIRED] Lock auto orientation",
+    "lockCaptureOrientation_description": "Lock orientation to portrait mode, no matter if automatic rotation mode is activated",
+
+    "focusMode": "Focus mode",
+    "focusModeAuto": "AUTO FOCUS",
+    "focusModeLocked": "LOCKED FOCUS",
+
+    "reset": "Reset",
+
+    "flipToFrontCamera": "Flip to front camera",
+    "flipToRearCamera": "Flip to rear camera",
+
+    "autoSmall": "AUTO",
+    "lockedSmall": "LOCKED",
+
+
+
+    "@_SETTINGS_PAGE": {},
+
+
+
+    "back": "Back",
+    "next": "Next",
+    "settings": "Settings",
+
+    "appSettings": "APP SETTINGS",
+    
+    "language": "Language",
+    "language_description": "Change the app language",
+    "systemLanguage": "System language",
+
+    "theme": "Theme",
+    "theme_description": "Change the app theme",
+    "themeSystem": "System theme",
+    "themeLight": "Light theme",
+    "themeDark": "Dark theme",
+
+    "enableModeRow": "Enable focus and exposure mode row",
+    "enableModeRow_description": "Enable a row at the bottom to switch the exposure and focus modes",
+
+    "enableZoomSlider": "Enable zoom slider",
+    "enableZoomSlider_description": "When enabled, a slider will appear to manually adjust the zoom",
+
+    "enableExposureSlider": "Enable exposure slider",
+    "enableExposureSlider_description": "When enabled, a slider will appear to manually adjust the exposure",
+
+    "cameraBehaviour": "CAMERA BEHAVIOUR",
+
+    "resolution": "Resolution",
+    "resolution_description": "Change the camera resolution",
+
+    "flipPhotosFrontCamera": "Flip photos on front camera",
+    "flipPhotosFrontCamera_description": "Flip photos horizontally that were taken with front camera",
+
+    "startWithFrontCamera": "Start with front camera",
+    "startWithFrontCamera_description": "Always start with front camera when opening the app",
+
+    "disableAudio": "Disable audio",
+    "disableAudio_description": "Disable audio when recording a video",
+
+    "saving": "SAVING",
+
+    "imageCompressionQuality": "Image compression quality",
+    "imageCompressionQuality_description": "Lower compression quality means smaller size but worse quality, while higher compression quality means bigger size but better quality",
+
+    "keepEXIFMetadata": "Save EXIF data",
+    "keepEXIFMetadata_description": "Save EXIF metadata of the taken picture like phone model, GPS location, etc.",
+
+    "savePath": "Save path",
+    "savePath_description": "Current path: {path}",
+    "@savePath_description": {
+      "placeholders": {
+         "path": {
+           "type": "String"
+         }
+      }
+    },
+    "choosePath": "Choose path",
+
+    "onboardingScreen": "Onboarding screen",
+    "onboardingScreen_description": "Open the initial onboarding screen",
+
+
+
+    "@_ABOUT": {},
+
+
+
+    "more": "MORE",
+    "less": "SHOW LESS",
+    "version": "Version {versionNumber}",
+    "@version": {
+      "placeholders": {
+         "versionNumber": {
+           "type": "String"
+         }
+      }
+    },
+    "license": "The code is licensed under the GPLv3 on GitHub. If you encounter any problems or want to request a feature, please open an issue on GitHub. Thanks!"
+}
