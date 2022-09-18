@@ -13,7 +13,7 @@ A free and open source camera app for Android written in Flutter and Dart licens
 
 # Download
 
-For now, download and install the apk directly [here](https://github.com/iakmds/librecamera/releases)
+For now, download and install the apk directly in the GitHub [releases](https://github.com/iakmds/librecamera/releases) page
 
 
 # Features
