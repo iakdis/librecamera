@@ -73,15 +73,13 @@ The packages used for this app, also listed in the pubspec.yaml file. See their 
 
 - [android_intent_plus](https://pub.dev/packages/android_intent_plus): Used for opening photos and videos by clicking on the thumbnail
 - [camera](https://pub.dev/packages/camera): Used for camera functionality
-- [device_info_plus](https://pub.dev/packages/device_info_plus): Used for checking the Android SDK version
 - [file_picker](https://pub.dev/packages/file_picker): Used for picking the save path
-- [flutter](https://pub.dev/packages/flutter): Used for flutter SDK
-- [flutter_image_compress](https://pub.dev/packages/flutter_image_compress): Used image compression and EXIF Metadata removal
+- [flutter](https://pub.dev/packages/flutter): Used for Flutter SDK
+- [flutter_image_compress](https://pub.dev/packages/flutter_image_compress): Used for image compression and EXIF metadata removal
 - [flutter_localizations](https://pub.dev/packages/flutter_localizations): Used for localization
-- [image](https://pub.dev/packages/image): Used for ability to flip captured photos horizontally
+- [image](https://pub.dev/packages/image): Used for the ability to flip captured photos horizontally
 - [intl](https://pub.dev/packages/intl): Used for localization
-- [path](https://pub.dev/packages/path): Used for files and directories
-- [path_provider](https://pub.dev/packages/path_provider): Used for commonly used locations on the filesystem
+- [path](https://pub.dev/packages/path): Used for looking up files and directories
 - [permission_handler](https://pub.dev/packages/permission_handler): Used for handling permissions
 - [provider](https://pub.dev/packages/provider): Used for state management, specifically localization and theme support
 - [shared_preferences](https://pub.dev/packages/shared_preferences): Used for saving app data, including settings
