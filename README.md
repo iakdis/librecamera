@@ -1,9 +1,15 @@
 # Libre Camera
-
 A free and open source camera app for Android written in Flutter and Dart licensed under the [GPLv3](LICENSE)
 
-[App icon]
-[4 Screenshots]
+<img src="https://github.com/iakmds/librecamera/blob/master/.github/icon/icon.png" alt="Libre Camera app icon" height="128">
+
+## Screenshots
+<p float="left">
+  <img src="https://github.com/iakmds/librecamera/blob/master/.github/screenshots/screenshot01.png" alt="Screenshot 1" height="420">
+  <img src="https://github.com/iakmds/librecamera/blob/master/.github/screenshots/screenshot02.png" alt="Screenshot 2" height="420">
+  <img src="https://github.com/iakmds/librecamera/blob/master/.github/screenshots/screenshot03.png" alt="Screenshot 3" height="420">
+  <img src="https://github.com/iakmds/librecamera/blob/master/.github/screenshots/screenshot04.png" alt="Screenshot 4" height="420">
+</p>
 
 # Download
 
@@ -15,7 +21,7 @@ For now, download and install the apk directly [here](https://github.com/iakmds/
 - Take pictures and record videos with your rear and front camera
 - Privacy: No EXIF Metadata saved by default when taking pictures (enable optionally in settings)
 - Themes: Material Design with a Dark, Light or system theme
-- Languages currently supported: English, German – [Contribute translating your language!](#contribute)
+- Languages currently supported: English, German – [Contribute translating your language!](#contributing)
 - Zoom: Zoom with 2 fingers or with an optional slider
 - Flashlight modes: On at capture, Off, Auto, Always on
 - Focus: Auto focus, locked focus and manual focus by touching the screen
@@ -45,9 +51,9 @@ Currently supported languages: English, German
 1. If not already supported (see above), request a new language by [opening an issue](https://github.com/iakmds/librecamera/issues) on GitHub and I will add the necessary code for the second step
 2. Translate an already existing language (see below)
 
-Translating guide: Go to the .arb file of the language you want to translate (for example, [this](link) file for German) and change the text inside the "" quotation marks.
+Translating guide: Go to the .arb file of the language you want to translate (for example, [this](https://github.com/iakmds/librecamera/blob/master/assets/l10n/app_de.arb) file for German) and change the text inside the "" quotation marks.
 
-Additionally, if you want to translate the local app name (default: "Camera"), go to the strings.xml file of the language you want to translate (for example, [this](link) file for German) and translate the "Camera" text inside ```<string name="AppName">Camera</string>```
+Additionally, if you want to translate the local app name (default: "Camera"), go to the strings.xml file of the language you want to translate (for example, [this](https://github.com/iakmds/librecamera/blob/master/android/app/src/main/res/values-de/styles.xml) file for German and translate the "Camera" text inside ```<string name="AppName">Camera</string>```
 
 - **Bug Reporting or a Feature Request**
 
@@ -84,4 +90,4 @@ The packages used for this app, also listed in the pubspec.yaml file. See their 
 
 # License
 
-This project is licensed under the [GNU General Public License Version 3](https://www.gnu.org/licenses/gpl-3.0.html). For details, see [License](LICENSE)
+This project is licensed under the [GNU General Public License Version 3](https://www.gnu.org/licenses/gpl-3.0.html). For details, see [LICENSE](LICENSE)
