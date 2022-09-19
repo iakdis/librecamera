@@ -22,11 +22,11 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: ashutoshgngwr/validate-fastlane-supply-metadata@v2
-        with:
-          fastlaneDir: fastlane/metadata/android # optional
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+      - uses: ashutoshgngwr/validate-fastlane-supply-metadata@v2
+        # with:
+          # fastlaneDir: fastlane/metadata/android
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
