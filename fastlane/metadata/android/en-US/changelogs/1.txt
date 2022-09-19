@@ -3,10 +3,10 @@ Initial release of Libre Camera
 Features
 
     * Take pictures and record videos with your rear and front camera
-    * Privacy: No EXIF Metadata saved by default when taking pictures (enable optionally in settings) – and obviously no ads and tracking!
+    * Privacy: No EXIF Metadata saved by default when taking pictures – and obviously no ads and tracking!
     * Themes: Material Design with a Dark, Light or system theme
     * Languages currently supported: English, German – Contribute translating your language!
-    * Image compression: Set the compression amount in the settings
+    * Image compression
     * Small size (~8 MB)
-    * Customizable: Open the settings to customize the app to your liking!
+    * Customizable
     * And much more!
