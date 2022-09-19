@@ -34,8 +34,9 @@ For now, download and install the apk directly in the GitHub [releases](https://
 
 # Roadmap
 
-- [ ] More supported languages (See #contributing below)
+- [ ] More supported languages (See [Contributing](#contributing) below)
 - [ ] Feature: Add photo capture delay option
+- [ ] Feature: Add integrated QR-Scanner
 - [ ] New theme: Black Dark mode for AMOLED screens
 - [ ] Check tablet support
 - [ ] [Your feature](https://github.com/iakmds/librecamera/issues)
