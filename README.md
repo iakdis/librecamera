@@ -29,7 +29,7 @@ For now, download and install the apk directly in the GitHub [releases](https://
 - Image compression: Set the compression amount in the settings
 - Resolutions: Switch between different camera resolutions
 - Save location: Choose your preferred save location
-- Small size (<10 MB)
+- Small size (<21 MB)
 - Customizable: Open the settings to customize the app to your liking!
 
 # Roadmap
@@ -37,8 +37,9 @@ For now, download and install the apk directly in the GitHub [releases](https://
 - [ ] More supported languages (See [Contributing](#contributing) below)
 - [ ] Feature: Add photo capture delay option
 - [ ] Feature: Add integrated QR-Scanner
-- [ ] Feature: Add capture sound option in settings (both for photo and video mode)
-- [ ] Feature: Add capture at volume button press option in settings
+- [ ] Feature: Make focus and exposure controls collapsable
+- [ ] Feature: Add a capture sound as an option in settings (both for photo and video mode)
+- [ ] Feature: Add start capture at phone volume button press as an option in settings
 - [ ] New theme: Black Dark mode for AMOLED screens
 - [ ] Check tablet support
 - [ ] [Your feature](https://github.com/iakmds/librecamera/issues)
@@ -54,9 +55,11 @@ Currently supported languages: English, German
 1. If not already supported (see above), request a new language by [opening an issue](https://github.com/iakmds/librecamera/issues) on GitHub and I will add the necessary code for the second step
 2. Translate an already existing language (see below)
 
-Translating guide: Go to the .arb file of the language you want to translate (for example, [this](https://github.com/iakmds/librecamera/blob/master/assets/l10n/app_de.arb) file for German) and change the text inside the "" quotation marks.
+Translating guide: Go to the .arb file of the language you want to translate (for example, [this](https://github.com/iakmds/librecamera/blob/master/assets/l10n/app_de.arb) file for German) and change the text inside the "" quotation marks. Use the [English](https://github.com/iakmds/librecamera/blob/master/assets/l10n/app_en.arb) translation as a reference for the text to be translated to the target language.
 
-Additionally, if you want to translate the local app name (default: "Camera"), go to the strings.xml file of the language you want to translate (for example, [this](https://github.com/iakmds/librecamera/blob/master/android/app/src/main/res/values-de/styles.xml) file for German and translate the "Libre Camera" text inside the string elements, like this German translation: ```<string name="AppName">Libre Kamera</string>```
+Additionally, if you want to translate the local app name (default: "Libre Camera"), go to the strings.xml file of the language you want to translate (for example, [this](https://github.com/iakmds/librecamera/blob/master/android/app/src/main/res/values-de/styles.xml) file for German and translate the "Libre Camera" text inside the string elements, like this German translation: ```<string name="AppName">Libre Kamera</string>```
+
+Send in your translated files as a [Pull Request](https://github.com/iakmds/librecamera/pulls)
 
 - **Bug Reporting or a Feature Request**
 
@@ -68,7 +71,7 @@ Feel free to send in a [Pull Request](https://github.com/iakmds/librecamera/pull
 
 1. Clone this repository
 2. Switch to the project's directory and run the project in debug mode by selecting an Android device or emulator in your preferred Flutter IDE and running the app in debug mode
-3. To test the final app, run the app by installing the apk on an Android device or emulator. To get the apk, run the following command in your terminal: ```flutter build apk --split-per-abi``` – the output apk's will be generated at ```librecamera/build/app/outputs/apk/release/```
+3. To test the final app, run the app by installing the apk on an Android device or emulator. To get the apk, run the following command in your terminal: ```flutter build apk --split-per-abi``` – the output apk's will be generated at ```librecamera/build/app/outputs/apk/release/```. If you want only one apk without splitting the platforms (results in slightly bigger size) use ```flutter build apk```
 
 # Packages used
 

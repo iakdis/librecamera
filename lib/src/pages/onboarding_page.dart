@@ -171,7 +171,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
           padding: const EdgeInsets.symmetric(horizontal: 64.0),
           child: Text(
             AppLocalizations.of(context)!.permissionsTitle_description,
-            style: TextStyle(color: Colors.grey[800], fontSize: 17.0),
+            style: TextStyle(
+              color: Colors.teal.shade700,
+              fontSize: 17.0,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ),
       ],
@@ -244,7 +248,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
           padding: const EdgeInsets.symmetric(horizontal: 64.0),
           child: Text(
             AppLocalizations.of(context)!.savePathTitle_description,
-            style: TextStyle(color: Colors.grey[800], fontSize: 17.0),
+            style: TextStyle(
+              color: Colors.teal.shade700,
+              fontSize: 17.0,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ),
       ],
@@ -301,7 +309,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
             padding: const EdgeInsets.symmetric(horizontal: 64.0),
             child: Text(
               AppLocalizations.of(context)!.welcomeTitle_description,
-              style: const TextStyle(color: Colors.black87, fontSize: 17.0),
+              style: TextStyle(
+                color: Colors.teal.shade700,
+                fontSize: 17.0,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
         ],

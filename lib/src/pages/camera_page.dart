@@ -264,102 +264,99 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Widget _bottomControlsWidget() {
-    return NativeDeviceOrientationReader(
-      useSensor: true,
-      builder: (context) {
-        return RotatedBox(
-          quarterTurns:
-              MediaQuery.of(context).orientation == Orientation.portrait
-                  ? 0
-                  : 3,
-          child: Align(
-            alignment: Alignment.bottomCenter,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                controller != null &&
-                        isVideoCameraSelected &&
-                        controller!.value.isRecordingVideo
-                    ? Center(
-                        child: Padding(
-                          padding: const EdgeInsets.only(bottom: 8.0),
-                          child: RotatedBox(
-                            quarterTurns: MediaQuery.of(context).orientation ==
-                                    Orientation.portrait
-                                ? 0
-                                : 1,
-                            child: Container(
-                              padding:
-                                  const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
-                              decoration: BoxDecoration(
-                                  color: Colors.black38,
-                                  borderRadius: BorderRadius.circular(4.0)),
-                              child: Text(
-                                _stopwatch.elapsed.inSeconds < 60
-                                    ? '${_stopwatch.elapsed.inSeconds}s'
-                                    : '${_stopwatch.elapsed.inMinutes}m ${_stopwatch.elapsed.inSeconds % 60}s',
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 24.0,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
+    return RotatedBox(
+      quarterTurns:
+          MediaQuery.of(context).orientation == Orientation.portrait ? 0 : 3,
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            controller != null &&
+                    isVideoCameraSelected &&
+                    controller!.value.isRecordingVideo
+                ? Center(
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: RotatedBox(
+                        quarterTurns: MediaQuery.of(context).orientation ==
+                                Orientation.portrait
+                            ? 0
+                            : 1,
+                        child: Container(
+                          padding:
+                              const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
+                          decoration: BoxDecoration(
+                              color: Colors.black38,
+                              borderRadius: BorderRadius.circular(4.0)),
+                          child: Text(
+                            _stopwatch.elapsed.inSeconds < 60
+                                ? '${_stopwatch.elapsed.inSeconds}s'
+                                : '${_stopwatch.elapsed.inMinutes}m ${_stopwatch.elapsed.inSeconds % 60}s',
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 24.0,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ),
-                      )
-                    : Container(),
-                Container(
-                  padding: const EdgeInsets.fromLTRB(0, 8.0, 0, 8.0),
-                  color: Colors.black12,
-                  child: CaptureControlWidget(
-                    controller: controller,
-                    onTakePictureButtonPressed: onTakePictureButtonPressed,
-                    onVideoRecordButtonPressed: onVideoRecordButtonPressed,
-                    onResumeButtonPressed: onResumeButtonPressed,
-                    onPauseButtonPressed: onPauseButtonPressed,
-                    onStopButtonPressed: onStopButtonPressed,
-                    onNewCameraSelected: onNewCameraSelected,
-                    isVideoCameraSelected: isVideoCameraSelected,
-                    isRecordingInProgress:
-                        controller?.value.isRecordingVideo ?? false,
-                    flashWidget: FlashModeControlRowWidget(
-                      controller: controller,
-                      isRearCameraSelected: isRearCameraSelected,
+                      ),
                     ),
-                    isRearCameraSelected: getIsRearCameraSelected(),
-                    setIsRearCameraSelected: setIsRearCameraSelected,
-                  ),
+                  )
+                : Container(),
+            Preferences.getEnableModeRow()
+                ? Container(
+                    color: Colors.black12,
+                    child: Column(
+                      children: [
+                        _cameraModesWidget(),
+                        const Divider(color: Colors.blue),
+                      ],
+                    ))
+                : Container(),
+            Preferences.getEnableExposureSlider()
+                ? Container(
+                    color: Colors.black12,
+                    child: Column(
+                      children: [
+                        ExposureSlider(
+                          setExposureOffset: _setExposureOffset,
+                          currentExposureOffset: _currentExposureOffset,
+                          minAvailableExposureOffset:
+                              _minAvailableExposureOffset,
+                          maxAvailableExposureOffset:
+                              _maxAvailableExposureOffset,
+                        ),
+                        const Divider(color: Colors.blue),
+                      ],
+                    ),
+                  )
+                : Container(),
+            Container(
+              padding: const EdgeInsets.fromLTRB(0, 8.0, 0, 8.0),
+              color: Colors.black12,
+              child: CaptureControlWidget(
+                controller: controller,
+                onTakePictureButtonPressed: onTakePictureButtonPressed,
+                onVideoRecordButtonPressed: onVideoRecordButtonPressed,
+                onResumeButtonPressed: onResumeButtonPressed,
+                onPauseButtonPressed: onPauseButtonPressed,
+                onStopButtonPressed: onStopButtonPressed,
+                onNewCameraSelected: onNewCameraSelected,
+                isVideoCameraSelected: isVideoCameraSelected,
+                isRecordingInProgress:
+                    controller?.value.isRecordingVideo ?? false,
+                flashWidget: FlashModeControlRowWidget(
+                  controller: controller,
+                  isRearCameraSelected: isRearCameraSelected,
                 ),
-                Preferences.getEnableModeRow()
-                    ? Container(
-                        color: Colors.black12, child: _cameraModesWidget())
-                    : Container(),
-                Container(
-                  color: Colors.black12,
-                  child: Column(
-                    children: [
-                      Preferences.getEnableExposureSlider()
-                          ? const Divider(color: Colors.blue)
-                          : Container(),
-                      Preferences.getEnableExposureSlider()
-                          ? ExposureSlider(
-                              setExposureOffset: _setExposureOffset,
-                              currentExposureOffset: _currentExposureOffset,
-                              minAvailableExposureOffset:
-                                  _minAvailableExposureOffset,
-                              maxAvailableExposureOffset:
-                                  _maxAvailableExposureOffset,
-                            )
-                          : Container(),
-                    ],
-                  ),
-                ),
-              ],
+                isRearCameraSelected: getIsRearCameraSelected(),
+                setIsRearCameraSelected: setIsRearCameraSelected,
+              ),
             ),
-          ),
-        );
-      },
+          ],
+        ),
+      ),
     );
   }
 
