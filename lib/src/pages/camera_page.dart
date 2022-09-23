@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:flutter/services.dart';
 import 'package:image/image.dart' as img;
 import 'package:android_intent_plus/android_intent.dart';
 import 'package:android_intent_plus/flag.dart';
@@ -10,6 +11,7 @@ import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:librecamera/main.dart';
+import 'package:native_device_orientation/native_device_orientation.dart';
 import 'package:video_player/video_player.dart';
 
 import 'package:librecamera/src/pages/settings_page.dart';
@@ -59,6 +61,9 @@ class _CameraPageState extends State<CameraPage>
   bool _circleEnabled = false;
   final Tween<double> _scaleTween = Tween<double>(begin: 1, end: 0.75);
 
+  //Video recording timer
+  final Stopwatch _stopwatch = Stopwatch();
+
   @override
   void initState() {
     super.initState();
@@ -90,22 +95,44 @@ class _CameraPageState extends State<CameraPage>
     }
   }
 
+  Future<void> _subscribeOrientationChangeStream() async {
+    NativeDeviceOrientationCommunicator nativeDeviceOrientationCommunicator =
+        NativeDeviceOrientationCommunicator();
+    Stream<NativeDeviceOrientation> onOrientationChangedStream =
+        nativeDeviceOrientationCommunicator.onOrientationChanged(
+            useSensor: true);
+
+    onOrientationChangedStream.listen((event) async {
+      Future<NativeDeviceOrientation> orientation =
+          nativeDeviceOrientationCommunicator.orientation(useSensor: true);
+
+      if (await orientation == NativeDeviceOrientation.portraitUp) {
+        await SystemChrome.setPreferredOrientations(
+            [DeviceOrientation.portraitUp]);
+      } else if (await orientation == NativeDeviceOrientation.landscapeLeft) {
+        await SystemChrome.setPreferredOrientations(
+            [DeviceOrientation.landscapeLeft]);
+      } else if (await orientation == NativeDeviceOrientation.landscapeRight) {
+        await SystemChrome.setPreferredOrientations(
+            [DeviceOrientation.landscapeRight]);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: _cameraPreview(),
-      ),
+      body: _cameraPreview(context),
     );
   }
 
-  Widget _cameraPreview() {
+  Widget _cameraPreview(context) {
     return Container(
       color: Colors.black,
       child: Stack(
         children: [
           _previewWidget(),
-          _topRightControlsWidget(),
+          _topRightControlsWidget(context),
           _bottomControlsWidget(),
           _circleWidget(),
         ],
@@ -139,7 +166,7 @@ class _CameraPageState extends State<CameraPage>
     }
   }
 
-  Widget _topRightControlsWidget() {
+  Widget _topRightControlsWidget(context) {
     return Positioned(
       top: 0,
       right:
@@ -237,62 +264,102 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Widget _bottomControlsWidget() {
-    return RotatedBox(
-      quarterTurns:
-          MediaQuery.of(context).orientation == Orientation.portrait ? 0 : 3,
-      child: Align(
-        alignment: Alignment.bottomCenter,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            Container(
-              padding: const EdgeInsets.fromLTRB(0, 8.0, 0, 8.0),
-              color: Colors.black12,
-              child: CaptureControlWidget(
-                controller: controller,
-                onTakePictureButtonPressed: onTakePictureButtonPressed,
-                onVideoRecordButtonPressed: onVideoRecordButtonPressed,
-                onResumeButtonPressed: onResumeButtonPressed,
-                onPauseButtonPressed: onPauseButtonPressed,
-                onStopButtonPressed: onStopButtonPressed,
-                onNewCameraSelected: onNewCameraSelected,
-                isVideoCameraSelected: isVideoCameraSelected,
-                isRecordingInProgress:
-                    controller?.value.isRecordingVideo ?? false,
-                flashWidget: FlashModeControlRowWidget(
-                  controller: controller,
-                  isRearCameraSelected: isRearCameraSelected,
+    return NativeDeviceOrientationReader(
+      useSensor: true,
+      builder: (context) {
+        return RotatedBox(
+          quarterTurns:
+              MediaQuery.of(context).orientation == Orientation.portrait
+                  ? 0
+                  : 3,
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                controller != null &&
+                        isVideoCameraSelected &&
+                        controller!.value.isRecordingVideo
+                    ? Center(
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 8.0),
+                          child: RotatedBox(
+                            quarterTurns: MediaQuery.of(context).orientation ==
+                                    Orientation.portrait
+                                ? 0
+                                : 1,
+                            child: Container(
+                              padding:
+                                  const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
+                              decoration: BoxDecoration(
+                                  color: Colors.black38,
+                                  borderRadius: BorderRadius.circular(4.0)),
+                              child: Text(
+                                _stopwatch.elapsed.inSeconds < 60
+                                    ? '${_stopwatch.elapsed.inSeconds}s'
+                                    : '${_stopwatch.elapsed.inMinutes}m ${_stopwatch.elapsed.inSeconds % 60}s',
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 24.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                    : Container(),
+                Container(
+                  padding: const EdgeInsets.fromLTRB(0, 8.0, 0, 8.0),
+                  color: Colors.black12,
+                  child: CaptureControlWidget(
+                    controller: controller,
+                    onTakePictureButtonPressed: onTakePictureButtonPressed,
+                    onVideoRecordButtonPressed: onVideoRecordButtonPressed,
+                    onResumeButtonPressed: onResumeButtonPressed,
+                    onPauseButtonPressed: onPauseButtonPressed,
+                    onStopButtonPressed: onStopButtonPressed,
+                    onNewCameraSelected: onNewCameraSelected,
+                    isVideoCameraSelected: isVideoCameraSelected,
+                    isRecordingInProgress:
+                        controller?.value.isRecordingVideo ?? false,
+                    flashWidget: FlashModeControlRowWidget(
+                      controller: controller,
+                      isRearCameraSelected: isRearCameraSelected,
+                    ),
+                    isRearCameraSelected: getIsRearCameraSelected(),
+                    setIsRearCameraSelected: setIsRearCameraSelected,
+                  ),
                 ),
-                isRearCameraSelected: getIsRearCameraSelected(),
-                setIsRearCameraSelected: setIsRearCameraSelected,
-              ),
+                Preferences.getEnableModeRow()
+                    ? Container(
+                        color: Colors.black12, child: _cameraModesWidget())
+                    : Container(),
+                Container(
+                  color: Colors.black12,
+                  child: Column(
+                    children: [
+                      Preferences.getEnableExposureSlider()
+                          ? const Divider(color: Colors.blue)
+                          : Container(),
+                      Preferences.getEnableExposureSlider()
+                          ? ExposureSlider(
+                              setExposureOffset: _setExposureOffset,
+                              currentExposureOffset: _currentExposureOffset,
+                              minAvailableExposureOffset:
+                                  _minAvailableExposureOffset,
+                              maxAvailableExposureOffset:
+                                  _maxAvailableExposureOffset,
+                            )
+                          : Container(),
+                    ],
+                  ),
+                ),
+              ],
             ),
-            Preferences.getEnableModeRow()
-                ? Container(color: Colors.black12, child: _cameraModesWidget())
-                : Container(),
-            Container(
-              color: Colors.black12,
-              child: Column(
-                children: [
-                  Preferences.getEnableExposureSlider()
-                      ? const Divider(color: Colors.blue)
-                      : Container(),
-                  Preferences.getEnableExposureSlider()
-                      ? ExposureSlider(
-                          setExposureOffset: _setExposureOffset,
-                          currentExposureOffset: _currentExposureOffset,
-                          minAvailableExposureOffset:
-                              _minAvailableExposureOffset,
-                          maxAvailableExposureOffset:
-                              _maxAvailableExposureOffset,
-                        )
-                      : Container(),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 
@@ -308,6 +375,10 @@ class _CameraPageState extends State<CameraPage>
 
   //Selecting camera
   Future<void> onNewCameraSelected(CameraDescription cameraDescription) async {
+    if (!Preferences.getIsCaptureOrientationLocked()) {
+      await _subscribeOrientationChangeStream();
+    }
+
     final flashModeString = Preferences.getFlashMode();
     FlashMode flashMode = FlashMode.off;
     for (var mode in FlashMode.values) {
@@ -506,6 +577,14 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Future<void> startVideoRecording() async {
+    setState(() {
+      Timer.periodic(
+        const Duration(seconds: 1),
+        (Timer t) => setState(() {}),
+      );
+      _stopwatch.start();
+    });
+
     final CameraController? cameraController = controller;
 
     if (cameraController == null || !cameraController.value.isInitialized) {
@@ -527,6 +606,11 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Future<XFile?> stopVideoRecording() async {
+    setState(() {
+      _stopwatch.stop();
+      _stopwatch.reset();
+    });
+
     final CameraController? cameraController = controller;
 
     if (cameraController == null || !cameraController.value.isRecordingVideo) {
@@ -542,6 +626,10 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Future<void> pauseVideoRecording() async {
+    setState(() {
+      _stopwatch.stop();
+    });
+
     final CameraController? cameraController = controller;
 
     if (cameraController == null || !cameraController.value.isRecordingVideo) {
@@ -557,6 +645,10 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Future<void> resumeVideoRecording() async {
+    setState(() {
+      _stopwatch.start();
+    });
+
     final CameraController? cameraController = controller;
 
     if (cameraController == null || !cameraController.value.isRecordingVideo) {

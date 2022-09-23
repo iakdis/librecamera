@@ -152,7 +152,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           AppLocalizations.of(context)!.permissionsTitle,
           style: TextStyle(
             color: Colors.teal.shade700,
-            fontSize: 36.0,
+            fontSize: 24.0,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -171,7 +171,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           padding: const EdgeInsets.symmetric(horizontal: 64.0),
           child: Text(
             AppLocalizations.of(context)!.permissionsTitle_description,
-            style: const TextStyle(color: Colors.black87, fontSize: 17.0),
+            style: TextStyle(color: Colors.grey[800], fontSize: 17.0),
           ),
         ),
       ],
@@ -225,7 +225,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           AppLocalizations.of(context)!.savePathTitle,
           style: TextStyle(
             color: Colors.teal.shade700,
-            fontSize: 36.0,
+            fontSize: 24.0,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -244,7 +244,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           padding: const EdgeInsets.symmetric(horizontal: 64.0),
           child: Text(
             AppLocalizations.of(context)!.savePathTitle_description,
-            style: const TextStyle(color: Colors.black87, fontSize: 17.0),
+            style: TextStyle(color: Colors.grey[800], fontSize: 17.0),
           ),
         ),
       ],
@@ -265,7 +265,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           padding: const EdgeInsets.symmetric(horizontal: 64.0),
           child: Text(
             AppLocalizations.of(context)!.savePath_description(currentSavePath),
-            style: const TextStyle(color: Colors.black87, fontSize: 17.0),
+            style: TextStyle(color: Colors.grey[600], fontSize: 17.0),
           ),
         ),
       ],
@@ -312,10 +312,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
   Widget _welcomePageBottomButton() {
     return TextButton(
       style: TextButton.styleFrom(
+        foregroundColor: Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(0),
         ),
-        primary: Colors.white,
         backgroundColor: Colors.teal.shade700,
         minimumSize: const Size.fromHeight(80.0),
       ),

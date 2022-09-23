@@ -165,7 +165,8 @@ class _SettingsPageState extends State<SettingsPage> {
     return AboutListTile(
       icon: const Icon(Icons.info),
       applicationName: 'Libre Camera',
-      applicationVersion: AppLocalizations.of(context)!.version('1.0.0'),
+      applicationVersion:
+          AppLocalizations.of(context)!.version('1.0.0'), //TODO change versions
       applicationIcon: const Image(
         image: AssetImage('assets/images/icon.png'),
         width: 50,
@@ -302,11 +303,9 @@ class _SettingsPageState extends State<SettingsPage> {
                 const Text('10', style: TextStyle(fontWeight: FontWeight.bold)),
                 Flexible(
                   child: Slider(
-                    //value: Preferences.getCompressQuality().toDouble(),
                     value: value,
                     onChanged: (value) {
                       setState(() {
-                        //Preferences.setCompressQuality(value.toInt());
                         this.value = value;
                       });
                     },

@@ -43,7 +43,7 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget> {
     final CameraController? cameraController = widget.controller;
 
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         RotatedBox(
           quarterTurns:
@@ -105,9 +105,9 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget> {
           ),
         ),
         /*CameraTogglesWidget(
-          controller: widget.controller,
-          onNewCameraSelected: widget.onNewCameraSelected,
-        ),*/
+            controller: widget.controller,
+            onNewCameraSelected: widget.onNewCameraSelected,
+          ),*/
         RotatedBox(
           quarterTurns:
               MediaQuery.of(context).orientation == Orientation.portrait

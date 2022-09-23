@@ -41,7 +41,7 @@
 
     "selectResolution": "Select resolution",
 
-    "lockCaptureOrientation": "[RESTART REQUIRED] Lock auto orientation",
+    "lockCaptureOrientation": "Lock auto orientation [RESTART REQUIRED]",
     "lockCaptureOrientation_description": "Lock orientation to portrait mode, no matter if automatic rotation mode is activated",
 
     "focusMode": "Focus mode",

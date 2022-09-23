@@ -24,21 +24,12 @@ Future<void> main() async {
 
   await Preferences.init();
 
+  //Setting SystmeUIMode
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+
   SystemChrome.setPreferredOrientations(_getDeviceOrientations()).then((_) {
     runApp(CameraApp(onboardingCompleted: Preferences.getOnBoardingComplete()));
   });
-
-  //Setting SysemUIOverlay
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    systemStatusBarContrastEnforced: true,
-    systemNavigationBarColor: Colors.transparent,
-    systemNavigationBarDividerColor: Colors.transparent,
-    //systemNavigationBarIconBrightness: Brightness.light,
-    //statusBarIconBrightness: Brightness.light
-  ));
-
-  //Setting SystmeUIMode
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
 }
 
 List<DeviceOrientation> _getDeviceOrientations() {

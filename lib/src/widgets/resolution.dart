@@ -61,7 +61,14 @@ class _ResolutionButtonState extends State<ResolutionButton> {
         DropdownMenuItem<ResolutionPreset>(
           value: ResolutionPreset.ultraHigh,
           child: Text(
-            '4K (3840x2860)',
+            '4K (3840x2160)',
+            style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w500),
+          ),
+        ),
+        DropdownMenuItem<ResolutionPreset>(
+          value: ResolutionPreset.max,
+          child: Text(
+            'MAX',
             style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w500),
           ),
         ),

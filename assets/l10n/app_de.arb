@@ -41,7 +41,7 @@
 
     "selectResolution": "Auflösung auswählen",
 
-    "lockCaptureOrientation": "[NEUSTART ERFORDERLICH] Automatische Bildschirmausrichtung sperren",
+    "lockCaptureOrientation": "Automatische Bildschirmausrichtung sperren [NEUSTART ERFORDERLICH] ",
     "lockCaptureOrientation_description": "Sperrt die Bildschirmausrichtung zum Portrait-Modus, auch wenn die automatische Bildschirmausrichtung aktiviert ist",
 
     "focusMode": "Fokusmodus",
@@ -104,7 +104,7 @@
     "saving": "SPEICHERN",
 
     "imageCompressionQuality": "Komprimierungsqualität",
-    "imageCompressionQuality_description": "Geringere Komprimierungsqualität führt zu schlechterer Qualität mit geringerer Dateigröße, während höhere Komprimierungsqualität zu höherer Qualität mit größerer Dateigröße führt",
+    "imageCompressionQuality_description": "Geringere Komprimierungsqualität führt zu schlechterer Bildqualität mit geringerer Dateigröße, während höhere Komprimierungsqualität zu höherer Bildqualität mit größerer Dateigröße führt",
 
     "keepEXIFMetadata": "EXIF-Metadateien speichern",
     "keepEXIFMetadata_description": "EXIF-Metadateien des aufgenommenen Fotos speichern wie Handymodell, GPS-Standort, etc.",
@@ -125,5 +125,5 @@
     "more": "MEHR",
     "less": "WENIGER ANZEIGEN",
     "version": "Version {versionNumber}",
-    "license": "Der Quellcode ist unter der GPLv3 lizenziert und auf GitHub verfügbar. Wenn irgendwelche Probleme auftreten oder du einen Wunsch für ein Feature hast, öffne bitte ein sogenanntes 'Issue' auf GitHub. Danke!"
+    "license": "Der Quellcode ist unter der GPLv3 lizenziert und auf GitHub verfügbar. Wenn irgendwelche Probleme auftreten oder du einen Wunsch für ein Feature hast, öffne bitte ein 'Issue' auf GitHub. Danke!"
 }

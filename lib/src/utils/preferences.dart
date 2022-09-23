@@ -59,7 +59,7 @@ class Preferences {
   static Future setResolution(String resolution) async =>
       await _preferences!.setString(prefResolution, resolution);
   static String getResolution() =>
-      _preferences!.getString(prefResolution) ?? ResolutionPreset.veryHigh.name;
+      _preferences!.getString(prefResolution) ?? ResolutionPreset.max.name;
 
   //Capture Orientation Locked
   static Future setIsCaptureOrientationLocked(

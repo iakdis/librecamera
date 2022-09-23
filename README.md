@@ -19,7 +19,7 @@ For now, download and install the apk directly in the GitHub [releases](https://
 # Features
 
 - Take pictures and record videos with your rear and front camera
-- Privacy: No EXIF Metadata saved by default when taking pictures (enable optionally in settings)
+- Privacy: No EXIF Metadata saved by default when taking pictures (enable optionally in settings) – and obviously no ads and tracking!
 - Themes: Material Design with a Dark, Light or system theme
 - Languages currently supported: English, German – [Contribute translating your language!](#contributing)
 - Zoom: Zoom with 2 fingers or with an optional slider
@@ -29,7 +29,7 @@ For now, download and install the apk directly in the GitHub [releases](https://
 - Image compression: Set the compression amount in the settings
 - Resolutions: Switch between different camera resolutions
 - Save location: Choose your preferred save location
-- Small size (~8 MB)
+- Small size (<10 MB)
 - Customizable: Open the settings to customize the app to your liking!
 
 # Roadmap
@@ -37,6 +37,8 @@ For now, download and install the apk directly in the GitHub [releases](https://
 - [ ] More supported languages (See [Contributing](#contributing) below)
 - [ ] Feature: Add photo capture delay option
 - [ ] Feature: Add integrated QR-Scanner
+- [ ] Feature: Add capture sound option in settings (both for photo and video mode)
+- [ ] Feature: Add capture at volume button press option in settings
 - [ ] New theme: Black Dark mode for AMOLED screens
 - [ ] Check tablet support
 - [ ] [Your feature](https://github.com/iakmds/librecamera/issues)
@@ -54,7 +56,7 @@ Currently supported languages: English, German
 
 Translating guide: Go to the .arb file of the language you want to translate (for example, [this](https://github.com/iakmds/librecamera/blob/master/assets/l10n/app_de.arb) file for German) and change the text inside the "" quotation marks.
 
-Additionally, if you want to translate the local app name (default: "Camera"), go to the strings.xml file of the language you want to translate (for example, [this](https://github.com/iakmds/librecamera/blob/master/android/app/src/main/res/values-de/styles.xml) file for German and translate the "Camera" text inside ```<string name="AppName">Camera</string>```
+Additionally, if you want to translate the local app name (default: "Camera"), go to the strings.xml file of the language you want to translate (for example, [this](https://github.com/iakmds/librecamera/blob/master/android/app/src/main/res/values-de/styles.xml) file for German and translate the "Libre Camera" text inside the string elements, like this German translation: ```<string name="AppName">Libre Kamera</string>```
 
 - **Bug Reporting or a Feature Request**
 
@@ -80,6 +82,7 @@ The packages used for this app, also listed in the pubspec.yaml file. See their 
 - [flutter_localizations](https://pub.dev/packages/flutter_localizations): Used for localization
 - [image](https://pub.dev/packages/image): Used for the ability to flip captured photos horizontally
 - [intl](https://pub.dev/packages/intl): Used for localization
+- [native_device_orientation](https://pub.dev/packages/native_device_orientation): Used for automatic orientation based on the phones sensor
 - [path](https://pub.dev/packages/path): Used for looking up files and directories
 - [permission_handler](https://pub.dev/packages/permission_handler): Used for handling permissions
 - [provider](https://pub.dev/packages/provider): Used for state management, specifically localization and theme support
