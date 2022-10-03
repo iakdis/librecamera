@@ -1,7 +1,8 @@
-Feature-rich camera app to take pictures and record videos written in Flutter and Dart
+Libre Camera is a free and open source camera app to take pictures and record videos written in Flutter and Dart.
+
+If you are in need of an open source camera app with several features, this app should be for you. From flashlight, focus and exposure controls to changing themes, languages and the compression amount – this app should have you covered. And if not, you can simply open an issue on <a href="https://github.com/iakmds/librecamera">GitHub</a> and request your feature. Below you can see a list of the features, with more coming in the future!
 
 <b>Features</b>
-
     * Take pictures and record videos with your rear and front camera
     * Privacy: No EXIF Metadata saved by default when taking pictures (enable optionally in settings) – and obviously no ads and tracking!
     * Themes: Material Design with a Dark, Light or system theme
@@ -13,5 +14,10 @@ Feature-rich camera app to take pictures and record videos written in Flutter an
     * Image compression: Set the compression amount in the settings
     * Resolutions: Switch between different camera resolutions
     * Save location: Choose your preferred save location
-    * Small size (<21 MB)
+    * Small size of about 21MB
     * Customizable: Open the settings to customize the app to your liking!
+
+<b>Contact</b>
+Check out the GitHub repository, which includes the Roadmap: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+
+In case you found a bug or have a feature request, feel free to file an issue on GitHub: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
