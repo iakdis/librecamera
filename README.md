@@ -13,8 +13,11 @@ A free and open source camera app for Android written in Flutter and Dart licens
 
 # Download
 
-For now, download and install the apk directly in the GitHub [releases](https://github.com/iakmds/librecamera/releases) page
+You can get Libre Camera on [F-Droid](https://f-droid.org) by tapping on the badge below. Alternatively, download and install the apk directly from the GitHub [releases](https://github.com/iakmds/librecamera/releases) page
 
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+    alt="Get it on F-Droid"
+    height="80">](https://f-droid.org/packages/com.iakmds.librecamera)
 
 # Features
 
@@ -29,7 +32,7 @@ For now, download and install the apk directly in the GitHub [releases](https://
 - Image compression: Set the compression amount in the settings
 - Resolutions: Switch between different camera resolutions
 - Save location: Choose your preferred save location
-- Small size (<21 MB)
+- Small size (~21 MB)
 - Customizable: Open the settings to customize the app to your liking!
 
 # Roadmap
