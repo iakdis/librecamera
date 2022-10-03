@@ -11,6 +11,7 @@ import 'package:librecamera/src/widgets/resolution.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsButton extends StatelessWidget {
   const SettingsButton({
@@ -165,8 +166,8 @@ class _SettingsPageState extends State<SettingsPage> {
     return AboutListTile(
       icon: const Icon(Icons.info),
       applicationName: 'Libre Camera',
-      applicationVersion:
-          AppLocalizations.of(context)!.version('1.0.0'), //TODO change versions
+      applicationVersion: AppLocalizations.of(context)!.version(
+          '1.0.0'), //TODO change versions HERE AND app/build.gradle 1. versionCode and 2. versionName
       applicationIcon: const Image(
         image: AssetImage('assets/images/icon.png'),
         width: 50,
@@ -175,6 +176,24 @@ class _SettingsPageState extends State<SettingsPage> {
       applicationLegalese: 'GNU Public License v3',
       aboutBoxChildren: [
         Text(AppLocalizations.of(context)!.license),
+        const Divider(),
+        TextButton.icon(
+          icon: const Icon(Icons.open_in_new),
+          onPressed: () async {
+            var url = Uri.parse('https://github.com/iakmds/librecamera');
+            if (await canLaunchUrl(url)) {
+              await launchUrl(url, mode: LaunchMode.externalApplication);
+            } else {
+              throw 'Could not launch $url';
+            }
+          },
+          label: const SelectableText(
+            'https://github.com/iakmds/librecamera',
+            style: TextStyle(
+              color: Colors.blue,
+            ),
+          ),
+        ),
       ],
     );
   }
@@ -240,7 +259,7 @@ class _SettingsPageState extends State<SettingsPage> {
         trailing: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Icon(
-            isMoreOptions ? Icons.arrow_upward : Icons.arrow_downward,
+            isMoreOptions ? Icons.expand_less : Icons.expand_more,
             size: 35,
           ),
         ),

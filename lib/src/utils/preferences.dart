@@ -14,7 +14,7 @@ class Preferences {
       await _preferences!.setString(prefLanguage, locale);
   static String getLanguage() => _preferences!.getString(prefLanguage) ?? '';
 
-  //Flash Mode
+  //Theme Mode
   static Future setThemeMode(String theme) async =>
       await _preferences!.setString(prefThemeMode, theme);
   static String getThemeMode() =>

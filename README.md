@@ -91,6 +91,7 @@ The packages used for this app, also listed in the pubspec.yaml file. See their 
 - [provider](https://pub.dev/packages/provider): Used for state management, specifically localization and theme support
 - [shared_preferences](https://pub.dev/packages/shared_preferences): Used for saving app data, including settings
 - [smooth_page_indicator](https://pub.dev/packages/smooth_page_indicator): Used for the page indicator in the onboarding screen
+- [url_launcher](https://pub.dev/packages/url_launcher): Used for opening the GitHub repository link inside the About menu
 - [video_player](https://pub.dev/packages/video_player): Used for displaying a captured video inside the thumbnail
 
 # License
