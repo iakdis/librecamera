@@ -1,11 +1,11 @@
-Feature-rich camera app to take pictures and record videos. Take pictures, record videos and much more! 
+Feature-rich camera app to take pictures and record videos written in Flutter and Dart
 
 <b>Features</b>
 
-    * Take pictures and record videos with your rear and front 
+    * Take pictures and record videos with your rear and front camera
     * Privacy: No EXIF Metadata saved by default when taking pictures (enable optionally in settings) – and obviously no ads and tracking!
     * Themes: Material Design with a Dark, Light or system theme
-    * Languages currently supported: English, German – Contribute translating your language!
+    * Languages currently supported: 1. English, 2. German – Contribute translating your language!
     * Zoom: Zoom with 2 fingers or with an optional slider
     * Flashlight modes: On at capture, Off, Auto, Always on
     * Focus: Auto focus, locked focus and manual focus by touching the screen
@@ -13,5 +13,5 @@ Feature-rich camera app to take pictures and record videos. Take pictures, recor
     * Image compression: Set the compression amount in the settings
     * Resolutions: Switch between different camera resolutions
     * Save location: Choose your preferred save location
-    * Small size (~8 MB)
+    * Small size (<21 MB)
     * Customizable: Open the settings to customize the app to your liking!
