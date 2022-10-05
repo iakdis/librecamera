@@ -1,9 +1,22 @@
-# Libre Camera
-A free and open source camera app for Android written in Flutter and Dart licensed under the [GPLv3](LICENSE)
+<p align="center">
+  <a href="https://github.com/blockbasti/just_another_workout_timer">
+    <img src="https://github.com/iakmds/librecamera/blob/master/.github/icon/icon.png" alt="Libre Camera app icon" height="128">
+  </a>
+</p>
 
-<img src="https://github.com/iakmds/librecamera/blob/master/.github/icon/icon.png" alt="Libre Camera app icon" height="128">
+<h1 align="center">Libre Camera</h1>
+<p align="center">A free and open source camera app for Android written in Flutter and Dart licensed under the <a href="LICENSE">GPLv3</a></p>
 
-## Screenshots
+<p align="center">
+    <a href="https://f-droid.org/packages/com.iakmds.librecamera">
+    <img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+    alt="Get it on F-Droid"
+    height="80">
+  </a>
+</p>
+
+
+# Screenshots
 <p float="left">
   <img src="https://github.com/iakmds/librecamera/blob/master/.github/screenshots/screenshot01.png" alt="Screenshot 1" height="420">
   <img src="https://github.com/iakmds/librecamera/blob/master/.github/screenshots/screenshot02.png" alt="Screenshot 2" height="420">
