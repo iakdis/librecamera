@@ -1,3 +1,6 @@
+# ! IMPORTANT KNOWN BUG !
+Above a certain Android version the captured photos and videos don't get saved to the gallery properly – please check if it works for you. Sorry for the inconveniences, it is being worked on!
+
 <p align="center">
   <a href="https://github.com/blockbasti/just_another_workout_timer">
     <img src="https://github.com/iakmds/librecamera/blob/master/.github/icon/icon.png" alt="Libre Camera app icon" height="128">
