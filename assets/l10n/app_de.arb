@@ -4,9 +4,10 @@
 
 
     "permissionsTitle": "BERECHTIGUNGEN",
-    "permissionsTitle_description": "Um die Kamera zu benutzen, musst du die Berechtigung für die Nutzung der Kamera und des Mikrofons erlauben.",
-    "giveCameraPermission": "Kamera Berechtigung erlauben",
-    "giveMicrophonePermission": "Mikrofon Berechtigung erlauben",
+    "permissionsTitle_description": "Um die Kamera zu benutzen, musst du die Berechtigung für die Nutzung der Kamera, des Mikrofons und des Speichers erlauben.",
+    "giveCameraPermission": "Kamera-Berechtigung erlauben",
+    "giveMicrophonePermission": "Mikrofon-Berechtigung erlauben",
+    "giveStoragePermission": "Speicher-Berechtigung erlauben",
 
     "savePathTitle": "SPEICHERPFAD",
     "savePathTitle_description": "Wähle einen Speicherpfad aus. In Android ist dies normalerweise der DCIM Pfad.",

@@ -4,9 +4,10 @@
 
 
     "permissionsTitle": "PERMISSIONS",
-    "permissionsTitle_description": "To use the camera, you need to give permission to your camera and microphone.",
+    "permissionsTitle_description": "To use the camera, you need to give permission to your camera, microphone and storage.",
     "giveCameraPermission": "Give camera permission",
     "giveMicrophonePermission": "Give microphone permission",
+    "giveStoragePermission": "Give storage permission",
 
     "savePathTitle": "SAVE PATH",
     "savePathTitle_description": "Select a save path. Typically, images get saved to the DCIM path on Android.",
