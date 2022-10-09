@@ -37,7 +37,26 @@ class CaptureControlWidget extends StatefulWidget {
   State<CaptureControlWidget> createState() => _CaptureControlWidgetState();
 }
 
-class _CaptureControlWidgetState extends State<CaptureControlWidget> {
+class _CaptureControlWidgetState extends State<CaptureControlWidget>
+    with SingleTickerProviderStateMixin {
+  late AnimationController animationController;
+
+  @override
+  void initState() {
+    animationController = AnimationController(
+      duration: const Duration(milliseconds: 500),
+      vsync: this,
+    );
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final CameraController? cameraController = widget.controller;
@@ -64,6 +83,9 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget> {
                     widget.onNewCameraSelected(
                         cameras[widget.isRearCameraSelected ? 1 : 0]);
                     widget.setIsRearCameraSelected();
+
+                    animationController.reset();
+                    animationController.forward();
                   },
             icon: Stack(
               alignment: Alignment.center,
@@ -85,12 +107,24 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget> {
                             color: Colors.white,
                             size: 30,
                           )
-                    : Icon(
-                        widget.isRearCameraSelected
-                            ? Icons.camera_front
-                            : Icons.camera_rear,
-                        color: Colors.white,
-                        size: 30,
+                    : AnimatedBuilder(
+                        animation: animationController,
+                        builder: (context, child) {
+                          return Transform(
+                            alignment: Alignment.center,
+                            transform: Matrix4.identity()
+                              ..setEntry(3, 2, 0.001)
+                              ..rotateY(animationController.value * 6),
+                            child: child,
+                          );
+                        },
+                        child: Icon(
+                          widget.isRearCameraSelected
+                              ? Icons.camera_front
+                              : Icons.camera_rear,
+                          color: Colors.white,
+                          size: 30,
+                        ),
                       ),
               ],
             ),
