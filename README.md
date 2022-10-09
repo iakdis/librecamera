@@ -98,6 +98,7 @@ The packages used for this app, also listed in the pubspec.yaml file. See their 
 
 - [android_intent_plus](https://pub.dev/packages/android_intent_plus): Used for opening photos and videos by clicking on the thumbnail
 - [camera](https://pub.dev/packages/camera): Used for camera functionality
+- [device_info_plus](https://pub.dev/packages/device_info_plus): Used for getting Android version to adapt behaviour
 - [file_picker](https://pub.dev/packages/file_picker): Used for picking the save path
 - [flutter](https://pub.dev/packages/flutter): Used for Flutter SDK
 - [flutter_image_compress](https://pub.dev/packages/flutter_image_compress): Used for image compression and EXIF metadata removal

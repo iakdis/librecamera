@@ -499,6 +499,7 @@ class _SettingsPageState extends State<SettingsPage> {
             : null,
         items: Localization.supportedLocales.map(
           (locale) {
+            //TODO add support  for country codes
             final name = Localization.getName(locale.languageCode);
 
             return DropdownMenuItem(
