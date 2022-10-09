@@ -167,7 +167,7 @@ class _SettingsPageState extends State<SettingsPage> {
       icon: const Icon(Icons.info),
       applicationName: 'Libre Camera',
       applicationVersion: AppLocalizations.of(context)!.version(
-          '1.0.0'), //TODO change versions HERE AND app/build.gradle 1. versionCode and 2. versionName
+          '1.1.0'), //TODO change versions HERE AND pubspec.yaml at 'version'
       applicationIcon: const Image(
         image: AssetImage('assets/images/icon.png'),
         width: 50,
