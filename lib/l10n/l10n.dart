@@ -6,14 +6,17 @@ class Localization {
 
     const Locale('de', ''),
     const Locale('es', ''),
+    const Locale('pt', ''),
   ];
 
-  static String getName(String code) {
-    switch (code) {
+  static String getName(String languageCode, {String countryCode = ''}) {
+    switch (languageCode) {
       case 'de':
         return 'Deutsch';
       case 'es':
         return 'Español';
+      case 'pt':
+        return 'Português (do Brasil)';
       case 'en':
       default:
         return 'English';
