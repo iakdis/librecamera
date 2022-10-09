@@ -19,6 +19,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   bool isLastPage = false;
   bool cameraPermissionGranted = false;
   bool microphonePermissionGranted = false;
+  bool storagePermissionGranted = false;
   String currentSavePath = Preferences.getSavePath();
   int currentPage = 0;
 
@@ -51,6 +52,20 @@ class _OnboardingPageState extends State<OnboardingPage> {
       });
     } else {
       print('Microphone Permission: DENIED');
+    }
+  }
+
+  void storagePermission() async {
+    await Permission.storage.request();
+    var status = await Permission.storage.status;
+
+    if (status.isGranted) {
+      print('Storage Permission: GRANTED');
+      setState(() {
+        storagePermissionGranted = true;
+      });
+    } else {
+      print('Storage: DENIED');
     }
   }
 
@@ -195,6 +210,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
         ElevatedButton(
           onPressed: microphonePermissionGranted ? null : microphonePermission,
           child: Text(AppLocalizations.of(context)!.giveMicrophonePermission),
+        ),
+        const SizedBox(height: 16.0),
+        ElevatedButton(
+          onPressed: storagePermissionGranted ? null : storagePermission,
+          child: Text(AppLocalizations.of(context)!.giveStoragePermission),
         ),
       ],
     );
