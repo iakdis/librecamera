@@ -1,6 +1,3 @@
-# ! IMPORTANT KNOWN BUG !
-Above a certain Android version the captured photos and videos don't get saved to the gallery properly – please check if it works for you. Sorry for the inconveniences, it is being worked on!
-
 <p align="center">
   <a href="https://github.com/iakmds/librecamera">
     <img src="https://github.com/iakmds/librecamera/blob/master/.github/icon/icon.png" alt="Libre Camera app icon" height="128">
@@ -29,7 +26,7 @@ Above a certain Android version the captured photos and videos don't get saved t
 
 # Download
 
-You can get Libre Camera on [F-Droid](https://f-droid.org) by tapping on the badge below. Alternatively, download and install the apk directly from the GitHub [releases](https://github.com/iakmds/librecamera/releases) page
+You can get Libre Camera on [F-Droid](https://f-droid.org) by tapping on the badge below. Alternatively, download and install the apk directly from the GitHub [releases](https://github.com/iakmds/librecamera/releases) page. Downloading directly from the GitHub releases page will typically download a more recent version.
 
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
     alt="Get it on F-Droid"
@@ -59,6 +56,7 @@ You can get Libre Camera on [F-Droid](https://f-droid.org) by tapping on the bad
 - [ ] Feature: Make focus and exposure controls collapsable
 - [ ] Feature: Add a capture sound as an option in settings (both for photo and video mode)
 - [ ] Feature: Add start capture at phone volume button press as an option in settings
+- [ ] Fix: Clicking thumbnail to open gallery on Android 9+
 - [ ] New theme: Black Dark mode for AMOLED screens
 - [ ] Check tablet support
 - [ ] [Your feature](https://github.com/iakmds/librecamera/issues)
