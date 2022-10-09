@@ -1,3 +1,10 @@
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/iakmds/librecamera?style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/iakmds/librecamera?style=flat-square)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/iakmds/librecamera?style=flat-square)
+![GitHub contributors](https://img.shields.io/github/contributors/iakmds/librecamera?style=flat-square)
+![GitHub Repo stars](https://img.shields.io/github/stars/iakmds/librecamera?style=flat-square)
+![GitHub](https://img.shields.io/github/license/iakmds/librecamera?style=flat-square)
+
 <p align="center">
   <a href="https://github.com/iakmds/librecamera">
     <img src="https://github.com/iakmds/librecamera/blob/master/.github/icon/icon.png" alt="Libre Camera app icon" height="128">
