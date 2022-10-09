@@ -1,18 +1,21 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:flutter/services.dart';
-import 'package:image/image.dart' as img;
+//import 'package:flutter/foundation.dart';
 import 'package:android_intent_plus/android_intent.dart';
 import 'package:android_intent_plus/flag.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_image_compress/flutter_image_compress.dart';
+import 'package:image/image.dart' as img;
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:librecamera/main.dart';
 import 'package:native_device_orientation/native_device_orientation.dart';
+//import 'package:qr_code_scanner/qr_code_scanner.dart' as qr;
 import 'package:video_player/video_player.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 
 import 'package:librecamera/src/pages/settings_page.dart';
 import 'package:librecamera/src/utils/preferences.dart';
@@ -64,6 +67,14 @@ class _CameraPageState extends State<CameraPage>
   //Video recording timer
   final Stopwatch _stopwatch = Stopwatch();
 
+  //Orientation
+  DateTime _timeOfLastChange = DateTime.now();
+
+  //QR Code
+  /*final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
+  qr.Barcode? result;
+  qr.QRViewController? qrController;*/
+
   @override
   void initState() {
     super.initState();
@@ -72,11 +83,24 @@ class _CameraPageState extends State<CameraPage>
     onNewCameraSelected(cameras[Preferences.getStartWithRearCamera() ? 0 : 1]);
   }
 
+  // In order to get hot reload to work we need to pause the camera if the platform
+  // is android, or resume the camera if the platform is iOS.
+  /*@override
+  void reassemble() {
+    super.reassemble();
+    if (Platform.isAndroid) {
+      qrController!.pauseCamera();
+    }
+  }*/
+
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
     controller?.dispose();
     videoController?.dispose();
+
+    //qrController?.dispose();
+
     super.dispose();
   }
 
@@ -90,32 +114,56 @@ class _CameraPageState extends State<CameraPage>
 
     if (state == AppLifecycleState.inactive) {
       cameraController.dispose();
+      //qrController?.pauseCamera();
     } else if (state == AppLifecycleState.resumed) {
       onNewCameraSelected(cameraController.description);
+      //qrController?.resumeCamera();
     }
   }
 
-  Future<void> _subscribeOrientationChangeStream() async {
+  /*void _onQRViewCreated(qr.QRViewController qrController) {
+    this.qrController = qrController;
+    qrController.pauseCamera();
+    qrController.resumeCamera();
+
+    qrController.scannedDataStream.listen((scanData) {
+      setState(() {
+        result = scanData;
+      });
+    });
+  }*/
+
+  void _subscribeOrientationChangeStream() {
     NativeDeviceOrientationCommunicator nativeDeviceOrientationCommunicator =
         NativeDeviceOrientationCommunicator();
     Stream<NativeDeviceOrientation> onOrientationChangedStream =
         nativeDeviceOrientationCommunicator.onOrientationChanged(
             useSensor: true);
 
-    onOrientationChangedStream.listen((event) async {
+    onOrientationChangedStream.listen((event) {
       Future<NativeDeviceOrientation> orientation =
           nativeDeviceOrientationCommunicator.orientation(useSensor: true);
 
-      if (await orientation == NativeDeviceOrientation.portraitUp) {
-        await SystemChrome.setPreferredOrientations(
-            [DeviceOrientation.portraitUp]);
-      } else if (await orientation == NativeDeviceOrientation.landscapeLeft) {
-        await SystemChrome.setPreferredOrientations(
-            [DeviceOrientation.landscapeLeft]);
-      } else if (await orientation == NativeDeviceOrientation.landscapeRight) {
-        await SystemChrome.setPreferredOrientations(
-            [DeviceOrientation.landscapeRight]);
-      }
+      _timeOfLastChange = DateTime.now();
+      Future.delayed(const Duration(milliseconds: 500), () async {
+        if (DateTime.now().difference(_timeOfLastChange).inMilliseconds > 500) {
+          if (await orientation == NativeDeviceOrientation.portraitUp) {
+            await SystemChrome.setPreferredOrientations(
+                [DeviceOrientation.portraitUp]);
+          } else if (await orientation ==
+              NativeDeviceOrientation.landscapeLeft) {
+            await SystemChrome.setPreferredOrientations(
+                [DeviceOrientation.landscapeLeft]);
+          } else if (await orientation ==
+              NativeDeviceOrientation.landscapeRight) {
+            await SystemChrome.setPreferredOrientations(
+                [DeviceOrientation.landscapeRight]);
+          }
+          /*setState(() {
+            stableOrientation = currentOrientation;
+          });*/
+        }
+      });
     });
   }
 
@@ -131,7 +179,24 @@ class _CameraPageState extends State<CameraPage>
       color: Colors.black,
       child: Stack(
         children: [
+          /*qr.QRView(
+            key: qrKey,
+            onQRViewCreated: _onQRViewCreated,
+          ),*/
           _previewWidget(),
+          //?TODO when in QR-Code mode: enable, _previewWidget disable
+          /*Center(
+            child: (result != null)
+                ? Container(
+                    color: Colors.black54,
+                    height: 200,
+                    padding: const EdgeInsets.all(8.0),
+                    child: SelectableText('Link: ${result!.code}',
+                        style: const TextStyle(color: Colors.white)),
+                  )
+                : const Text('Scan a code',
+                    style: TextStyle(color: Colors.white)),
+          ),*/
           _topRightControlsWidget(context),
           _bottomControlsWidget(),
           _circleWidget(),
@@ -234,14 +299,26 @@ class _CameraPageState extends State<CameraPage>
                     width: 42,
                     height: 42,
                     child: GestureDetector(
-                        onTap: () {
-                          final intent = AndroidIntent(
-                            action: 'action_view',
-                            type: 'image/*, video/*',
-                            data: capturedFile?.path ?? '',
-                            flags: [Flag.FLAG_ACTIVITY_NEW_TASK],
-                          );
-                          intent.launch();
+                        onTap: () async {
+                          DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+                          AndroidDeviceInfo androidInfo =
+                              await deviceInfo.androidInfo;
+                          int sdkInt = androidInfo.version.sdkInt ?? 29;
+
+                          if (sdkInt < 28) {
+                            final intent = AndroidIntent(
+                              action: 'action_view',
+                              type: 'image/*',
+                              data: capturedFile!.path,
+                              flags: [
+                                Flag.FLAG_ACTIVITY_NEW_TASK,
+                                //Flag.FLAG_GRANT_READ_URI_PERMISSION
+                              ],
+                            );
+                            await intent.launch();
+                          } else {
+                            print('do nothing');
+                          }
                         },
                         child: _thumbnailWidget()),
                   ),
@@ -373,7 +450,7 @@ class _CameraPageState extends State<CameraPage>
   //Selecting camera
   Future<void> onNewCameraSelected(CameraDescription cameraDescription) async {
     if (!Preferences.getIsCaptureOrientationLocked()) {
-      await _subscribeOrientationChangeStream();
+      _subscribeOrientationChangeStream();
     }
 
     final flashModeString = Preferences.getFlashMode();
@@ -448,6 +525,16 @@ class _CameraPageState extends State<CameraPage>
 
       setState(() {});
     }
+
+    /*startCameraProcessing();
+
+    cameraController.startImageStream((image) async {
+      CodeResult result = await processCameraImage(image);
+      if (result.isValidBool) {
+        print('QR: ${result.textString}');
+      }
+      return null;
+    });*/
   }
 
   bool getIsRearCameraSelected() {
@@ -486,14 +573,15 @@ class _CameraPageState extends State<CameraPage>
       if (file != null) {
         capturedFile = File(file.path);
 
-        File finalVideoFile = File(file.path);
-
         final directory = Preferences.getSavePath();
 
-        String fileFormat = finalVideoFile.path.split('.').last;
+        String fileFormat = capturedFile!.path.split('.').last;
         String path = '$directory/VID_${timestamp()}.$fileFormat';
 
-        await finalVideoFile.copy(path);
+        var tempFile = capturedFile!.copySync(path);
+
+        final mediaStore = MediaStore();
+        await mediaStore.updateItem(file: tempFile);
 
         capturedFile = File(path);
 
@@ -557,9 +645,32 @@ class _CameraPageState extends State<CameraPage>
         );
       }
 
-      await FlutterImageCompress.compressAndGetFile(capturedFile!.path, path,
+      Uint8List? newFileBytes = await FlutterImageCompress.compressWithFile(
+          capturedFile!.path,
           quality: Preferences.getCompressQuality(),
           keepExif: Preferences.getKeepEXIFMetadata());
+
+      var tempFile =
+          capturedFile!.copySync('$directory/IMG_${timestamp()}.$fileFormat');
+      await tempFile.writeAsBytes(newFileBytes!);
+
+      final mediaStore = MediaStore();
+      await mediaStore.updateItem(file: tempFile);
+
+      capturedFile = File(path);
+
+      /*Uint8List? newFileBytes = await FlutterImageCompress.compressWithFile(
+          capturedFile!.path,
+          quality: Preferences.getCompressQuality(),
+          keepExif: Preferences.getKeepEXIFMetadata());
+      File? newFile = await File(path).create();
+      newFile.writeAsBytesSync(newFileBytes!);*/
+
+      /*Directory? finalPath = await getExternalStorageDirectory();
+      await FlutterImageCompress.compressAndGetFile(
+          capturedFile!.path, finalPath!.path,
+          quality: Preferences.getCompressQuality(),
+          keepExif: Preferences.getKeepEXIFMetadata());*/
 
       //OLD without compression and removal of EXIF data: await capturedFile!.copy(path);
 
@@ -915,5 +1026,15 @@ class _CameraPageState extends State<CameraPage>
     final DateFormat formatter = DateFormat('yyyyMMdd_msS');
     final String formatted = formatter.format(now);
     return formatted;
+  }
+}
+
+class MediaStore {
+  static const _channel = MethodChannel('media_store');
+
+  Future<void> updateItem({required File file}) async {
+    await _channel.invokeMethod('updateItem', {
+      'path': file.path,
+    });
   }
 }
