@@ -70,9 +70,13 @@ You can get Libre Camera on [F-Droid](https://f-droid.org) by tapping on the bad
 
 # Contributing
 
-- **Translate**
+-  ### Translate
 
-Currently supported languages: English, German, Spanish, Portuguese
+Currently supported languages: 
+  - **English** 🇬🇧
+  - **German** 🇩🇪
+  - **Spanish** 🇪🇸 (special thanks to [@Loughty](https://github.com/Loughty))
+  - **Portuguese** 🇧🇷 (special thanks to [@zehrique](https://github.com/zehrique))
 
 *Get started:*
 
@@ -85,11 +89,11 @@ Additionally, if you want to translate the local app name (default: "Libre Camer
 
 Send in your translated files as a [Pull Request](https://github.com/iakmds/librecamera/pulls)
 
-- **Bug Reporting or a Feature Request**
+- ### Bug Reporting or a Feature Request
 
 Open an issue on GitHub: [Open issue](https://github.com/iakmds/librecamera/issues)
 
-- **Code**
+- ### Code
 
 Feel free to send in a [Pull Request](https://github.com/iakmds/librecamera/pulls)! To get started with Flutter, follow this link: [https://docs.flutter.dev/get-started/install](https://docs.flutter.dev/get-started/install)
 
