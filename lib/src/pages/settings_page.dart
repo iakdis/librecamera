@@ -166,7 +166,7 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   Widget _aboutTile() {
-    void _launchGitHubURL() async {
+    void launchGitHubURL() async {
       var url = Uri.parse('https://github.com/iakmds/librecamera');
       if (await canLaunchUrl(url)) {
         await launchUrl(url, mode: LaunchMode.externalApplication);
@@ -191,13 +191,13 @@ class _SettingsPageState extends State<SettingsPage> {
         const Divider(),
         TextButton.icon(
           icon: const Icon(Icons.open_in_new),
-          onPressed: _launchGitHubURL,
+          onPressed: launchGitHubURL,
           label: SelectableText(
             'https://github.com/iakmds/librecamera',
             style: const TextStyle(
               color: Colors.blue,
             ),
-            onTap: _launchGitHubURL,
+            onTap: launchGitHubURL,
           ),
         ),
       ],
