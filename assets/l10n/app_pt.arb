@@ -3,59 +3,59 @@
 
 
 
-    "permissionsTitle": "PERMISSIONS",
-    "permissionsTitle_description": "To use the camera, you need to give permission to your camera, microphone and storage.",
-    "giveCameraPermission": "Give camera permission",
-    "giveMicrophonePermission": "Give microphone permission",
-    "giveStoragePermission": "Give storage permission",
+    "permissionsTitle": "PERMISSÕES",
+    "permissionsTitle_description": "Para usar a câmera, é preciso que você dê permissão para o app usar sua câmera, microfone e armazenamento.",
+    "giveCameraPermission": "Permitir uso da câmera",
+    "giveMicrophonePermission": "Permitir uso do microfone",
+    "giveStoragePermission": "Permitir uso do armazenamento",
 
-    "savePathTitle": "SAVE PATH",
-    "savePathTitle_description": "Select a save path. Typically, images get saved to the DCIM path on Android.",
-    "selectPath": "Select path",
+    "savePathTitle": "CAMINHO PARA SALVAR",
+    "savePathTitle_description": "Selecione um caminho para salvar. No Android, as imagens são geralmente salvas na pasta DCIM.",
+    "selectPath": "Selecione o caminho",
 
-    "welcomeTitle": "WELCOME",
-    "welcomeTitle_description": "Congratulations! You are ready to use this camera app.",
-    "getStarted": "Get started",
+    "welcomeTitle": "Bem-vindo",
+    "welcomeTitle_description": "Parabéns! Você já pode usar este app de câmera.",
+    "getStarted": "Iniciar",
 
 
 
     "@_CAMERA_PAGE": {},
 
-    "switchToPictureMode": "Switch to picture mode",
-    "switchToVideoRecordingMode": "Switch to video recording mode",
+    "switchToPictureMode": "Alternar para o modo de fotografia",
+    "switchToVideoRecordingMode": "Alternar para o modo de gravação de vídeo",
 
-    "openCapturedPictureOrVideo": "Open captured picture or video",
+    "openCapturedPictureOrVideo": "Abrir fotografia ou vídeo capturado",
 
-    "takePicture": "Take picture",
+    "takePicture": "Tirar uma foto",
 
-    "startRecordingVideo": "Start recording video",
-    "pauseVideo": "Pause video",
-    "resumeVideo": "Resume video",
-    "stopVideo": "Stop video",
+    "startRecordingVideo": "Iniciar gravação de vídeo",
+    "pauseVideo": "Pausar vídeo",
+    "resumeVideo": "Retomar vídeo",
+    "stopVideo": "Parar vídeo",
 
-    "exposureMode": "Exposure mode",
-    "exposureModeAuto": "AUTO EXPOSURE",
-    "exposureModeLocked": "LOCKED EXPOSURE",
-    "defaultExposure": "Default exposure",
+    "exposureMode": "Modo de exposição",
+    "exposureModeAuto": "AUTO EXPOSIÇÃO",
+    "exposureModeLocked": "EXPOSIÇÃO TRAVADA",
+    "defaultExposure": "Exposição padrão",
 
-    "flashlight": "Flashlight",
+    "flashlight": "Flash",
 
-    "selectResolution": "Select resolution",
+    "selectResolution": "Selecione a resolução",
 
-    "lockCaptureOrientation": "Lock auto orientation [RESTART REQUIRED]",
-    "lockCaptureOrientation_description": "Lock orientation to portrait mode, no matter if automatic rotation mode is activated",
+    "lockCaptureOrientation": "Travar a auto-orientação [É PRECISO REINICIAR]",
+    "lockCaptureOrientation_description": "Travar a orientação no modo retrato, não importando se o modo de rotação está ativado",
 
-    "focusMode": "Focus mode",
-    "focusModeAuto": "AUTO FOCUS",
-    "focusModeLocked": "LOCKED FOCUS",
+    "focusMode": "Modo de Foco",
+    "focusModeAuto": "AUTO-FOCO",
+    "focusModeLocked": "FOCO TRAVADO",
 
-    "reset": "Reset",
+    "reset": "Reiniciar",
 
-    "flipToFrontCamera": "Flip to front camera",
-    "flipToRearCamera": "Flip to rear camera",
+    "flipToFrontCamera": "Alternar para a câmera frontal",
+    "flipToRearCamera": "Alternar para a câmera traseira",
 
     "autoSmall": "AUTO",
-    "lockedSmall": "LOCKED",
+    "lockedSmall": "TRAVADO",
 
 
 
@@ -63,59 +63,59 @@
 
 
 
-    "back": "Back",
-    "next": "Next",
-    "settings": "Settings",
+    "back": "Voltar",
+    "next": "Próxima",
+    "settings": "Configurações",
 
-    "appSettings": "APP SETTINGS",
+    "appSettings": "CONFIGURAÇÕES",
     
-    "language": "Language",
-    "language_description": "Change the app language",
-    "systemLanguage": "System language",
+    "language": "Idioma",
+    "language_description": "Troca o idioma do app",
+    "systemLanguage": "Idioma padrão do sistema",
 
-    "theme": "Theme",
-    "theme_description": "Change the app theme",
-    "themeSystem": "System theme",
-    "themeLight": "Light theme",
-    "themeDark": "Dark theme",
+    "theme": "Tema",
+    "theme_description": "Troca o tema do app",
+    "themeSystem": "Tema padrão do sistema",
+    "themeLight": "Tema claro",
+    "themeDark": "Tema escuro",
 
-    "enableModeRow": "Enable focus and exposure mode row",
-    "enableModeRow_description": "Enable a row at the bottom to switch the exposure and focus modes",
+    "enableModeRow": "Habilitar modo de linha de foco e exposição",
+    "enableModeRow_description": "Habilita uma linha no final da tela para alternar entre os modos de exposição e foco",
 
-    "enableZoomSlider": "Enable zoom slider",
-    "enableZoomSlider_description": "When enabled, a slider will appear to manually adjust the zoom",
+    "enableZoomSlider": "Habilitar controle deslizante de zoom",
+    "enableZoomSlider_description": "Quando habilitado, um controle deslizante aparecerá para que se possa ajustar o zoom manualmente",
 
-    "enableExposureSlider": "Enable exposure slider",
-    "enableExposureSlider_description": "When enabled, a slider will appear to manually adjust the exposure",
+    "enableExposureSlider": "Habilitar controle deslizante de exposição",
+    "enableExposureSlider_description": "Quando habilitado, um controle deslizante aparecerá para que se possa ajustar a exposição manualmente",
 
-    "cameraBehaviour": "CAMERA BEHAVIOUR",
+    "cameraBehaviour": "COMPORTAMENTO DA CÂMERA",
 
-    "resolution": "Resolution",
-    "resolution_description": "Change the camera resolution",
+    "resolution": "Resolução",
+    "resolution_description": "Troca a resolução da câmera",
 
-    "flipPhotosFrontCamera": "Flip photos on front camera",
-    "flipPhotosFrontCamera_description": "Flip photos horizontally that were taken with front camera",
+    "flipPhotosFrontCamera": "Inverter fotos na câmera frontal",
+    "flipPhotosFrontCamera_description": "Inverte horizontalmente as fotos que foram tiradas com a câmera frontal",
 
-    "startWithFrontCamera": "Start with front camera",
-    "startWithFrontCamera_description": "Always start with front camera when opening the app",
+    "startWithFrontCamera": "Iniciar com a câmera frontal",
+    "startWithFrontCamera_description": "Sempre inicia com a câmera frontal ao abrir o app",
 
-    "disableAudio": "Disable audio",
-    "disableAudio_description": "Disable audio when recording a video",
+    "disableAudio": "Desabilitar áudio",
+    "disableAudio_description": "Desabilita o áudio ao gravar um vídeo",
 
-    "saving": "SAVING",
+    "saving": "SALVANDO",
 
-    "imageCompressionQuality": "Image compression quality",
-    "imageCompressionQuality_description": "Lower compression quality means smaller size but worse quality, while higher compression quality means bigger size but better quality",
+    "imageCompressionQuality": "Qualidade da compressão da imagem",
+    "imageCompressionQuality_description": "A qualidade de baixa compressão significa um tamanho de imagem menor, porém com qualidade inferior enquanto uma qualidade de compressão alta significa um tamanho de imagem maior mas com qualidade melhor",
 
-    "keepEXIFMetadata": "Save EXIF data",
-    "keepEXIFMetadata_description": "Save EXIF metadata of the taken picture like phone model, GPS location, etc.",
+    "keepEXIFMetadata": "Salvar dados EXIF",
+    "keepEXIFMetadata_description": "Salva os metadados EXIF para a fotografia, como: modelo do telefone, localização de GPS, etc.",
 
-    "savePath": "Save path",
-    "savePath_description": "Current path: {path}",
-    "choosePath": "Choose path",
+    "savePath": "Caminho para salvar",
+    "savePath_description": "Caminho atual: {path}",
+    "choosePath": "Escolha o caminho",
 
-    "onboardingScreen": "Onboarding screen",
-    "onboardingScreen_description": "Open the initial onboarding screen",
+    "onboardingScreen": "Tela de integração",
+    "onboardingScreen_description": "Abre a tela inicial de integração",
 
 
 
@@ -123,8 +123,8 @@
 
 
 
-    "more": "MORE",
-    "less": "SHOW LESS",
-    "version": "Version {versionNumber}",
-    "license": "The code is licensed under the GPLv3 on GitHub. If you encounter any problems or want to request a feature, please open an issue on GitHub. Thanks!"
+    "more": "MAIS",
+    "less": "MOSTRAR MENOS",
+    "version": "Versão {versionNumber}",
+    "license": "O código está licenciado sob a licença GPLv3 no GitHub. Se você encontrar qualquer problema ou quiser requisitar algum recurso, por gentileza, abra uma questão no GitHub. Obrigado!"
 }
