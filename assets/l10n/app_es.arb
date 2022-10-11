@@ -40,8 +40,6 @@
 
     "flashlight": "Flash",
 
-    "selectResolution": "Elige una resolución",
-
     "lockCaptureOrientation": "Fijar la rotación automática [REQUIERE REINICIO]",
     "lockCaptureOrientation_description": "Fija la orientación al modo de portarretrato, sin importar si la rotación automática está activada.",
 
@@ -89,6 +87,9 @@
     "enableExposureSlider_description": "Al activarse, aparecerá una barra con el que puedes controlar manualmente la exposición.",
 
     "cameraBehaviour": "COMPORTAMIENTO DE LA CÁMARA",
+
+    "format": "Formato de la imagen",
+    "format_description": "Cambia el formato la imagen (por defecto: JPEG/JPG)",
 
     "resolution": "Resolución",
     "resolution_description": "Cambia la resolución de la cámara.",

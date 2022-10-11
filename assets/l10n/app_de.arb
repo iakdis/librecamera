@@ -40,8 +40,6 @@
 
     "flashlight": "Taschenlampe",
 
-    "selectResolution": "Auflösung auswählen",
-
     "lockCaptureOrientation": "Automatische Bildschirmausrichtung sperren [NEUSTART ERFORDERLICH] ",
     "lockCaptureOrientation_description": "Sperrt die Bildschirmausrichtung zum Portrait-Modus, auch wenn die automatische Bildschirmausrichtung aktiviert ist",
 
@@ -89,6 +87,9 @@
     "enableExposureSlider_description": "Wenn aktiviert, erscheint ein Schieberegler an der Seite, um die Belichtung manuell zu verstellen",
 
     "cameraBehaviour": "KAMERAVERHALTEN",
+
+    "format": "Bildformat",
+    "format_description": "Ändere das Bildformat (Standardformat: JPEG/JPG)",
 
     "resolution": "Auflösung",
     "resolution_description": "Ändere die Kameraauflösung",

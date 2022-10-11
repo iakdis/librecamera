@@ -19,15 +19,6 @@ class FlashModeControlRowWidget extends StatefulWidget {
 }
 
 class _FlashModeControlRowWidgetState extends State<FlashModeControlRowWidget> {
-  FlashMode _getFlashMode() {
-    final flashModeString = Preferences.getFlashMode();
-    FlashMode flashMode = FlashMode.off;
-    for (var mode in FlashMode.values) {
-      if (mode.name == flashModeString) flashMode = mode;
-    }
-    return flashMode;
-  }
-
   void _toggleFlashMode() {
     if (widget.controller != null) {
       if (widget.controller?.value.flashMode == FlashMode.off) {
@@ -98,7 +89,7 @@ class _FlashModeControlRowWidgetState extends State<FlashModeControlRowWidget> {
                         flashMode: widget.controller != null
                             ? widget.controller!.value.isInitialized
                                 ? widget.controller!.value.flashMode
-                                : _getFlashMode()
+                                : getFlashMode()
                             : FlashMode.off),
                     size: 30,
                   ),
@@ -124,4 +115,13 @@ IconData _getFlashlightIcon({required FlashMode flashMode}) {
     default:
       return Icons.flashlight_on;
   }
+}
+
+FlashMode getFlashMode() {
+  final flashModeString = Preferences.getFlashMode();
+  FlashMode flashMode = FlashMode.off;
+  for (var mode in FlashMode.values) {
+    if (mode.name == flashModeString) flashMode = mode;
+  }
+  return flashMode;
 }

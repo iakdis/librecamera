@@ -40,8 +40,6 @@
 
     "flashlight": "Flash",
 
-    "selectResolution": "Selecione a resolução",
-
     "lockCaptureOrientation": "Travar a auto-orientação [É PRECISO REINICIAR]",
     "lockCaptureOrientation_description": "Travar a orientação no modo retrato, não importando se o modo de rotação está ativado",
 
@@ -89,6 +87,9 @@
     "enableExposureSlider_description": "Quando habilitado, um controle deslizante aparecerá para que se possa ajustar a exposição manualmente",
 
     "cameraBehaviour": "COMPORTAMENTO DA CÂMERA",
+
+    "format": "Formato da imagem",
+    "format_description": "Troca o formato da imagem (padrão: JPEG/JPG)",
 
     "resolution": "Resolução",
     "resolution_description": "Troca a resolução da câmera",

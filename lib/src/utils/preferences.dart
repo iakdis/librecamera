@@ -1,5 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:librecamera/src/globals.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -86,6 +87,12 @@ class Preferences {
       await _preferences!.setBool(prefEnableAudio, enableAudio);
   static bool getEnableAudio() =>
       _preferences!.getBool(prefEnableAudio) ?? true;
+
+  //Compress Image
+  static Future setCompressFormat(String compressFormat) async =>
+      await _preferences!.setString(prefCompressFormat, compressFormat);
+  static String getCompressFormat() =>
+      _preferences!.getString(prefCompressFormat) ?? CompressFormat.jpeg.name;
 
   //Compress Image
   static Future setCompressQuality(int compressQuality) async =>

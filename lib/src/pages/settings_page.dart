@@ -7,6 +7,7 @@ import 'package:librecamera/src/pages/onboarding_page.dart';
 import 'package:librecamera/src/provider/locale_provider.dart';
 import 'package:librecamera/src/provider/theme_provider.dart';
 import 'package:librecamera/src/utils/preferences.dart';
+import 'package:librecamera/src/widgets/format.dart';
 import 'package:librecamera/src/widgets/resolution.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -123,6 +124,8 @@ class _SettingsPageState extends State<SettingsPage> {
             _headingTile(AppLocalizations.of(context)!.saving),
             _flipPhotosFrontCameraTile(),
             const Divider(),
+            _imageCompressionFormat(),
+            const Divider(),
             _imageCompressionTile(),
             const Divider(),
             _keepEXIFMetadataTile(),
@@ -163,6 +166,15 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   Widget _aboutTile() {
+    void _launchGitHubURL() async {
+      var url = Uri.parse('https://github.com/iakmds/librecamera');
+      if (await canLaunchUrl(url)) {
+        await launchUrl(url, mode: LaunchMode.externalApplication);
+      } else {
+        throw 'Could not launch $url';
+      }
+    }
+
     return AboutListTile(
       icon: const Icon(Icons.info),
       applicationName: 'Libre Camera',
@@ -179,19 +191,13 @@ class _SettingsPageState extends State<SettingsPage> {
         const Divider(),
         TextButton.icon(
           icon: const Icon(Icons.open_in_new),
-          onPressed: () async {
-            var url = Uri.parse('https://github.com/iakmds/librecamera');
-            if (await canLaunchUrl(url)) {
-              await launchUrl(url, mode: LaunchMode.externalApplication);
-            } else {
-              throw 'Could not launch $url';
-            }
-          },
-          label: const SelectableText(
+          onPressed: _launchGitHubURL,
+          label: SelectableText(
             'https://github.com/iakmds/librecamera',
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.blue,
             ),
+            onTap: _launchGitHubURL,
           ),
         ),
       ],
@@ -307,6 +313,14 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
+  Widget _imageCompressionFormat() {
+    return ListTile(
+      title: Text(AppLocalizations.of(context)!.format),
+      subtitle: Text(AppLocalizations.of(context)!.format_description),
+      trailing: const FormatButton(),
+    );
+  }
+
   Widget _imageCompressionTile() {
     return ListTile(
       title: Text(AppLocalizations.of(context)!.imageCompressionQuality),
@@ -332,13 +346,14 @@ class _SettingsPageState extends State<SettingsPage> {
                       Preferences.setCompressQuality(value.toInt());
                     },
                     min: 10,
-                    max: 95,
+                    max: 100,
                     label: value.round().toString(),
                     //label: Preferences.getCompressQuality().round().toString(),
-                    divisions: 85,
+                    divisions: 90,
                   ),
                 ),
-                const Text('95', style: TextStyle(fontWeight: FontWeight.bold)),
+                const Text('100',
+                    style: TextStyle(fontWeight: FontWeight.bold)),
               ],
             ),
           ),

@@ -40,8 +40,6 @@
 
     "flashlight": "Flashlight",
 
-    "selectResolution": "Select resolution",
-
     "lockCaptureOrientation": "Lock auto orientation [RESTART REQUIRED]",
     "lockCaptureOrientation_description": "Lock orientation to portrait mode, no matter if automatic rotation mode is activated",
 
@@ -89,6 +87,9 @@
     "enableExposureSlider_description": "When enabled, a slider will appear to manually adjust the exposure",
 
     "cameraBehaviour": "CAMERA BEHAVIOUR",
+
+    "format": "Image format",
+    "format_description": "Change the image format (default: JPEG/JPG)",
 
     "resolution": "Resolution",
     "resolution_description": "Change the camera resolution",

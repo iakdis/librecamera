@@ -12,5 +12,6 @@ const String prefIsCaptureOrientationLocked = 'isCaptureOrientationLocked';
 const String prefStartWithRearCamera = 'startWithRearCamera';
 const String prefFlipFrontCameraPhoto = 'flipFrontCameraPhoto';
 const String prefEnableAudio = 'enableAudio';
+const String prefCompressFormat = 'compressFormat';
 const String prefCompressQuality = 'compressQuality';
 const String prefKeepEXIFMetadata = 'keepEXIFMetadata';

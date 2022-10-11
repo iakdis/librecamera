@@ -1,6 +1,5 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:librecamera/src/utils/preferences.dart';
 
 class ResolutionButton extends StatefulWidget {
@@ -13,22 +12,11 @@ class ResolutionButton extends StatefulWidget {
 class _ResolutionButtonState extends State<ResolutionButton> {
   List<ResolutionPreset> presets = ResolutionPreset.values;
 
-  ResolutionPreset _getResolution() {
-    final resolutionString = Preferences.getResolution();
-    ResolutionPreset resolution = ResolutionPreset.high;
-    for (var res in ResolutionPreset.values) {
-      if (res.name == resolutionString) resolution = res;
-    }
-
-    return resolution;
-  }
-
   @override
   Widget build(BuildContext context) {
     return DropdownButton(
-      hint: Text(AppLocalizations.of(context)!.selectResolution),
       iconEnabledColor: Colors.blue,
-      value: _getResolution(),
+      value: getResolution(),
       items: const [
         DropdownMenuItem<ResolutionPreset>(
           value: ResolutionPreset.low,
@@ -80,4 +68,14 @@ class _ResolutionButtonState extends State<ResolutionButton> {
       },
     );
   }
+}
+
+ResolutionPreset getResolution() {
+  final resolutionString = Preferences.getResolution();
+  ResolutionPreset resolution = ResolutionPreset.high;
+  for (var res in ResolutionPreset.values) {
+    if (res.name == resolutionString) resolution = res;
+  }
+
+  return resolution;
 }
