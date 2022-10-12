@@ -44,7 +44,7 @@ You can get Libre Camera on [F-Droid](https://f-droid.org) by tapping on the bad
 - Take pictures and record videos with your rear and front camera
 - Privacy: No EXIF Metadata saved by default when taking pictures (enable optionally in settings) – and obviously no ads and tracking!
 - Themes: Material Design with a Dark, Light or system theme
-- Languages currently supported: English, German, Spanish, Portuguese – [Contribute translating your language!](#contributing)
+- Languages currently supported: English, German, Spanish, Portuguese, Russian, Japanese – [Contribute translating your language!](#contributing)
 - Zoom: Zoom with 2 fingers or with an optional slider
 - Flashlight modes: On at capture, Off, Auto, Always on
 - Focus: Auto focus, locked focus and manual focus by touching the screen
@@ -75,8 +75,10 @@ You can get Libre Camera on [F-Droid](https://f-droid.org) by tapping on the bad
 Currently supported languages: 
   - **English** 🇬🇧
   - **German** 🇩🇪
+  - **Japanese** 🇯🇵🇯🇵 (special thanks to [@vladkorotnev](https://github.com/vladkorotnev))
   - **Spanish** 🇪🇸 (special thanks to [@Loughty](https://github.com/Loughty))
   - **Portuguese** 🇧🇷 (special thanks to [@zehrique](https://github.com/zehrique))
+  - **Russian** 🇷🇺 (special thanks to [@vladkorotnev](https://github.com/vladkorotnev))
 
 *Get started:*
 
