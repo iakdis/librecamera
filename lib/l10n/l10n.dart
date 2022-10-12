@@ -6,7 +6,9 @@ class Localization {
 
     const Locale('de', ''),
     const Locale('es', ''),
+    const Locale('ja', ''),
     const Locale('pt', ''),
+    const Locale('ru', ''),
   ];
 
   static String getName(String languageCode, {String countryCode = ''}) {
@@ -15,8 +17,12 @@ class Localization {
         return 'Deutsch';
       case 'es':
         return 'Español';
+      case 'ja':
+        return '日本語';
       case 'pt':
         return 'Português (do Brasil)';
+      case 'ru':
+        return 'Русский';
       case 'en':
       default:
         return 'English';
