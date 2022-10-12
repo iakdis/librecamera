@@ -3,57 +3,57 @@
 
 
 
-    "permissionsTitle": "PERMISSIONS",
-    "permissionsTitle_description": "To use the camera, you need to give permission to your camera, microphone and storage.",
-    "giveCameraPermission": "Give camera permission",
-    "giveMicrophonePermission": "Give microphone permission",
-    "giveStoragePermission": "Give storage permission",
+    "permissionsTitle": "許可設定",
+    "permissionsTitle_description": "アプリを使用するにはストレージ、カメラとマイクの権限を許可すしてください。",
+    "giveCameraPermission": "カメラ権限を許可する",
+    "giveMicrophonePermission": "マイク権限を許可する",
+    "giveStoragePermission": "ストレージ権限を許可する",
 
-    "savePathTitle": "SAVE PATH",
-    "savePathTitle_description": "Select a save path. Typically, images get saved to the DCIM path on Android.",
-    "selectPath": "Select path",
+    "savePathTitle": "保存先",
+    "savePathTitle_description": "保存先のフォルダーを設定してください。 Androidの基準ではDCIMフォルダーに保存することです。",
+    "selectPath": "フォルダー選択",
 
-    "welcomeTitle": "WELCOME",
-    "welcomeTitle_description": "Congratulations! You are ready to use this camera app.",
-    "getStarted": "Get started",
+    "welcomeTitle": "ようこそ",
+    "welcomeTitle_description": "初期設定が完了しました。ご利用ありがとうございました。",
+    "getStarted": "完了",
 
 
 
     "@_CAMERA_PAGE": {},
 
-    "switchToPictureMode": "Switch to picture mode",
-    "switchToVideoRecordingMode": "Switch to video recording mode",
+    "switchToPictureMode": "写真撮影モードに切り替え",
+    "switchToVideoRecordingMode": "ビデオ録画に切り替え",
 
-    "openCapturedPictureOrVideo": "Open captured picture or video",
+    "openCapturedPictureOrVideo": "保存した写真・動画を開く",
 
-    "takePicture": "Take picture",
+    "takePicture": "写真を撮影する",
 
-    "startRecordingVideo": "Start recording video",
-    "pauseVideo": "Pause video",
-    "resumeVideo": "Resume video",
-    "stopVideo": "Stop video",
+    "startRecordingVideo": "録画を開始する",
+    "pauseVideo": "録画を一時停止する",
+    "resumeVideo": "録画を再開する",
+    "stopVideo": "録画を終了する",
 
-    "exposureMode": "Exposure mode",
-    "exposureModeAuto": "AUTO EXPOSURE",
-    "exposureModeLocked": "LOCKED EXPOSURE",
-    "defaultExposure": "Default exposure",
+    "exposureMode": "露出モード",
+    "exposureModeAuto": "オート露出",
+    "exposureModeLocked": "固定露出",
+    "defaultExposure": "デフォルト",
 
-    "flashlight": "Flashlight",
+    "flashlight": "フラッシュライト",
 
-    "lockCaptureOrientation": "Lock auto orientation [RESTART REQUIRED]",
-    "lockCaptureOrientation_description": "Lock orientation to portrait mode, no matter if automatic rotation mode is activated",
+    "lockCaptureOrientation": "画面回転をロックする [再起動必須]",
+    "lockCaptureOrientation_description": "画面回転が有効のときでも、アプリ内で縦表示に固定する",
 
-    "focusMode": "Focus mode",
-    "focusModeAuto": "AUTO FOCUS",
-    "focusModeLocked": "LOCKED FOCUS",
+    "focusMode": "フォーカスモード",
+    "focusModeAuto": "オートフォーカス",
+    "focusModeLocked": "固定フォーカス",
 
-    "reset": "Reset",
+    "reset": "リセット",
 
-    "flipToFrontCamera": "Flip to front camera",
-    "flipToRearCamera": "Flip to rear camera",
+    "flipToFrontCamera": "フロントカメラに切り替え",
+    "flipToRearCamera": "背面カメラに切り替え",
 
-    "autoSmall": "AUTO",
-    "lockedSmall": "LOCKED",
+    "autoSmall": "オート",
+    "lockedSmall": "固定",
 
 
 
@@ -61,62 +61,62 @@
 
 
 
-    "back": "Back",
-    "next": "Next",
-    "settings": "Settings",
+    "back": "戻る",
+    "next": "次へ",
+    "settings": "設定",
 
-    "appSettings": "APP SETTINGS",
+    "appSettings": "アプリ設定",
     
-    "language": "Language",
-    "language_description": "Change the app language",
-    "systemLanguage": "System language",
+    "language": "言語設定",
+    "language_description": "アプリの言語を変更する",
+    "systemLanguage": "システム言語",
 
-    "theme": "Theme",
-    "theme_description": "Change the app theme",
-    "themeSystem": "System theme",
-    "themeLight": "Light theme",
-    "themeDark": "Dark theme",
+    "theme": "ダークモード",
+    "theme_description": "アプリのダークモードを切り替わる",
+    "themeSystem": "システムと合わせる",
+    "themeLight": "ライトモード",
+    "themeDark": "ダークモード",
 
-    "enableModeRow": "Enable focus and exposure mode row",
-    "enableModeRow_description": "Enable a row at the bottom to switch the exposure and focus modes",
+    "enableModeRow": "露出・フォーカス設定を表示",
+    "enableModeRow_description": "画面の下に露室とフォーカス設定を切り替わるボタンを表示する",
 
-    "enableZoomSlider": "Enable zoom slider",
-    "enableZoomSlider_description": "When enabled, a slider will appear to manually adjust the zoom",
+    "enableZoomSlider": "ズームスライダーを表示",
+    "enableZoomSlider_description": "ズームを調整するスライダーを表示する",
 
-    "enableExposureSlider": "Enable exposure slider",
-    "enableExposureSlider_description": "When enabled, a slider will appear to manually adjust the exposure",
+    "enableExposureSlider": "露出スライダーを表示",
+    "enableExposureSlider_description": "露出を手動で調整するスライダーを表示する",
 
-    "cameraBehaviour": "CAMERA BEHAVIOUR",
+    "cameraBehaviour": "カメラ設定",
 
-    "format": "Image format",
-    "format_description": "Change the image format (default: JPEG/JPG)",
+    "format": "画像ファイル形式",
+    "format_description": "保存する画像ファイルの形式を変更する (デフォルト： JPEG/JPG)",
 
-    "resolution": "Resolution",
-    "resolution_description": "Change the camera resolution",
+    "resolution": "解像度",
+    "resolution_description": "カメラの解像度を変更する",
 
-    "flipPhotosFrontCamera": "Flip photos on front camera",
-    "flipPhotosFrontCamera_description": "Flip photos horizontally that were taken with front camera",
+    "flipPhotosFrontCamera": "フロントカメラ影を映す",
+    "flipPhotosFrontCamera_description": "フロントカメラで撮影した写真の影を映す",
 
-    "startWithFrontCamera": "Start with front camera",
-    "startWithFrontCamera_description": "Always start with front camera when opening the app",
+    "startWithFrontCamera": "フロントカメラに起動",
+    "startWithFrontCamera_description": "アプリを起動したときフロントカメラに切り替わる",
 
-    "disableAudio": "Disable audio",
-    "disableAudio_description": "Disable audio when recording a video",
+    "disableAudio": "マイク無効",
+    "disableAudio_description": "録画するとき音声を録音しない",
 
-    "saving": "SAVING",
+    "saving": "保存設定",
 
-    "imageCompressionQuality": "Image compression quality",
-    "imageCompressionQuality_description": "Lower compression quality means smaller size but worse quality, while higher compression quality means bigger size but better quality",
+    "imageCompressionQuality": "画質設定",
+    "imageCompressionQuality_description": "画質設定を下げるとファイルサイズが下げますが、保存した画像の画質は悪くなります。画質設定を上がると、保存した画像の画質は良くなりますが、ファイルサイズが増える。",
 
-    "keepEXIFMetadata": "Save EXIF data",
-    "keepEXIFMetadata_description": "Save EXIF metadata of the taken picture like phone model, GPS location, etc.",
+    "keepEXIFMetadata": "EXIFデータを保存",
+    "keepEXIFMetadata_description": "機種、GPS座標などのメータデータをEXIFタグとして画像ファイルに書き込む",
 
-    "savePath": "Save path",
-    "savePath_description": "Current path: {path}",
-    "choosePath": "Choose path",
+    "savePath": "保存先設定",
+    "savePath_description": "使用中フォルダー: {path}",
+    "choosePath": "フォルダー選択",
 
-    "onboardingScreen": "Onboarding screen",
-    "onboardingScreen_description": "Open the initial onboarding screen",
+    "onboardingScreen": "初期設定",
+    "onboardingScreen_description": "初期設定画面を起動する",
 
 
 
@@ -124,8 +124,8 @@
 
 
 
-    "more": "MORE",
-    "less": "SHOW LESS",
-    "version": "Version {versionNumber}",
-    "license": "The code is licensed under the GPLv3 on GitHub. If you encounter any problems or want to request a feature, please open an issue on GitHub. Thanks!"
+    "more": "詳細設定",
+    "less": "詳細設定を閉じる",
+    "version": "バージョン {versionNumber}",
+    "license": "本アプリのソースコードはGPLv3ライセンスでGitHubにて配信されています。 ご質問・ご要望・不具合報告などがありましたら、GitHubのIssueでお問い合わせください。ご利用ありがとうございました！"
 }
