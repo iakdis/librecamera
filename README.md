@@ -75,7 +75,7 @@ You can get Libre Camera on [F-Droid](https://f-droid.org) by tapping on the bad
 Currently supported languages: 
   - **English** 🇬🇧
   - **German** 🇩🇪
-  - **Japanese** 🇯🇵🇯🇵 (special thanks to [@vladkorotnev](https://github.com/vladkorotnev))
+  - **Japanese** 🇯🇵 (special thanks to [@vladkorotnev](https://github.com/vladkorotnev))
   - **Spanish** 🇪🇸 (special thanks to [@Loughty](https://github.com/Loughty))
   - **Portuguese** 🇧🇷 (special thanks to [@zehrique](https://github.com/zehrique))
   - **Russian** 🇷🇺 (special thanks to [@vladkorotnev](https://github.com/vladkorotnev))
