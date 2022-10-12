@@ -3,57 +3,57 @@
 
 
 
-    "permissionsTitle": "PERMISSIONS",
-    "permissionsTitle_description": "To use the camera, you need to give permission to your camera, microphone and storage.",
-    "giveCameraPermission": "Give camera permission",
-    "giveMicrophonePermission": "Give microphone permission",
-    "giveStoragePermission": "Give storage permission",
+    "permissionsTitle": "РАЗРЕШЕНИЯ",
+    "permissionsTitle_description": "Чтобы пользоваться приложением, необходимо дать доступ к памяти, камере и микрофону.",
+    "giveCameraPermission": "Разрешить доступ к камере",
+    "giveMicrophonePermission": "Разрешить доступ к микрофону",
+    "giveStoragePermission": "Разрешить доступ к памяти",
 
-    "savePathTitle": "SAVE PATH",
-    "savePathTitle_description": "Select a save path. Typically, images get saved to the DCIM path on Android.",
-    "selectPath": "Select path",
+    "savePathTitle": "ПУТЬ СОХРАНЕНИЯ",
+    "savePathTitle_description": "Выберите директорию для сохранения фотографий. Как правило, это папка DCIM на Android.",
+    "selectPath": "Выбрать путь",
 
-    "welcomeTitle": "WELCOME",
-    "welcomeTitle_description": "Congratulations! You are ready to use this camera app.",
-    "getStarted": "Get started",
+    "welcomeTitle": "ДОБРО ПОЖАЛОВАТЬ",
+    "welcomeTitle_description": "Поздравляем! Всё готово к использованию приложения.",
+    "getStarted": "Начать",
 
 
 
     "@_CAMERA_PAGE": {},
 
-    "switchToPictureMode": "Switch to picture mode",
-    "switchToVideoRecordingMode": "Switch to video recording mode",
+    "switchToPictureMode": "Переключить в режим фото",
+    "switchToVideoRecordingMode": "Переключить в режим видео",
 
-    "openCapturedPictureOrVideo": "Open captured picture or video",
+    "openCapturedPictureOrVideo": "Открыть снятое фото или видео",
 
-    "takePicture": "Take picture",
+    "takePicture": "Сделать фото",
 
-    "startRecordingVideo": "Start recording video",
-    "pauseVideo": "Pause video",
-    "resumeVideo": "Resume video",
-    "stopVideo": "Stop video",
+    "startRecordingVideo": "Начать запись видео",
+    "pauseVideo": "Пауза",
+    "resumeVideo": "Возобновить",
+    "stopVideo": "Остановить запись",
 
-    "exposureMode": "Exposure mode",
-    "exposureModeAuto": "AUTO EXPOSURE",
-    "exposureModeLocked": "LOCKED EXPOSURE",
-    "defaultExposure": "Default exposure",
+    "exposureMode": "Выдержка",
+    "exposureModeAuto": "АВТОВЫДЕРЖКА",
+    "exposureModeLocked": "ФИКСИРОВАННАЯ",
+    "defaultExposure": "Экспозиция по-умолчанию",
 
-    "flashlight": "Flashlight",
+    "flashlight": "Фонарик",
 
-    "lockCaptureOrientation": "Lock auto orientation [RESTART REQUIRED]",
-    "lockCaptureOrientation_description": "Lock orientation to portrait mode, no matter if automatic rotation mode is activated",
+    "lockCaptureOrientation": "Заблокировать автоповорот [Требуется перезапуск]",
+    "lockCaptureOrientation_description": "Заблокировать приложение в портретной ориентации, даже если включён автоповорот",
 
-    "focusMode": "Focus mode",
-    "focusModeAuto": "AUTO FOCUS",
-    "focusModeLocked": "LOCKED FOCUS",
+    "focusMode": "Фокус",
+    "focusModeAuto": "АВТОФОКУС",
+    "focusModeLocked": "ФИКСИРОВАННЫЙ",
 
-    "reset": "Reset",
+    "reset": "Сброс",
 
-    "flipToFrontCamera": "Flip to front camera",
-    "flipToRearCamera": "Flip to rear camera",
+    "flipToFrontCamera": "Фронтальная камера",
+    "flipToRearCamera": "Задняя камера",
 
-    "autoSmall": "AUTO",
-    "lockedSmall": "LOCKED",
+    "autoSmall": "АВТО",
+    "lockedSmall": "ФИКС",
 
 
 
@@ -61,62 +61,62 @@
 
 
 
-    "back": "Back",
-    "next": "Next",
-    "settings": "Settings",
+    "back": "Назад",
+    "next": "Далее",
+    "settings": "Настройки",
 
-    "appSettings": "APP SETTINGS",
+    "appSettings": "НАСТРОЙКИ ПРИЛОЖЕНИЯ",
     
-    "language": "Language",
-    "language_description": "Change the app language",
-    "systemLanguage": "System language",
+    "language": "Язык",
+    "language_description": "Сменить язык приложения",
+    "systemLanguage": "Системный язык",
 
-    "theme": "Theme",
-    "theme_description": "Change the app theme",
-    "themeSystem": "System theme",
-    "themeLight": "Light theme",
-    "themeDark": "Dark theme",
+    "theme": "Тема",
+    "theme_description": "Сменить внешний вид приложения",
+    "themeSystem": "Системная тема",
+    "themeLight": "Светлая",
+    "themeDark": "Тёмная",
 
-    "enableModeRow": "Enable focus and exposure mode row",
-    "enableModeRow_description": "Enable a row at the bottom to switch the exposure and focus modes",
+    "enableModeRow": "Режимы фокусировки и выдержки",
+    "enableModeRow_description": "Отобразить внизу экрана строку с режимами фокусировки и выдержки",
 
-    "enableZoomSlider": "Enable zoom slider",
-    "enableZoomSlider_description": "When enabled, a slider will appear to manually adjust the zoom",
+    "enableZoomSlider": "Слайдер зума",
+    "enableZoomSlider_description": "Включает отображение слайдера зума на экране камеры",
 
-    "enableExposureSlider": "Enable exposure slider",
-    "enableExposureSlider_description": "When enabled, a slider will appear to manually adjust the exposure",
+    "enableExposureSlider": "Слайдер выдержки",
+    "enableExposureSlider_description": "Включает отображение слайдера регулировки выдержки на экране камеры",
 
-    "cameraBehaviour": "CAMERA BEHAVIOUR",
+    "cameraBehaviour": "НАСТРОЙКИ КАМЕРЫ",
 
-    "format": "Image format",
-    "format_description": "Change the image format (default: JPEG/JPG)",
+    "format": "Формат изображений",
+    "format_description": "Выбрать формат изображений (по умолчанию: JPEG/JPG)",
 
-    "resolution": "Resolution",
-    "resolution_description": "Change the camera resolution",
+    "resolution": "Разрешение",
+    "resolution_description": "Выбрать разрешение камеры",
 
-    "flipPhotosFrontCamera": "Flip photos on front camera",
-    "flipPhotosFrontCamera_description": "Flip photos horizontally that were taken with front camera",
+    "flipPhotosFrontCamera": "Отзеркалить фронтальные фото",
+    "flipPhotosFrontCamera_description": "Горизонтально отразить фотографии, снятые на фронтальную камеру",
 
-    "startWithFrontCamera": "Start with front camera",
-    "startWithFrontCamera_description": "Always start with front camera when opening the app",
+    "startWithFrontCamera": "Фронтальная камера по умолчанию",
+    "startWithFrontCamera_description": "При открытии приложения всегда активировать фронтальную камеру",
 
-    "disableAudio": "Disable audio",
-    "disableAudio_description": "Disable audio when recording a video",
+    "disableAudio": "Не записывать звук",
+    "disableAudio_description": "Отключить запись звука при съёмке видео",
 
-    "saving": "SAVING",
+    "saving": "СОХРАНЕНИЕ",
 
-    "imageCompressionQuality": "Image compression quality",
-    "imageCompressionQuality_description": "Lower compression quality means smaller size but worse quality, while higher compression quality means bigger size but better quality",
+    "imageCompressionQuality": "Качество сжатия",
+    "imageCompressionQuality_description": "Чем ниже качество сжатия, тем меньше размер сохранённого файла, но хуже изображение на выходе",
 
-    "keepEXIFMetadata": "Save EXIF data",
-    "keepEXIFMetadata_description": "Save EXIF metadata of the taken picture like phone model, GPS location, etc.",
+    "keepEXIFMetadata": "Записывать EXIF",
+    "keepEXIFMetadata_description": "Сохранять в фотографии метаданные EXIF, такие как модель телефона, координаты GPS и др.",
 
-    "savePath": "Save path",
-    "savePath_description": "Current path: {path}",
-    "choosePath": "Choose path",
+    "savePath": "Путь сохранения",
+    "savePath_description": "Текущий путь: {path}",
+    "choosePath": "Сменить путь",
 
-    "onboardingScreen": "Onboarding screen",
-    "onboardingScreen_description": "Open the initial onboarding screen",
+    "onboardingScreen": "Начальные настройки",
+    "onboardingScreen_description": "Заново открыть экран начальных настроек",
 
 
 
@@ -124,8 +124,8 @@
 
 
 
-    "more": "MORE",
-    "less": "SHOW LESS",
-    "version": "Version {versionNumber}",
-    "license": "The code is licensed under the GPLv3 on GitHub. If you encounter any problems or want to request a feature, please open an issue on GitHub. Thanks!"
+    "more": "ЕЩЁ",
+    "less": "СКРЫТЬ",
+    "version": "Версия {versionNumber}",
+    "license": "Код распространяется по лицензии GPLv3 на GitHub. Если вы столкнулись с какими-то проблемами или хотите посоветовать новый функционал для приложения, пожалуйста, откройте Issue на GitHub. Спасибо!"
 }
