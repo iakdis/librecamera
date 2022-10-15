@@ -1,9 +1,28 @@
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/iakmds/librecamera?style=flat-square)
-![GitHub issues](https://img.shields.io/github/issues/iakmds/librecamera?style=flat-square)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/iakmds/librecamera?style=flat-square)
-![GitHub contributors](https://img.shields.io/github/contributors/iakmds/librecamera?style=flat-square)
-![GitHub Repo stars](https://img.shields.io/github/stars/iakmds/librecamera?style=flat-square)
-![GitHub](https://img.shields.io/github/license/iakmds/librecamera?style=flat-square)
+<p>
+  <a href="https://github.com/iakmds/librecamera/releases/latest" alt="Release">
+  <img src="https://img.shields.io/github/v/release/iakmds/librecamera?style=flat-square" /></a>
+
+  <a href="https://f-droid.org/packages/com.iakmds.librecamera" alt="F-Droid">
+  <img src="https://img.shields.io/f-droid/v/com.iakmds.librecamera?style=flat-square" /></a>
+
+  <a href="https://github.com/iakmds/librecamera/issues" alt="Issues">
+  <img src="https://img.shields.io/github/issues/iakmds/librecamera?style=flat-square" /></a>
+
+  <a href="https://github.com/iakmds/librecamera/pulls" alt="Pull requests">
+  <img src="https://img.shields.io/github/issues-pr/iakmds/librecamera?style=flat-square" /></a>
+
+  <a href="https://github.com/iakmds/librecamera/contributors" alt="Contributors">
+  <img src="https://img.shields.io/github/contributors/iakmds/librecamera?style=flat-square" /></a>
+
+  <a href="https://github.com/iakmds/librecamera/network/members" alt="Forks">
+  <img src="https://img.shields.io/github/forks/iakmds/librecamera?style=flat-square" /></a>
+
+  <a href="https://github.com/iakmds/librecamera/stargazers" alt="Stars">
+  <img src="https://img.shields.io/github/stars/iakmds/librecamera?style=flat-square" /></a>
+
+  <a href="https://github.com/iakmds/librecamera/blob/master/LICENSE" alt="License">
+  <img src="https://img.shields.io/github/license/iakmds/librecamera?style=flat-square" /></a>
+</p>
 
 <p align="center">
   <a href="https://github.com/iakmds/librecamera">
@@ -58,12 +77,12 @@ You can get Libre Camera on [F-Droid](https://f-droid.org) by tapping on the bad
 # Roadmap
 
 - [ ] More supported languages (See [Contributing](#contributing) below)
+- [ ] Bug fix: Clicking thumbnail to open gallery on Android 9+
 - [ ] Feature: Add photo capture delay option
 - [ ] Feature: Add integrated QR-Scanner
 - [ ] Feature: Make focus and exposure controls collapsable
 - [ ] Feature: Add a capture sound as an option in settings (both for photo and video mode)
 - [ ] Feature: Add start capture at phone volume button press as an option in settings
-- [ ] Fix: Clicking thumbnail to open gallery on Android 9+
 - [ ] New theme: Black Dark mode for AMOLED screens
 - [ ] Check tablet support
 - [ ] [Your feature](https://github.com/iakmds/librecamera/issues)
