@@ -126,7 +126,6 @@ Feel free to send in a [Pull Request](https://github.com/iakmds/librecamera/pull
 
 The packages used for this app, also listed in the pubspec.yaml file. See their respective licenses.
 
-- [android_intent_plus](https://pub.dev/packages/android_intent_plus): Used for opening photos and videos by clicking on the thumbnail
 - [camera](https://pub.dev/packages/camera): Used for camera functionality
 - [device_info_plus](https://pub.dev/packages/device_info_plus): Used for getting Android version to adapt behaviour
 - [file_picker](https://pub.dev/packages/file_picker): Used for picking the save path
