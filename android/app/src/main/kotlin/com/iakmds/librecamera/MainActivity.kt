@@ -12,6 +12,10 @@ import io.flutter.plugin.common.MethodChannel
 import java.io.File
 import java.io.IOException
 import android.media.MediaScannerConnection
+import android.content.Intent
+import android.net.Uri
+import androidx.core.content.FileProvider
+
 
 class MainActivity : FlutterActivity() {
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
@@ -25,6 +29,10 @@ class MainActivity : FlutterActivity() {
                     updateItem(call.argument("path")!!)
                     result.success(null)
                 }
+                "openItem" -> {
+                    openItem(call.argument("path")!!, call.argument("mimeType")!!, call.argument("openInGallery")!!)
+                    result.success(null)
+                }
             }
         }
     }
@@ -33,5 +41,22 @@ class MainActivity : FlutterActivity() {
         val file = File(path) 
         MediaScannerConnection.scanFile(context, arrayOf(file.toString()),
             null, null)
+    }
+
+    private fun openItem(path: String, mimeType: String, openInGallery: Boolean) {
+        val file = File(path)
+        var uri = FileProvider.getUriForFile(context, "com.iakmds.librecamera.provider", file)
+        if(openInGallery) {
+            uri = Uri.parse("content:/$path")
+        }
+
+        Intent().apply {
+            action = Intent.ACTION_VIEW
+            setDataAndType(uri, mimeType)
+
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+
+            startActivity(this)
+        }
     }
 }

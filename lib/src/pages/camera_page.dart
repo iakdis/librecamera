@@ -2,8 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 //import 'package:flutter/foundation.dart';
-import 'package:android_intent_plus/android_intent.dart';
-import 'package:android_intent_plus/flag.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:image/image.dart' as img;
@@ -12,10 +11,11 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:librecamera/main.dart';
+import 'package:librecamera/src/widgets/format.dart';
+import 'package:librecamera/src/widgets/resolution.dart';
 import 'package:native_device_orientation/native_device_orientation.dart';
 //import 'package:qr_code_scanner/qr_code_scanner.dart' as qr;
 import 'package:video_player/video_player.dart';
-import 'package:device_info_plus/device_info_plus.dart';
 
 import 'package:librecamera/src/pages/settings_page.dart';
 import 'package:librecamera/src/utils/preferences.dart';
@@ -159,9 +159,6 @@ class _CameraPageState extends State<CameraPage>
             await SystemChrome.setPreferredOrientations(
                 [DeviceOrientation.landscapeRight]);
           }
-          /*setState(() {
-            stableOrientation = currentOrientation;
-          });*/
         }
       });
     });
@@ -303,22 +300,33 @@ class _CameraPageState extends State<CameraPage>
                           DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
                           AndroidDeviceInfo androidInfo =
                               await deviceInfo.androidInfo;
-                          int sdkInt = androidInfo.version.sdkInt ?? 29;
+                          int sdkInt = androidInfo.version.sdkInt ?? 27;
 
-                          if (sdkInt < 28) {
-                            final intent = AndroidIntent(
-                              action: 'action_view',
-                              type: 'image/*',
-                              data: capturedFile!.path,
-                              flags: [
-                                Flag.FLAG_ACTIVITY_NEW_TASK,
-                                //Flag.FLAG_GRANT_READ_URI_PERMISSION
-                              ],
-                            );
-                            await intent.launch();
+                          final String mimeType;
+                          if (capturedFile!.path.split('.').last == 'mp4') {
+                            mimeType = 'video/mp4';
                           } else {
-                            print('do nothing');
+                            switch (getCompressFormat()) {
+                              case CompressFormat.jpeg:
+                                mimeType = 'image/jpeg';
+                                break;
+                              case CompressFormat.png:
+                                mimeType = 'image/png';
+                                break;
+                              case CompressFormat.webp:
+                                mimeType = 'image/webp';
+                                break;
+                              default:
+                                mimeType = 'image/jpeg';
+                            }
                           }
+
+                          final mediastore = MediaStore();
+                          await mediastore.openItem(
+                            file: capturedFile!,
+                            mimeType: mimeType,
+                            openInGallery: sdkInt > 27 ? false : true,
+                          );
                         },
                         child: _thumbnailWidget()),
                   ),
@@ -453,17 +461,8 @@ class _CameraPageState extends State<CameraPage>
       _subscribeOrientationChangeStream();
     }
 
-    final flashModeString = Preferences.getFlashMode();
-    FlashMode flashMode = FlashMode.off;
-    for (var mode in FlashMode.values) {
-      if (mode.name == flashModeString) flashMode = mode;
-    }
-
-    final resolutionString = Preferences.getResolution();
-    ResolutionPreset resolution = ResolutionPreset.high;
-    for (var res in ResolutionPreset.values) {
-      if (res.name == resolutionString) resolution = res;
-    }
+    final flashMode = getFlashMode();
+    final resolution = getResolution();
 
     final CameraController? oldController = controller;
     if (oldController != null) {
@@ -630,7 +629,22 @@ class _CameraPageState extends State<CameraPage>
 
       final directory = Preferences.getSavePath();
 
-      String fileFormat = capturedFile!.path.split('.').last;
+      //String fileFormat = capturedFile!.path.split('.').last;
+      final CompressFormat format = getCompressFormat();
+      final String fileFormat;
+      switch (getCompressFormat()) {
+        case CompressFormat.jpeg:
+          fileFormat = 'jpg';
+          break;
+        case CompressFormat.png:
+          fileFormat = 'png';
+          break;
+        case CompressFormat.webp:
+          fileFormat = 'webp';
+          break;
+        default:
+          fileFormat = 'jpg';
+      }
 
       String path = '$directory/IMG_${timestamp()}.$fileFormat';
 
@@ -645,13 +659,21 @@ class _CameraPageState extends State<CameraPage>
         );
       }
 
-      Uint8List? newFileBytes = await FlutterImageCompress.compressWithFile(
-          capturedFile!.path,
-          quality: Preferences.getCompressQuality(),
-          keepExif: Preferences.getKeepEXIFMetadata());
+      /*final resolutionString = Preferences.getResolution();
+      ResolutionPreset resolution = ResolutionPreset.high;
+      for (var res in ResolutionPreset.values) {
+        if (res.name == resolutionString) resolution = res;
+      }*/
 
-      var tempFile =
-          capturedFile!.copySync('$directory/IMG_${timestamp()}.$fileFormat');
+      Uint8List? newFileBytes = await FlutterImageCompress.compressWithFile(
+        capturedFile!.path,
+        quality: Preferences.getCompressQuality(),
+        keepExif: Preferences.getKeepEXIFMetadata(),
+        format: format,
+      );
+
+      //var tempFile = capturedFile!.copySync('$directory/IMG_${timestamp()}.$fileFormat');
+      var tempFile = capturedFile!.copySync(path);
       await tempFile.writeAsBytes(newFileBytes!);
 
       final mediaStore = MediaStore();
@@ -960,7 +982,10 @@ class _CameraPageState extends State<CameraPage>
     String recentFileName = '';
 
     for (var file in fileList) {
-      if (file.path.contains('.jpg') || file.path.contains('.mp4')) {
+      if (file.path.contains('.jpg') ||
+          file.path.contains('.png') ||
+          file.path.contains('.webp') ||
+          file.path.contains('.mp4')) {
         allFileList.add(File(file.path));
         String name = file.path.split('/').last; //.split('.').first;
         final stat = FileStat.statSync(file.path);
@@ -1035,6 +1060,18 @@ class MediaStore {
   Future<void> updateItem({required File file}) async {
     await _channel.invokeMethod('updateItem', {
       'path': file.path,
+    });
+  }
+
+  Future<void> openItem({
+    required File file,
+    required String mimeType,
+    required bool openInGallery,
+  }) async {
+    await _channel.invokeMethod('openItem', {
+      'path': file.path,
+      'mimeType': mimeType,
+      'openInGallery': openInGallery,
     });
   }
 }
