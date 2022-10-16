@@ -69,6 +69,7 @@ You can get Libre Camera on [F-Droid](https://f-droid.org) by tapping on the bad
 - Focus: Auto focus, locked focus and manual focus by touching the screen
 - Exposure: Auto exposure, locked exposure and manual exposure with an optional slider
 - Image compression: Set the compression amount in the settings
+- Formats: Switch between 3 camera formats (JPEG, PNG, WebP)
 - Resolutions: Switch between different camera resolutions
 - Save location: Choose your preferred save location
 - Small size (~21 MB)
@@ -77,7 +78,6 @@ You can get Libre Camera on [F-Droid](https://f-droid.org) by tapping on the bad
 # Roadmap
 
 - [ ] More supported languages (See [Contributing](#contributing) below)
-- [ ] Bug fix: Clicking thumbnail to open gallery on Android 9+
 - [ ] Feature: Add photo capture delay option
 - [ ] Feature: Add integrated QR-Scanner
 - [ ] Feature: Make focus and exposure controls collapsable
