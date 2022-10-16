@@ -1,17 +1,18 @@
 Libre Camera is a free and open source camera app to take pictures and record videos written in Flutter and Dart.
 
-If you are in need of an open source camera app with several features, this app should be for you. From flashlight, focus and exposure controls to changing themes, languages and the compression amount – this app should have you covered. And if not, you can simply open an issue on <a href="https://github.com/iakmds/librecamera">GitHub</a> and request your feature. Below you can see a list of the features, with more coming in the future!
+If you are in need of an open source camera app with several features, this app should be for you. From flashlight, focus and exposure controls to changing themes, languages and the compression amount – this app should have you covered. And if not, you can open an issue on <a href="https://github.com/iakmds/librecamera">GitHub</a> and request a feature. Below you can see a list of the features, with more coming in the future!
 
 <b>Features</b>
     * Take pictures and record videos with your rear and front camera
     * Privacy: No EXIF Metadata saved by default when taking pictures (enable optionally in settings) – and obviously no ads and tracking!
     * Themes: Material Design with a Dark, Light or system theme
-    * Languages currently supported: 1. English, 2. German, 3. Spanish – Contribute translating your language!
+    * Languages currently supported: English 🇬🇧 , German 🇩🇪, Spanish 🇪🇸, Portuguese 🇧🇷, Russian 🇷🇺, Japanese 🇯🇵 – Contribute translating your language!
     * Zoom: Zoom with 2 fingers or with an optional slider
     * Flashlight modes: On at capture, Off, Auto, Always on
     * Focus: Auto focus, locked focus and manual focus by touching the screen
     * Exposure: Auto exposure, locked exposure and manual exposure with an optional slider
     * Image compression: Set the compression amount in the settings
+    - Formats: Switch between 3 camera formats (JPEG, PNG, WebP)
     * Resolutions: Switch between different camera resolutions
     * Save location: Choose your preferred save location
     * Small size of about 21MB
