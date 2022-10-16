@@ -1,0 +1,131 @@
+{
+    "@_ONBOARDING_PAGE": {},
+
+
+
+    "permissionsTitle": "İZİNLER",
+    "permissionsTitle_description": "Kamerayı kullanmak için kamera, mikrofon ve depolama alanınıza erişim izni vermeniz gerekir.",
+    "giveCameraPermission": "Kamera izni ver",
+    "giveMicrophonePermission": "Mikrofon izni ver",
+    "giveStoragePermission": "Depolama izni ver",
+
+    "savePathTitle": "KAYDETME KONUMU",
+    "savePathTitle_description": "Bir kaydetme konumu seçin. Genellikle görüntüler Android'de DCIM yoluna kaydedilir.",
+    "selectPath": "Konum seçin",
+
+    "welcomeTitle": "HOŞ GELDİNİZ",
+    "welcomeTitle_description": "Tebrikler! Bu kamera uygulamasını kullanmaya hazırsınız.",
+    "getStarted": "Başlayın",
+
+
+
+    "@_CAMERA_PAGE": {},
+
+    "switchToPictureMode": "Fotoğraf moduna geç",
+    "switchToVideoRecordingMode": "Video kayıt moduna geç",
+
+    "openCapturedPictureOrVideo": "Çekilen resmi veya videoyu aç",
+
+    "takePicture": "Fotoğraf çek",
+
+    "startRecordingVideo": "Video kaydını başlat",
+    "pauseVideo": "Videoyu duraklat",
+    "resumeVideo": "Videoyu sürdür",
+    "stopVideo": "Videoyu durdur",
+
+    "exposureMode": "Pozlandırma modu",
+    "exposureModeAuto": "OTOMATİK POZLANDIRMA",
+    "exposureModeLocked": "KİLİTLİ POZLANDIRMA",
+    "defaultExposure": "Öntanımlı pozlandırma",
+
+    "flashlight": "El feneri",
+
+    "lockCaptureOrientation": "Otomatik yönlendirmeyi kilitle [YENİDEN BAŞLATMA GEREKLİ]",
+    "lockCaptureOrientation_description": "Otomatik döndürme modunun etkinleştirilip etkinleştirilmediğine bakılmaksızın yönü portre moduna kilitler",
+
+    "focusMode": "Odaklama modu",
+    "focusModeAuto": "OTOMATİK ODAK",
+    "focusModeLocked": "KİLİTLİ ODAK",
+
+    "reset": "Sıfırla",
+
+    "flipToFrontCamera": "Ön kameraya geç",
+    "flipToRearCamera": "Arka kameraya geç",
+
+    "autoSmall": "OTOMATİK",
+    "lockedSmall": "KİLİTLİ",
+
+
+
+    "@_SETTINGS_PAGE": {},
+
+
+
+    "back": "Geri",
+    "next": "İleri",
+    "settings": "Ayarlar",
+
+    "appSettings": "UYGULAMA AYARLARI",
+    
+    "language": "Dil",
+    "language_description": "Uygulama dilini değiştirin",
+    "systemLanguage": "Sistem dili",
+
+    "theme": "Tema",
+    "theme_description": "Uygulama temasını değiştirin",
+    "themeSystem": "Sistem teması",
+    "themeLight": "Açık tema",
+    "themeDark": "Koyu tema",
+
+    "enableModeRow": "Odak ve pozlama modu satırını etkinleştir",
+    "enableModeRow_description": "Pozlama ve odak modlarını değiştirmek için alttaki bir satırı etkinleştirir",
+
+    "enableZoomSlider": "Yakınlaştırma kaydırıcısını etkinleştir",
+    "enableZoomSlider_description": "Etkinleştirildiğinde, yakınlaştırmayı manuel olarak ayarlamak için bir kaydırıcı görünecektir",
+
+    "enableExposureSlider": "Pozlandırma kaydırıcısını etkinleştir",
+    "enableExposureSlider_description": "Etkinleştirildiğinde, pozlamayı manuel olarak ayarlamak için bir kaydırıcı görünecektir",
+
+    "cameraBehaviour": "KAMERA TUTUMU",
+
+    "format": "Görüntü formatı",
+    "format_description": "Görüntü formatını değiştirir (varsayılan: JPEG/JPG)",
+
+    "resolution": "Çözünürlük",
+    "resolution_description": "Kamera çözünürlüğünü değiştirir",
+
+    "flipPhotosFrontCamera": "Ön kamerada fotoğrafları çevir",
+    "flipPhotosFrontCamera_description": "Ön kamera ile çekilen fotoğrafları yatay olarak çevirir",
+
+    "startWithFrontCamera": "Ön kamera ile başla",
+    "startWithFrontCamera_description": "Uygulama açılırken her zaman ön kamera ile başlar",
+
+    "disableAudio": "Sesi devre dışı bırak",
+    "disableAudio_description": "Video kaydederken sesi devre dışı bırakmak için",
+
+    "saving": "SAVING",
+
+    "imageCompressionQuality": "Görüntü sıkıştırma kalitesi",
+    "imageCompressionQuality_description": "Düşük sıkıştırma kalitesi daha küçük boyut ancak daha kötü kalite anlamına gelirken, yüksek sıkıştırma kalitesi daha büyük boyut ancak daha iyi kalite anlamına gelir",
+
+    "keepEXIFMetadata": "EXIF verilerini kaydet",
+    "keepEXIFMetadata_description": "Çekilen fotoğrafın telefon modeli, GPS konumu vb. gibi EXIF meta verilerini kaydeder.",
+
+    "savePath": "Konumu kaydet",
+    "savePath_description": "Mevcut konum: {path}",
+    "choosePath": "Konum seçin",
+
+    "onboardingScreen": "Giriş ekranı",
+    "onboardingScreen_description": "İlk açılış ekranını açar",
+
+
+
+    "@_ABOUT": {},
+
+
+
+    "more": "DAHA FAZLA",
+    "less": "DAHA AZ",
+    "version": "Sürüm {versionNumber}",
+    "license": "Kod, GitHub'da GPLv3 altında lisanslanmıştır. Herhangi bir sorunla karşılaşırsanız veya bir özellik talep etmek isterseniz, lütfen GitHub'da bir sorun açın. Teşekkürler!"
+}
