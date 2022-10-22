@@ -148,6 +148,8 @@ class _SettingsPageState extends State<SettingsPage> {
           const Divider(),
           _captureOrientationLockedTile(),
           const Divider(),
+          _showNavigationBarTile(),
+          const Divider(),
           _onboardingScreenTile(),
           const Divider(),
           _aboutTile(),
@@ -237,6 +239,20 @@ class _SettingsPageState extends State<SettingsPage> {
       onChanged: (value) {
         setState(() {
           Preferences.setIsCaptureOrientationLocked(value);
+        });
+      },
+    );
+  }
+
+  Widget _showNavigationBarTile() {
+    return SwitchListTile(
+      title: Text(AppLocalizations.of(context)!.showNavigationBar),
+      subtitle:
+          Text(AppLocalizations.of(context)!.showNavigationBar_description),
+      value: Preferences.getShowNavigationBar(),
+      onChanged: (value) {
+        setState(() {
+          Preferences.setShowNavigationBar(value);
         });
       },
     );

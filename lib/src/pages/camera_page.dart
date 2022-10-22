@@ -206,21 +206,23 @@ class _CameraPageState extends State<CameraPage>
     final CameraController? cameraController = controller;
 
     if (cameraController != null && cameraController.value.isInitialized) {
-      return Listener(
-        onPointerDown: (_) => _pointers++,
-        onPointerUp: (_) => _pointers--,
-        child: CameraPreview(
-          controller!,
-          child: LayoutBuilder(
-              builder: (BuildContext context, BoxConstraints constraints) {
-            return GestureDetector(
-              behavior: HitTestBehavior.opaque,
-              onScaleStart: _handleScaleStart,
-              onScaleUpdate: _handleScaleUpdate,
-              onTapDown: (TapDownDetails details) =>
-                  _onViewFinderTap(details, constraints),
-            );
-          }),
+      return Center(
+        child: Listener(
+          onPointerDown: (_) => _pointers++,
+          onPointerUp: (_) => _pointers--,
+          child: CameraPreview(
+            controller!,
+            child: LayoutBuilder(
+                builder: (BuildContext context, BoxConstraints constraints) {
+              return GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onScaleStart: _handleScaleStart,
+                onScaleUpdate: _handleScaleUpdate,
+                onTapDown: (TapDownDetails details) =>
+                    _onViewFinderTap(details, constraints),
+              );
+            }),
+          ),
         ),
       );
     } else {

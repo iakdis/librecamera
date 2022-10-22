@@ -24,8 +24,10 @@ Future<void> main() async {
 
   await Preferences.init();
 
-  //Setting SystmeUIMode
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+  //Setting SystmeUIMode for navigation buttons and status bar
+  if (!Preferences.getShowNavigationBar()) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+  }
 
   SystemChrome.setPreferredOrientations(_getDeviceOrientations()).then((_) {
     runApp(CameraApp(onboardingCompleted: Preferences.getOnBoardingComplete()));

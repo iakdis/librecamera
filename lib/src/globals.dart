@@ -15,3 +15,4 @@ const String prefEnableAudio = 'enableAudio';
 const String prefCompressFormat = 'compressFormat';
 const String prefCompressQuality = 'compressQuality';
 const String prefKeepEXIFMetadata = 'keepEXIFMetadata';
+const String prefShowNavigationBar = 'showNavigationBar';

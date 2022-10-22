@@ -105,4 +105,10 @@ class Preferences {
       await _preferences!.setBool(prefKeepEXIFMetadata, keepEXIFMetadata);
   static bool getKeepEXIFMetadata() =>
       _preferences!.getBool(prefKeepEXIFMetadata) ?? false;
+
+  //Capture Orientation Locked
+  static Future setShowNavigationBar(bool showNavigationBar) async =>
+      await _preferences!.setBool(prefShowNavigationBar, showNavigationBar);
+  static bool getShowNavigationBar() =>
+      _preferences!.getBool(prefShowNavigationBar) ?? false;
 }
