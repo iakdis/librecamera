@@ -2,36 +2,48 @@
   "de": [
     "showNavigationBar",
     "showNavigationBar_description",
-    "off"
+    "off",
+    "shutterSound",
+    "shutterSound_description"
   ],
 
   "es": [
     "showNavigationBar",
     "showNavigationBar_description",
-    "off"
+    "off",
+    "shutterSound",
+    "shutterSound_description"
   ],
 
   "ja": [
     "showNavigationBar",
     "showNavigationBar_description",
-    "off"
+    "off",
+    "shutterSound",
+    "shutterSound_description"
   ],
 
   "pt": [
     "showNavigationBar",
     "showNavigationBar_description",
-    "off"
+    "off",
+    "shutterSound",
+    "shutterSound_description"
   ],
 
   "ru": [
     "showNavigationBar",
     "showNavigationBar_description",
-    "off"
+    "off",
+    "shutterSound",
+    "shutterSound_description"
   ],
 
   "tr": [
     "showNavigationBar",
     "showNavigationBar_description",
-    "off"
+    "off",
+    "shutterSound",
+    "shutterSound_description"
   ]
 }

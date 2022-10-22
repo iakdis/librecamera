@@ -60,17 +60,12 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  bool useAppInEnglish = true;
-  bool alwaysStartWithRearCamera = true;
-  bool flipFrontCameraPhotos = true;
-  FlashMode? flashMode = FlashMode.off;
-  bool saveEXIFData = false;
   String currentSavePath = Preferences.getSavePath();
   bool isMoreOptions = false;
 
   ScrollController listScrollController = ScrollController();
 
-  //CompressQuality Slider
+  //Compress quality slider
   double value = Preferences.getCompressQuality().toDouble();
 
   TextStyle style = const TextStyle(
@@ -116,6 +111,8 @@ class _SettingsPageState extends State<SettingsPage> {
             const Divider(),
             _headingTile(AppLocalizations.of(context)!.cameraBehaviour),
             _resolutionTile(),
+            const Divider(),
+            _disableShutterSoundTile(),
             const Divider(),
             _startWithFrontCameraTile(),
             const Divider(),
@@ -375,6 +372,19 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _disableShutterSoundTile() {
+    return SwitchListTile(
+      title: Text(AppLocalizations.of(context)!.shutterSound),
+      subtitle: Text(AppLocalizations.of(context)!.shutterSound_description),
+      value: Preferences.getDisableShutterSound(),
+      onChanged: (value) {
+        setState(() {
+          Preferences.setDisableShutterSound(value);
+        });
+      },
     );
   }
 

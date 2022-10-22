@@ -84,8 +84,8 @@ class _CameraPageState extends State<CameraPage>
     super.initState();
     WidgetsBinding.instance.addObserver(this);
 
-    /*final mediaStore = MediaStore();
-    mediaStore.disableIntentCamera(disable: true);*/
+    /*final methodChannel = AndroidMethodChannel();
+    methodChannel.disableIntentCamera(disable: true);*/
 
     onNewCameraSelected(cameras[Preferences.getStartWithRearCamera() ? 0 : 1]);
   }
@@ -382,8 +382,8 @@ class _CameraPageState extends State<CameraPage>
                                   }
                                 }
 
-                                final mediastore = MediaStore();
-                                await mediastore.openItem(
+                                final methodChannel = AndroidMethodChannel();
+                                await methodChannel.openItem(
                                   file: capturedFile!,
                                   mimeType: mimeType,
                                   openInGallery: sdkInt > 27 ? false : true,
@@ -641,8 +641,8 @@ class _CameraPageState extends State<CameraPage>
 
         var tempFile = capturedFile!.copySync(path);
 
-        final mediaStore = MediaStore();
-        await mediaStore.updateItem(file: tempFile);
+        final methodChannel = AndroidMethodChannel();
+        await methodChannel.updateItem(file: tempFile);
 
         capturedFile = File(path);
 
@@ -702,6 +702,12 @@ class _CameraPageState extends State<CameraPage>
 
     try {
       final XFile file = await cameraController.takePicture();
+
+      if (!Preferences.getDisableShutterSound()) {
+        var methodChannel = AndroidMethodChannel();
+        methodChannel.shutterSound();
+      }
+
       capturedFile = File(file.path);
 
       final directory = Preferences.getSavePath();
@@ -753,8 +759,8 @@ class _CameraPageState extends State<CameraPage>
       var tempFile = capturedFile!.copySync(path);
       await tempFile.writeAsBytes(newFileBytes!);
 
-      final mediaStore = MediaStore();
-      await mediaStore.updateItem(file: tempFile);
+      final methodChannel = AndroidMethodChannel();
+      await methodChannel.updateItem(file: tempFile);
 
       capturedFile = File(path);
 
@@ -1131,7 +1137,7 @@ class _CameraPageState extends State<CameraPage>
   }
 }
 
-class MediaStore {
+class AndroidMethodChannel {
   static const _channel = MethodChannel('media_store');
 
   Future<void> updateItem({required File file}) async {
@@ -1156,5 +1162,9 @@ class MediaStore {
     await _channel.invokeMethod('disableIntentCamera', {
       'disable': disable,
     });
+  }
+
+  Future<void> shutterSound() async {
+    await _channel.invokeMethod('shutterSound', {});
   }
 }

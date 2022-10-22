@@ -99,6 +99,9 @@
     "resolution": "Resolution",
     "resolution_description": "Change the camera resolution",
 
+    "shutterSound": "Disable shutter sound",
+    "shutterSound_description": "Disable the shutter sound when taking a picture",
+
     "flipPhotosFrontCamera": "Flip photos on front camera",
     "flipPhotosFrontCamera_description": "Flip photos horizontally that were taken with front camera",
 

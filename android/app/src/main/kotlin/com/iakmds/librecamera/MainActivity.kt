@@ -17,6 +17,7 @@ import android.net.Uri
 import androidx.core.content.FileProvider
 import android.content.pm.PackageManager
 import android.content.ComponentName
+import android.media.MediaActionSound
 
 
 class MainActivity : FlutterActivity() {
@@ -37,6 +38,10 @@ class MainActivity : FlutterActivity() {
                 }
                 "disableIntentCamera" -> {
                     disableIntentCamera(call.argument("disable")!!)
+                    result.success(null)
+                }
+                "shutterSound" -> {
+                    shutterSound()
                     result.success(null)
                 }
             }
@@ -83,5 +88,10 @@ class MainActivity : FlutterActivity() {
                     PackageManager.DONT_KILL_APP);
         }
         
+    }
+
+    private fun shutterSound() {
+        val sound = MediaActionSound()
+        sound.play(MediaActionSound.SHUTTER_CLICK)
     }
 }

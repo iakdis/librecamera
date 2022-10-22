@@ -112,8 +112,14 @@ class Preferences {
   static bool getShowNavigationBar() =>
       _preferences!.getBool(prefShowNavigationBar) ?? false;
 
-  //Compress Image
+  //Timer
   static Future setTimerDuration(int durationInSeconds) async =>
       await _preferences!.setInt(prefTimerDuration, durationInSeconds);
   static int getTimerDuration() => _preferences!.getInt(prefTimerDuration) ?? 0;
+
+  //Compress Image
+  static Future setDisableShutterSound(bool disable) async =>
+      await _preferences!.setBool(prefDisableShutterSound, disable);
+  static bool getDisableShutterSound() =>
+      _preferences!.getBool(prefDisableShutterSound) ?? false;
 }
