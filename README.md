@@ -78,7 +78,7 @@ You can get Libre Camera on [F-Droid](https://f-droid.org) by tapping on the bad
 # Roadmap
 
 - [ ] More supported languages (See [Contributing](#contributing) below)
-- [ ] Feature: Add photo capture delay option
+- [x] (Coming in version 1.3.0) Feature: Add photo capture delay option
 - [ ] Feature: Add integrated QR-Scanner
 - [ ] Feature: Make focus and exposure controls collapsable
 - [ ] Feature: Add a capture sound as an option in settings (both for photo and video mode)
@@ -105,7 +105,7 @@ Currently supported languages:
 1. If not already supported (see above), request a new language by [opening an issue](https://github.com/iakmds/librecamera/issues) on GitHub and I will add the necessary code for the second step
 2. Translate an already existing language (see below)
 
-Translating guide: Go to the .arb file of the language you want to translate (for example, [this](https://github.com/iakmds/librecamera/blob/master/assets/l10n/app_de.arb) file for German) and change the text inside the "" quotation marks. Use the [English](https://github.com/iakmds/librecamera/blob/master/assets/l10n/app_en.arb) translation as a reference for the text to be translated to the target language.
+**Translating guide:** See if there are any untranslated strings in this file: [untranslatedMessages.txt](https://github.com/iakmds/librecamera/blob/master/untranslatedMessages.txt). Go to the .arb file of the language you want to translate (for example, [app_de.arb](https://github.com/iakmds/librecamera/blob/master/assets/l10n/app_de.arb) file for German) and change the text inside the "" quotation marks. If the keys listed in the [untranslatedMessages.txt](https://github.com/iakmds/librecamera/blob/master/untranslatedMessages.txt) don't exist, simply create them just like the others. Use the [English](https://github.com/iakmds/librecamera/blob/master/assets/l10n/app_en.arb) translation as a reference for the text to be translated to the target language.
 
 Additionally, if you want to translate the local app name (default: "Libre Camera"), go to the strings.xml file of the language you want to translate (for example, [this](https://github.com/iakmds/librecamera/blob/master/android/app/src/main/res/values-de/styles.xml) file for German and translate the "Libre Camera" text inside the string elements, like this German translation: ```<string name="AppName">Libre Kamera</string>```
 
