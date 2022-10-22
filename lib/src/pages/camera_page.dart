@@ -13,6 +13,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:librecamera/main.dart';
 import 'package:librecamera/src/widgets/format.dart';
 import 'package:librecamera/src/widgets/resolution.dart';
+import 'package:librecamera/src/widgets/timer.dart';
 import 'package:native_device_orientation/native_device_orientation.dart';
 //import 'package:qr_code_scanner/qr_code_scanner.dart' as qr;
 import 'package:video_player/video_player.dart';
@@ -66,6 +67,9 @@ class _CameraPageState extends State<CameraPage>
 
   //Video recording timer
   final Stopwatch _stopwatch = Stopwatch();
+
+  //Photo capture timer
+  final Stopwatch _timerStopwatch = Stopwatch();
 
   //Orientation
   DateTime _timeOfLastChange = DateTime.now();
@@ -197,12 +201,38 @@ class _CameraPageState extends State<CameraPage>
                 : const Text('Scan a code',
                     style: TextStyle(color: Colors.white)),
           ),*/
+          _timerWidget(),
           _topRightControlsWidget(context),
           _bottomControlsWidget(),
           _circleWidget(),
         ],
       ),
     );
+  }
+
+  Widget _timerWidget() {
+    var minuteAmount =
+        (Preferences.getTimerDuration() - _timerStopwatch.elapsed.inSeconds) /
+            60;
+    var minute = minuteAmount.floor();
+
+    return Duration(seconds: Preferences.getTimerDuration()).inSeconds > 0 &&
+            _timerStopwatch.elapsedTicks > 1
+        ? Center(
+            child: Text(
+              Preferences.getTimerDuration() -
+                          _timerStopwatch.elapsed.inSeconds <
+                      60
+                  ? '${Preferences.getTimerDuration() - _timerStopwatch.elapsed.inSeconds}s'
+                  : '${minute}m ${(Preferences.getTimerDuration() - _timerStopwatch.elapsed.inSeconds) % 60}s',
+              style: const TextStyle(
+                color: Colors.red,
+                fontSize: 64.0,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          )
+        : Container();
   }
 
   Widget _previewWidget() {
@@ -248,98 +278,121 @@ class _CameraPageState extends State<CameraPage>
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              AnimatedRotation(
-                duration: const Duration(milliseconds: 400),
-                turns:
-                    MediaQuery.of(context).orientation == Orientation.portrait
-                        ? 0
-                        : 0.25,
-                child: SettingsButton(
-                  controller: controller,
-                  onNewCameraSelected: onNewCameraSelected,
-                ),
-              ),
-              AnimatedRotation(
-                duration: const Duration(milliseconds: 400),
-                turns:
-                    MediaQuery.of(context).orientation == Orientation.portrait
-                        ? 0
-                        : 0.25,
-                child: IconButton(
-                  color: Colors.white,
-                  onPressed: () {
-                    if (!isVideoCameraSelected) {
-                      setState(() {
-                        isVideoCameraSelected = true;
-                      });
-                    } else {
-                      controller?.value.isRecordingVideo ?? false
-                          ? null
-                          : setState(() {
-                              isVideoCameraSelected = false;
+              _timerStopwatch.elapsedTicks > 1
+                  ? Container()
+                  : AnimatedRotation(
+                      duration: const Duration(milliseconds: 400),
+                      turns: MediaQuery.of(context).orientation ==
+                              Orientation.portrait
+                          ? 0
+                          : 0.25,
+                      child: SettingsButton(
+                        controller: controller,
+                        onNewCameraSelected: onNewCameraSelected,
+                      ),
+                    ),
+              _timerStopwatch.elapsedTicks > 1
+                  ? Container()
+                  : AnimatedRotation(
+                      duration: const Duration(milliseconds: 400),
+                      turns: MediaQuery.of(context).orientation ==
+                              Orientation.portrait
+                          ? 0
+                          : 0.25,
+                      child: IconButton(
+                        color: Colors.white,
+                        onPressed: () {
+                          if (!isVideoCameraSelected) {
+                            setState(() {
+                              isVideoCameraSelected = true;
                             });
-                    }
-                  },
-                  iconSize: 36,
-                  icon: isVideoCameraSelected
-                      ? const Icon(Icons.camera_alt)
-                      : const Icon(Icons.videocam),
-                  tooltip: isVideoCameraSelected
-                      ? AppLocalizations.of(context)!.switchToPictureMode
-                      : AppLocalizations.of(context)!
-                          .switchToVideoRecordingMode,
-                ),
-              ),
-              const SizedBox(height: 10.0),
-              AnimatedRotation(
-                duration: const Duration(milliseconds: 400),
-                turns:
-                    MediaQuery.of(context).orientation == Orientation.portrait
-                        ? 0
-                        : 0.25,
-                child: Tooltip(
-                  message:
-                      AppLocalizations.of(context)!.openCapturedPictureOrVideo,
-                  child: SizedBox(
-                    width: 42,
-                    height: 42,
-                    child: GestureDetector(
-                        onTap: () async {
-                          DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-                          AndroidDeviceInfo androidInfo =
-                              await deviceInfo.androidInfo;
-                          int sdkInt = androidInfo.version.sdkInt ?? 27;
-
-                          final String mimeType;
-                          if (capturedFile!.path.split('.').last == 'mp4') {
-                            mimeType = 'video/mp4';
                           } else {
-                            switch (getCompressFormat()) {
-                              case CompressFormat.jpeg:
-                                mimeType = 'image/jpeg';
-                                break;
-                              case CompressFormat.png:
-                                mimeType = 'image/png';
-                                break;
-                              case CompressFormat.webp:
-                                mimeType = 'image/webp';
-                                break;
-                              default:
-                                mimeType = 'image/jpeg';
-                            }
+                            controller?.value.isRecordingVideo ?? false
+                                ? null
+                                : setState(() {
+                                    isVideoCameraSelected = false;
+                                  });
                           }
-
-                          final mediastore = MediaStore();
-                          await mediastore.openItem(
-                            file: capturedFile!,
-                            mimeType: mimeType,
-                            openInGallery: sdkInt > 27 ? false : true,
-                          );
                         },
-                        child: _thumbnailWidget()),
-                  ),
-                ),
-              ),
+                        iconSize: 36,
+                        icon: isVideoCameraSelected
+                            ? const Icon(Icons.camera_alt)
+                            : const Icon(Icons.videocam),
+                        tooltip: isVideoCameraSelected
+                            ? AppLocalizations.of(context)!.switchToPictureMode
+                            : AppLocalizations.of(context)!
+                                .switchToVideoRecordingMode,
+                      ),
+                    ),
+              isVideoCameraSelected || _timerStopwatch.elapsedTicks > 1
+                  ? Container()
+                  : Column(
+                      children: [
+                        const SizedBox(height: 10.0),
+                        AnimatedRotation(
+                          duration: const Duration(milliseconds: 400),
+                          turns: MediaQuery.of(context).orientation ==
+                                  Orientation.portrait
+                              ? 0
+                              : 0.25,
+                          child: const TimerButton(),
+                        ),
+                      ],
+                    ),
+              const SizedBox(height: 10.0),
+              _timerStopwatch.elapsedTicks > 1
+                  ? Container()
+                  : AnimatedRotation(
+                      duration: const Duration(milliseconds: 400),
+                      turns: MediaQuery.of(context).orientation ==
+                              Orientation.portrait
+                          ? 0
+                          : 0.25,
+                      child: Tooltip(
+                        message: AppLocalizations.of(context)!
+                            .openCapturedPictureOrVideo,
+                        child: SizedBox(
+                          width: 42,
+                          height: 42,
+                          child: GestureDetector(
+                              onTap: () async {
+                                DeviceInfoPlugin deviceInfo =
+                                    DeviceInfoPlugin();
+                                AndroidDeviceInfo androidInfo =
+                                    await deviceInfo.androidInfo;
+                                int sdkInt = androidInfo.version.sdkInt ?? 27;
+
+                                final String mimeType;
+                                if (capturedFile!.path.split('.').last ==
+                                    'mp4') {
+                                  mimeType = 'video/mp4';
+                                } else {
+                                  switch (getCompressFormat()) {
+                                    case CompressFormat.jpeg:
+                                      mimeType = 'image/jpeg';
+                                      break;
+                                    case CompressFormat.png:
+                                      mimeType = 'image/png';
+                                      break;
+                                    case CompressFormat.webp:
+                                      mimeType = 'image/webp';
+                                      break;
+                                    default:
+                                      mimeType = 'image/jpeg';
+                                  }
+                                }
+
+                                final mediastore = MediaStore();
+                                await mediastore.openItem(
+                                  file: capturedFile!,
+                                  mimeType: mimeType,
+                                  openInGallery: sdkInt > 27 ? false : true,
+                                );
+                              },
+                              child: _thumbnailWidget()),
+                        ),
+                      ),
+                    ),
               const SizedBox(height: 14.0),
               Preferences.getEnableZoomSlider()
                   ? RotatedBox(
@@ -621,6 +674,21 @@ class _CameraPageState extends State<CameraPage>
 
   //Camera controls
   Future<XFile?> takePicture() async {
+    setState(() {
+      Timer.periodic(
+        const Duration(milliseconds: 500),
+        (Timer t) => setState(() {}),
+      );
+      _timerStopwatch.start();
+    });
+
+    await Future.delayed(Duration(seconds: Preferences.getTimerDuration()));
+
+    setState(() {
+      _timerStopwatch.stop();
+      _timerStopwatch.reset();
+    });
+
     final CameraController? cameraController = controller;
     if (cameraController == null || !cameraController.value.isInitialized) {
       print('Error: select a camera first.');

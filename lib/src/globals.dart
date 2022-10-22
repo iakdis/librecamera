@@ -16,3 +16,4 @@ const String prefCompressFormat = 'compressFormat';
 const String prefCompressQuality = 'compressQuality';
 const String prefKeepEXIFMetadata = 'keepEXIFMetadata';
 const String prefShowNavigationBar = 'showNavigationBar';
+const String prefTimerDuration = 'timerDuration';

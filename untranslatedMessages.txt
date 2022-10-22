@@ -1,31 +1,37 @@
 {
   "de": [
     "showNavigationBar",
-    "showNavigationBar_description"
+    "showNavigationBar_description",
+    "off"
   ],
 
   "es": [
     "showNavigationBar",
-    "showNavigationBar_description"
+    "showNavigationBar_description",
+    "off"
   ],
 
   "ja": [
     "showNavigationBar",
-    "showNavigationBar_description"
+    "showNavigationBar_description",
+    "off"
   ],
 
   "pt": [
     "showNavigationBar",
-    "showNavigationBar_description"
+    "showNavigationBar_description",
+    "off"
   ],
 
   "ru": [
     "showNavigationBar",
-    "showNavigationBar_description"
+    "showNavigationBar_description",
+    "off"
   ],
 
   "tr": [
     "showNavigationBar",
-    "showNavigationBar_description"
+    "showNavigationBar_description",
+    "off"
   ]
 }

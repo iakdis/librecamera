@@ -111,4 +111,9 @@ class Preferences {
       await _preferences!.setBool(prefShowNavigationBar, showNavigationBar);
   static bool getShowNavigationBar() =>
       _preferences!.getBool(prefShowNavigationBar) ?? false;
+
+  //Compress Image
+  static Future setTimerDuration(int durationInSeconds) async =>
+      await _preferences!.setInt(prefTimerDuration, durationInSeconds);
+  static int getTimerDuration() => _preferences!.getInt(prefTimerDuration) ?? 0;
 }

@@ -58,6 +58,8 @@
     "autoSmall": "AUTO",
     "lockedSmall": "LOCKED",
 
+    "off": "Off",
+
 
 
     "@_SETTINGS_PAGE": {},
