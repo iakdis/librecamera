@@ -64,11 +64,11 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        RotatedBox(
-          quarterTurns:
-              MediaQuery.of(context).orientation == Orientation.portrait
-                  ? 0
-                  : 1,
+        AnimatedRotation(
+          duration: const Duration(milliseconds: 400),
+          turns: MediaQuery.of(context).orientation == Orientation.portrait
+              ? 0
+              : 0.25,
           child: IconButton(
             padding: EdgeInsets.zero,
             onPressed: widget.isRecordingInProgress
@@ -142,11 +142,11 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
             controller: widget.controller,
             onNewCameraSelected: widget.onNewCameraSelected,
           ),*/
-        RotatedBox(
-          quarterTurns:
-              MediaQuery.of(context).orientation == Orientation.portrait
-                  ? 0
-                  : 1,
+        AnimatedRotation(
+          duration: const Duration(milliseconds: 400),
+          turns: MediaQuery.of(context).orientation == Orientation.portrait
+              ? 0
+              : 0.25,
           child: IconButton(
             padding: EdgeInsets.zero,
             onPressed: widget.isVideoCameraSelected

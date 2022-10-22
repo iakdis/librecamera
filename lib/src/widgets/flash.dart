@@ -61,11 +61,11 @@ class _FlashModeControlRowWidgetState extends State<FlashModeControlRowWidget> {
   @override
   Widget build(BuildContext context) {
     return widget.isRearCameraSelected
-        ? RotatedBox(
-            quarterTurns:
-                MediaQuery.of(context).orientation == Orientation.portrait
-                    ? 0
-                    : 1,
+        ? AnimatedRotation(
+            duration: const Duration(milliseconds: 400),
+            turns: MediaQuery.of(context).orientation == Orientation.portrait
+                ? 0
+                : 0.25,
             child: IconButton(
               padding: EdgeInsets.zero,
               onPressed: (() {

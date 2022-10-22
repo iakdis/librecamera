@@ -245,21 +245,23 @@ class _CameraPageState extends State<CameraPage>
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              RotatedBox(
-                quarterTurns:
+              AnimatedRotation(
+                duration: const Duration(milliseconds: 400),
+                turns:
                     MediaQuery.of(context).orientation == Orientation.portrait
                         ? 0
-                        : 1,
+                        : 0.25,
                 child: SettingsButton(
                   controller: controller,
                   onNewCameraSelected: onNewCameraSelected,
                 ),
               ),
-              RotatedBox(
-                quarterTurns:
+              AnimatedRotation(
+                duration: const Duration(milliseconds: 400),
+                turns:
                     MediaQuery.of(context).orientation == Orientation.portrait
                         ? 0
-                        : 1,
+                        : 0.25,
                 child: IconButton(
                   color: Colors.white,
                   onPressed: () {
@@ -286,11 +288,12 @@ class _CameraPageState extends State<CameraPage>
                 ),
               ),
               const SizedBox(height: 10.0),
-              RotatedBox(
-                quarterTurns:
+              AnimatedRotation(
+                duration: const Duration(milliseconds: 400),
+                turns:
                     MediaQuery.of(context).orientation == Orientation.portrait
                         ? 0
-                        : 1,
+                        : 0.25,
                 child: Tooltip(
                   message:
                       AppLocalizations.of(context)!.openCapturedPictureOrVideo,
@@ -365,11 +368,12 @@ class _CameraPageState extends State<CameraPage>
                 ? Center(
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 8.0),
-                      child: RotatedBox(
-                        quarterTurns: MediaQuery.of(context).orientation ==
+                      child: AnimatedRotation(
+                        duration: const Duration(milliseconds: 400),
+                        turns: MediaQuery.of(context).orientation ==
                                 Orientation.portrait
                             ? 0
-                            : 1,
+                            : 0.25,
                         child: Container(
                           padding:
                               const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
