@@ -59,6 +59,7 @@ class _CameraPageState extends State<CameraPage>
   //Current camera
   bool isRearCameraSelected = Preferences.getStartWithRearCamera();
   bool isVideoCameraSelected = false;
+  bool takingPicture = false;
 
   //Circle position
   double _circlePosX = 0, _circlePosY = 0;
@@ -188,6 +189,7 @@ class _CameraPageState extends State<CameraPage>
             onQRViewCreated: _onQRViewCreated,
           ),*/
           _previewWidget(),
+          _shutterBorder(),
           //?TODO when in QR-Code mode: enable, _previewWidget disable
           /*Center(
             child: (result != null)
@@ -206,6 +208,20 @@ class _CameraPageState extends State<CameraPage>
           _bottomControlsWidget(),
           _circleWidget(),
         ],
+      ),
+    );
+  }
+
+  Widget _shutterBorder() {
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 200),
+      decoration: BoxDecoration(
+        border: Border.all(
+            color: takingPicture
+                ? const Color(0xFFFFFFFF)
+                : const Color.fromARGB(0, 255, 255, 255),
+            width: 4.0,
+            style: BorderStyle.solid), //Border.all
       ),
     );
   }
@@ -702,6 +718,7 @@ class _CameraPageState extends State<CameraPage>
 
     try {
       final XFile file = await cameraController.takePicture();
+      takingPicture = true;
 
       if (!Preferences.getDisableShutterSound()) {
         var methodChannel = AndroidMethodChannel();
@@ -780,6 +797,9 @@ class _CameraPageState extends State<CameraPage>
       //OLD without compression and removal of EXIF data: await capturedFile!.copy(path);
 
       print('Picture saved to $path');
+
+      takingPicture = false;
+
       await _refreshGalleryImages();
 
       return file;
