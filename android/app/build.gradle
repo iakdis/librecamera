@@ -69,3 +69,9 @@ flutter {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
+
+android.applicationVariants.all { variant ->
+    variant.outputs.all { output ->
+        outputFileName = "librecamera-${flutterVersionName}.apk"
+    }
+}
