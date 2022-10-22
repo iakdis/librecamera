@@ -80,6 +80,9 @@ class _CameraPageState extends State<CameraPage>
     super.initState();
     WidgetsBinding.instance.addObserver(this);
 
+    /*final mediaStore = MediaStore();
+    mediaStore.disableIntentCamera(disable: true);*/
+
     onNewCameraSelected(cameras[Preferences.getStartWithRearCamera() ? 0 : 1]);
   }
 
@@ -1078,6 +1081,12 @@ class MediaStore {
       'path': file.path,
       'mimeType': mimeType,
       'openInGallery': openInGallery,
+    });
+  }
+
+  Future<void> disableIntentCamera({required bool disable}) async {
+    await _channel.invokeMethod('disableIntentCamera', {
+      'disable': disable,
     });
   }
 }

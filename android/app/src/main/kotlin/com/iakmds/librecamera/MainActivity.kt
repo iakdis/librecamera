@@ -15,6 +15,8 @@ import android.media.MediaScannerConnection
 import android.content.Intent
 import android.net.Uri
 import androidx.core.content.FileProvider
+import android.content.pm.PackageManager
+import android.content.ComponentName
 
 
 class MainActivity : FlutterActivity() {
@@ -31,6 +33,10 @@ class MainActivity : FlutterActivity() {
                 }
                 "openItem" -> {
                     openItem(call.argument("path")!!, call.argument("mimeType")!!, call.argument("openInGallery")!!)
+                    result.success(null)
+                }
+                "disableIntentCamera" -> {
+                    disableIntentCamera(call.argument("disable")!!)
                     result.success(null)
                 }
             }
@@ -58,5 +64,24 @@ class MainActivity : FlutterActivity() {
 
             startActivity(this)
         }
+    }
+
+    private fun disableIntentCamera(disable: Boolean){
+        if(disable){
+            val pm = getApplicationContext().getPackageManager();
+            val compName = ComponentName(getPackageName(), "com.iakmds.librecamera.MainActivity");
+            pm.setComponentEnabledSetting(
+                    compName,
+                    PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                    PackageManager.DONT_KILL_APP);
+        } else{
+            val pm = getApplicationContext().getPackageManager();
+            val compName = ComponentName(getPackageName(), "com.iakmds.librecamera.MainActivity");
+            pm.setComponentEnabledSetting(
+                    compName,
+                    PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                    PackageManager.DONT_KILL_APP);
+        }
+        
     }
 }
