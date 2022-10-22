@@ -1,0 +1,31 @@
+{
+  "de": [
+    "showNavigationBar",
+    "showNavigationBar_description"
+  ],
+
+  "es": [
+    "showNavigationBar",
+    "showNavigationBar_description"
+  ],
+
+  "ja": [
+    "showNavigationBar",
+    "showNavigationBar_description"
+  ],
+
+  "pt": [
+    "showNavigationBar",
+    "showNavigationBar_description"
+  ],
+
+  "ru": [
+    "showNavigationBar",
+    "showNavigationBar_description"
+  ],
+
+  "tr": [
+    "showNavigationBar",
+    "showNavigationBar_description"
+  ]
+}
