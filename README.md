@@ -41,6 +41,23 @@
   </a>
 </p>
 
+<details open="open">
+  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <ol>
+    <li>
+      About Libre Camera
+      <ul>
+        <li><a href="#screenshots">Screenshots</a></li>
+        <li><a href="#download">Download</a></li>
+        <li><a href="#features">Features</a></li>
+      </ul>
+    </li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#packages-used">Packages used</a></li>
+    <li><a href="#license">License</a></li>
+  </ol>
+</details>
 
 # Screenshots
 <p float="left">
