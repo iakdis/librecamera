@@ -1,0 +1,8 @@
+* added: Timer/Delay option when capturing photos
+* added: Show navigation bar option under the More section
+* added: Shutter sound when capturing photos, option to disable it in settings
+* added: Shutter feedback by showing a white border around the screen
+
+* improved: Added a button rotation animation when changing orientation
+
+A big thank you to everyone who contributed!
