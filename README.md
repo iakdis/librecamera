@@ -78,10 +78,10 @@ You can get Libre Camera on [F-Droid](https://f-droid.org) by tapping on the bad
 # Roadmap
 
 - [ ] More supported languages (See [Contributing](#contributing) below)
-- [x] (Coming in version 1.3.0) Feature: Add photo capture delay option
+- [x] (Included in version 1.3.0) Feature: Add photo capture delay option
 - [ ] Feature: Add integrated QR-Scanner
 - [ ] Feature: Make focus and exposure controls collapsable
-- [ ] Feature: Add a capture sound as an option in settings (both for photo and video mode)
+- [x] (Included in version 1.3.0) Feature: Add a capture sound as an option in settings
 - [ ] Feature: Add start capture at phone volume button press as an option in settings
 - [ ] New theme: Black Dark mode for AMOLED screens
 - [ ] Check tablet support
