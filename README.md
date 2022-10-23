@@ -65,6 +65,7 @@ You can get Libre Camera on [F-Droid](https://f-droid.org) by tapping on the bad
 - Themes: Material Design with a Dark, Light or system theme
 - Languages currently supported: English, German, Spanish, Portuguese, Russian, Japanese, Turkish – [Contribute translating your language!](#contributing)
 - Zoom: Zoom with 2 fingers or with an optional slider
+- Timer/Delay: Select a photo capture timer to get ready for your photo
 - Flashlight modes: On at capture, Off, Auto, Always on
 - Focus: Auto focus, locked focus and manual focus by touching the screen
 - Exposure: Auto exposure, locked exposure and manual exposure with an optional slider
