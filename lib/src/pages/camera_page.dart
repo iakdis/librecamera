@@ -213,15 +213,17 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Widget _shutterBorder() {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 200),
-      decoration: BoxDecoration(
-        border: Border.all(
-            color: takingPicture
-                ? const Color(0xFFFFFFFF)
-                : const Color.fromARGB(0, 255, 255, 255),
-            width: 4.0,
-            style: BorderStyle.solid), //Border.all
+    return IgnorePointer(
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        decoration: BoxDecoration(
+          border: Border.all(
+              color: takingPicture
+                  ? const Color(0xFFFFFFFF)
+                  : const Color.fromARGB(0, 255, 255, 255),
+              width: 4.0,
+              style: BorderStyle.solid), //Border.all
+        ),
       ),
     );
   }
@@ -235,16 +237,18 @@ class _CameraPageState extends State<CameraPage>
     return Duration(seconds: Preferences.getTimerDuration()).inSeconds > 0 &&
             _timerStopwatch.elapsedTicks > 1
         ? Center(
-            child: Text(
-              Preferences.getTimerDuration() -
-                          _timerStopwatch.elapsed.inSeconds <
-                      60
-                  ? '${Preferences.getTimerDuration() - _timerStopwatch.elapsed.inSeconds}s'
-                  : '${minute}m ${(Preferences.getTimerDuration() - _timerStopwatch.elapsed.inSeconds) % 60}s',
-              style: const TextStyle(
-                color: Colors.red,
-                fontSize: 64.0,
-                fontWeight: FontWeight.w600,
+            child: IgnorePointer(
+              child: Text(
+                Preferences.getTimerDuration() -
+                            _timerStopwatch.elapsed.inSeconds <
+                        60
+                    ? '${Preferences.getTimerDuration() - _timerStopwatch.elapsed.inSeconds}s'
+                    : '${minute}m ${(Preferences.getTimerDuration() - _timerStopwatch.elapsed.inSeconds) % 60}s',
+                style: const TextStyle(
+                  color: Colors.red,
+                  fontSize: 64.0,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
           )
