@@ -95,14 +95,14 @@ You can get Libre Camera on [F-Droid](https://f-droid.org) by tapping on the bad
 
 # Roadmap
 
-- [ ] More supported languages (See [Contributing](#contributing) below)
+- [ ] More supported languages (See [Contributing](#contributing) below) and Weblate integration
 - [x] (Included in version 1.3.0) Feature: Add photo capture delay option
 - [ ] Feature: Add integrated QR-Scanner
 - [ ] Feature: Make focus and exposure controls collapsable
 - [x] (Included in version 1.3.0) Feature: Add a capture sound as an option in settings
 - [ ] Feature: Add start capture at phone volume button press as an option in settings
 - [ ] New theme: Black Dark mode for AMOLED screens
-- [ ] Check tablet support
+- [x] Check tablet support
 - [ ] [Your feature](https://github.com/iakmds/librecamera/issues)
 
 # Contributing
@@ -160,7 +160,7 @@ The packages used for this app, also listed in the pubspec.yaml file. See their 
 - [shared_preferences](https://pub.dev/packages/shared_preferences): Used for saving app data, including settings
 - [smooth_page_indicator](https://pub.dev/packages/smooth_page_indicator): Used for the page indicator in the onboarding screen
 - [url_launcher](https://pub.dev/packages/url_launcher): Used for opening the GitHub repository link inside the About menu
-- [video_player](https://pub.dev/packages/video_player): Used for displaying a captured video inside the thumbnail
+- [video_thumbnail](https://pub.dev/packages/video_thumbnail): Used for displaying a captured video inside the thumbnail
 
 # License
 
