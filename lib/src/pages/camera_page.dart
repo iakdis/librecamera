@@ -16,7 +16,7 @@ import 'package:librecamera/src/widgets/resolution.dart';
 import 'package:librecamera/src/widgets/timer.dart';
 import 'package:native_device_orientation/native_device_orientation.dart';
 //import 'package:qr_code_scanner/qr_code_scanner.dart' as qr;
-import 'package:video_player/video_player.dart';
+import 'package:video_thumbnail/video_thumbnail.dart' as video_thumbnail;
 
 import 'package:librecamera/src/pages/settings_page.dart';
 import 'package:librecamera/src/utils/preferences.dart';
@@ -41,8 +41,7 @@ class _CameraPageState extends State<CameraPage>
   //Controllers
   File? capturedFile;
   CameraController? controller;
-  VideoPlayerController? videoController;
-  VoidCallback? videoPlayerListener;
+  Uint8List? thumbnailUint8list;
 
   //Zoom
   double _minAvailableZoom = 1.0;
@@ -105,7 +104,6 @@ class _CameraPageState extends State<CameraPage>
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
     controller?.dispose();
-    videoController?.dispose();
 
     //qrController?.dispose();
 
@@ -631,8 +629,7 @@ class _CameraPageState extends State<CameraPage>
     takePicture().then((XFile? file) {
       if (mounted) {
         setState(() {
-          videoController?.dispose();
-          videoController = null;
+          thumbnailUint8list = null;
         });
       }
     });
@@ -1024,14 +1021,15 @@ class _CameraPageState extends State<CameraPage>
 
   //Thumbnail
   Widget _thumbnailWidget() {
-    final VideoPlayerController? localVideoController = videoController;
+    final videoThumbnail = thumbnailUint8list;
 
-    if (localVideoController == null && capturedFile == null) {
+    if (videoThumbnail == null && capturedFile == null) {
       return const Center(
-        child: CircularProgressIndicator(),
+        //child: CircularProgressIndicator(),
+        child: null,
       );
     } else {
-      if (localVideoController == null) {
+      if (videoThumbnail == null) {
         return Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(7.0),
@@ -1054,10 +1052,17 @@ class _CameraPageState extends State<CameraPage>
                   child: FittedBox(
                     fit: BoxFit.cover,
                     child: SizedBox(
-                      width: localVideoController.value.size.width,
-                      height: localVideoController.value.size.height,
-                      child: VideoPlayer(localVideoController),
-                    ),
+                        width: 42,
+                        height: 42,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(7.0),
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: MemoryImage(thumbnailUint8list!),
+                            ),
+                          ),
+                        )),
                   ),
                 ),
               ),
@@ -1130,26 +1135,14 @@ class _CameraPageState extends State<CameraPage>
       return;
     }
 
-    final VideoPlayerController thumbnailVideoController =
-        VideoPlayerController.file(File(capturedFile!.path));
+    thumbnailUint8list = await video_thumbnail.VideoThumbnail.thumbnailData(
+      video: capturedFile?.path ?? '',
+      imageFormat: video_thumbnail.ImageFormat.JPEG,
+      maxWidth: 100,
+      quality: 25,
+    );
 
-    videoPlayerListener = () {
-      if (videoController != null) {
-        if (mounted) {
-          setState(() {});
-        }
-        videoController!.removeListener(videoPlayerListener!);
-      }
-    };
-    thumbnailVideoController.addListener(videoPlayerListener!);
-    await thumbnailVideoController.initialize();
-    await videoController?.dispose();
-    if (mounted) {
-      setState(() {
-        videoController = thumbnailVideoController;
-      });
-    }
-    await thumbnailVideoController.pause();
+    setState(() {});
   }
 
   //Misc
