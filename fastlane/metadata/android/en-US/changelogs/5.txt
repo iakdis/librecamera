@@ -1,0 +1,5 @@
+* fix: Not able to upgrade on some Android devices (Fix activity not being exported)
+
+* localization: Update translations
+
+A big thank you to everyone who contributed!

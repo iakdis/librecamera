@@ -43,6 +43,9 @@
     "lockCaptureOrientation": "Заблокировать автоповорот [Требуется перезапуск]",
     "lockCaptureOrientation_description": "Заблокировать приложение в портретной ориентации, даже если включён автоповорот",
 
+    "showNavigationBar": "Показать панель навигации [требуется перезапуск]",
+    "showNavigationBar_description": "Всегда показывать панель навигации Android",
+
     "focusMode": "Фокус",
     "focusModeAuto": "АВТОФОКУС",
     "focusModeLocked": "ФИКСИРОВАННЫЙ",
@@ -55,6 +58,7 @@
     "autoSmall": "АВТО",
     "lockedSmall": "ФИКС",
 
+    "off": "Выключен",
 
 
     "@_SETTINGS_PAGE": {},
@@ -93,6 +97,9 @@
 
     "resolution": "Разрешение",
     "resolution_description": "Выбрать разрешение камеры",
+
+    "shutterSound": "Отключить звук затвора",
+    "shutterSound_description": "Отключение звука затвора при съемке фотографии",
 
     "flipPhotosFrontCamera": "Отзеркалить фронтальные фото",
     "flipPhotosFrontCamera_description": "Горизонтально отразить фотографии, снятые на фронтальную камеру",

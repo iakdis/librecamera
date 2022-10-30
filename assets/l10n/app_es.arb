@@ -41,7 +41,10 @@
     "flashlight": "Flash",
 
     "lockCaptureOrientation": "Fijar la rotación automática [REQUIERE REINICIO]",
-    "lockCaptureOrientation_description": "Fija la orientación al modo de portarretrato, sin importar si la rotación automática está activada.",
+    "lockCaptureOrientation_description": "Fija la orientación al modo de portarretrato, sin importar si la rotación automática está activada",
+
+    "showNavigationBar": "Mostrar la barra de navegación [REQUIERE REINICIO]",
+    "showNavigationBar_description": "Mostrar siempre la barra de navegación de Android",
 
     "focusMode": "Modo de enfoque",
     "focusModeAuto": "ENFOQUE AUTOMÁTICO",
@@ -55,6 +58,7 @@
     "autoSmall": "AUTOMÁTICO",
     "lockedSmall": "BLOQUEADO",
 
+    "off": "Apagado",
 
 
     "@_SETTINGS_PAGE": {},
@@ -68,23 +72,23 @@
     "appSettings": "CONFIGURACIÓN DE LA APLICACIÓN",
     
     "language": "Idioma",
-    "language_description": "Cambia el idioma de la aplicación.",
+    "language_description": "Cambia el idioma de la aplicación",
     "systemLanguage": "Idioma del sistema",
 
     "theme": "Tema",
-    "theme_description": "Cambia el tema de la aplicación.",
+    "theme_description": "Cambia el tema de la aplicación",
     "themeSystem": "Tema del sistema",
     "themeLight": "Tema claro",
     "themeDark": "Tema oscuro",
 
     "enableModeRow": "Habilitar la lista de modos de enfoque y exposición",
-    "enableModeRow_description": "Crea una lista abajo donde puedes cambiar los modos de exposición y enfoque.",
+    "enableModeRow_description": "Crea una lista abajo donde puedes cambiar los modos de exposición y enfoque",
 
     "enableZoomSlider": "Habilitar la barra de zoom",
-    "enableZoomSlider_description": "Al activarse, aparecerá una barra con el que puedes controlar manualmente el zoom.",
+    "enableZoomSlider_description": "Al activarse, aparecerá una barra con el que puedes controlar manualmente el zoom",
 
     "enableExposureSlider": "Habilitar la barra de exposición",
-    "enableExposureSlider_description": "Al activarse, aparecerá una barra con el que puedes controlar manualmente la exposición.",
+    "enableExposureSlider_description": "Al activarse, aparecerá una barra con el que puedes controlar manualmente la exposición",
 
     "cameraBehaviour": "COMPORTAMIENTO DE LA CÁMARA",
 
@@ -92,31 +96,34 @@
     "format_description": "Cambia el formato la imagen (por defecto: JPEG/JPG)",
 
     "resolution": "Resolución",
-    "resolution_description": "Cambia la resolución de la cámara.",
+    "resolution_description": "Cambia la resolución de la cámara",
+
+    "shutterSound": "Desactivar el sonido del obturador",
+    "shutterSound_description": "Desactiva el sonido del obturador al tomar una foto",
 
     "flipPhotosFrontCamera": "Voltear las fotos de la cámara frontal",
-    "flipPhotosFrontCamera_description": "Voltea las fotos horizontalmente cuando son tomadas con la cámara frontal.",
+    "flipPhotosFrontCamera_description": "Voltea las fotos horizontalmente cuando son tomadas con la cámara frontal",
 
     "startWithFrontCamera": "Iniciar con la cámara frontal",
-    "startWithFrontCamera_description": "Siempre inicia con la cámara frontal cuando inicias la aplicación.",
+    "startWithFrontCamera_description": "Siempre inicia con la cámara frontal cuando inicias la aplicación",
 
     "disableAudio": "Desactivar audio",
-    "disableAudio_description": "Desactiva el audio cuando estás grabando un vídeo.",
+    "disableAudio_description": "Desactiva el audio cuando estás grabando un vídeo",
 
     "saving": "GUARDADO",
 
     "imageCompressionQuality": "Calidad de compresión de imagen",
-    "imageCompressionQuality_description": "Una baja calidad de compresión significa un tamaño menor pero a una calidad peor, mientras que una compresión de alta calidad significa un peso mayor con una mejor calidad de imagen.",
+    "imageCompressionQuality_description": "Una baja calidad de compresión significa un tamaño menor pero a una calidad peor, mientras que una compresión de alta calidad significa un peso mayor con una mejor calidad de imagen",
 
     "keepEXIFMetadata": "Guardar datos EXIF",
-    "keepEXIFMetadata_description": "Guardar los metadatos EXIF en la foto que tomes, como módelo del teléfono, localización GPS, entre otros.",
+    "keepEXIFMetadata_description": "Guardar los metadatos EXIF en la foto que tomes, como módelo del teléfono, localización GPS, entre otros",
 
     "savePath": "Ruta de guardado",
     "savePath_description": "Ruta actual: {path}",
     "choosePath": "Elige una ruta",
 
     "onboardingScreen": "Pantalla de introducción",
-    "onboardingScreen_description": "Abre la pantalla de introducción.",
+    "onboardingScreen_description": "Abre la pantalla de introducción",
 
 
 

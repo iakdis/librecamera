@@ -43,6 +43,9 @@
     "lockCaptureOrientation": "Travar a auto-orientação [É PRECISO REINICIAR]",
     "lockCaptureOrientation_description": "Travar a orientação no modo retrato, não importando se o modo de rotação está ativado",
 
+    "showNavigationBar": "Mostrar a barra de navegação [É PRECISO REINICIAR]",
+    "showNavigationBar_description": "Mostrar sempre a barra de navegação do Android",
+
     "focusMode": "Modo de Foco",
     "focusModeAuto": "AUTO-FOCO",
     "focusModeLocked": "FOCO TRAVADO",
@@ -55,6 +58,7 @@
     "autoSmall": "AUTO",
     "lockedSmall": "TRAVADO",
 
+    "off": "Desligado",
 
 
     "@_SETTINGS_PAGE": {},
@@ -93,6 +97,9 @@
 
     "resolution": "Resolução",
     "resolution_description": "Troca a resolução da câmera",
+
+    "shutterSound": "Desabilitar o som do obturador",
+    "shutterSound_description": "Desabilita o som do obturador ao tirar uma foto",
 
     "flipPhotosFrontCamera": "Inverter fotos na câmera frontal",
     "flipPhotosFrontCamera_description": "Inverte horizontalmente as fotos que foram tiradas com a câmera frontal",

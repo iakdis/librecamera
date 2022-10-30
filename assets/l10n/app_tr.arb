@@ -43,6 +43,9 @@
     "lockCaptureOrientation": "Otomatik yönlendirmeyi kilitle [YENİDEN BAŞLATMA GEREKLİ]",
     "lockCaptureOrientation_description": "Otomatik döndürme modunun etkinleştirilip etkinleştirilmediğine bakılmaksızın yönü portre moduna kilitler",
 
+    "showNavigationBar": "Gezinti çubuğunu göster [YENİDEN BAŞLATMA GEREKLİ]",
+    "showNavigationBar_description": "Her zaman Android gezinme çubuğunu göster",
+
     "focusMode": "Odaklama modu",
     "focusModeAuto": "OTOMATİK ODAK",
     "focusModeLocked": "KİLİTLİ ODAK",
@@ -55,6 +58,7 @@
     "autoSmall": "OTOMATİK",
     "lockedSmall": "KİLİTLİ",
 
+    "off": "Kapalı",
 
 
     "@_SETTINGS_PAGE": {},
@@ -93,6 +97,9 @@
 
     "resolution": "Çözünürlük",
     "resolution_description": "Kamera çözünürlüğünü değiştirir",
+
+    "shutterSound": "Deklanşör sesini devre dışı bırak",
+    "shutterSound_description": "Fotoğraf çekerken deklanşör sesini devre dışı bırakma",
 
     "flipPhotosFrontCamera": "Ön kamerada fotoğrafları çevir",
     "flipPhotosFrontCamera_description": "Ön kamera ile çekilen fotoğrafları yatay olarak çevirir",

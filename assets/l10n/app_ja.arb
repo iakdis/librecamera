@@ -43,6 +43,9 @@
     "lockCaptureOrientation": "画面回転をロックする [再起動必須]",
     "lockCaptureOrientation_description": "画面回転が有効のときでも、アプリ内で縦表示に固定する",
 
+    "showNavigationBar": "ナビゲーションバーを表示する [再起動必須]",
+    "showNavigationBar_description": "Androidのナビゲーションバーを常に表示する",
+
     "focusMode": "フォーカスモード",
     "focusModeAuto": "オートフォーカス",
     "focusModeLocked": "固定フォーカス",
@@ -55,6 +58,7 @@
     "autoSmall": "オート",
     "lockedSmall": "固定",
 
+    "off": "オフ",
 
 
     "@_SETTINGS_PAGE": {},
@@ -93,6 +97,9 @@
 
     "resolution": "解像度",
     "resolution_description": "カメラの解像度を変更する",
+
+    "shutterSound": "シャッター音を鳴らさないようにする",
+    "shutterSound_description": "撮影時のシャッター音を無効にする",
 
     "flipPhotosFrontCamera": "フロントカメラ影を映す",
     "flipPhotosFrontCamera_description": "フロントカメラで撮影した写真の影を映す",

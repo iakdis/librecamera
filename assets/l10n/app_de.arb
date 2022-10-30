@@ -43,6 +43,9 @@
     "lockCaptureOrientation": "Automatische Bildschirmausrichtung sperren [NEUSTART ERFORDERLICH] ",
     "lockCaptureOrientation_description": "Sperrt die Bildschirmausrichtung zum Portrait-Modus, auch wenn die automatische Bildschirmausrichtung aktiviert ist",
 
+    "showNavigationBar": "Navigationsleiste anzeigen [NEUSTART ERFORDERLICH]",
+    "showNavigationBar_description": "Die Navigationsleiste von Android immer sichtbar machen",
+
     "focusMode": "Fokusmodus",
     "focusModeAuto": "AUTOMATISCHER FOKUS",
     "focusModeLocked": "GESPERRTER FOKUS",
@@ -55,6 +58,7 @@
     "autoSmall": "AUTOM.",
     "lockedSmall": "GESPERRT",
 
+    "off": "Aus",
 
 
     "@_SETTINGS_PAGE": {},
@@ -93,6 +97,9 @@
 
     "resolution": "Auflösung",
     "resolution_description": "Ändere die Kameraauflösung",
+
+    "shutterSound": "Auslöseton deaktivieren",
+    "shutterSound_description": "Deaktiviere den Auslöseton bei der Aufnahme eines Bildes",
 
     "flipPhotosFrontCamera": "Fotos der Frontkamera horizontal drehen",
     "flipPhotosFrontCamera_description": "Drehe die mit der Frontkamera aufgenommenen Fotos horizontal um",
