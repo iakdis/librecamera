@@ -35,6 +35,7 @@
         <activity-alias
         android:targetActivity=".MainActivity"
         android:name=".AliasMainActivity"
+        android:exported="true"
         android:label="@string/AppName">
             <intent-filter>
                 <action android:name="android.media.action.IMAGE_CAPTURE" />
