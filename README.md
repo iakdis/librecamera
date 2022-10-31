@@ -69,7 +69,7 @@
 
 # Download
 
-You can get Libre Camera on [F-Droid](https://f-droid.org) by tapping on the badge below. Alternatively, download and install the apk directly from the GitHub [releases](https://github.com/iakmds/librecamera/releases) page. Downloading directly from the GitHub releases page will typically download a more recent version.
+You can get Libre Camera on [F-Droid](https://f-droid.org) by tapping on the badge below. Alternatively, download and install the apk directly from the GitHub [releases](https://github.com/iakmds/librecamera/releases) page. Downloading directly from the GitHub releases page will typically download a more recent version. Notice that the F-Droid and the GitHub versions aren't compatible with one another. You will have to reinstall the app – make sure you remember your settings.
 
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
     alt="Get it on F-Droid"
@@ -96,14 +96,16 @@ You can get Libre Camera on [F-Droid](https://f-droid.org) by tapping on the bad
 # Roadmap
 
 - [ ] More supported languages (See [Contributing](#contributing) below) and Weblate integration
-- [x] (Included in version 1.3.0) Feature: Add photo capture delay option
-- [ ] Feature: Add integrated QR-Scanner
-- [ ] Feature: Make focus and exposure controls collapsable
-- [x] (Included in version 1.3.0) Feature: Add a capture sound as an option in settings
-- [ ] Feature: Add start capture at phone volume button press as an option in settings
-- [ ] New theme: Black Dark mode for AMOLED screens
-- [x] Check tablet support
 - [ ] [Your feature](https://github.com/iakmds/librecamera/issues)
+- [ ] Feature: Add integrated QR-Scanner
+- [ ] Feature: Add "photo capture at phone volume button press" as an option in settings
+- [ ] Feature: Make focus and exposure controls collapsable
+- [ ] Theme: Add a black Dark mode for AMOLED screens
+- [ ] Settings: Add a search bar for the settings
+- [ ] Settings: Add the ability to export and import settings
+- [x] Check tablet support
+- [x] (Included in version 1.3.0) Feature: Add photo capture delay option
+- [x] (Included in version 1.3.0) Feature: Add a capture sound as an option in settings
 
 # Contributing
 
@@ -138,8 +140,8 @@ Open an issue on GitHub: [Open issue](https://github.com/iakmds/librecamera/issu
 Feel free to send in a [Pull Request](https://github.com/iakmds/librecamera/pulls)! To get started with Flutter, follow this link: [https://docs.flutter.dev/get-started/install](https://docs.flutter.dev/get-started/install)
 
 1. Clone this repository
-2. Switch to the project's directory and run the project in debug mode by selecting an Android device or emulator in your preferred Flutter IDE and running the app in debug mode
-3. To test the final app, run the app by installing the apk on an Android device or emulator. To get the apk, run the following command in your terminal: ```flutter build apk --split-per-abi``` – the output apk's will be generated at ```librecamera/build/app/outputs/apk/release/```. If you want only one apk without splitting the platforms (results in slightly bigger size) use ```flutter build apk```
+2. Switch to the project's directory and run `flutter pub get`. To test the app, run the project in debug mode by selecting an Android device or emulator in your preferred Flutter IDE and running the app in debug mode
+3. To build the final app, run the app by installing the apk on an Android device or emulator. To get the apk, run the following command in your terminal: `flutter build apk --split-per-abi` – the output apk's will be generated at``librecamera/build/app/outputs/apk/release/`. If you want only one apk without splitting the platforms (results in slightly bigger size, used by Libre Camera) use `flutter build apk`
 
 # Packages used
 
