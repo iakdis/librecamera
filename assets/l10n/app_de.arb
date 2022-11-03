@@ -108,12 +108,12 @@
     "startWithFrontCamera_description": "Beim Öffnen der App immer mit der Frontkamera starten",
 
     "disableAudio": "Ton deaktivieren",
-    "disableAudio_description": "Deaktiviere den Ton beim Aufnahmen von Videos",
+    "disableAudio_description": "Deaktiviere den Ton beim Aufnehmen von Videos",
 
     "saving": "SPEICHERN",
 
     "imageCompressionQuality": "Komprimierungsqualität",
-    "imageCompressionQuality_description": "Geringere Komprimierungsqualität führt zu schlechterer Bildqualität mit geringerer Dateigröße, während höhere Komprimierungsqualität zu höherer Bildqualität mit größerer Dateigröße führt",
+    "imageCompressionQuality_description": "Geringere Komprimierungsqualität führt zu schlechterer Bildqualität mit geringerer Dateigröße, während höhere Komprimierungsqualität zu besserer Bildqualität mit höherer Dateigröße führt",
 
     "keepEXIFMetadata": "EXIF-Metadateien speichern",
     "keepEXIFMetadata_description": "EXIF-Metadateien des aufgenommenen Fotos speichern wie Handymodell, GPS-Standort, etc.",
