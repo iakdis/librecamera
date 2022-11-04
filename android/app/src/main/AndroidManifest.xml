@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.iakmds.librecamera">
 
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
+    <uses-feature android:name="android.hardware.microphone" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
@@ -30,13 +32,6 @@
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
-
-        <activity-alias
-        android:targetActivity=".MainActivity"
-        android:name=".AliasMainActivity"
-        android:exported="true"
-        android:label="@string/AppName">
             <intent-filter>
                 <action android:name="android.media.action.IMAGE_CAPTURE" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -66,7 +61,14 @@
                 <action android:name="android.media.action.VIDEO_CAPTURE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity-alias>
+        </activity>
+
+        <!--<activity-alias
+        android:targetActivity=".MainActivity"
+        android:name=".AliasMainActivity"
+        android:exported="true"
+        android:label="@string/AppName">-->
+        <!--</activity-alias>-->
 
         <provider
             android:name="androidx.core.content.FileProvider"
