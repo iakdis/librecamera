@@ -18,6 +18,8 @@ import androidx.core.content.FileProvider
 import android.content.pm.PackageManager
 import android.content.ComponentName
 import android.media.MediaActionSound
+import androidx.annotation.RequiresApi
+import android.service.quicksettings.TileService
 
 
 class MainActivity : FlutterActivity() {
@@ -93,5 +95,24 @@ class MainActivity : FlutterActivity() {
     private fun shutterSound() {
         val sound = MediaActionSound()
         sound.play(MediaActionSound.SHUTTER_CLICK)
+    }
+}
+
+@RequiresApi(Build.VERSION_CODES.N)
+class OpenTileService: TileService() {
+
+    override fun onClick() {
+        super.onClick()
+
+        try {
+            val newIntent = FlutterActivity
+                .withNewEngine()
+                .build(this)
+            newIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivityAndCollapse(newIntent)
+        }
+        catch (e:Exception){
+            Log.d("debug","Exception ${e.toString()}")
+        }
     }
 }
