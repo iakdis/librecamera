@@ -30,7 +30,8 @@ class Preferences {
   //Save Path
   static Future setSavePath(String path) async =>
       await _preferences!.setString(prefSavePath, path);
-  static String getSavePath() => _preferences!.getString(prefSavePath) ?? '';
+  static String getSavePath() =>
+      _preferences!.getString(prefSavePath) ?? 'storage/emulated/0/DCIM';
 
   //Flash Mode
   static Future setFlashMode(String flashMode) async =>

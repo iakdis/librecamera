@@ -22,6 +22,22 @@ class _OnboardingPageState extends State<OnboardingPage> {
   bool storagePermissionGranted = false;
   String currentSavePath = Preferences.getSavePath();
   int currentPage = 0;
+  TextEditingController textController = TextEditingController();
+  late FocusNode focusNode;
+
+  @override
+  void initState() {
+    textController.text = currentSavePath;
+    textController.addListener(() {
+      currentSavePath = textController.text;
+      Preferences.setSavePath(currentSavePath);
+    });
+    textController.selection = TextSelection(
+        baseOffset: textController.text.length,
+        extentOffset: textController.text.length);
+    focusNode = FocusNode();
+    super.initState();
+  }
 
   bool checkPermissions() {
     return cameraPermissionGranted && microphonePermissionGranted;
@@ -80,10 +96,21 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
     setState(() {
       currentSavePath = Preferences.getSavePath();
+      textController.text = currentSavePath;
+      textController.selection = TextSelection(
+          baseOffset: textController.text.length,
+          extentOffset: textController.text.length);
     });
   }
 
+  void previousPage() {
+    focusNode.unfocus();
+    controller.previousPage(
+        duration: const Duration(milliseconds: 200), curve: Curves.easeInOut);
+  }
+
   void nextPage() {
+    focusNode.unfocus();
     controller.nextPage(
         duration: const Duration(milliseconds: 200), curve: Curves.easeInOut);
   }
@@ -107,6 +134,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   @override
   void dispose() {
     controller.dispose();
+    textController.dispose();
     super.dispose();
   }
 
@@ -224,12 +252,15 @@ class _OnboardingPageState extends State<OnboardingPage> {
     return Container(
       color: Colors.blue.shade100,
       child: MediaQuery.of(context).orientation == Orientation.portrait
-          ? Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                _savePathPageInfo(),
-                _savePathPageButtons(),
-              ],
+          ? SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(vertical: 64.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _savePathPageInfo(),
+                  _savePathPageButtons(),
+                ],
+              ),
             )
           : Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -284,16 +315,47 @@ class _OnboardingPageState extends State<OnboardingPage> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const SizedBox(height: 24.0),
+        /*ElevatedButton(
+          onPressed: () async {
+            String selectedDirectory = 'storage/emulated/0/DCIM';
+
+            Preferences.setSavePath(selectedDirectory);
+
+            setState(() {
+              currentSavePath = Preferences.getSavePath();
+            });
+          },
+          child: const Text('Set to storage/emulated/0/DCIM'),
+        ),*/
+        const SizedBox(height: 24.0),
         ElevatedButton(
           onPressed: savePath,
           child: Text(AppLocalizations.of(context)!.choosePath),
         ),
         const SizedBox(height: 24.0),
-        Container(
+        /*Container(
           padding: const EdgeInsets.symmetric(horizontal: 64.0),
           child: Text(
             AppLocalizations.of(context)!.savePath_description(currentSavePath),
             style: TextStyle(color: Colors.grey[600], fontSize: 17.0),
+          ),
+        ),*/
+        SizedBox(
+          width: 256,
+          child: TextField(
+            controller: textController,
+            focusNode: focusNode,
+            onSubmitted: (value) {
+              currentSavePath = value;
+              Preferences.setSavePath(currentSavePath);
+              focusNode.unfocus();
+            },
+            style: TextStyle(color: Colors.grey[600], fontSize: 17.0),
+            decoration: const InputDecoration(
+              isDense: true,
+              hintText: 'storage/emulated/0/DCIM',
+              hintStyle: TextStyle(fontStyle: FontStyle.italic),
+            ),
           ),
         ),
       ],
@@ -373,9 +435,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           TextButton(
-            onPressed: () => controller.previousPage(
-                duration: const Duration(milliseconds: 200),
-                curve: Curves.easeInOut),
+            onPressed: previousPage,
             child: Text(AppLocalizations.of(context)!.back.toUpperCase()),
           ),
           Center(
