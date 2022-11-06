@@ -15,7 +15,7 @@ class CaptureControlWidget extends StatefulWidget {
     required this.onNewCameraSelected,
     required this.isVideoCameraSelected,
     required this.isRecordingInProgress,
-    required this.flashWidget,
+    required this.leadingWidget,
     required this.isRearCameraSelected,
     required this.setIsRearCameraSelected,
   }) : super(key: key);
@@ -29,7 +29,7 @@ class CaptureControlWidget extends StatefulWidget {
   final Function(CameraDescription) onNewCameraSelected;
   final bool isVideoCameraSelected;
   final bool isRecordingInProgress;
-  final Widget flashWidget;
+  final Widget leadingWidget;
   final bool isRearCameraSelected;
   final Function() setIsRearCameraSelected;
 
@@ -64,6 +64,75 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
+        /*CameraTogglesWidget(
+            controller: widget.controller,
+            onNewCameraSelected: widget.onNewCameraSelected,
+          ),*/
+        widget.leadingWidget,
+        AnimatedRotation(
+          duration: const Duration(milliseconds: 400),
+          turns: MediaQuery.of(context).orientation == Orientation.portrait
+              ? 0
+              : 0.25,
+          child: IconButton(
+            padding: EdgeInsets.zero,
+            onPressed: widget.isVideoCameraSelected
+                ? () {
+                    if (widget.isRecordingInProgress) {
+                      widget.onStopButtonPressed();
+                    } else {
+                      widget.onVideoRecordButtonPressed();
+                    }
+                  }
+                : () {
+                    widget.onTakePictureButtonPressed();
+                  },
+            icon: Stack(
+              alignment: Alignment.center,
+              children: [
+                Icon(
+                  Icons.circle,
+                  color: widget.isVideoCameraSelected
+                      ? Colors.white
+                      : Colors.white38,
+                  //size: 80,
+                  size: 80,
+                ),
+                Icon(
+                  Icons.circle,
+                  color:
+                      widget.isVideoCameraSelected ? Colors.red : Colors.white,
+                  //size: 65,
+                  size: 65,
+                ),
+                widget.isVideoCameraSelected && widget.isRecordingInProgress
+                    ? const Icon(
+                        Icons.stop_rounded,
+                        color: Colors.white,
+                        size: 32,
+                      )
+                    : const Icon(
+                        Icons.videocam,
+                        color: Colors.white,
+                        size: 32,
+                      ),
+                !widget.isVideoCameraSelected
+                    ? Icon(
+                        Icons.camera_alt,
+                        color: Colors.grey.shade800,
+                        size: 32,
+                      )
+                    : Container(),
+              ],
+            ),
+            tooltip: widget.isVideoCameraSelected
+                ? widget.isVideoCameraSelected && widget.isRecordingInProgress
+                    ? AppLocalizations.of(context)!.stopVideo
+                    : AppLocalizations.of(context)!.startRecordingVideo
+                : AppLocalizations.of(context)!.takePicture,
+            iconSize: 80,
+          ),
+        ),
         AnimatedRotation(
           duration: const Duration(milliseconds: 400),
           turns: MediaQuery.of(context).orientation == Orientation.portrait
@@ -138,75 +207,6 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
             iconSize: 60,
           ),
         ),
-        /*CameraTogglesWidget(
-            controller: widget.controller,
-            onNewCameraSelected: widget.onNewCameraSelected,
-          ),*/
-        AnimatedRotation(
-          duration: const Duration(milliseconds: 400),
-          turns: MediaQuery.of(context).orientation == Orientation.portrait
-              ? 0
-              : 0.25,
-          child: IconButton(
-            padding: EdgeInsets.zero,
-            onPressed: widget.isVideoCameraSelected
-                ? () {
-                    if (widget.isRecordingInProgress) {
-                      widget.onStopButtonPressed();
-                    } else {
-                      widget.onVideoRecordButtonPressed();
-                    }
-                  }
-                : () {
-                    widget.onTakePictureButtonPressed();
-                  },
-            icon: Stack(
-              alignment: Alignment.center,
-              children: [
-                Icon(
-                  Icons.circle,
-                  color: widget.isVideoCameraSelected
-                      ? Colors.white
-                      : Colors.white38,
-                  //size: 80,
-                  size: 80,
-                ),
-                Icon(
-                  Icons.circle,
-                  color:
-                      widget.isVideoCameraSelected ? Colors.red : Colors.white,
-                  //size: 65,
-                  size: 65,
-                ),
-                widget.isVideoCameraSelected && widget.isRecordingInProgress
-                    ? const Icon(
-                        Icons.stop_rounded,
-                        color: Colors.white,
-                        size: 32,
-                      )
-                    : const Icon(
-                        Icons.videocam,
-                        color: Colors.white,
-                        size: 32,
-                      ),
-                !widget.isVideoCameraSelected
-                    ? Icon(
-                        Icons.camera_alt,
-                        color: Colors.grey.shade800,
-                        size: 32,
-                      )
-                    : Container(),
-              ],
-            ),
-            tooltip: widget.isVideoCameraSelected
-                ? widget.isVideoCameraSelected && widget.isRecordingInProgress
-                    ? AppLocalizations.of(context)!.stopVideo
-                    : AppLocalizations.of(context)!.startRecordingVideo
-                : AppLocalizations.of(context)!.takePicture,
-            iconSize: 80,
-          ),
-        ),
-        widget.flashWidget,
       ],
     );
   }

@@ -60,45 +60,42 @@ class _FlashModeControlRowWidgetState extends State<FlashModeControlRowWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return widget.isRearCameraSelected
-        ? AnimatedRotation(
-            duration: const Duration(milliseconds: 400),
-            turns: MediaQuery.of(context).orientation == Orientation.portrait
-                ? 0
-                : 0.25,
-            child: IconButton(
-              padding: EdgeInsets.zero,
-              onPressed: (() {
-                setState(() {
-                  _toggleFlashMode();
-                });
-              }),
-              disabledColor: Colors.white38,
-              color: Colors.white,
-              iconSize: 60,
-              icon: Stack(
-                alignment: Alignment.center,
-                children: [
-                  const Icon(
+    return AnimatedRotation(
+      duration: const Duration(milliseconds: 400),
+      turns:
+          MediaQuery.of(context).orientation == Orientation.portrait ? 0 : 0.25,
+      child: IconButton(
+        padding: EdgeInsets.zero,
+        onPressed: (() {
+          setState(() {
+            _toggleFlashMode();
+          });
+        }),
+        disabledColor: Colors.white38,
+        color: Colors.white,
+        iconSize: 60,
+        icon: Stack(
+          alignment: Alignment.center,
+          children: [
+            /*const Icon(
                     Icons.circle,
                     color: Colors.black38,
                     size: 60,
-                  ),
-                  Icon(
-                    _getFlashlightIcon(
-                        flashMode: widget.controller != null
-                            ? widget.controller!.value.isInitialized
-                                ? widget.controller!.value.flashMode
-                                : getFlashMode()
-                            : FlashMode.off),
-                    size: 30,
-                  ),
-                ],
-              ),
-              tooltip: AppLocalizations.of(context)!.flashlight,
+                  ),*/
+            Icon(
+              _getFlashlightIcon(
+                  flashMode: widget.controller != null
+                      ? widget.controller!.value.isInitialized
+                          ? widget.controller!.value.flashMode
+                          : getFlashMode()
+                      : FlashMode.off),
+              size: 30,
             ),
-          )
-        : const SizedBox(height: 60, width: 60);
+          ],
+        ),
+        tooltip: AppLocalizations.of(context)!.flashlight,
+      ),
+    );
   }
 }
 

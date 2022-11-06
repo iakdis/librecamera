@@ -202,6 +202,7 @@ class _CameraPageState extends State<CameraPage>
                     style: TextStyle(color: Colors.white)),
           ),*/
           _timerWidget(),
+          _topControlsWidget(),
           _topRightControlsWidget(context),
           _bottomControlsWidget(),
           _circleWidget(),
@@ -281,6 +282,47 @@ class _CameraPageState extends State<CameraPage>
     }
   }
 
+  Widget _topControlsWidget() {
+    return Positioned(
+      top: 0,
+      left: 0,
+      right:
+          MediaQuery.of(context).orientation == Orientation.portrait ? 0 : null,
+      bottom:
+          MediaQuery.of(context).orientation == Orientation.portrait ? null : 0,
+      child: RotatedBox(
+        quarterTurns:
+            MediaQuery.of(context).orientation == Orientation.portrait ? 0 : 3,
+        child: Container(
+          //padding: const EdgeInsets.fromLTRB(0, 4.0, 0, 4.0),
+          color: Colors.black12,
+          child:
+              //padding: const EdgeInsets.all(8.0),
+              Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              if (isRearCameraSelected)
+                FlashModeControlRowWidget(
+                  controller: controller,
+                  isRearCameraSelected: isRearCameraSelected,
+                ),
+              if (!isVideoCameraSelected && _timerStopwatch.elapsedTicks <= 1)
+                _timerDropdownWidget(),
+              if (controller?.value.isRecordingVideo == false &&
+                  _timerStopwatch.elapsedTicks <= 1)
+                _cameraSwitchWidget(),
+              //const SizedBox(width: 10.0),
+              //_thumbnailPreviewWidget(),
+              if (controller?.value.isRecordingVideo == false &&
+                  _timerStopwatch.elapsedTicks <= 1)
+                _settingsWidget(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _topRightControlsWidget(context) {
     return Positioned(
       top: 0,
@@ -296,122 +338,11 @@ class _CameraPageState extends State<CameraPage>
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              _timerStopwatch.elapsedTicks > 1
-                  ? Container()
-                  : AnimatedRotation(
-                      duration: const Duration(milliseconds: 400),
-                      turns: MediaQuery.of(context).orientation ==
-                              Orientation.portrait
-                          ? 0
-                          : 0.25,
-                      child: SettingsButton(
-                        controller: controller,
-                        onNewCameraSelected: onNewCameraSelected,
-                      ),
-                    ),
-              _timerStopwatch.elapsedTicks > 1
-                  ? Container()
-                  : AnimatedRotation(
-                      duration: const Duration(milliseconds: 400),
-                      turns: MediaQuery.of(context).orientation ==
-                              Orientation.portrait
-                          ? 0
-                          : 0.25,
-                      child: IconButton(
-                        color: Colors.white,
-                        onPressed: () {
-                          if (!isVideoCameraSelected) {
-                            setState(() {
-                              isVideoCameraSelected = true;
-                            });
-                          } else {
-                            controller?.value.isRecordingVideo ?? false
-                                ? null
-                                : setState(() {
-                                    isVideoCameraSelected = false;
-                                  });
-                          }
-                        },
-                        iconSize: 36,
-                        icon: isVideoCameraSelected
-                            ? const Icon(Icons.camera_alt)
-                            : const Icon(Icons.videocam),
-                        tooltip: isVideoCameraSelected
-                            ? AppLocalizations.of(context)!.switchToPictureMode
-                            : AppLocalizations.of(context)!
-                                .switchToVideoRecordingMode,
-                      ),
-                    ),
-              isVideoCameraSelected || _timerStopwatch.elapsedTicks > 1
-                  ? Container()
-                  : Column(
-                      children: [
-                        const SizedBox(height: 10.0),
-                        AnimatedRotation(
-                          duration: const Duration(milliseconds: 400),
-                          turns: MediaQuery.of(context).orientation ==
-                                  Orientation.portrait
-                              ? 0
-                              : 0.25,
-                          child: const TimerButton(),
-                        ),
-                      ],
-                    ),
-              const SizedBox(height: 10.0),
-              _timerStopwatch.elapsedTicks > 1
-                  ? Container()
-                  : AnimatedRotation(
-                      duration: const Duration(milliseconds: 400),
-                      turns: MediaQuery.of(context).orientation ==
-                              Orientation.portrait
-                          ? 0
-                          : 0.25,
-                      child: Tooltip(
-                        message: AppLocalizations.of(context)!
-                            .openCapturedPictureOrVideo,
-                        child: SizedBox(
-                          width: 42,
-                          height: 42,
-                          child: GestureDetector(
-                              onTap: () async {
-                                DeviceInfoPlugin deviceInfo =
-                                    DeviceInfoPlugin();
-                                AndroidDeviceInfo androidInfo =
-                                    await deviceInfo.androidInfo;
-                                int sdkInt = androidInfo.version.sdkInt ?? 27;
-
-                                final String mimeType;
-                                if (capturedFile!.path.split('.').last ==
-                                    'mp4') {
-                                  mimeType = 'video/mp4';
-                                } else {
-                                  switch (getCompressFormat()) {
-                                    case CompressFormat.jpeg:
-                                      mimeType = 'image/jpeg';
-                                      break;
-                                    case CompressFormat.png:
-                                      mimeType = 'image/png';
-                                      break;
-                                    case CompressFormat.webp:
-                                      mimeType = 'image/webp';
-                                      break;
-                                    default:
-                                      mimeType = 'image/jpeg';
-                                  }
-                                }
-
-                                final methodChannel = AndroidMethodChannel();
-                                await methodChannel.openItem(
-                                  file: capturedFile!,
-                                  mimeType: mimeType,
-                                  openInGallery: sdkInt > 27 ? false : true,
-                                );
-                              },
-                              child: _thumbnailWidget()),
-                        ),
-                      ),
-                    ),
-              const SizedBox(height: 14.0),
+              //_settingsWidget(),
+              //_cameraSwitchWidget(),
+              //const SizedBox(height: 10.0),
+              //_thumbnailPreviewWidget(),
+              const SizedBox(height: 64.0),
               Preferences.getEnableZoomSlider()
                   ? RotatedBox(
                       quarterTurns: MediaQuery.of(context).orientation ==
@@ -425,6 +356,135 @@ class _CameraPageState extends State<CameraPage>
         ),
       ),
     );
+  }
+
+  Widget _settingsWidget() {
+    return _timerStopwatch.elapsedTicks > 1
+        ? Container()
+        : AnimatedRotation(
+            duration: const Duration(milliseconds: 400),
+            turns: MediaQuery.of(context).orientation == Orientation.portrait
+                ? 0
+                : 0.25,
+            child: SettingsButton(
+              controller: controller,
+              onNewCameraSelected: onNewCameraSelected,
+            ),
+          );
+  }
+
+  Widget _cameraSwitchWidget() {
+    return AnimatedRotation(
+      duration: const Duration(milliseconds: 400),
+      turns:
+          MediaQuery.of(context).orientation == Orientation.portrait ? 0 : 0.25,
+      child: IconButton(
+        color: Colors.white,
+        onPressed: () {
+          if (!isVideoCameraSelected) {
+            setState(() {
+              isVideoCameraSelected = true;
+            });
+          } else {
+            controller?.value.isRecordingVideo ?? false
+                ? null
+                : setState(() {
+                    isVideoCameraSelected = false;
+                  });
+          }
+        },
+        iconSize: 36,
+        icon: isVideoCameraSelected
+            ? const Icon(Icons.camera_alt)
+            : const Icon(Icons.videocam),
+        tooltip: isVideoCameraSelected
+            ? AppLocalizations.of(context)!.switchToPictureMode
+            : AppLocalizations.of(context)!.switchToVideoRecordingMode,
+      ),
+    );
+  }
+
+  Widget _timerDropdownWidget() {
+    return Column(
+      children: [
+        const SizedBox(height: 10.0),
+        AnimatedRotation(
+          duration: const Duration(milliseconds: 400),
+          turns: MediaQuery.of(context).orientation == Orientation.portrait
+              ? 0
+              : 0.25,
+          child: const TimerButton(),
+        ),
+      ],
+    );
+
+    /*return isVideoCameraSelected || _timerStopwatch.elapsedTicks > 1
+        ? Container()
+        : Column(
+            children: [
+              const SizedBox(height: 10.0),
+              AnimatedRotation(
+                duration: const Duration(milliseconds: 400),
+                turns:
+                    MediaQuery.of(context).orientation == Orientation.portrait
+                        ? 0
+                        : 0.25,
+                child: const TimerButton(),
+              ),
+            ],
+          );*/
+  }
+
+  Widget _thumbnailPreviewWidget() {
+    return _timerStopwatch.elapsedTicks > 1
+        ? const SizedBox(height: 50, width: 50)
+        : AnimatedRotation(
+            duration: const Duration(milliseconds: 400),
+            turns: MediaQuery.of(context).orientation == Orientation.portrait
+                ? 0
+                : 0.25,
+            child: Tooltip(
+              message: AppLocalizations.of(context)!.openCapturedPictureOrVideo,
+              child: SizedBox(
+                width: 42,
+                height: 42,
+                child: GestureDetector(
+                    onTap: () async {
+                      DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+                      AndroidDeviceInfo androidInfo =
+                          await deviceInfo.androidInfo;
+                      int sdkInt = androidInfo.version.sdkInt ?? 27;
+
+                      final String mimeType;
+                      if (capturedFile!.path.split('.').last == 'mp4') {
+                        mimeType = 'video/mp4';
+                      } else {
+                        switch (getCompressFormat()) {
+                          case CompressFormat.jpeg:
+                            mimeType = 'image/jpeg';
+                            break;
+                          case CompressFormat.png:
+                            mimeType = 'image/png';
+                            break;
+                          case CompressFormat.webp:
+                            mimeType = 'image/webp';
+                            break;
+                          default:
+                            mimeType = 'image/jpeg';
+                        }
+                      }
+
+                      final methodChannel = AndroidMethodChannel();
+                      await methodChannel.openItem(
+                        file: capturedFile!,
+                        mimeType: mimeType,
+                        openInGallery: sdkInt > 27 ? false : true,
+                      );
+                    },
+                    child: _thumbnailWidget()),
+              ),
+            ),
+          );
   }
 
   Widget _bottomControlsWidget() {
@@ -511,10 +571,11 @@ class _CameraPageState extends State<CameraPage>
                 isVideoCameraSelected: isVideoCameraSelected,
                 isRecordingInProgress:
                     controller?.value.isRecordingVideo ?? false,
-                flashWidget: FlashModeControlRowWidget(
+                /*flashWidget: FlashModeControlRowWidget(
                   controller: controller,
                   isRearCameraSelected: isRearCameraSelected,
-                ),
+                ),*/
+                leadingWidget: _thumbnailPreviewWidget(),
                 isRearCameraSelected: getIsRearCameraSelected(),
                 setIsRearCameraSelected: setIsRearCameraSelected,
               ),
