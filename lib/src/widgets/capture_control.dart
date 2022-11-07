@@ -77,16 +77,10 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
           child: IconButton(
             padding: EdgeInsets.zero,
             onPressed: widget.isVideoCameraSelected
-                ? () {
-                    if (widget.isRecordingInProgress) {
-                      widget.onStopButtonPressed();
-                    } else {
-                      widget.onVideoRecordButtonPressed();
-                    }
-                  }
-                : () {
-                    widget.onTakePictureButtonPressed();
-                  },
+                ? () => widget.isRecordingInProgress
+                    ? widget.onStopButtonPressed()
+                    : widget.onVideoRecordButtonPressed()
+                : () => widget.onTakePictureButtonPressed(),
             icon: Stack(
               alignment: Alignment.center,
               children: [
@@ -105,24 +99,19 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
                   //size: 65,
                   size: 65,
                 ),
-                widget.isVideoCameraSelected && widget.isRecordingInProgress
-                    ? const Icon(
-                        Icons.stop_rounded,
-                        color: Colors.white,
-                        size: 32,
-                      )
-                    : const Icon(
-                        Icons.videocam,
-                        color: Colors.white,
-                        size: 32,
-                      ),
-                !widget.isVideoCameraSelected
-                    ? Icon(
-                        Icons.camera_alt,
-                        color: Colors.grey.shade800,
-                        size: 32,
-                      )
-                    : Container(),
+                Icon(
+                  widget.isVideoCameraSelected && widget.isRecordingInProgress
+                      ? Icons.stop_rounded
+                      : Icons.videocam,
+                  color: Colors.white,
+                  size: 32,
+                ),
+                if (!widget.isVideoCameraSelected)
+                  Icon(
+                    Icons.camera_alt,
+                    color: Colors.grey.shade800,
+                    size: 32,
+                  )
               ],
             ),
             tooltip: widget.isVideoCameraSelected
@@ -141,13 +130,9 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
           child: IconButton(
             padding: EdgeInsets.zero,
             onPressed: widget.isRecordingInProgress
-                ? () {
-                    if (cameraController!.value.isRecordingPaused) {
-                      widget.onResumeButtonPressed();
-                    } else {
-                      widget.onPauseButtonPressed();
-                    }
-                  }
+                ? () => cameraController!.value.isRecordingPaused
+                    ? widget.onResumeButtonPressed()
+                    : widget.onPauseButtonPressed()
                 : () {
                     widget.onNewCameraSelected(
                         cameras[widget.isRearCameraSelected ? 1 : 0]);
