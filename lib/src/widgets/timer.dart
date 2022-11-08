@@ -30,6 +30,33 @@ class _TimerButtonState extends State<TimerButton> {
       icon: const Icon(Icons.av_timer),
       iconEnabledColor: Colors.blue,
       value: Duration(seconds: Preferences.getTimerDuration()),
+      selectedItemBuilder: (context) {
+        return durations.map(
+          (duration) {
+            final name = duration.inSeconds < 60
+                ? '${duration.inSeconds}s'
+                : '${duration.inMinutes}m';
+
+            return DropdownMenuItem(
+              child: Text(
+                name,
+                style: TextStyle(
+                    color: widget.enabled ? Colors.white : Colors.white24),
+              ),
+            );
+          },
+        ).toList()
+          ..insert(
+            0,
+            DropdownMenuItem<Duration>(
+              child: Text(
+                '––',
+                style: TextStyle(
+                    color: widget.enabled ? Colors.white : Colors.white24),
+              ),
+            ),
+          );
+      },
       items: durations.map(
         (duration) {
           final name = duration.inSeconds < 60
