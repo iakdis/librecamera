@@ -41,7 +41,7 @@ class _CameraPageState extends State<CameraPage>
   //Controllers
   File? capturedFile;
   CameraController? controller;
-  Uint8List? thumbnailUint8list;
+  Uint8List? videoThumbnailUint8list;
 
   //Zoom
   double _minAvailableZoom = 1.0;
@@ -359,18 +359,15 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Widget _settingsWidget() {
-    return _timerStopwatch.elapsedTicks > 1
-        ? Container()
-        : AnimatedRotation(
-            duration: const Duration(milliseconds: 400),
-            turns: MediaQuery.of(context).orientation == Orientation.portrait
-                ? 0
-                : 0.25,
-            child: SettingsButton(
-              controller: controller,
-              onNewCameraSelected: onNewCameraSelected,
-            ),
-          );
+    return AnimatedRotation(
+      duration: const Duration(milliseconds: 400),
+      turns:
+          MediaQuery.of(context).orientation == Orientation.portrait ? 0 : 0.25,
+      child: SettingsButton(
+        controller: controller,
+        onNewCameraSelected: onNewCameraSelected,
+      ),
+    );
   }
 
   Widget _cameraSwitchWidget() {
@@ -436,7 +433,8 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Widget _thumbnailPreviewWidget() {
-    return _timerStopwatch.elapsedTicks > 1
+    return _timerStopwatch.elapsedTicks > 1 ||
+            controller?.value.isRecordingVideo == true
         ? const SizedBox(height: 50, width: 50)
         : AnimatedRotation(
             duration: const Duration(milliseconds: 400),
@@ -449,39 +447,40 @@ class _CameraPageState extends State<CameraPage>
                 width: 42,
                 height: 42,
                 child: GestureDetector(
-                    onTap: () async {
-                      DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-                      AndroidDeviceInfo androidInfo =
-                          await deviceInfo.androidInfo;
-                      int sdkInt = androidInfo.version.sdkInt ?? 27;
+                  onTap: () async {
+                    DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+                    AndroidDeviceInfo androidInfo =
+                        await deviceInfo.androidInfo;
+                    int sdkInt = androidInfo.version.sdkInt;
 
-                      final String mimeType;
-                      if (capturedFile!.path.split('.').last == 'mp4') {
-                        mimeType = 'video/mp4';
-                      } else {
-                        switch (getCompressFormat()) {
-                          case CompressFormat.jpeg:
-                            mimeType = 'image/jpeg';
-                            break;
-                          case CompressFormat.png:
-                            mimeType = 'image/png';
-                            break;
-                          case CompressFormat.webp:
-                            mimeType = 'image/webp';
-                            break;
-                          default:
-                            mimeType = 'image/jpeg';
-                        }
+                    final String mimeType;
+                    if (capturedFile!.path.split('.').last == 'mp4') {
+                      mimeType = 'video/mp4';
+                    } else {
+                      switch (getCompressFormat()) {
+                        case CompressFormat.jpeg:
+                          mimeType = 'image/jpeg';
+                          break;
+                        case CompressFormat.png:
+                          mimeType = 'image/png';
+                          break;
+                        case CompressFormat.webp:
+                          mimeType = 'image/webp';
+                          break;
+                        default:
+                          mimeType = 'image/jpeg';
                       }
+                    }
 
-                      final methodChannel = AndroidMethodChannel();
-                      await methodChannel.openItem(
-                        file: capturedFile!,
-                        mimeType: mimeType,
-                        openInGallery: sdkInt > 27 ? false : true,
-                      );
-                    },
-                    child: _thumbnailWidget()),
+                    final methodChannel = AndroidMethodChannel();
+                    await methodChannel.openItem(
+                      file: capturedFile!,
+                      mimeType: mimeType,
+                      openInGallery: sdkInt > 27 ? false : true,
+                    );
+                  },
+                  child: _thumbnailWidget(),
+                ),
               ),
             ),
           );
@@ -690,7 +689,7 @@ class _CameraPageState extends State<CameraPage>
     takePicture().then((XFile? file) {
       if (mounted) {
         setState(() {
-          thumbnailUint8list = null;
+          videoThumbnailUint8list = null;
         });
       }
     });
@@ -726,8 +725,6 @@ class _CameraPageState extends State<CameraPage>
 
         print('Video recorded to $path');
         await _refreshGalleryImages();
-
-        _showVideoPlayer();
       }
     });
   }
@@ -1082,15 +1079,10 @@ class _CameraPageState extends State<CameraPage>
 
   //Thumbnail
   Widget _thumbnailWidget() {
-    final videoThumbnail = thumbnailUint8list;
-
-    if (videoThumbnail == null && capturedFile == null) {
-      return const Center(
-        //child: CircularProgressIndicator(),
-        child: null,
-      );
+    if (videoThumbnailUint8list == null && capturedFile == null) {
+      return const Center(child: null); //child: CircularProgressIndicator(),
     } else {
-      if (videoThumbnail == null) {
+      if (videoThumbnailUint8list == null) {
         return Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(7.0),
@@ -1113,17 +1105,18 @@ class _CameraPageState extends State<CameraPage>
                   child: FittedBox(
                     fit: BoxFit.cover,
                     child: SizedBox(
-                        width: 42,
-                        height: 42,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(7.0),
-                            image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: MemoryImage(thumbnailUint8list!),
-                            ),
+                      width: 42,
+                      height: 42,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(7.0),
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: MemoryImage(videoThumbnailUint8list!),
                           ),
-                        )),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -1186,7 +1179,7 @@ class _CameraPageState extends State<CameraPage>
       capturedFile = File('${directory.path}/$recentFileName');
 
       if (recentFileName.contains('.mp4')) {
-        _showVideoPlayer();
+        await _showVideoPlayer();
       }
     }
   }
@@ -1196,11 +1189,12 @@ class _CameraPageState extends State<CameraPage>
       return;
     }
 
-    thumbnailUint8list = await video_thumbnail.VideoThumbnail.thumbnailData(
-      video: capturedFile?.path ?? '',
+    videoThumbnailUint8list =
+        await video_thumbnail.VideoThumbnail.thumbnailData(
+      video: 'file://${capturedFile?.path}',
       imageFormat: video_thumbnail.ImageFormat.JPEG,
       maxWidth: 100,
-      quality: 25,
+      quality: 20,
     );
 
     setState(() {});
