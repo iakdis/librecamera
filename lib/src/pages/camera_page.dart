@@ -421,8 +421,8 @@ class _CameraPageState extends State<CameraPage>
             child: Tooltip(
               message: AppLocalizations.of(context)!.openCapturedPictureOrVideo,
               child: SizedBox(
-                width: 42,
-                height: 42,
+                width: 56,
+                height: 56,
                 child: GestureDetector(
                   onTap: () async {
                     DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
