@@ -294,28 +294,32 @@ class _CameraPageState extends State<CameraPage>
         quarterTurns:
             MediaQuery.of(context).orientation == Orientation.portrait ? 0 : 3,
         child: Container(
-          //padding: const EdgeInsets.fromLTRB(0, 4.0, 0, 4.0),
           color: Colors.black12,
-          child:
-              //padding: const EdgeInsets.all(8.0),
-              Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              if (isRearCameraSelected)
-                FlashModeControlRowWidget(
-                  controller: controller,
-                  isRearCameraSelected: isRearCameraSelected,
-                ),
-              if (!isVideoCameraSelected && _timerStopwatch.elapsedTicks <= 1)
-                _timerDropdownWidget(),
-              if (controller?.value.isRecordingVideo == false &&
-                  _timerStopwatch.elapsedTicks <= 1)
-                _cameraSwitchWidget(),
-              //const SizedBox(width: 10.0),
-              //_thumbnailPreviewWidget(),
-              if (controller?.value.isRecordingVideo == false &&
-                  _timerStopwatch.elapsedTicks <= 1)
-                _settingsWidget(),
+              _cameraSwitchWidget(
+                enabled: controller?.value.isRecordingVideo == false &&
+                    _timerStopwatch.elapsedTicks <= 1,
+              ),
+              TimerButton(
+                  enabled: !isVideoCameraSelected &&
+                      _timerStopwatch.elapsedTicks <= 1),
+              FlashModeWidget(
+                controller: controller,
+                isRearCameraSelected: isRearCameraSelected,
+              ),
+              ResolutionButton(
+                isDense: true,
+                onNewCameraSelected: onNewCameraSelected,
+                isRearCameraSelected: isRearCameraSelected,
+                enabled: controller?.value.isRecordingVideo == false &&
+                    _timerStopwatch.elapsedTicks <= 1,
+              ),
+              _settingsWidget(
+                enabled: controller?.value.isRecordingVideo == false &&
+                    _timerStopwatch.elapsedTicks <= 1,
+              ),
             ],
           ),
         ),
@@ -358,38 +362,29 @@ class _CameraPageState extends State<CameraPage>
     );
   }
 
-  Widget _settingsWidget() {
-    return AnimatedRotation(
-      duration: const Duration(milliseconds: 400),
-      turns:
-          MediaQuery.of(context).orientation == Orientation.portrait ? 0 : 0.25,
-      child: SettingsButton(
-        controller: controller,
-        onNewCameraSelected: onNewCameraSelected,
-      ),
-    );
-  }
-
-  Widget _cameraSwitchWidget() {
+  Widget _cameraSwitchWidget({required bool enabled}) {
     return AnimatedRotation(
       duration: const Duration(milliseconds: 400),
       turns:
           MediaQuery.of(context).orientation == Orientation.portrait ? 0 : 0.25,
       child: IconButton(
         color: Colors.white,
-        onPressed: () {
-          if (!isVideoCameraSelected) {
-            setState(() {
-              isVideoCameraSelected = true;
-            });
-          } else {
-            controller?.value.isRecordingVideo ?? false
-                ? null
-                : setState(() {
-                    isVideoCameraSelected = false;
+        disabledColor: Colors.white24,
+        onPressed: enabled
+            ? () {
+                if (!isVideoCameraSelected) {
+                  setState(() {
+                    isVideoCameraSelected = true;
                   });
-          }
-        },
+                } else {
+                  controller?.value.isRecordingVideo ?? false
+                      ? null
+                      : setState(() {
+                          isVideoCameraSelected = false;
+                        });
+                }
+              }
+            : null,
         iconSize: 36,
         icon: isVideoCameraSelected
             ? const Icon(Icons.camera_alt)
@@ -401,35 +396,17 @@ class _CameraPageState extends State<CameraPage>
     );
   }
 
-  Widget _timerDropdownWidget() {
-    return Column(
-      children: [
-        const SizedBox(height: 10.0),
-        AnimatedRotation(
-          duration: const Duration(milliseconds: 400),
-          turns: MediaQuery.of(context).orientation == Orientation.portrait
-              ? 0
-              : 0.25,
-          child: const TimerButton(),
-        ),
-      ],
+  Widget _settingsWidget({required bool enabled}) {
+    return AnimatedRotation(
+      duration: const Duration(milliseconds: 400),
+      turns:
+          MediaQuery.of(context).orientation == Orientation.portrait ? 0 : 0.25,
+      child: SettingsButton(
+        enabled: enabled,
+        controller: controller,
+        onNewCameraSelected: onNewCameraSelected,
+      ),
     );
-
-    /*return isVideoCameraSelected || _timerStopwatch.elapsedTicks > 1
-        ? Container()
-        : Column(
-            children: [
-              const SizedBox(height: 10.0),
-              AnimatedRotation(
-                duration: const Duration(milliseconds: 400),
-                turns:
-                    MediaQuery.of(context).orientation == Orientation.portrait
-                        ? 0
-                        : 0.25,
-                child: const TimerButton(),
-              ),
-            ],
-          );*/
   }
 
   Widget _thumbnailPreviewWidget() {
