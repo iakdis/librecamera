@@ -412,7 +412,7 @@ class _CameraPageState extends State<CameraPage>
   Widget _thumbnailPreviewWidget() {
     return _timerStopwatch.elapsedTicks > 1 ||
             controller?.value.isRecordingVideo == true
-        ? const SizedBox(height: 50, width: 50)
+        ? const SizedBox(height: 60, width: 60)
         : AnimatedRotation(
             duration: const Duration(milliseconds: 400),
             turns: MediaQuery.of(context).orientation == Orientation.portrait
@@ -420,43 +420,46 @@ class _CameraPageState extends State<CameraPage>
                 : 0.25,
             child: Tooltip(
               message: AppLocalizations.of(context)!.openCapturedPictureOrVideo,
-              child: SizedBox(
-                width: 60,
-                height: 60,
-                child: GestureDetector(
-                  onTap: () async {
-                    DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-                    AndroidDeviceInfo androidInfo =
-                        await deviceInfo.androidInfo;
-                    int sdkInt = androidInfo.version.sdkInt;
+              child: Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: SizedBox(
+                  width: 52,
+                  height: 52,
+                  child: GestureDetector(
+                    onTap: () async {
+                      DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+                      AndroidDeviceInfo androidInfo =
+                          await deviceInfo.androidInfo;
+                      int sdkInt = androidInfo.version.sdkInt;
 
-                    final String mimeType;
-                    if (capturedFile!.path.split('.').last == 'mp4') {
-                      mimeType = 'video/mp4';
-                    } else {
-                      switch (getCompressFormat()) {
-                        case CompressFormat.jpeg:
-                          mimeType = 'image/jpeg';
-                          break;
-                        case CompressFormat.png:
-                          mimeType = 'image/png';
-                          break;
-                        case CompressFormat.webp:
-                          mimeType = 'image/webp';
-                          break;
-                        default:
-                          mimeType = 'image/jpeg';
+                      final String mimeType;
+                      if (capturedFile!.path.split('.').last == 'mp4') {
+                        mimeType = 'video/mp4';
+                      } else {
+                        switch (getCompressFormat()) {
+                          case CompressFormat.jpeg:
+                            mimeType = 'image/jpeg';
+                            break;
+                          case CompressFormat.png:
+                            mimeType = 'image/png';
+                            break;
+                          case CompressFormat.webp:
+                            mimeType = 'image/webp';
+                            break;
+                          default:
+                            mimeType = 'image/jpeg';
+                        }
                       }
-                    }
 
-                    final methodChannel = AndroidMethodChannel();
-                    await methodChannel.openItem(
-                      file: capturedFile!,
-                      mimeType: mimeType,
-                      openInGallery: sdkInt > 27 ? false : true,
-                    );
-                  },
-                  child: _thumbnailWidget(),
+                      final methodChannel = AndroidMethodChannel();
+                      await methodChannel.openItem(
+                        file: capturedFile!,
+                        mimeType: mimeType,
+                        openInGallery: sdkInt > 27 ? false : true,
+                      );
+                    },
+                    child: _thumbnailWidget(),
+                  ),
                 ),
               ),
             ),
