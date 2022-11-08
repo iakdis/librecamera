@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:librecamera/src/utils/preferences.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class FlashModeControlRowWidget extends StatefulWidget {
-  const FlashModeControlRowWidget({
+class FlashModeWidget extends StatefulWidget {
+  const FlashModeWidget({
     Key? key,
     required this.controller,
     required this.isRearCameraSelected,
@@ -14,11 +14,10 @@ class FlashModeControlRowWidget extends StatefulWidget {
   final bool isRearCameraSelected;
 
   @override
-  State<FlashModeControlRowWidget> createState() =>
-      _FlashModeControlRowWidgetState();
+  State<FlashModeWidget> createState() => _FlashModeWidgetState();
 }
 
-class _FlashModeControlRowWidgetState extends State<FlashModeControlRowWidget> {
+class _FlashModeWidgetState extends State<FlashModeWidget> {
   void _toggleFlashMode() {
     if (widget.controller != null) {
       if (widget.controller?.value.flashMode == FlashMode.off) {
@@ -66,12 +65,14 @@ class _FlashModeControlRowWidgetState extends State<FlashModeControlRowWidget> {
           MediaQuery.of(context).orientation == Orientation.portrait ? 0 : 0.25,
       child: IconButton(
         padding: EdgeInsets.zero,
-        onPressed: (() {
-          setState(() {
-            _toggleFlashMode();
-          });
-        }),
-        disabledColor: Colors.white38,
+        onPressed: widget.isRearCameraSelected
+            ? (() {
+                setState(() {
+                  _toggleFlashMode();
+                });
+              })
+            : null,
+        disabledColor: Colors.white24,
         color: Colors.white,
         iconSize: 60,
         icon: Stack(

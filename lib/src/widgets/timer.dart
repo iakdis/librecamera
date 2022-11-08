@@ -3,7 +3,12 @@ import 'package:librecamera/src/utils/preferences.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TimerButton extends StatefulWidget {
-  const TimerButton({Key? key}) : super(key: key);
+  const TimerButton({
+    Key? key,
+    required this.enabled,
+  }) : super(key: key);
+
+  final bool enabled;
 
   @override
   State<TimerButton> createState() => _TimerButtonState();
@@ -28,7 +33,7 @@ class _TimerButtonState extends State<TimerButton> {
     return DropdownButton(
       menuMaxHeight: 384.0,
       icon: const Icon(Icons.av_timer),
-      iconEnabledColor: Colors.blue,
+      iconEnabledColor: Colors.white,
       value: Duration(seconds: Preferences.getTimerDuration()),
       selectedItemBuilder: (context) {
         return durations.map(
@@ -86,16 +91,14 @@ class _TimerButtonState extends State<TimerButton> {
                 Preferences.setTimerDuration(0);
               });
             },
-            child: Padding(
-              padding: const EdgeInsets.only(right: 8.0),
-              child: Text(
-                AppLocalizations.of(context)!.off,
-                style: const TextStyle(color: Colors.blue),
-              ),
+            child: Text(
+              AppLocalizations.of(context)!.off,
+              style: const TextStyle(color: Colors.blue),
             ),
           ),
         ),
-      onChanged: (_) {},
+      onChanged: widget.enabled ? (_) {} : null,
+      iconDisabledColor: Colors.white24,
     );
   }
 }

@@ -17,26 +17,31 @@ import 'package:url_launcher/url_launcher.dart';
 class SettingsButton extends StatelessWidget {
   const SettingsButton({
     Key? key,
+    required this.enabled,
     required this.controller,
     required this.onNewCameraSelected,
   }) : super(key: key);
 
+  final bool enabled;
   final CameraController? controller;
   final Function(CameraDescription) onNewCameraSelected;
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: () async {
-        await Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => SettingsPage(
-              controller: controller,
-              onNewCameraSelected: onNewCameraSelected,
-            ),
-          ),
-        );
-      },
+      disabledColor: Colors.white24,
+      onPressed: enabled
+          ? () async {
+              await Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => SettingsPage(
+                    controller: controller,
+                    onNewCameraSelected: onNewCameraSelected,
+                  ),
+                ),
+              );
+            }
+          : null,
       icon: const Icon(Icons.settings),
       tooltip: AppLocalizations.of(context)!.settings,
       iconSize: 35,
@@ -446,7 +451,7 @@ class _SettingsPageState extends State<SettingsPage> {
     return ListTile(
       title: Text(AppLocalizations.of(context)!.resolution),
       subtitle: Text(AppLocalizations.of(context)!.resolution_description),
-      trailing: const ResolutionButton(),
+      trailing: const ResolutionButton(enabled: true),
     );
   }
 
