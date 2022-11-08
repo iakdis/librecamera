@@ -26,7 +26,7 @@
 
 <p align="center">
   <a href="https://github.com/iakmds/librecamera">
-    <img src="https://github.com/iakmds/librecamera/blob/master/.github/icon/icon.png" alt="Libre Camera app icon" height="128">
+    <img src="https://github.com/iakmds/librecamera/blob/master/fastlane/metadata/android/en-US/images/icon.png" alt="Libre Camera app icon" height="128">
   </a>
 </p>
 
@@ -61,10 +61,10 @@
 
 # Screenshots
 <p float="left">
-  <img src="https://github.com/iakmds/librecamera/blob/master/.github/screenshots/screenshot01.png" alt="Screenshot 1" height="420">
-  <img src="https://github.com/iakmds/librecamera/blob/master/.github/screenshots/screenshot02.png" alt="Screenshot 2" height="420">
-  <img src="https://github.com/iakmds/librecamera/blob/master/.github/screenshots/screenshot03.png" alt="Screenshot 3" height="420">
-  <img src="https://github.com/iakmds/librecamera/blob/master/.github/screenshots/screenshot04.png" alt="Screenshot 4" height="420">
+  <img src="https://github.com/iakmds/librecamera/blob/master/fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" alt="Screenshot 1" height="420">
+  <img src="https://github.com/iakmds/librecamera/blob/master/fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" alt="Screenshot 2" height="420">
+  <img src="https://github.com/iakmds/librecamera/blob/master/fastlane/metadata/android/en-US/images/phoneScreenshots/3.png" alt="Screenshot 3" height="420">
+  <img src="https://github.com/iakmds/librecamera/blob/master/fastlane/metadata/android/en-US/images/phoneScreenshots/4.png" alt="Screenshot 4" height="420">
 </p>
 
 # Download
