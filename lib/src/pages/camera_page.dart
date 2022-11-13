@@ -329,10 +329,13 @@ class _CameraPageState extends State<CameraPage>
 
   Widget _topRightControlsWidget(context) {
     return Positioned(
-      top: 0,
+      top:
+          MediaQuery.of(context).orientation == Orientation.portrait ? 0 : null,
       right:
           MediaQuery.of(context).orientation == Orientation.portrait ? 0 : null,
       left:
+          MediaQuery.of(context).orientation == Orientation.portrait ? null : 0,
+      bottom:
           MediaQuery.of(context).orientation == Orientation.portrait ? null : 0,
       child: RotatedBox(
         quarterTurns:
