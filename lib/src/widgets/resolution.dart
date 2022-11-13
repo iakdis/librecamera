@@ -56,7 +56,7 @@ class _ResolutionButtonState extends State<ResolutionButton> {
               color: widget.enabled
                   ? widget.isDense
                       ? Colors.white
-                      : Colors.blue
+                      : null
                   : Colors.white24)),
       value: getResolution(),
       isDense: widget.isDense ? true : false,
@@ -95,48 +95,54 @@ class _ResolutionButtonState extends State<ResolutionButton> {
           value: ResolutionPreset.low,
           child: Text(
             texts[0],
-            style: const TextStyle(
-                color: Colors.blue, fontWeight: FontWeight.w500),
+            style: TextStyle(
+                color: widget.isDense ? Colors.blue : null,
+                fontWeight: widget.isDense ? FontWeight.w500 : null),
           ),
         ),
         DropdownMenuItem<ResolutionPreset>(
           value: ResolutionPreset.medium,
           child: Text(
             texts[1],
-            style: const TextStyle(
-                color: Colors.blue, fontWeight: FontWeight.w500),
+            style: TextStyle(
+                color: widget.isDense ? Colors.blue : null,
+                fontWeight: widget.isDense ? FontWeight.w500 : null),
           ),
         ),
         DropdownMenuItem<ResolutionPreset>(
           value: ResolutionPreset.high,
           child: Text(
             texts[2],
-            style: const TextStyle(
-                color: Colors.blue, fontWeight: FontWeight.w500),
+            style: TextStyle(
+                color: widget.isDense ? Colors.blue : null,
+                fontWeight: widget.isDense ? FontWeight.w500 : null),
           ),
         ),
         DropdownMenuItem<ResolutionPreset>(
           value: ResolutionPreset.veryHigh,
           child: Text(
             texts[3],
-            style: const TextStyle(
-                color: Colors.blue, fontWeight: FontWeight.w500),
+            style: TextStyle(
+                color: widget.isDense ? Colors.blue : null,
+                fontWeight: widget.isDense ? FontWeight.w500 : null),
           ),
         ),
         DropdownMenuItem<ResolutionPreset>(
           value: ResolutionPreset.ultraHigh,
           child: Text(
             texts[4],
-            style: const TextStyle(
-                color: Colors.blue, fontWeight: FontWeight.w500),
+            style: TextStyle(
+                color: widget.isDense ? Colors.blue : null,
+                fontWeight: widget.isDense ? FontWeight.w500 : null),
           ),
         ),
         DropdownMenuItem<ResolutionPreset>(
           value: ResolutionPreset.max,
           child: Text(
             texts[5],
-            style: const TextStyle(
-                color: Colors.blue, fontWeight: FontWeight.w500),
+            style: TextStyle(
+                color: widget.isDense ? Colors.blue : null,
+                fontWeight: widget.isDense ? FontWeight.w500 : null),
           ),
         ),
       ],

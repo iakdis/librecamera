@@ -13,29 +13,23 @@ class _FormatButtonState extends State<FormatButton> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton(
-      iconEnabledColor: Colors.blue,
+      icon: const Padding(
+        padding: EdgeInsets.only(left: 4.0),
+        child: Icon(Icons.image),
+      ),
       value: getCompressFormat(),
       items: const [
         DropdownMenuItem<CompressFormat>(
           value: CompressFormat.jpeg,
-          child: Text(
-            'JPEG/JPG',
-            style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w500),
-          ),
+          child: Text('JPEG/JPG'),
         ),
         DropdownMenuItem<CompressFormat>(
           value: CompressFormat.png,
-          child: Text(
-            'PNG',
-            style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w500),
-          ),
+          child: Text('PNG'),
         ),
         DropdownMenuItem<CompressFormat>(
           value: CompressFormat.webp,
-          child: Text(
-            'WebP',
-            style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w500),
-          ),
+          child: Text('WebP'),
         ),
       ],
       onChanged: (format) {
