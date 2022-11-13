@@ -30,23 +30,56 @@ class _TimerButtonState extends State<TimerButton> {
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButton(
-      menuMaxHeight: 384.0,
-      icon: const Icon(Icons.av_timer),
-      iconEnabledColor: Colors.white,
-      value: Duration(seconds: Preferences.getTimerDuration()),
-      selectedItemBuilder: (context) {
-        return durations.map(
+    return Tooltip(
+      message: AppLocalizations.of(context)!.timer,
+      child: DropdownButton(
+        menuMaxHeight: 384.0,
+        icon: const Icon(Icons.av_timer),
+        iconEnabledColor: Colors.white,
+        value: Duration(seconds: Preferences.getTimerDuration()),
+        selectedItemBuilder: (context) {
+          return durations.map(
+            (duration) {
+              final name = duration.inSeconds < 60
+                  ? '${duration.inSeconds}s'
+                  : '${duration.inMinutes}m';
+
+              return DropdownMenuItem(
+                child: Text(
+                  name,
+                  style: TextStyle(
+                      color: widget.enabled ? Colors.white : Colors.white24),
+                ),
+              );
+            },
+          ).toList()
+            ..insert(
+              0,
+              DropdownMenuItem<Duration>(
+                child: Text(
+                  '––',
+                  style: TextStyle(
+                      color: widget.enabled ? Colors.white : Colors.white24),
+                ),
+              ),
+            );
+        },
+        items: durations.map(
           (duration) {
             final name = duration.inSeconds < 60
                 ? '${duration.inSeconds}s'
                 : '${duration.inMinutes}m';
 
             return DropdownMenuItem(
+              value: duration,
+              onTap: () {
+                setState(() {
+                  Preferences.setTimerDuration(duration.inSeconds);
+                });
+              },
               child: Text(
                 name,
-                style: TextStyle(
-                    color: widget.enabled ? Colors.white : Colors.white24),
+                style: const TextStyle(color: Colors.blue),
               ),
             );
           },
@@ -54,51 +87,21 @@ class _TimerButtonState extends State<TimerButton> {
           ..insert(
             0,
             DropdownMenuItem<Duration>(
+              value: const Duration(),
+              onTap: () {
+                setState(() {
+                  Preferences.setTimerDuration(0);
+                });
+              },
               child: Text(
-                '––',
-                style: TextStyle(
-                    color: widget.enabled ? Colors.white : Colors.white24),
+                AppLocalizations.of(context)!.off,
+                style: const TextStyle(color: Colors.blue),
               ),
             ),
-          );
-      },
-      items: durations.map(
-        (duration) {
-          final name = duration.inSeconds < 60
-              ? '${duration.inSeconds}s'
-              : '${duration.inMinutes}m';
-
-          return DropdownMenuItem(
-            value: duration,
-            onTap: () {
-              setState(() {
-                Preferences.setTimerDuration(duration.inSeconds);
-              });
-            },
-            child: Text(
-              name,
-              style: const TextStyle(color: Colors.blue),
-            ),
-          );
-        },
-      ).toList()
-        ..insert(
-          0,
-          DropdownMenuItem<Duration>(
-            value: const Duration(),
-            onTap: () {
-              setState(() {
-                Preferences.setTimerDuration(0);
-              });
-            },
-            child: Text(
-              AppLocalizations.of(context)!.off,
-              style: const TextStyle(color: Colors.blue),
-            ),
           ),
-        ),
-      onChanged: widget.enabled ? (_) {} : null,
-      iconDisabledColor: Colors.white24,
+        onChanged: widget.enabled ? (_) {} : null,
+        iconDisabledColor: Colors.white24,
+      ),
     );
   }
 }

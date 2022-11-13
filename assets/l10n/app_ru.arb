@@ -21,6 +21,8 @@
 
     "@_CAMERA_PAGE": {},
 
+
+
     "switchToPictureMode": "Переключить в режим фото",
     "switchToVideoRecordingMode": "Переключить в режим видео",
 
@@ -59,6 +61,9 @@
     "lockedSmall": "ФИКС",
 
     "off": "Выключен",
+
+    "timer": "Таймер",
+
 
 
     "@_SETTINGS_PAGE": {},
