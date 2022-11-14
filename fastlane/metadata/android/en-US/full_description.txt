@@ -4,7 +4,7 @@ If you are in need of an open source camera app with several features, this app 
 
 <b>Features</b>
     * Take pictures and record videos with your rear and front camera
-    * Privacy: No EXIF Metadata saved by default when taking pictures (enable optionally in settings) – and obviously no ads and tracking!
+    * Privacy: No EXIF Metadata saved by default when taking pictures (enable optionally in settings) – without ads, tracking, or unnecessary permissions
     * Themes: Material Design with a Dark, Light or system theme
     * Languages currently supported: 1. English 🇬🇧 , 2. German 🇩🇪, 3. Spanish 🇪🇸, 4. Portuguese 🇧🇷, 5. Russian 🇷🇺, 6. Japanese 🇯🇵, 7. Turkish 🇹🇷 – Contribute translating your language!
     * Zoom: Zoom with 2 fingers or with an optional slider
