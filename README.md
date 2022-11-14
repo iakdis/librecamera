@@ -78,7 +78,7 @@ You can download Libre Camera on [F-Droid](https://f-droid.org) by tapping on th
 # Features
 
 - Take pictures and record videos with your rear and front camera
-- Privacy: No EXIF metadata saved by default when taking pictures (enable optionally in settings) – no ads, tracking, or unnecessary permissions
+- Privacy: No EXIF metadata saved by default when taking pictures (enable optionally in settings) – without ads, tracking, or unnecessary permissions
 - Themes: Material Design with a Dark, Light or system theme
 - Languages currently supported: English, German, Spanish, Portuguese, Russian, Japanese, Turkish – [Contribute translating your language!](#contributing)
 - Zoom: Zoom with 2 fingers or with an optional slider
@@ -117,14 +117,14 @@ Currently supported languages:
   - **Spanish** 🇪🇸 (special thanks to [@Loughty](https://github.com/Loughty))
   - **Portuguese** 🇧🇷 (special thanks to [@zehrique](https://github.com/zehrique))
   - **Russian** 🇷🇺 (special thanks to [@vladkorotnev](https://github.com/vladkorotnev))
-  - **Turkish** 🇹🇷 (special thanks to [@metezd](https://github.com/metezd)!)
+  - **Turkish** 🇹🇷 (special thanks to [@metezd](https://github.com/metezd))
 
 *Get started:*
 
 1. If not already supported (see above), request a new language by [opening an issue](https://github.com/iakmds/librecamera/issues) on GitHub and I will add the necessary code for the second step
 2. Translate an already existing language (see below)
 
-**Translating guide:** For untranslated content, check if there are any untranslated strings in this file: [untranslatedMessages.txt](https://github.com/iakmds/librecamera/blob/master/untranslatedMessages.txt). Go to the .arb file of the language you want to translate (for example, [app_de.arb](https://github.com/iakmds/librecamera/blob/master/assets/l10n/app_de.arb) file for German) and change the text inside the "" quotation marks. If the keys listed in the [untranslatedMessages.txt](https://github.com/iakmds/librecamera/blob/master/untranslatedMessages.txt) don't exist, simply create them just like the others. Use the [English](https://github.com/iakmds/librecamera/blob/master/assets/l10n/app_en.arb) translation as a reference for the text to be translated to the target language.
+**Translating guide:** Go to the .arb file of the language you want to translate (for example, [app_de.arb](https://github.com/iakmds/librecamera/blob/master/assets/l10n/app_de.arb) file for German) and change the text inside the "" quotation marks. If the keys listed in the [untranslatedMessages.txt](https://github.com/iakmds/librecamera/blob/master/untranslatedMessages.txt) don't exist, simply create them just like the others. Use the [English](https://github.com/iakmds/librecamera/blob/master/assets/l10n/app_en.arb) translation as a reference for the text to be translated to the target language.
 
 Additionally, if you want to translate the local app name (default: "Libre Camera"), go to the strings.xml file of the language you want to translate (for example, [this](https://github.com/iakmds/librecamera/blob/master/android/app/src/main/res/values-de/styles.xml) file for German and translate the "Libre Camera" text inside the string elements, like this German translation: ```<string name="AppName">Libre Kamera</string>```
 
