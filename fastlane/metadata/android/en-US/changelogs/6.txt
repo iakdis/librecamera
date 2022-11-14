@@ -3,11 +3,9 @@
 * added: Quick Tile support to open Libre Camera from the control panel
 * added: Resolution button in camera page
 
-* improved: New layout in camera page
+* improved: New layout!
 * improved: Disable certain buttons while doing actions such as recording a video for no unintended behavior
 * improved: Timer button shows '- -' when no timer is selected (thus making it smaller)
 * improved: Zoom slider now at the bottom when using horizontal orientation
 
 * other: Updated screenshots
-
-As always, a big thank you to everyone who contributed!
