@@ -80,7 +80,7 @@ You can download Libre Camera on [F-Droid](https://f-droid.org) by tapping on th
 - Take pictures and record videos with your rear and front camera
 - Privacy: No EXIF metadata saved by default when taking pictures (enable optionally in settings) – without ads, tracking, or unnecessary permissions
 - Themes: Material Design with a Dark, Light or system theme
-- Languages currently supported: English, German, Spanish, Portuguese, Russian, Japanese, Turkish – [Contribute translating your language!](#contributing)
+- Languages currently supported: English, French, German, Spanish, Portuguese, Russian, Japanese, Turkish – [Contribute translating your language!](#contributing)
 - Zoom: Zoom with 2 fingers or with an optional slider
 - Timer/Delay: Select a photo capture timer to get ready for your photo
 - Flashlight modes: On at capture, Off, Auto, Always on
@@ -110,14 +110,15 @@ You can download Libre Camera on [F-Droid](https://f-droid.org) by tapping on th
 
 -  ### Translate
 
-Currently supported languages: 
+Languages currently supported: 
   - **English** 🇬🇧
+  - **French** 🇫🇷 *(special thanks to [@melentan](https://github.com/melentan))*
   - **German** 🇩🇪
-  - **Japanese** 🇯🇵 (special thanks to [@vladkorotnev](https://github.com/vladkorotnev))
-  - **Spanish** 🇪🇸 (special thanks to [@Loughty](https://github.com/Loughty))
-  - **Portuguese** 🇧🇷 (special thanks to [@zehrique](https://github.com/zehrique))
-  - **Russian** 🇷🇺 (special thanks to [@vladkorotnev](https://github.com/vladkorotnev))
-  - **Turkish** 🇹🇷 (special thanks to [@metezd](https://github.com/metezd))
+  - **Japanese** 🇯🇵 *(special thanks to [@vladkorotnev](https://github.com/vladkorotnev))*
+  - **Spanish** 🇪🇸 *(special thanks to [@Loughty](https://github.com/Loughty))*
+  - **Portuguese** 🇧🇷 *(special thanks to [@zehrique](https://github.com/zehrique))*
+  - **Russian** 🇷🇺 *(special thanks to [@vladkorotnev](https://github.com/vladkorotnev))*
+  - **Turkish** 🇹🇷 *(special thanks to [@metezd](https://github.com/metezd))*
 
 *Get started:*
 
