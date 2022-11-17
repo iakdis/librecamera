@@ -6,6 +6,7 @@ class Localization {
 
     const Locale('de', ''),
     const Locale('es', ''),
+    const Locale('eu', ''),
     const Locale('fr', ''),
     const Locale('ja', ''),
     const Locale('pt', ''),
@@ -19,6 +20,8 @@ class Localization {
         return 'Deutsch';
       case 'es':
         return 'Español';
+      case 'eu':
+        return 'Euskara';
       case 'fr':
         return 'Français';
       case 'ja':
