@@ -80,7 +80,7 @@ You can download Libre Camera on [F-Droid](https://f-droid.org) by tapping on th
 - Take pictures and record videos with your rear and front camera
 - Privacy: No EXIF metadata saved by default when taking pictures (enable optionally in settings) – without ads, tracking, or unnecessary permissions
 - Themes: Material Design with a Dark, Light or system theme
-- Languages currently supported: English, French, German, Spanish, Portuguese, Russian, Japanese, Turkish – [Contribute translating your language!](#contributing)
+- Languages currently supported: English, French, German, Spanish, Basque, Portuguese, Russian, Japanese, Turkish – [Contribute translating your language!](#contributing)
 - Zoom: Zoom with 2 fingers or with an optional slider
 - Timer/Delay: Select a photo capture timer to get ready for your photo
 - Flashlight modes: On at capture, Off, Auto, Always on
@@ -108,17 +108,18 @@ You can download Libre Camera on [F-Droid](https://f-droid.org) by tapping on th
 
 # Contributing
 
--  ### Translate
+## Translate
 
 Languages currently supported: 
-  - **English** 🇬🇧
-  - **French** 🇫🇷 *(special thanks to [@melentan](https://github.com/melentan))*
-  - **German** 🇩🇪
-  - **Japanese** 🇯🇵 *(special thanks to [@vladkorotnev](https://github.com/vladkorotnev))*
-  - **Spanish** 🇪🇸 *(special thanks to [@Loughty](https://github.com/Loughty))*
-  - **Portuguese** 🇧🇷 *(special thanks to [@zehrique](https://github.com/zehrique))*
-  - **Russian** 🇷🇺 *(special thanks to [@vladkorotnev](https://github.com/vladkorotnev))*
-  - **Turkish** 🇹🇷 *(special thanks to [@metezd](https://github.com/metezd))*
+  - **English**
+  - **French (Français)** – *thanks to [@melentan](https://github.com/melentan)*
+  - **German (Deutsch)**
+  - **Japanese (日本語)** – *thanks to [@vladkorotnev](https://github.com/vladkorotnev)*
+  - **Spanish (Español)** – *thanks to [@Loughty](https://github.com/Loughty)*
+  - **Basque (Euskara)** – *thanks to [@ZiTAL](https://github.com/ZiTAL)*
+  - **Portuguese (Português)** – *thanks to [@zehrique](https://github.com/zehrique)*
+  - **Russian (Русский)** – *thanks to [@vladkorotnev](https://github.com/vladkorotnev)*
+  - **Turkish (Türkçe)** – *thanks to [@metezd](https://github.com/metezd)*
 
 *Get started:*
 
@@ -131,13 +132,13 @@ Additionally, if you want to translate the local app name (default: "Libre Camer
 
 Send in your translated files as a [Pull Request](https://github.com/iakmds/librecamera/pulls)
 
-- ### Bug Reporting or a Feature Request
+## Bug Reporting or Feature Requests
 
 Open an issue on GitHub: [Open issue](https://github.com/iakmds/librecamera/issues)
 
-- ### Code
+## Code
 
-Feel free to send in a [Pull Request](https://github.com/iakmds/librecamera/pulls)! To get started with Flutter, follow this link: [https://docs.flutter.dev/get-started/install](https://docs.flutter.dev/get-started/install)
+Feel free to send in a [pull request](https://github.com/iakmds/librecamera/pulls)! To get started with Flutter, follow this link: [https://docs.flutter.dev/get-started/install](https://docs.flutter.dev/get-started/install)
 
 1. Clone this repository
 2. Switch to the project's directory and run `flutter pub get`. To test the app, run the project in debug mode by selecting an Android device or emulator in your preferred Flutter IDE and running the app in debug mode
