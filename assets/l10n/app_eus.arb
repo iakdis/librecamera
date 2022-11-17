@@ -1,0 +1,141 @@
+{
+    "@_ONBOARDING_PAGE": {},
+
+
+
+    "permissionsTitle": "BAIMENAK",
+    "permissionsTitle_description": "Kamera erabiltzeko, kamera, mikrofono eta biltegiratze baimenak eman behar dituzu.",
+    "giveCameraPermission": "Kamera-baimenak eman",
+    "giveMicrophonePermission": "Mikrofono-baimenak eman",
+    "giveStoragePermission": "Biltegiratzeko baimenak eman",
+
+    "savePathTitle": "GORDETZEKO KARPETA",
+    "savePathTitle_description": "Aukeratu gordetzeko karpeta. Normalean, Androiden irudiak DCIM karpetan gordetzen dira.",
+    "selectPath": "Karpeta aukeratu",
+
+    "welcomeTitle": "ONGI ETORRI",
+    "welcomeTitle_description": "Oso ondo! Prest zaude aplikazioa erabiltzeko.",
+    "getStarted": "Hasi",
+
+
+
+    "@_CAMERA_PAGE": {},
+
+    "switchToPictureMode": "Argazki Kamera",
+    "switchToVideoRecordingMode": "Bideo Kamera",
+
+    "openCapturedPictureOrVideo": "Azken argazkia edo bideoa ireki",
+
+    "takePicture": "Argazkia atera",
+
+    "startRecordingVideo": "Bideoa grabatzen hasi",
+    "pauseVideo": "Bideoa pausatu",
+    "resumeVideo": "Bideoa jarraitu",
+    "stopVideo": "Bideoa gelditu",
+
+    "exposureMode": "Esposizio modua",
+    "exposureModeAuto": "ESPOSIZIO AUTOMATIKOA",
+    "exposureModeLocked": "ESPOSIZIO BLOKEATUA",
+    "defaultExposure": "Lehenetsitako Esposizioa",
+
+    "flashlight": "Flash-a",
+
+    "lockCaptureOrientation": "Errotazio automatikoa finkatzea [BERRABIARAZTEA ESKATZEN DU]",
+    "lockCaptureOrientation_description": "Orientazioa finkatzen du argazki-marko erara, errotazio automatikoa aktibatuta dagoen kontuan hartu gabe",
+
+    "showNavigationBar": "Erakutsi nabigazio-barra [BERRABIARAZTEA ESKATZEN DU]",
+    "showNavigationBar_description": "Beti erakutsi Androiden nabigazio-barra",
+
+    "focusMode": "Fokuratzeko modua",
+    "focusModeAuto": "FOKURATZE AUTOMATIKOA",
+    "focusModeLocked": "FOKURATZE BLOKEATUA",
+
+    "reset": "Berrezarri",
+
+    "flipToFrontCamera": "Aurrealdeko kamerara aldatu",
+    "flipToRearCamera": "Atzeko kamerara aldatu",
+
+    "autoSmall": "AUTOMATIKOA",
+    "lockedSmall": "BLOKEATUA",
+
+    "off": "Itzalita",
+
+    "timer": "Tenporizadorea",
+
+
+
+    "@_SETTINGS_PAGE": {},
+
+
+
+    "back": "Atzera",
+    "next": "Hurrengoa",
+    "settings": "Konfigurazioa",
+
+    "appSettings": "APLIKAZIOAREN KONFIGURAZIOA",
+    
+    "language": "Hizkuntza",
+    "language_description": "Aplikazioaren hizkuntza aldatu",
+    "systemLanguage": "Sistemaren hizkuntza",
+
+    "theme": "Gaia",
+    "theme_description": "Aplikazioaren gaia aldatu",
+    "themeSystem": "Sistemaren gaia",
+    "themeLight": "Argia",
+    "themeDark": "Iluna",
+
+    "enableModeRow": "HFokuratzeko eta azaltzeko moduen zerrenda gaitu",
+    "enableModeRow_description": "Behean zerrenda sortu, non esposizio eta fokuratze-moduak aldatzeko",
+
+    "enableZoomSlider": "Zoom-barra gaitu",
+    "enableZoomSlider_description": "Aktibatzean, barra agertuko da, zooma eskuz kontrolatzeko",
+
+    "enableExposureSlider": "Esposizio-barra gaitu",
+    "enableExposureSlider_description": "Aktibatzean, barra bat agertuko da, esposizioa eskuz kontrolatzeko",
+
+    "cameraBehaviour": "KAMERAREN IBILERA",
+
+    "format": "Irudiaren formatua",
+    "format_description": "Aldatu irudiaren formatua (lehenetsita: JPEG/JPG)",
+
+    "resolution": "Bereizmena",
+    "resolution_description": "Kameraren bereizmena aldatu",
+
+    "shutterSound": "Obturadorearen soinua desaktibatu",
+    "shutterSound_description": "Obturadorearen soinua desaktibatzen du argazkia ateratzean",
+
+    "flipPhotosFrontCamera": "Aurrealdeko kameraren argazkiak irauli",
+    "flipPhotosFrontCamera_description": "Argazkiak horizontalki irauli aurreko kamerarekin ateratzen direnean",
+
+    "startWithFrontCamera": "Aurrealdeko kamerarekin hasi",
+    "startWithFrontCamera_description": "Aurrealdeko kamerarekin hasten da aplikazioa irekitzen duzunean",
+
+    "disableAudio": "Soinua desaktibatu",
+    "disableAudio_description": "Bideoa grabatzerakoan soinua desaktibatzen du",
+
+    "saving": "GORDETA",
+
+    "imageCompressionQuality": "Irudiaren konprimatze maila",
+    "imageCompressionQuality_description": "Konpresio-kalitate baxuak tamaina txikiagoa esan nahi du, baina kalitate txarragoa; kalitate handiko konpresioak, berriz, pisu handiagoa eta irudiaren kalitate hobea esan nahi du",
+
+    "keepEXIFMetadata": "EXIF datuak gorde",
+    "keepEXIFMetadata_description": "EXIF metadatuak argazkian gordetzen ditu, telefono mota, GPS kokapena, besteak beste",
+
+    "savePath": "Gordetzeko karpeta",
+    "savePath_description": "Egungo karpeta: {path}",
+    "choosePath": "Karpeta aukeratu",
+
+    "onboardingScreen": "Sarrera",
+    "onboardingScreen_description": "Sarrera pantalla erakusten du",
+
+
+
+    "@_ABOUT": {},
+
+
+
+    "more": "GEHIAGO",
+    "less": "GUTXIAGO",
+    "version": "Bertsioa {versionNumber}",
+    "license": "Kodea GitHub-en GPLv3 lizentziapean dago. Arazoren bat aurkitzen baduzu, edo funtzioren bat eskatu nahi baduzu, mesedez, ireki ohar bat Github-en. Eskerrik asko!"
+}
