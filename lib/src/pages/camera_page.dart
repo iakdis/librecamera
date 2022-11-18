@@ -1186,7 +1186,7 @@ class _CameraPageState extends State<CameraPage>
   //Misc
   String timestamp() {
     final DateTime now = DateTime.now();
-    final DateFormat formatter = DateFormat('yyyyMMdd_msS');
+    final DateFormat formatter = DateFormat('yyyyMMdd_HHmmss');
     final String formatted = formatter.format(now);
     return formatted;
   }
