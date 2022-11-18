@@ -308,6 +308,7 @@ class _CameraPageState extends State<CameraPage>
               FlashModeWidget(
                 controller: controller,
                 isRearCameraSelected: isRearCameraSelected,
+                isVideoCameraSelected: isVideoCameraSelected,
               ),
               ResolutionButton(
                 isDense: true,
@@ -601,15 +602,6 @@ class _CameraPageState extends State<CameraPage>
     );
 
     controller = cameraController;
-
-    cameraController.addListener(() {
-      if (mounted) {
-        setState(() {});
-      }
-      if (cameraController.value.hasError) {
-        print('Camera error ${cameraController.value.errorDescription}');
-      }
-    });
 
     try {
       await cameraController.initialize();

@@ -8,10 +8,12 @@ class FlashModeWidget extends StatefulWidget {
     Key? key,
     required this.controller,
     required this.isRearCameraSelected,
+    required this.isVideoCameraSelected,
   }) : super(key: key);
 
   final CameraController? controller;
   final bool isRearCameraSelected;
+  final bool isVideoCameraSelected;
 
   @override
   State<FlashModeWidget> createState() => _FlashModeWidgetState();
@@ -21,11 +23,14 @@ class _FlashModeWidgetState extends State<FlashModeWidget> {
   void _toggleFlashMode() {
     if (widget.controller != null) {
       if (widget.controller?.value.flashMode == FlashMode.off) {
-        _onSetFlashModeButtonPressed(FlashMode.always);
+        _onSetFlashModeButtonPressed(
+            widget.isVideoCameraSelected ? FlashMode.torch : FlashMode.always);
       } else if (widget.controller?.value.flashMode == FlashMode.always) {
-        _onSetFlashModeButtonPressed(FlashMode.auto);
+        _onSetFlashModeButtonPressed(
+            widget.isVideoCameraSelected ? FlashMode.off : FlashMode.auto);
       } else if (widget.controller?.value.flashMode == FlashMode.auto) {
-        _onSetFlashModeButtonPressed(FlashMode.torch);
+        _onSetFlashModeButtonPressed(
+            widget.isVideoCameraSelected ? FlashMode.off : FlashMode.torch);
       } else if (widget.controller?.value.flashMode == FlashMode.torch) {
         _onSetFlashModeButtonPressed(FlashMode.off);
       }
@@ -59,6 +64,14 @@ class _FlashModeWidgetState extends State<FlashModeWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.isVideoCameraSelected) {
+      if (widget.controller?.value.flashMode == FlashMode.always) {
+        _onSetFlashModeButtonPressed(FlashMode.off);
+      } else if (widget.controller?.value.flashMode == FlashMode.auto) {
+        _onSetFlashModeButtonPressed(FlashMode.off);
+      }
+    }
+
     return AnimatedRotation(
       duration: const Duration(milliseconds: 400),
       turns:
@@ -67,9 +80,7 @@ class _FlashModeWidgetState extends State<FlashModeWidget> {
         padding: EdgeInsets.zero,
         onPressed: widget.isRearCameraSelected
             ? (() {
-                setState(() {
-                  _toggleFlashMode();
-                });
+                _toggleFlashMode();
               })
             : null,
         disabledColor: Colors.white24,
