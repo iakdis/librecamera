@@ -27,7 +27,12 @@ Future<void> main() async {
 
   //Setting SystmeUIMode for navigation buttons and status bar
   if (!Preferences.getShowNavigationBar()) {
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+    await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+  } else {
+    await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [
+      SystemUiOverlay.top,
+      SystemUiOverlay.bottom,
+    ]);
   }
 
   Wakelock.enable();
