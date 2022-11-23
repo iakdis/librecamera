@@ -84,6 +84,9 @@
     "themeLight": "Açık tema",
     "themeDark": "Koyu tema",
 
+    "enableMaximumScreenBrightness": "Maksimum ekran parlaklığı",
+    "enableMaximumScreenBrightness_description": "Etkinleştirildiğinde, cihazınızın ekran parlaklığı maksimuma ayarlanacaktır",
+
     "enableModeRow": "Odak ve pozlama modu satırını etkinleştir",
     "enableModeRow_description": "Pozlama ve odak modlarını değiştirmek için alttaki bir satırı etkinleştirir",
 

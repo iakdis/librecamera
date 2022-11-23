@@ -84,6 +84,9 @@
     "themeLight": "Tema claro",
     "themeDark": "Tema escuro",
 
+    "enableMaximumScreenBrightness": "Máxima luminosidade da tela",
+    "enableMaximumScreenBrightness_description": "Quando habilitado, o brilho da tela de seu dispositivo será ajustado ao máximo",
+
     "enableModeRow": "Habilitar modo de linha de foco e exposição",
     "enableModeRow_description": "Habilita uma linha no final da tela para alternar entre os modos de exposição e foco",
 

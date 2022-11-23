@@ -86,6 +86,9 @@
     "themeLight": "Светлая",
     "themeDark": "Тёмная",
 
+    "enableMaximumScreenBrightness": "Максимальная яркость экрана",
+    "enableMaximumScreenBrightness_description": "Если эта функция включена, яркость экрана вашего устройства будет установлена на максимальное значение",
+
     "enableModeRow": "Режимы фокусировки и выдержки",
     "enableModeRow_description": "Отобразить внизу экрана строку с режимами фокусировки и выдержки",
 

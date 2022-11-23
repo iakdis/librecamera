@@ -84,6 +84,9 @@
     "themeLight": "Light theme",
     "themeDark": "Dark theme",
 
+    "enableMaximumScreenBrightness": "Maximum screen brightness",
+    "enableMaximumScreenBrightness_description": "When enabled, the screen brightness of your device will be set to the maximum",
+
     "enableModeRow": "Enable focus and exposure mode row",
     "enableModeRow_description": "Enable a row at the bottom to switch the exposure and focus modes",
 

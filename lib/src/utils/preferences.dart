@@ -123,4 +123,10 @@ class Preferences {
       await _preferences!.setBool(prefDisableShutterSound, disable);
   static bool getDisableShutterSound() =>
       _preferences!.getBool(prefDisableShutterSound) ?? false;
+
+  //Compress Image
+  static Future setMaximumScreenBrightness(bool enable) async =>
+      await _preferences!.setBool(prefMaximumScreenBrightness, enable);
+  static bool getMaximumScreenBrightness() =>
+      _preferences!.getBool(prefMaximumScreenBrightness) ?? false;
 }

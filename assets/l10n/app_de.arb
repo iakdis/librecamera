@@ -84,6 +84,9 @@
     "themeLight": "Helles Thema",
     "themeDark": "Dunkles Thema",
 
+    "enableMaximumScreenBrightness": "Maximale Bildschirmhelligkeit",
+    "enableMaximumScreenBrightness_description": "Wenn aktiviert, wird die Bildschirmhelligkeit deines Geräts auf das Maximum gesetzt",
+
     "enableModeRow": "Reihe für den Fokus- und Belichtungsmodus aktivieren",
     "enableModeRow_description": "Zeige unten eine Reihe zum wechseln des Fokus- und Belichtungsmodus an",
 

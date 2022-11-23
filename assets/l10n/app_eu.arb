@@ -84,6 +84,9 @@
     "themeLight": "Argia",
     "themeDark": "Iluna",
 
+    "enableMaximumScreenBrightness": "Pantailaren distira maximoa ",
+    "enableMaximumScreenBrightness_description": "Aktibatzean, zure gailuaren pantailaren distira maximoan ezarriko da ",
+
     "enableModeRow": "HFokuratzeko eta azaltzeko moduen zerrenda gaitu",
     "enableModeRow_description": "Behean zerrenda sortu, non esposizio eta fokuratze-moduak aldatzeko",
 

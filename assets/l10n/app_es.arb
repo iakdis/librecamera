@@ -84,6 +84,9 @@
     "themeLight": "Tema claro",
     "themeDark": "Tema oscuro",
 
+    "enableMaximumScreenBrightness": "Máximo brillo de la pantalla",
+    "enableMaximumScreenBrightness_description": "Al activarse, el brillo de la pantalla de su dispositivo se ajustará al máximo",
+
     "enableModeRow": "Habilitar la lista de modos de enfoque y exposición",
     "enableModeRow_description": "Crea una lista abajo donde puedes cambiar los modos de exposición y enfoque",
 

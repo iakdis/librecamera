@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:librecamera/src/app.dart';
 import 'package:librecamera/src/utils/preferences.dart';
+import 'package:screen_brightness/screen_brightness.dart';
 import 'package:wakelock/wakelock.dart';
 
 List<CameraDescription> cameras = <CameraDescription>[];
@@ -33,6 +34,10 @@ Future<void> main() async {
       SystemUiOverlay.top,
       SystemUiOverlay.bottom,
     ]);
+  }
+
+  if (Preferences.getMaximumScreenBrightness()) {
+    await ScreenBrightness().setScreenBrightness(1.0);
   }
 
   Wakelock.enable();

@@ -84,6 +84,9 @@
     "themeLight": "ライトモード",
     "themeDark": "ダークモード",
 
+    "enableMaximumScreenBrightness": "画面の最大輝度",
+    "enableMaximumScreenBrightness_description": "有効にすると、デバイスの画面の明るさが最大に設定されます",
+
     "enableModeRow": "露出・フォーカス設定を表示",
     "enableModeRow_description": "画面の下に露室とフォーカス設定を切り替わるボタンを表示する",
 

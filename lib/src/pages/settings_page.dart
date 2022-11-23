@@ -12,6 +12,7 @@ import 'package:librecamera/src/widgets/resolution.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:screen_brightness/screen_brightness.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SettingsButton extends StatelessWidget {
@@ -77,70 +78,6 @@ class _SettingsPageState extends State<SettingsPage> {
     fontSize: 16.0,
     fontWeight: FontWeight.bold,
   );
-
-  @override
-  Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: (() async {
-        await widget.onNewCameraSelected(widget.controller!.description);
-        return true;
-        //return true;
-      }),
-      child: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: (() async {
-              await widget.onNewCameraSelected(widget.controller!.description);
-              if (!mounted) return;
-              Navigator.pop(context);
-            }),
-            tooltip: AppLocalizations.of(context)!.back,
-          ),
-          title: Text(AppLocalizations.of(context)!.settings),
-        ),
-        body: ListView(
-          controller: listScrollController,
-          padding: const EdgeInsets.fromLTRB(0, 8.0, 0, 8.0),
-          children: <Widget>[
-            _headingTile(AppLocalizations.of(context)!.appSettings),
-            _languageTile(),
-            const Divider(),
-            _themeTile(),
-            const Divider(),
-            _enableModeRow(),
-            const Divider(),
-            _enableZoomSliderTile(),
-            const Divider(),
-            _enableExposureSliderTile(),
-            const Divider(),
-            _headingTile(AppLocalizations.of(context)!.cameraBehaviour),
-            _resolutionTile(),
-            const Divider(),
-            _disableShutterSoundTile(),
-            const Divider(),
-            _startWithFrontCameraTile(),
-            const Divider(),
-            _disableAudioTile(),
-            const Divider(),
-            _headingTile(AppLocalizations.of(context)!.saving),
-            _flipPhotosFrontCameraTile(),
-            const Divider(),
-            _imageCompressionFormat(),
-            const Divider(),
-            _imageCompressionTile(),
-            const Divider(),
-            _keepEXIFMetadataTile(),
-            const Divider(),
-            _savePathTile(),
-            const Divider(),
-            _showMoreTile(),
-            isMoreOptions ? _moreTile() : Container()
-          ],
-        ),
-      ),
-    );
-  }
 
   Widget _moreTile() {
     return Padding(
@@ -534,6 +471,23 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
+  Widget _maximumScreenBrightnessTile() {
+    return SwitchListTile(
+      title: Text(AppLocalizations.of(context)!.enableMaximumScreenBrightness),
+      subtitle: Text(AppLocalizations.of(context)!
+          .enableMaximumScreenBrightness_description),
+      value: Preferences.getMaximumScreenBrightness(),
+      onChanged: (value) async {
+        setState(() {
+          Preferences.setMaximumScreenBrightness(value);
+        });
+        Preferences.getMaximumScreenBrightness()
+            ? await ScreenBrightness().setScreenBrightness(1.0)
+            : await ScreenBrightness().resetScreenBrightness();
+      },
+    );
+  }
+
   Widget _languageTile() {
     return ListTile(
       title: Text(AppLocalizations.of(context)!.language),
@@ -577,6 +531,72 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
           ),
         onChanged: (_) {},
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return WillPopScope(
+      onWillPop: (() async {
+        await widget.onNewCameraSelected(widget.controller!.description);
+        return true;
+        //return true;
+      }),
+      child: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: (() async {
+              await widget.onNewCameraSelected(widget.controller!.description);
+              if (!mounted) return;
+              Navigator.pop(context);
+            }),
+            tooltip: AppLocalizations.of(context)!.back,
+          ),
+          title: Text(AppLocalizations.of(context)!.settings),
+        ),
+        body: ListView(
+          controller: listScrollController,
+          padding: const EdgeInsets.fromLTRB(0, 8.0, 0, 8.0),
+          children: <Widget>[
+            _headingTile(AppLocalizations.of(context)!.appSettings),
+            _languageTile(),
+            const Divider(),
+            _themeTile(),
+            const Divider(),
+            _maximumScreenBrightnessTile(),
+            const Divider(),
+            _enableModeRow(),
+            const Divider(),
+            _enableZoomSliderTile(),
+            const Divider(),
+            _enableExposureSliderTile(),
+            const Divider(),
+            _headingTile(AppLocalizations.of(context)!.cameraBehaviour),
+            _resolutionTile(),
+            const Divider(),
+            _disableShutterSoundTile(),
+            const Divider(),
+            _startWithFrontCameraTile(),
+            const Divider(),
+            _disableAudioTile(),
+            const Divider(),
+            _headingTile(AppLocalizations.of(context)!.saving),
+            _flipPhotosFrontCameraTile(),
+            const Divider(),
+            _imageCompressionFormat(),
+            const Divider(),
+            _imageCompressionTile(),
+            const Divider(),
+            _keepEXIFMetadataTile(),
+            const Divider(),
+            _savePathTile(),
+            const Divider(),
+            _showMoreTile(),
+            isMoreOptions ? _moreTile() : Container()
+          ],
+        ),
       ),
     );
   }

@@ -84,6 +84,9 @@
     "themeLight": "Thème clair",
     "themeDark": "Thème sombre",
 
+    "enableMaximumScreenBrightness": "Luminosité maximale de l'écran",
+    "enableMaximumScreenBrightness_description": "Quand activé, la luminosité de l'écran de votre appareil sera réglée sur le maximum",
+
     "enableModeRow": "Activer la ligne pour les modes focus et exposition",
     "enableModeRow_description": "Active une rangée, située en bas de l'écran, pour permuter les modes d'exposition et de focus",
 
