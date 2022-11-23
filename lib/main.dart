@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:librecamera/src/app.dart';
 import 'package:librecamera/src/utils/preferences.dart';
+import 'package:wakelock/wakelock.dart';
 
 List<CameraDescription> cameras = <CameraDescription>[];
 
@@ -28,6 +29,8 @@ Future<void> main() async {
   if (!Preferences.getShowNavigationBar()) {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   }
+
+  Wakelock.enable();
 
   SystemChrome.setPreferredOrientations(_getDeviceOrientations()).then((_) {
     runApp(CameraApp(onboardingCompleted: Preferences.getOnBoardingComplete()));

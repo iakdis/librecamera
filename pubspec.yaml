@@ -45,6 +45,7 @@ dependencies:
   smooth_page_indicator: ^1.0.0+2
   url_launcher: ^6.1.6
   video_thumbnail: ^0.5.3
+  wakelock: ^0.6.2
 
 dev_dependencies:
   flutter_launcher_icons: ^0.10.0
