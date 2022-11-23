@@ -101,7 +101,6 @@ You can download Libre Camera on [F-Droid](https://f-droid.org) by tapping on th
 - [ ] Feature: Add "photo capture at phone volume button press" as an option in settings
 - [ ] Theme: Add a black Dark mode for AMOLED screens
 - [ ] Settings: Add a search bar for the settings page
-- [ ] Settings: Add the ability to export and import settings
 - [x] Check tablet support
 - [x] (Included in version 1.3.0) Feature: Add photo capture delay option
 - [x] (Included in version 1.3.0) Feature: Add a capture sound as an option in settings
@@ -160,10 +159,12 @@ The packages used for this app, also listed in the pubspec.yaml file. See their 
 - [path](https://pub.dev/packages/path): Used for looking up files and directories
 - [permission_handler](https://pub.dev/packages/permission_handler): Used for handling permissions
 - [provider](https://pub.dev/packages/provider): Used for state management, specifically localization and theme support
+- [screen_brightness](https://pub.dev/packages/screen_brightness): Used for maximum screen brightness option
 - [shared_preferences](https://pub.dev/packages/shared_preferences): Used for saving app data, including settings
 - [smooth_page_indicator](https://pub.dev/packages/smooth_page_indicator): Used for the page indicator in the onboarding screen
 - [url_launcher](https://pub.dev/packages/url_launcher): Used for opening the GitHub repository link inside the About menu
 - [video_thumbnail](https://pub.dev/packages/video_thumbnail): Used for displaying a captured video inside the thumbnail
+- [wakelock](https://pub.dev/packages/wakelock): Used for keeping the display always on
 
 # License
 
