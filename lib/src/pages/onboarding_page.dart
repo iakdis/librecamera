@@ -1,5 +1,6 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:librecamera/src/pages/camera_page.dart';
 import 'package:librecamera/src/utils/preferences.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -107,12 +108,14 @@ class _OnboardingPageState extends State<OnboardingPage> {
     focusNode.unfocus();
     controller.previousPage(
         duration: const Duration(milliseconds: 200), curve: Curves.easeInOut);
+    unfocusAndRestore();
   }
 
   void nextPage() {
     focusNode.unfocus();
     controller.nextPage(
         duration: const Duration(milliseconds: 200), curve: Curves.easeInOut);
+    unfocusAndRestore();
   }
 
   bool nextEnabled() {
@@ -136,34 +139,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
     controller.dispose();
     textController.dispose();
     super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        padding: const EdgeInsets.only(bottom: 80.0),
-        child: PageView(
-          physics: nextEnabled()
-              ? const ScrollPhysics()
-              : const NeverScrollableScrollPhysics(),
-          controller: controller,
-          onPageChanged: (index) {
-            setState(() {
-              isLastPage = index == 2;
-              currentPage = index;
-            });
-          },
-          children: [
-            _permissionsPage(),
-            _savePathPage(),
-            _welcomePageInfo(),
-          ],
-        ),
-      ),
-      bottomSheet:
-          isLastPage ? _welcomePageBottomButton() : _bottomPageIndicator(),
-    );
   }
 
   Widget _permissionsPage() {
@@ -315,31 +290,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const SizedBox(height: 24.0),
-        /*ElevatedButton(
-          onPressed: () async {
-            String selectedDirectory = 'storage/emulated/0/DCIM';
-
-            Preferences.setSavePath(selectedDirectory);
-
-            setState(() {
-              currentSavePath = Preferences.getSavePath();
-            });
-          },
-          child: const Text('Set to storage/emulated/0/DCIM'),
-        ),*/
-        const SizedBox(height: 24.0),
         ElevatedButton(
           onPressed: savePath,
           child: Text(AppLocalizations.of(context)!.choosePath),
         ),
-        const SizedBox(height: 24.0),
-        /*Container(
-          padding: const EdgeInsets.symmetric(horizontal: 64.0),
-          child: Text(
-            AppLocalizations.of(context)!.savePath_description(currentSavePath),
-            style: TextStyle(color: Colors.grey[600], fontSize: 17.0),
-          ),
-        ),*/
+        const SizedBox(height: 48.0),
         SizedBox(
           width: 256,
           child: TextField(
@@ -349,12 +304,18 @@ class _OnboardingPageState extends State<OnboardingPage> {
               currentSavePath = value;
               Preferences.setSavePath(currentSavePath);
               focusNode.unfocus();
+              SystemChrome.restoreSystemUIOverlays();
             },
             style: TextStyle(color: Colors.grey[600], fontSize: 17.0),
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
+              border: const OutlineInputBorder(),
+              labelText: AppLocalizations.of(context)!.savePath,
               isDense: true,
               hintText: 'storage/emulated/0/DCIM',
-              hintStyle: TextStyle(fontStyle: FontStyle.italic),
+              hintStyle: TextStyle(
+                color: Colors.grey[500],
+                fontStyle: FontStyle.italic,
+              ),
             ),
           ),
         ),
@@ -453,6 +414,48 @@ class _OnboardingPageState extends State<OnboardingPage> {
             child: Text(AppLocalizations.of(context)!.next.toUpperCase()),
           ),
         ],
+      ),
+    );
+  }
+
+  void unfocusAndRestore() {
+    FocusScopeNode currentFocus = FocusScope.of(context);
+
+    if (!currentFocus.hasPrimaryFocus) {
+      currentFocus.unfocus();
+      SystemChrome.restoreSystemUIOverlays();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTapDown: (details) => unfocusAndRestore(),
+      child: Scaffold(
+        body: Container(
+          padding: const EdgeInsets.only(bottom: 80.0),
+          child: PageView(
+            physics: nextEnabled()
+                ? const ScrollPhysics()
+                : const NeverScrollableScrollPhysics(),
+            controller: controller,
+            onPageChanged: (index) {
+              setState(() {
+                isLastPage = index == 2;
+                currentPage = index;
+
+                unfocusAndRestore();
+              });
+            },
+            children: [
+              _permissionsPage(),
+              _savePathPage(),
+              _welcomePageInfo(),
+            ],
+          ),
+        ),
+        bottomSheet:
+            isLastPage ? _welcomePageBottomButton() : _bottomPageIndicator(),
       ),
     );
   }
