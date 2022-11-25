@@ -1,0 +1,11 @@
+* fixed: Status bar cutout issue: Add SafeArea
+* fixed: Onboarding page not full screen after typing with keyboard and submitting
+* fixed: Screen turns off after inactivity, now always on
+
+* added: Option for maximum screen brightness
+
+* improved: Timestamps appendix new format: "hour:minute:second" instead of "minute:second:millisecond"
+* improved: Flash in video mode: Only use "Off" and "Torch"
+
+* l10n: Add French language (thanks to @melentan)
+* l10n: Add Basque language (thanks to @ZiTAL)
