@@ -58,12 +58,31 @@ class MainActivity : FlutterActivity() {
             uri = Uri.parse("content:/$path")
         }
 
-        //https://stackoverflow.com/questions/34838866/how-to-scroll-among-images-viewed-via-intent-in-android
-        grantUriPermission(
-                "com.iakmds.librecamera.provider",
+        // https://stackoverflow.com/questions/36597247/android-open-image-in-gallery-with-slide-through-images
+        // https://stackoverflow.com/questions/34838866/how-to-scroll-among-images-viewed-via-intent-in-android
+        context.grantUriPermission(
+                "com.iakmds.librecamera",
                 uri,
                 Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
         )
+
+        /*try
+		{
+			val intent = Intent("com.android.camera.action.REVIEW", uri);
+			intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+			startActivity(intent);
+		} catch (ActivityNotFoundException ex)
+		{
+			try
+			{
+				val intent = Intent(Intent.ACTION_VIEW, uri);
+				intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+				startActivity(intent);
+			} catch (ActivityNotFoundException e)
+			{
+				
+			}
+		}*/
 
         Intent().apply {
             action = Intent.ACTION_VIEW
