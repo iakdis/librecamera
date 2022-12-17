@@ -1,1 +1,14 @@
-{}
+{
+  "permissionsTitle": "ДОЗВОЛИ",
+  "@permissionsTitle": {},
+  "giveCameraPermission": "Надати дозвіл камері",
+  "@giveCameraPermission": {},
+  "giveStoragePermission": "Надати дозвіл сховищу",
+  "@giveStoragePermission": {},
+  "savePathTitle": "ЗБЕРЕГТИ ШЛЯХ",
+  "@savePathTitle": {},
+  "giveMicrophonePermission": "Надати дозвіл мікрофону",
+  "@giveMicrophonePermission": {},
+  "permissionsTitle_description": "Щоб користуватися камерою, потрібно надати дозвіл на використання камери, мікрофона та сховища.",
+  "@permissionsTitle_description": {}
+}
