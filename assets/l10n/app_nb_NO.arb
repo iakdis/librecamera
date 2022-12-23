@@ -119,7 +119,7 @@
   "@flipToRearCamera": {},
   "lockedSmall": "Låst",
   "@lockedSmall": {},
-  "enableMaximumScreenBrightness_description": "Setter skjermlysstyrken på enheten din til maks.",
+  "enableMaximumScreenBrightness_description": "Setter skjermlysstyrken på enheten din til maks",
   "@enableMaximumScreenBrightness_description": {},
   "enableZoomSlider_description": "Viser en glidebryter for manuell innstilling av forstørrelse",
   "@enableZoomSlider_description": {},
@@ -133,7 +133,7 @@
   "@shutterSound": {},
   "imageCompressionQuality": "Bildesammenpakkingskvalitet",
   "@imageCompressionQuality": {},
-  "license": "Lisensiert GPLv3+ på GitHub. Send inn feilrapporter der hvis du har problemer eller vil foreslå en funksjon. Takk.",
+  "license": "Lisensiert GPLv3+ på GitHub. Send inn feilrapporter der hvis du har problemer eller vil foreslå en funksjon. Takk!",
   "@license": {},
   "flipPhotosFrontCamera": "Vend bilder fra frontkamera",
   "@flipPhotosFrontCamera": {},
@@ -179,6 +179,6 @@
   "@cameraBehaviour": {},
   "shutterSound_description": "Skrur av bildeknipselyden",
   "@shutterSound_description": {},
-  "imageCompressionQuality_description": "Lavere sammenpakkingskvalitet gir mindre bildestørrelser, men også dårligere kvalitet. Høyere gir større bilder, men bedre kvalitet.",
+  "imageCompressionQuality_description": "Lavere sammenpakkingskvalitet gir mindre bildestørrelser, men også dårligere kvalitet. Høyere gir større bilder, men bedre kvalitet",
   "@imageCompressionQuality_description": {}
 }
