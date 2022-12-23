@@ -1,3 +1,9 @@
+
+# 🌟 New as of 23.12.2022 🌟
+### Translations are now handled using [Weblate](https://hosted.weblate.org/projects/librecamera)! See [#translate](https://github.com/iakmds/librecamera#translate) for more details
+
+<br><br>
+
 <p>
   <a href="https://github.com/iakmds/librecamera/releases/latest" alt="Release">
   <img src="https://img.shields.io/github/v/release/iakmds/librecamera?style=flat-square" /></a>
@@ -22,6 +28,9 @@
 
   <a href="https://github.com/iakmds/librecamera/blob/master/LICENSE" alt="License">
   <img src="https://img.shields.io/github/license/iakmds/librecamera?style=flat-square" /></a>
+  
+  <a href="https://hosted.weblate.org/engage/librecamera/">
+  <img src="https://hosted.weblate.org/widgets/librecamera/-/svg-badge.svg" alt="Translation status" /></a>
 </p>
 
 <p align="center">
@@ -80,7 +89,7 @@ You can download Libre Camera on [F-Droid](https://f-droid.org) by tapping on th
 - Take pictures and record videos with your rear and front camera
 - Privacy: No EXIF metadata saved by default when taking pictures (enable optionally in settings) – without ads, tracking, or unnecessary permissions
 - Themes: Material Design with a Dark, Light or system theme
-- Languages currently supported: English, French, German, Spanish, Basque, Portuguese, Russian, Japanese, Turkish – [Contribute translating your language!](#contributing)
+- Multiple languages supported – [Contribute translating your language!](#translate)
 - Zoom: Zoom with 2 fingers or with an optional slider
 - Timer/Delay: Select a photo capture timer to get ready for your photo
 - Flashlight modes: On at capture, Off, Auto, Always on
@@ -95,52 +104,44 @@ You can download Libre Camera on [F-Droid](https://f-droid.org) by tapping on th
 
 # Roadmap
 
-- [ ] More supported languages (See [Contributing](#contributing) below) and Weblate integration
+- [ ] More supported languages (See [Contributing](#contributing) below)
 - [ ] [Your features](https://github.com/iakmds/librecamera/issues)
 - [ ] Feature: Add integrated QR-Scanner
 - [ ] Feature: Add "photo capture at phone volume button press" as an option in settings
 - [ ] Theme: Add a black Dark mode for AMOLED screens
 - [ ] Settings: Add a search bar for the settings page
+- [x] [Weblate](https://hosted.weblate.org/projects/librecamera) integration
 - [x] Check tablet support
 - [x] (Included in version 1.3.0) Feature: Add photo capture delay option
 - [x] (Included in version 1.3.0) Feature: Add a capture sound as an option in settings
 
 # Contributing
 
+These are the ways you can contribute to Libre Camera:
+
+<a href="https://hosted.weblate.org/engage/librecamera/">
+<img align="right" src="https://hosted.weblate.org/widgets/librecamera/-/287x66-grey.png" alt="Translation status" /></a>
+
 ## Translate
 
-Languages currently supported: 
-  - **English**
-  - **French (Français)** – *thanks to [@melentan](https://github.com/melentan)*
-  - **German (Deutsch)**
-  - **Japanese (日本語)** – *thanks to [@vladkorotnev](https://github.com/vladkorotnev)*
-  - **Spanish (Español)** – *thanks to [@Loughty](https://github.com/Loughty)*
-  - **Basque (Euskara)** – *thanks to [@ZiTAL](https://github.com/ZiTAL)*
-  - **Portuguese (Português)** – *thanks to [@zehrique](https://github.com/zehrique)*
-  - **Russian (Русский)** – *thanks to [@vladkorotnev](https://github.com/vladkorotnev)*
-  - **Turkish (Türkçe)** – *thanks to [@metezd](https://github.com/metezd)*
+<a href="https://hosted.weblate.org/engage/librecamera/"><img src="https://hosted.weblate.org/widgets/librecamera/-/multi-auto.svg" alt="Translation status" /></a>
 
-*Get started:*
+**Translating guide:** Translations are now handled using [Weblate](https://hosted.weblate.org/projects/librecamera)! To use Weblate, log into your Weblate account and choose one of the 2 components you want to translate: Either the [app itself](https://hosted.weblate.org/projects/librecamera/librecamera) or the [F-Droid metadata](https://hosted.weblate.org/projects/librecamera/f-droid). Now, select the language you want to translate. You will see a list of different strings to choose from; untranslated and unfinished strings will probably be of most interest to you. And finally: Have fun translating!
 
-1. If not already supported (see above), request a new language by [opening an issue](https://github.com/iakmds/librecamera/issues) on GitHub and I will add the necessary code for the second step
-2. Translate an already existing language (see below)
-
-**Translating guide:** Go to the .arb file of the language you want to translate (for example, [app_de.arb](https://github.com/iakmds/librecamera/blob/master/assets/l10n/app_de.arb) file for German) and change the text inside the "" quotation marks. If the keys listed in the [untranslatedMessages.txt](https://github.com/iakmds/librecamera/blob/master/untranslatedMessages.txt) don't exist, simply create them just like the others. Use the [English](https://github.com/iakmds/librecamera/blob/master/assets/l10n/app_en.arb) translation as a reference for the text to be translated to the target language.
-
-Additionally, if you want to translate the local app name (default: "Libre Camera"), go to the strings.xml file of the language you want to translate (for example, [this](https://github.com/iakmds/librecamera/blob/master/android/app/src/main/res/values-de/styles.xml) file for German and translate the "Libre Camera" text inside the string elements, like this German translation: ```<string name="AppName">Libre Kamera</string>```
-
-Send in your translated files as a [Pull Request](https://github.com/iakmds/librecamera/pulls)
+Before using Weblate you had to translate Libre Camera manually via pull requests. Thank you [@Loughty](https://github.com/Loughty), [@zehrique](https://github.com/zehrique), [@vladkorotnev](https://github.com/vladkorotnev), [@metezd](https://github.com/metezd), [@ZiTAL](https://github.com/ZiTAL) and [@melentan](https://github.com/melentan)!
 
 ## Bug Reporting or Feature Requests
 
 Open an issue on GitHub: [Open issue](https://github.com/iakmds/librecamera/issues)
+
+Remember to check for duplicates and try to give important information such as the app version, Android version, etc.
 
 ## Code
 
 Feel free to send in a [pull request](https://github.com/iakmds/librecamera/pulls)! To get started with Flutter, follow this link: [https://docs.flutter.dev/get-started/install](https://docs.flutter.dev/get-started/install)
 
 1. Clone this repository
-2. Switch to the project's directory and run `flutter pub get`. To test the app, run the project in debug mode by selecting an Android device or emulator in your preferred Flutter IDE and running the app in debug mode
+2. Switch to the project's directory and run `flutter pub get` to get all necessary packages. To test the app, run the project in debug mode by selecting an Android device or emulator in your preferred Flutter IDE and running the app in debug mode
 3. To build the final app, run the app by installing the apk (see next) on an Android device or emulator. To receive the apk, run the following command in your terminal: `flutter build apk` – the output apk will be generated at`librecamera/build/app/outputs/apk/release/`. If you'd like to get multiple apks by splitting them into different platforms (results in smaller sizes) use `flutter build apk --split-per-abi`
 
 # Packages used
