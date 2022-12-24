@@ -1,0 +1,10 @@
+* behoben: Statusleiste verdeckte die App
+* behoben: Einführungsseite nicht immer im Vollbildmodus
+* behoben: Bildschirm schaltete sich nach Inaktivität aus
+
+* hinzugefügt: Option für maximale Bildschirmhelligkeit
+
+* verbessert: Zeitstempel im Dateinamen mit neuem Format: "stunde:minute:sekunde" statt "minute:sekunde:millisekunde"
+* verbessert: Taschenlampe in Video-Modus: Nur "Aus" und "Taschenlampe" anzeigen
+
+* l10n: Französisch und Baskisch hinzugefügt (danke an @melentan und @ZiTAL)
