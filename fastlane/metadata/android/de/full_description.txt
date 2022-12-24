@@ -1,25 +1,25 @@
 Libre Kamera ist eine freie und quelloffene Kamera-App zum Aufnehmen von Fotos und Videos, geschrieben in Flutter und Dart.
 
-Falls Sie auf der Suche nach einer quelloffenen Kamera-App mit vielen Funktionen sind, sollte diese App richtig für Sie sein. Von Taschenlampen-, Fokus- und Belichtungsmodi bis hin zum Ändern des Themas, der Sprache und der Komprimierungsqualität – diese App sollte alles haben, was Sie brauchen. Und falls nicht, öffnen Sie gerne ein Issue auf <a href="https://github.com/iakmds/librecamera">GitHub</a> and schlagen Sie eine Funktion vor. Unten ist eine Liste der Funktionen zu finden, weitere kommen in naher Zukunft!
+Wenn du auf der Suche nach einer quelloffenen Kamera-App mit vielen Funktionen bist, sollte diese App richtig für dich sein. Von Taschenlampen-, Fokus- und Belichtungsmodi bis hin zum Ändern des Themas, der Sprache und der Komprimierungsqualität – diese App sollte alles haben, was du brauchst. Und falls nicht, öffne gerne ein Issue auf <a href="https://github.com/iakmds/librecamera">GitHub</a> und schlage eine Funktion vor. Unten ist eine Liste der Funktionen zu finden, weitere kommen in naher Zukunft!
 
 <b>Funktionen</b>
     * Aufnahme von Fotos und Videos mit der Rück- und Frontkamera
-    * Privatsphäre: Keine EXIF-Metadateien beim Aufnehmen von Fotos gespeichert (Standardeinstellung, optional aktivierbar) – ohne Werbung, Tracking, oder überflüssige Berechtigungen
+    * Privatsphäre: Keine EXIF-Metadateien werden beim Aufnehmen von Fotos gespeichert (Standardeinstellung, optional aktivierbar) – ohne Werbung, Tracking, oder überflüssige Berechtigungen
     * Themen: Material Design mit einem dunklen, hellen oder automatischen Thema
-    * Sprachen unterstützt: 1. Englisch, 2. Französisch, 3. Deutsch, 4. Spanisch, 5. Baskisch, 6. Portugiesisch, 7. Russisch, 8. Japanisch, 9. Türkish – Helfen Sie gerne bei der Übersetzung Ihrer Sprache!
+    * Sprachen unterstützt: 1. Englisch, 2. Französisch, 3. Deutsch, 4. Spanisch, 5. Baskisch, 6. Portugiesisch, 7. Russisch, 8. Japanisch, 9. Türkish – Hilf gerne bei der Übersetzung deiner Sprache!
     * Zoom: Zoom mit zwei Fingern oder einem optionalen Slider
-    * Timer/Verzögerung: Wählen Sie eine Verzögerung aus, um sich für Ihr Foto bereit zu machen
+    * Timer/Verzögerung: Wähle eine Verzögerung aus, um sich für dein Foto bereit zu machen
     * Taschenlampen-Modi: An bei Aufnahme, Aus, Auto, Immer an
     * Fokus: Autofokus, gesperrter Fokus und manueller Fokus, indem man auf den Bildschirm tippt
     * Belichtung: Auto-Belichtung, gesperrte Belichtung und manuelle Belichtung mit einem optionalen Slider
-    * Komprimierungsqualität: Legen Sie den Wert für die Komprimierungsqualität in den Einstellungen fest
-    * Formate: Wechseln Sie zwischen drei Kameraformaten (JPEG, PNG, WebP)
-    * Auflösung: Wechseln Sie zwischen verschiedenen Kameraauflösungen
-    * Speicherpfad: Wählen Sie Ihren bevorzugten Speicherpfad
+    * Komprimierungsqualität: Lege den Wert für die Komprimierungsqualität in den Einstellungen fest
+    * Formate: Wechsel zwischen drei Kameraformaten (JPEG, PNG, WebP)
+    * Auflösung: Wechsel zwischen verschiedenen Kameraauflösungen
+    * Speicherpfad: Wähle deinen bevorzugten Speicherpfad
     * Geringe Größe von etwa 21MB
-    * Anpassbar: Öffnen Sie die Einstellungen, um die App nach Ihren Wünschen anzupassen!
+    * Anpassbar: Öffne die Einstellungen, um die App nach deinen Wünschen anzupassen!
 
-<b>Contact</b>
-Besuchen Sie die GitHub Repository, die auch die Roadmap beinhaltet: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+<b>Kontakt</b>
+Besuche das GitHub Repository, das auch die Roadmap beinhaltet: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
 
-Falls Sie einen Bug gefunden haben oder eine Funktion vorschlagen möchten, können Sie ein Issue auf GitHub melden: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
+Falls du einen Fehler gefunden hast oder eine Funktion vorschlagen möchtest, kannst du ein Issue auf GitHub melden: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
