@@ -1,0 +1,25 @@
+Libre Camera é unha app de cámara de código aberto e libre para facer fotos e gravar vídeos, escrita en Flutter e Dart.
+
+Se precisas unha cámara de código aberto con múltiples características, esta podería valerche. Ten luz flash, controis para enfocar e expoñer e podes cambiar o decorado, o idioma así como o nivel de compresión - esta app pode ser do teu interese. Se non fose así, podes abrir un issue en <a href="https://github.com/iakmds/librecamera">GitHub</a> e solicitar unha nova función. Aquí embaixo tes unha lista das súas características, con moitas máis en camiño!
+
+<b>Características</b>
+    * Facer fotos e gravar vídeos coas cámaras anterior e posterior
+    * Privacidade: Non garda datos EXIF por defecto ao facer fotos (configurable nos axustes) - sen publicidade, rastrexo ou permisos innecesarios
+    * Decorados: Material Design con decorados claro, escuro e seguir ao sistema
+    * Múltiples idiomas - Contribúe traducindoa ao teu idioma!
+    * Zoom: zoom con dous dedos ou cunha barra opcional
+    * Temporizador/Retardo: establece un temporizador para facer a foto e prepárate para ela
+    * Modos de Flash: Acendido ao facer foto, Apagado, Automático e Sempre acendido
+    * Enfoque: Automático, Bloqueado e Manual cun toque na pantalla
+    * Exposición: Automática, Bloqueada e Manual cunha barra opcional na pantalla
+    * Compresión da imaxe: Configurable nos Axustes
+    * Formatos: Elixe entre tres opcións (JPEG, PNG e WebP)
+    * Resolucións: cambia entre as diferentes resolucións da cámara
+    * Almacenaxe: elixe onde queres gardar as túas fotografías
+    * Tamaño reducido, só uns 21MB
+    * Personalizable: Abre os Axustes e personaliza a app ao teu gusto!
+    
+<b>Contacto</b>
+Vai ao repositorio GitHub, que inclúe a Planificación: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+
+Se atopas un fallo o queres facer unha petición dunha nova característica, podes facelo nun issue en GitHub: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
