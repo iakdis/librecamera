@@ -1,0 +1,11 @@
+* solucionado: problema co recorte da barra de estado: engadiuse "Zona segura"
+* corrixido: a páxina de benvida non é a pantalla completa cando se escribe co teclado e se envía
+* corrixido: a pantalla apágase despois de estar inactivo, agora está sempre acesa
+
+* engadiu: opción de brillo máximo da pantalla
+
+* corrixido: adición de marcas de tempo novo formato: "hora:minuto:segundo" en lugar de "minuto:segundo:milisegundo"
+* corrixido: Flash no modo cámara: só use "Desactivado". e "Linterna"
+
+* l10n: idioma francés engadido (grazas @melentan)
+* l10n: idioma éuscaro engadido (grazas @ZiTAL)
