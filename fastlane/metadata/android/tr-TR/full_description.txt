@@ -1,1 +1,25 @@
+Özgür Kamera, Flutter ve Dart ile yazılmış fotoğraf çekmek ve video kaydetmek için ücretsiz ve açık kaynaklı bir kamera uygulamasıdır.
 
+Çeşitli özelliklere sahip açık kaynaklı bir kamera uygulamasına ihtiyacınız varsa, bu uygulama sizin içindir. El feneri, odak ve pozlama kontrollerinden değişen temalara, dillere ve sıkıştırma miktarına kadar - bu uygulama sizi kapsamalıdır. Ve eğer değilse, <a href="https://github.com/iakmds/librecamera">GitHub</a> adresinde bir sorun bildirmekten ve bir özellik talep etmekten çekinmeyin. Aşağıda, gelecekte daha fazlası gelecek olan özelliklerin bir listesini görebilirsiniz!
+
+<b>Özellikler</b>
+    * Arka ve ön kameranızla fotoğraf çekin ve video kaydedin
+    * Gizlilik: Fotoğraf çekerken varsayılan olarak EXIF Meta Verileri kaydedilmez (ayarlardan isteğe bağlı olarak etkinleştirin) - reklamlar, izleme veya gereksiz izinler olmadan
+    * Temalar: Açık, koyu veya sistem temalı Materyal Tasarım
+    * Çoklu dil desteği - Dilinizi çevirerek katkıda bulunun!
+    * Yakınlaştırma: 2 parmakla veya isteğe bağlı bir kaydırıcıyla yakınlaştırma
+    * Zamanlayıcı/Gecikme: Fotoğrafınıza hazırlanmak için bir fotoğraf çekim zamanlayıcısı seçin
+    * El feneri modları: Yakalama sırasında açık, Kapalı, Otomatik, Her zaman açık
+    * Odaklanma: Otomatik odaklama, kilitli odaklama ve ekrana dokunarak manuel odaklama
+    * Pozlama: Otomatik pozlama, kilitli pozlama ve isteğe bağlı kaydırıcı ile manuel pozlama
+    * Görüntü sıkıştırma: Ayarlardan sıkıştırma miktarını ayarlayın
+    * Biçimler: 3 kamera formatı arasında geçiş yapın (JPEG, PNG, WebP)
+    * Çözünürlükler: Farklı kamera çözünürlükleri arasında geçiş yapın
+    * Kaydetme konumu: Tercih ettiğiniz kaydetme konumunu seçin
+    * Yaklaşık 21MB'lık küçük boyut
+    * Özelleştirilebilir: Uygulamayı beğeninize göre özelleştirmek için ayarları açın!
+
+<b>İletişim</b>
+Yol haritasını içeren GitHub deposuna göz atın: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+
+Bir hata bulmanız veya bir özellik talebiniz olması durumunda, GitHub'da bir konu açmaktan çekinmeyin: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
