@@ -1,0 +1,5 @@
+* l10n: Add Bulgarian language
+* l10n: Add Galician language
+* l10n: Add Norwegian language
+* l10n: Add Polish language
+* l10n: Add Ukranian language
