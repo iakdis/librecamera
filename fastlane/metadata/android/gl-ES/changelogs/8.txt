@@ -1,0 +1,5 @@
+* l10n: Engadido idioma búlgaro
+* l10n: Engadido idioma galego
+* l10n: Engadido idioma noruegués
+* l10n: Engadido idioma polaco
+* l10n: Engadido idioma ucraíno
