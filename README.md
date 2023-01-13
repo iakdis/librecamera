@@ -83,6 +83,9 @@ You can download Libre Camera on [F-Droid](https://f-droid.org/packages/com.iakm
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
     alt="Get it on F-Droid"
     height="80">](https://f-droid.org/packages/com.iakmds.librecamera)
+[<img src="https://raw.githubusercontent.com/iakmds/librecamera/master/.github/get-it-on-github.png"
+    alt="Get it on GitHub"
+    height="80">](https://github.com/iakmds/librecamera/releases/latest)
 
 # Features
 
