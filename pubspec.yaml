@@ -49,7 +49,7 @@ dependencies:
   wakelock: ^0.6.2
 
 dev_dependencies:
-  flutter_launcher_icons: ^0.10.0
+  flutter_launcher_icons: ^0.11.0
   flutter_lints: ^2.0.0
   flutter_native_splash: ^2.2.9
   flutter_test:
