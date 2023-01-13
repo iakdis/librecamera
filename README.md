@@ -78,7 +78,7 @@
 
 # Download
 
-You can download Libre Camera on [F-Droid](https://f-droid.org) by tapping on the badge below. Alternatively, download and install the apk directly from the GitHub [releases](https://github.com/iakmds/librecamera/releases) page. Downloading directly from the GitHub releases page will typically download a more recent version – notice though that the F-Droid and the GitHub versions aren't compatible with one another. You will need to reinstall the app; make sure you remember your settings.
+You can download Libre Camera on [F-Droid](https://f-droid.org/packages/com.iakmds.librecamera) by tapping on the badge below. Alternatively, download and install the apk directly from the GitHub [releases](https://github.com/iakmds/librecamera/releases) page. Downloading directly from the GitHub releases page will likely download a more recent version (if a new version was published recently) – notice though that the F-Droid and the GitHub versions aren't compatible with one another. You will need to reinstall the app; make sure you remember your settings.
 
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
     alt="Get it on F-Droid"
@@ -147,7 +147,7 @@ Feel free to send in a [pull request](https://github.com/iakmds/librecamera/pull
 
 1. Clone this repository
 2. Switch to the project's directory and run `flutter pub get` to get all necessary packages. To test the app, run the project in debug mode by selecting an Android device or emulator in your preferred Flutter IDE and running the app in debug mode
-3. To build the final app, run the app by installing the apk (see next) on an Android device or emulator. To receive the apk, run the following command in your terminal: `flutter build apk` – the output apk will be generated at`librecamera/build/app/outputs/apk/release/`. If you'd like to get multiple apks by splitting them into different platforms (results in smaller sizes) use `flutter build apk --split-per-abi`
+3. To build the final app, run the following command in your terminal: `flutter build apk` – the output apk will be generated at `librecamera/build/app/outputs/apk/release/`. If you'd like to get multiple apks by splitting them into different platforms (results in smaller sizes) use `flutter build apk --split-per-abi`. Run the app by installing the apk on an Android device or emulator
 
 # Packages used
 
