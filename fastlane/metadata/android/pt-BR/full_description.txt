@@ -1,0 +1,26 @@
+Libre Camera (Câmera Livre) é um aplicativo de câmera gratuito e de código aberto para tirar fotos e gravar vídeos escritos em Flutter e Dart.
+
+Se você precisa de um aplicativo de câmera de código aberto com vários recursos, este aplicativo deve ser para você. Desde controles de lanterna, foco e 
+da exposição até alteração de temas, idiomas e quantidade de compactação - este aplicativo deve ajudá-lo. Caso contrário, sinta-se à vontade para abrir um problema no <a href="https://github.com/iakmds/librecamera">GitHub</a> e solicitar um recurso. Abaixo você pode ver uma lista dos recursos, com mais vindo no futuro!
+
+<b>Recursos</b>
+     * Tire fotos e grave vídeos com sua câmera traseira e frontal
+     * Privacidade: Nenhum metadado EXIF salvo por padrão ao tirar fotos (habilitar opcionalmente nas configurações) - sem anúncios, rastreamento ou permissões desnecessárias
+     * Temas: Material Design com um tema escuro, claro ou do sistema
+     * Vários idiomas suportados – Contribua traduzindo seu idioma!
+     * Zoom: Zoom com 2 dedos ou com um controle deslizante opcional
+     * Timer/Delay: Selecione um timer de captura de foto para se preparar para sua foto
+     * Modos de lanterna: Ligado na captura, Desligado, Automático, Sempre ligado
+     * Foco: Foco automático, foco bloqueado e foco manual ao tocar na tela
+     * Exposição: Exposição automática, exposição bloqueada e exposição manual com um controle deslizante opcional
+     * Compressão de imagem: defina a quantidade de compressão nas configurações
+     * Formatos: Alterne entre 3 formatos de câmera (JPEG, PNG, WebP)
+     * Resoluções: alterne entre diferentes resoluções de câmera
+     * Local de salvamento: Escolha seu local de salvamento preferido
+     * Tamanho pequeno de cerca de 21 MB
+     * Personalizável: abre as configurações para personalizar o aplicativo ao seu gosto!
+
+<b>Contato</b>
+Confira o repositório GitHub, que inclui o roteiro: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+
+Caso você encontre um bug ou tenha uma solicitação de recurso, sinta-se à vontade para registrar um problema no GitHub: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds /librecamera/issues</a>
