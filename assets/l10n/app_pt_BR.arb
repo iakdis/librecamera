@@ -1,1 +1,4 @@
-{}
+{
+  "giveCameraPermission": "Dar permissão para câmera",
+  "@giveCameraPermission": {}
+}
