@@ -1,0 +1,5 @@
+* l10n: Bulgarca dili eklendi
+* l10n: Galiçya dili eklendi
+* l10n: Norveççe dili eklendi
+* l10n: Lehçe dili eklendi
+* l10n: Ukranya dili eklendi
