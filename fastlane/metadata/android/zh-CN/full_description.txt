@@ -1,0 +1,25 @@
+Libre Camera 以 Flutter 和 Dart 编写，是可以拍摄图片、录制视频的开源相机应用。
+
+如果您想要找个带些功能的开源相机应用，可以试试本软件。Libre Camera 有闪光灯、对焦和调整曝光的功能，应用主题、界面语言和图像压缩程度也可以更改，希望能够包含到您想要的功能。您如果需要别的功能，可以在 <a href="https://github.com/iakmds/librecamera">GitHub</a> 上提出 issue。下面是功能列表，以后还准备增加更多功能。
+
+<b>功能、特点</b>
+        * 前置摄像头和后置摄像头的拍照、录像
+        * 隐私保护：默认不保存拍照的 EXIF 元数据（设置中可以选择保存）。软件没有广告，无需不必要的权限
+        * 主题：界面以“材料设计语言”（Material Design）设计，可以选择主题的深浅，也可以跟随系统主题
+        * 界面可以选择多种语言。（注：您可以帮忙翻译本软件）
+        * 缩放：双指缩放或者使用滑动条缩放。
+        * 倒计时（快门延迟）：选择准备拍照所需的倒计时时间
+        * 闪光灯模式：拍下照片时打开、关闭、自动、一直打开
+        * 对焦控制：自动对焦、固定焦点、点击屏幕手动对焦
+        * 曝光控制：自动调整、锁定曝光值。可以选择显示滑动条，手动调整曝光补偿
+        * 图像压缩：在设置中调整压缩程度
+        * 图像格式：选择图像格式，有 3 种（JPEG、PNG、WebP）
+        * 分辨率：选择相机进行拍照、录像的分辨率
+        * 保存路径：设置文件要保存到的位置
+        * 软件体积小，约 21MB
+        * 界面自定义：设置中有自定义界面的选项
+
+<b>联系开发者</b>
+查看 GitHub 上的 repository，软件开发路线也在上面：<a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+
+如果您碰到什么问题或者想要某种功能，可以在 GitHub 上提出 issue：<a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
