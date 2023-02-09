@@ -1,1 +1,64 @@
-{}
+{
+  "permissionsTitle": "അനുമതികൾ",
+  "@permissionsTitle": {},
+  "giveCameraPermission": "ക്യാമറ അനുമതി നൽകുക",
+  "@giveCameraPermission": {},
+  "savePathTitle": "പാത സംരക്ഷിക്കുക",
+  "@savePathTitle": {},
+  "selectPath": "പാത തിരഞ്ഞെടുക്കുക",
+  "@selectPath": {},
+  "welcomeTitle": "സ്വാഗതം",
+  "@welcomeTitle": {},
+  "getStarted": "ആരംഭിക്കുക",
+  "@getStarted": {},
+  "giveStoragePermission": "സംഭരണ അനുമതി നൽകുക",
+  "@giveStoragePermission": {},
+  "switchToPictureMode": "ചിത്ര രീതിയിലേക്ക് മാറുക",
+  "@switchToPictureMode": {},
+  "back": "തിരികെ",
+  "@back": {},
+  "next": "അടുത്തത്",
+  "@next": {},
+  "settings": "ക്രമീകരണങ്ങൾ",
+  "@settings": {},
+  "language": "ഭാഷ",
+  "@language": {},
+  "cameraBehaviour": "ക്യാമറ പെരുമാറ്റം",
+  "@cameraBehaviour": {},
+  "format_description": "ചിത്രത്തിന്റെ തരം മാറ്റുക (സ്ഥിരസ്ഥിതിട്: JPEG/JPG)",
+  "@format_description": {},
+  "savePath": "പാത സംരക്ഷിക്കുക",
+  "@savePath": {},
+  "choosePath": "പാത തിരഞ്ഞെടുക്കുക",
+  "@choosePath": {},
+  "disableAudio": "ശബ്ദം പ്രവർത്തനരഹിതമാക്കുക",
+  "@disableAudio": {},
+  "more": "കൂടുതൽ",
+  "@more": {},
+  "version": "പതിപ്പ് {versionNumber}",
+  "@version": {
+    "placeholders": {
+      "versionNumber": {
+        "type": "String"
+      }
+    }
+  },
+  "savePath_description": "നിലവിലെ പാത: {path}",
+  "@savePath_description": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "saving": "സംരക്ഷിക്കുന്നു",
+  "@saving": {},
+  "less": "കുറവ് കാണിക്കുക",
+  "@less": {},
+  "startWithFrontCamera": "മുൻവശത്തെ ക്യാമറ ഉപയോഗിച്ച് ആരംഭിക്കുക",
+  "@startWithFrontCamera": {},
+  "startWithFrontCamera_description": "പ്രയോഗം തുറക്കുമ്പോൾ എപ്പോഴും മുൻവശത്തെ ക്യാമറ ഉപയോഗിച്ച് തുടങ്ങുക",
+  "@startWithFrontCamera_description": {},
+  "license": "GitHub-ലെ GPLv3-ന് കീഴിൽ കോഡ് അനുമതി ചെയ്‌തിരിക്കുന്നു. നിങ്ങൾക്ക് എന്തെങ്കിലും പ്രശ്‌നങ്ങൾ നേരിടുകയോ ഒരു സവിശേഷത അഭ്യർത്ഥിക്കുകയോ ചെയ്യുകയാണെങ്കിൽ, ദയവായി GitHub-ൽ ഒരു പ്രശ്നം തുറക്കുക. നന്ദി!",
+  "@license": {}
+}
