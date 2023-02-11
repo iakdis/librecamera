@@ -1,0 +1,27 @@
+Libre Camera adalah sebuah aplikasi kamera percuma dan sumber terbuka untuk mengambil gambar dan merekod video ditulis dalam Flutter dan Dart.
+
+Jika anda memerlukan aplikasi kamera sumber terbuka dengan beberapa ciri, aplikasi ini adalah untuk anda. Daripada lampu suluh, fokus dan kawalan-kawalan pendedahan kepada menukar tema-tema, bahasa-bahasa dan jumlah pemampatan – aplikasi ini adalah sepatutnya untuk anda. Dan jika tidak, rasa bebas untuk buka isu di
+<a href="https://github.com/iakmds/librecamera">GitHub</a> dan meminta ciri. Di bawah anda boleh lihat senarai ciri-ciri, dengan lebih banyak akan datang pada masa hadapan!   
+   
+<b>Ciri-ciri</b>  
+        * Ambil gambar-gambar dan rekod video-videp dengan kamera hadapan dan belakang anda  
+        * Privasi: Tiada Metadata EXIF disimpan secara lalai apabila mengambil gambar-gambar (boleh dibenarkan secara pilihan dalam tetapan) – tanpa iklan, penjejakan, atau kebenaran-kebenaran yang tidak perlu  
+        * Tema-tema: Material Design dengan tema gelap,cahaya atau sistem  
+        * Berbilang languages disokong – Menyumbang dengan menterjemah bahasa anda!  
+        * Zum: Zum dengan 2 jari atau dengan peluncur pilihan  
+        * Pemasa/Kelewatan: Pilih pemasa tangkap gambar untuk bersedia untuk gambar anda  
+        * Mod-mod lampu suluh: Terpasang ketika tangkap, Padam, Automatik, Sentiasa terpasang  
+        * Fokus: Fokus automatik, fokus terkunci dan fokus manual dengan menyentuh skrin  
+        * Pendedahan: Pendedahan automatik, pendedahan terkunci and pendedahan manual dengan peluncur pilihan  
+        * Pemampatan gambar: Tetapkan jumlah pemampatan dalam tetapan  
+        * Format: Tukar antara 3 format kamera (JPEG, PNG, WebP)  
+        * Resolusi: Tukar antara resolusi kamera berbeza  
+        * Simpan lokasi: Pilih lokasi simpan utama anda  
+        * Saiz kecil kira-kira 21 MB  
+        * Boleh diubah suai: Buka tetapan untuk mengubah suai aplikasi mengikut cita rasa anda!  
+  
+<b>Contact</b>  
+Lihat repositori GitHub, yang merangkumi pelan hala tuju:
+<a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>  
+   
+Sekiranya anda menemui bug atau mempunyai permintaan ciri, jangan ragu untuk memfailkan isu di GitHub: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
