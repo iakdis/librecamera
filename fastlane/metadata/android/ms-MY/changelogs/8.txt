@@ -1,0 +1,5 @@
+* l10n: Tambah Bahasa Bulgaria
+* l10n: Tambah Bahasa Galicia
+* l10n: Tambah Bahasa Norway
+* l10n: Tambah Bahasa Poland
+* l10n: Tambah Bahasa Ukraine
