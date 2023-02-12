@@ -8,6 +8,8 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../provider/theme_provider.dart';
+
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({Key? key}) : super(key: key);
 
@@ -431,31 +433,34 @@ class _OnboardingPageState extends State<OnboardingPage> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTapDown: (details) => unfocusAndRestore(),
-      child: Scaffold(
-        body: Container(
-          padding: const EdgeInsets.only(bottom: 80.0),
-          child: PageView(
-            physics: nextEnabled()
-                ? const ScrollPhysics()
-                : const NeverScrollableScrollPhysics(),
-            controller: controller,
-            onPageChanged: (index) {
-              setState(() {
-                isLastPage = index == 2;
-                currentPage = index;
+      child: Theme(
+        data: Themes.lightTheme,
+        child: Scaffold(
+          body: Container(
+            padding: const EdgeInsets.only(bottom: 80.0),
+            child: PageView(
+              physics: nextEnabled()
+                  ? const ScrollPhysics()
+                  : const NeverScrollableScrollPhysics(),
+              controller: controller,
+              onPageChanged: (index) {
+                setState(() {
+                  isLastPage = index == 2;
+                  currentPage = index;
 
-                unfocusAndRestore();
-              });
-            },
-            children: [
-              _permissionsPage(),
-              _savePathPage(),
-              _welcomePageInfo(),
-            ],
+                  unfocusAndRestore();
+                });
+              },
+              children: [
+                _permissionsPage(),
+                _savePathPage(),
+                _welcomePageInfo(),
+              ],
+            ),
           ),
+          bottomSheet:
+              isLastPage ? _welcomePageBottomButton() : _bottomPageIndicator(),
         ),
-        bottomSheet:
-            isLastPage ? _welcomePageBottomButton() : _bottomPageIndicator(),
       ),
     );
   }
