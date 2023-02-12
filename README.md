@@ -156,25 +156,27 @@ Feel free to send in a [pull request](https://github.com/iakmds/librecamera/pull
 
 The packages used for this app, also listed in the pubspec.yaml file. See their respective licenses.
 
-- [camera](https://pub.dev/packages/camera): Used for camera functionality
-- [device_info_plus](https://pub.dev/packages/device_info_plus): Used for getting Android version to adapt behaviour
-- [file_picker](https://pub.dev/packages/file_picker): Used for picking the save path
-- [flutter](https://pub.dev/packages/flutter): Used for Flutter SDK
-- [flutter_image_compress](https://pub.dev/packages/flutter_image_compress): Used for image compression and EXIF metadata removal
-- [flutter_localizations](https://pub.dev/packages/flutter_localizations): Used for localization
-- [image](https://pub.dev/packages/image): Used for the ability to flip captured photos horizontally
-- [intl](https://pub.dev/packages/intl): Used for localization
-- [native_device_orientation](https://pub.dev/packages/native_device_orientation): Used for automatic orientation based on the phones sensor
-- [path](https://pub.dev/packages/path): Used for looking up files and directories
-- [path_provider](https://pub.dev/packages/path_provider): Used for getting the temporary cache directory
-- [permission_handler](https://pub.dev/packages/permission_handler): Used for handling permissions
-- [provider](https://pub.dev/packages/provider): Used for state management, specifically localization and theme support
-- [screen_brightness](https://pub.dev/packages/screen_brightness): Used for maximum screen brightness option
-- [shared_preferences](https://pub.dev/packages/shared_preferences): Used for saving app data, including settings
-- [smooth_page_indicator](https://pub.dev/packages/smooth_page_indicator): Used for the page indicator in the onboarding screen
-- [url_launcher](https://pub.dev/packages/url_launcher): Used for opening the GitHub repository link inside the About menu
-- [video_thumbnail](https://pub.dev/packages/video_thumbnail): Used for displaying a captured video inside the thumbnail
-- [wakelock](https://pub.dev/packages/wakelock): Used for keeping the display always on
+Package | Use case
+-|-
+[camera](https://pub.dev/packages/camera) | Camera functionality
+[device_info_plus](https://pub.dev/packages/device_info_plus) | Getting the Android version to adapt saving behaviour
+[file_picker](https://pub.dev/packages/file_picker) | Picking the save path
+[flutter](https://pub.dev/packages/flutter) | Flutter SDK
+[flutter_image_compress](https://pub.dev/packages/flutter_image_compress) | Image compression and EXIF metadata removal
+[flutter_localizations](https://pub.dev/packages/flutter_localizations) | Localization
+[image](https://pub.dev/packages/image) | Ability to flip captured photos horizontally
+[intl](https://pub.dev/packages/intl) | Localization
+[native_device_orientation](https://pub.dev/packages/native_device_orientation) | Automatic orientation based on the phones sensor
+[path](https://pub.dev/packages/path) | Looking up files and directories
+[path_provider](https://pub.dev/packages/path_provider) | Getting the temporary cache directory
+[permission_handler](https://pub.dev/packages/permission_handler) | Handling permissions
+[provider](https://pub.dev/packages/provider) | State management (localization and themes)
+[screen_brightness](https://pub.dev/packages/screen_brightness) | Maximum screen brightness option
+[shared_preferences](https://pub.dev/packages/shared_preferences) | Saving app data like settings
+[smooth_page_indicator](https://pub.dev/packages/smooth_page_indicator) | Page indicator in the onboarding screen
+[url_launcher](https://pub.dev/packages/url_launcher) | Open the GitHub repository link inside the about menu
+[video_thumbnail](https://pub.dev/packages/video_thumbnail) | Displaying a captured video inside the thumbnail
+[wakelock](https://pub.dev/packages/wakelock) | Keeping the display always on
 
 # License
 
