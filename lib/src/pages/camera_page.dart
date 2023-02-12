@@ -15,6 +15,7 @@ import 'package:librecamera/src/widgets/format.dart';
 import 'package:librecamera/src/widgets/resolution.dart';
 import 'package:librecamera/src/widgets/timer.dart';
 import 'package:native_device_orientation/native_device_orientation.dart';
+import 'package:permission_handler/permission_handler.dart';
 //import 'package:qr_code_scanner/qr_code_scanner.dart' as qr;
 import 'package:video_thumbnail/video_thumbnail.dart' as video_thumbnail;
 
@@ -375,17 +376,19 @@ class _CameraPageState extends State<CameraPage>
         color: Colors.white,
         disabledColor: Colors.white24,
         onPressed: enabled
-            ? () {
+            ? () async {
                 if (!isVideoCameraSelected) {
-                  setState(() {
-                    isVideoCameraSelected = true;
-                  });
+                  final status = await Permission.microphone.status;
+
+                  if (!status.isGranted) {
+                    await Permission.microphone.request();
+                  } else {
+                    setState(() => isVideoCameraSelected = true);
+                  }
                 } else {
                   controller?.value.isRecordingVideo ?? false
                       ? null
-                      : setState(() {
-                          isVideoCameraSelected = false;
-                        });
+                      : setState(() => isVideoCameraSelected = false);
                 }
               }
             : null,
@@ -597,7 +600,7 @@ class _CameraPageState extends State<CameraPage>
     final CameraController cameraController = CameraController(
       cameraDescription,
       resolution,
-      enableAudio: Preferences.getEnableAudio(),
+      enableAudio: isVideoCameraSelected ? Preferences.getEnableAudio() : false,
       imageFormatGroup: ImageFormatGroup.jpeg,
     );
 

@@ -43,7 +43,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   }
 
   bool checkPermissions() {
-    return cameraPermissionGranted && microphonePermissionGranted;
+    return cameraPermissionGranted;
   }
 
   void cameraPermission() async {
@@ -57,20 +57,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
       });
     } else {
       print('Camera Permission: DENIED');
-    }
-  }
-
-  void microphonePermission() async {
-    await Permission.microphone.request();
-    var status = await Permission.microphone.status;
-
-    if (status.isGranted) {
-      print('Microphone Permission: GRANTED');
-      setState(() {
-        microphonePermissionGranted = true;
-      });
-    } else {
-      print('Microphone Permission: DENIED');
     }
   }
 
@@ -210,11 +196,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
         ElevatedButton(
           onPressed: cameraPermissionGranted ? null : cameraPermission,
           child: Text(AppLocalizations.of(context)!.giveCameraPermission),
-        ),
-        const SizedBox(height: 16.0),
-        ElevatedButton(
-          onPressed: microphonePermissionGranted ? null : microphonePermission,
-          child: Text(AppLocalizations.of(context)!.giveMicrophonePermission),
         ),
         const SizedBox(height: 16.0),
         ElevatedButton(
