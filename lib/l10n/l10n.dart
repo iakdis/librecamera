@@ -14,6 +14,7 @@ class Localization {
     const Locale('nb', ''),
     const Locale('pl', ''),
     const Locale('pt', ''),
+    const Locale('pt', 'BR'),
     const Locale('ru', ''),
     const Locale('tr', ''),
     const Locale('uk', ''),
@@ -40,7 +41,11 @@ class Localization {
       case 'pl':
         return 'Polski';
       case 'pt':
-        return 'Português (do Brasil)';
+        if (locale.countryCode == 'BR') {
+          return 'Português (do Brasil)';
+        } else {
+          return 'Português';
+        }
       case 'ru':
         return 'Русский';
       case 'tr':
