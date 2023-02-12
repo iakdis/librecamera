@@ -42,6 +42,14 @@ class MainActivity : FlutterActivity() {
                             shutterSound()
                             result.success(null)
                         }
+                        "startVideoSound" -> {
+                            startVideoSound()
+                            result.success(null)
+                        }
+                        "stopVideoSound" -> {
+                            stopVideoSound()
+                            result.success(null)
+                        }
                     }
                 }
     }
@@ -119,6 +127,16 @@ class MainActivity : FlutterActivity() {
     private fun shutterSound() {
         val sound = MediaActionSound()
         sound.play(MediaActionSound.SHUTTER_CLICK)
+    }
+
+    private fun startVideoSound() {
+        val sound = MediaActionSound()
+        sound.play(MediaActionSound.START_VIDEO_RECORDING)
+    }
+
+    private fun stopVideoSound() {
+        val sound = MediaActionSound()
+        sound.play(MediaActionSound.STOP_VIDEO_RECORDING)
     }
 }
 

@@ -675,6 +675,11 @@ class _CameraPageState extends State<CameraPage>
   }
 
   void onVideoRecordButtonPressed() {
+    if (!Preferences.getDisableShutterSound()) {
+      var methodChannel = AndroidMethodChannel();
+      methodChannel.startVideoSound();
+    }
+
     startVideoRecording().then((_) {
       if (mounted) {
         setState(() {});
@@ -683,6 +688,11 @@ class _CameraPageState extends State<CameraPage>
   }
 
   void onStopButtonPressed() {
+    if (!Preferences.getDisableShutterSound()) {
+      var methodChannel = AndroidMethodChannel();
+      methodChannel.stopVideoSound();
+    }
+
     stopVideoRecording().then((XFile? file) async {
       if (mounted) {
         setState(() {});
@@ -1248,5 +1258,13 @@ class AndroidMethodChannel {
 
   Future<void> shutterSound() async {
     await _channel.invokeMethod('shutterSound', {});
+  }
+
+  Future<void> startVideoSound() async {
+    await _channel.invokeMethod('startVideoSound', {});
+  }
+
+  Future<void> stopVideoSound() async {
+    await _channel.invokeMethod('stopVideoSound', {});
   }
 }
