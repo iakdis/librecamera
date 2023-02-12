@@ -166,6 +166,7 @@ The packages used for this app, also listed in the pubspec.yaml file. See their 
 - [intl](https://pub.dev/packages/intl): Used for localization
 - [native_device_orientation](https://pub.dev/packages/native_device_orientation): Used for automatic orientation based on the phones sensor
 - [path](https://pub.dev/packages/path): Used for looking up files and directories
+- [path_provider](https://pub.dev/packages/path_provider): Used for getting the temporary cache directory
 - [permission_handler](https://pub.dev/packages/permission_handler): Used for handling permissions
 - [provider](https://pub.dev/packages/provider): Used for state management, specifically localization and theme support
 - [screen_brightness](https://pub.dev/packages/screen_brightness): Used for maximum screen brightness option
