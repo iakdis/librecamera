@@ -15,6 +15,7 @@ import 'package:librecamera/src/widgets/format.dart';
 import 'package:librecamera/src/widgets/resolution.dart';
 import 'package:librecamera/src/widgets/timer.dart';
 import 'package:native_device_orientation/native_device_orientation.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 //import 'package:qr_code_scanner/qr_code_scanner.dart' as qr;
 import 'package:video_thumbnail/video_thumbnail.dart' as video_thumbnail;
@@ -707,6 +708,8 @@ class _CameraPageState extends State<CameraPage>
         print('Video recorded to $path');
         await _refreshGalleryImages();
       }
+
+      await clearCache();
     });
   }
 
@@ -848,8 +851,10 @@ class _CameraPageState extends State<CameraPage>
       return file;
     } on CameraException catch (e) {
       print('$e: ${e.description}');
-      return null;
     }
+
+    await clearCache();
+    return null;
   }
 
   Future<void> startVideoRecording() async {
@@ -1204,6 +1209,13 @@ class _CameraPageState extends State<CameraPage>
       content: Text(text),
       duration: const Duration(seconds: 5),
     ));
+  }
+
+  Future<void> clearCache() async {
+    final tempDir = await getTemporaryDirectory();
+    if (tempDir.existsSync()) {
+      await tempDir.delete(recursive: true);
+    }
   }
 }
 
