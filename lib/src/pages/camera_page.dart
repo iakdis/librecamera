@@ -694,12 +694,15 @@ class _CameraPageState extends State<CameraPage>
         String fileFormat = capturedFile!.path.split('.').last;
         String path = '$directory/VID_${timestamp()}.$fileFormat';
 
-        var tempFile = capturedFile!.copySync(path);
+        try {
+          final tempFile = capturedFile!.copySync(path);
 
-        final methodChannel = AndroidMethodChannel();
-        await methodChannel.updateItem(file: tempFile);
-
-        capturedFile = File(path);
+          final methodChannel = AndroidMethodChannel();
+          await methodChannel.updateItem(file: tempFile);
+          capturedFile = File(path);
+        } catch (e) {
+          if (mounted) showSnackbar(text: e.toString());
+        }
 
         print('Video recorded to $path');
         await _refreshGalleryImages();
@@ -810,13 +813,16 @@ class _CameraPageState extends State<CameraPage>
       );
 
       //var tempFile = capturedFile!.copySync('$directory/IMG_${timestamp()}.$fileFormat');
-      var tempFile = capturedFile!.copySync(path);
-      await tempFile.writeAsBytes(newFileBytes!);
+      try {
+        final tempFile = capturedFile!.copySync(path);
+        await tempFile.writeAsBytes(newFileBytes!);
 
-      final methodChannel = AndroidMethodChannel();
-      await methodChannel.updateItem(file: tempFile);
-
-      capturedFile = File(path);
+        final methodChannel = AndroidMethodChannel();
+        await methodChannel.updateItem(file: tempFile);
+        capturedFile = File(path);
+      } catch (e) {
+        if (mounted) showSnackbar(text: e.toString());
+      }
 
       /*Uint8List? newFileBytes = await FlutterImageCompress.compressWithFile(
           capturedFile!.path,
@@ -1119,7 +1125,14 @@ class _CameraPageState extends State<CameraPage>
 
     final directory = Directory(Preferences.getSavePath());
 
-    List<FileSystemEntity> fileList = await directory.list().toList();
+    List<FileSystemEntity> fileList = [];
+    try {
+      fileList = await directory.list().toList();
+    } catch (e) {
+      showSnackbar(text: e.toString());
+      return;
+    }
+
     List<String> fileNames = [];
     List<DateTime> dateTimes = [];
 
@@ -1184,6 +1197,13 @@ class _CameraPageState extends State<CameraPage>
     final DateFormat formatter = DateFormat('yyyyMMdd_HHmmss');
     final String formatted = formatter.format(now);
     return formatted;
+  }
+
+  void showSnackbar({required String text}) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(text),
+      duration: const Duration(seconds: 5),
+    ));
   }
 }
 
