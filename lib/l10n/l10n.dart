@@ -12,6 +12,7 @@ class Localization {
     const Locale('gl', ''),
     const Locale('ja', ''),
     const Locale('nb', ''),
+    const Locale('ms', ''),
     const Locale('pl', ''),
     const Locale('pt', ''),
     const Locale('pt', 'BR'),
@@ -39,6 +40,8 @@ class Localization {
         return '日本語';
       case 'nb':
         return 'Norsk bokmål';
+      case 'ms':
+        return 'Bahasa Melayu';
       case 'pl':
         return 'Polski';
       case 'pt':
