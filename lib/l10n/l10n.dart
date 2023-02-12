@@ -18,6 +18,7 @@ class Localization {
     const Locale('ru', ''),
     const Locale('tr', ''),
     const Locale('uk', ''),
+    const Locale('zh', 'Hans'),
   ];
 
   static String getName(Locale locale) {
@@ -52,6 +53,8 @@ class Localization {
         return 'Türkçe';
       case 'uk':
         return 'Українська';
+      case 'zh':
+        return '简化字';
       case 'en':
       default:
         return 'English';
