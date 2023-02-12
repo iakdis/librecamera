@@ -492,18 +492,17 @@ class _SettingsPageState extends State<SettingsPage> {
     return ListTile(
       title: Text(AppLocalizations.of(context)!.language),
       subtitle: Text(AppLocalizations.of(context)!.language_description),
-      trailing: DropdownButton(
+      trailing: DropdownButton<String>(
         icon: const Icon(Icons.language),
         value: Preferences.getLanguage().isNotEmpty
-            ? Locale(Preferences.getLanguage())
+            ? Preferences.getLanguage()
             : null,
         items: Localization.supportedLocales.map(
           (locale) {
-            //TODO add support  for country codes
-            final name = Localization.getName(locale.languageCode);
+            final name = Localization.getName(locale);
 
             return DropdownMenuItem(
-              value: locale,
+              value: locale.toLanguageTag(),
               onTap: () {
                 final provider =
                     Provider.of<LocaleProvider>(context, listen: false);
@@ -516,7 +515,7 @@ class _SettingsPageState extends State<SettingsPage> {
         ).toList()
           ..insert(
             0,
-            DropdownMenuItem<Locale>(
+            DropdownMenuItem<String>(
               value: null,
               onTap: () {
                 final provider =

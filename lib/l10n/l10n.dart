@@ -19,8 +19,8 @@ class Localization {
     const Locale('uk', ''),
   ];
 
-  static String getName(String languageCode, {String countryCode = ''}) {
-    switch (languageCode) {
+  static String getName(Locale locale) {
+    switch (locale.languageCode) {
       case 'de':
         return 'Deutsch';
       case 'bg':
