@@ -151,21 +151,14 @@ class _SettingsPageState extends State<SettingsPage> {
       subtitle: Text(
         AppLocalizations.of(context)!.onboardingScreen_description,
       ),
-      trailing: IconButton(
-        color: Colors.white,
-        onPressed: () async {
-          Preferences.setOnBoardingComplete(false);
+      trailing: const Icon(Icons.logout),
+      onTap: () async {
+        Preferences.setOnBoardingComplete(false);
 
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => const OnboardingPage()),
-          );
-        },
-        iconSize: 35,
-        icon: const Icon(
-          Icons.logout,
-          color: Colors.blue,
-        ),
-      ),
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const OnboardingPage()),
+        );
+      },
     );
   }
 
