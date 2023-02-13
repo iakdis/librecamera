@@ -46,10 +46,6 @@ class MainActivity : FlutterActivity() {
                             startVideoSound()
                             result.success(null)
                         }
-                        "stopVideoSound" -> {
-                            stopVideoSound()
-                            result.success(null)
-                        }
                     }
                 }
     }
@@ -132,11 +128,6 @@ class MainActivity : FlutterActivity() {
     private fun startVideoSound() {
         val sound = MediaActionSound()
         sound.play(MediaActionSound.START_VIDEO_RECORDING)
-    }
-
-    private fun stopVideoSound() {
-        val sound = MediaActionSound()
-        sound.play(MediaActionSound.STOP_VIDEO_RECORDING)
     }
 }
 
