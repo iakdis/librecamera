@@ -1,7 +1,7 @@
 {
   "permissionsTitle": "PERMISSÕES",
   "@permissionsTitle": {},
-  "permissionsTitle_description": "Para usar a câmera, é preciso que você dê permissão para o app usar sua câmera, microfone e armazenamento.",
+  "permissionsTitle_description": "Para usar a câmera, é preciso que você dê permissão para o app usar sua câmera e armazenamento.",
   "@permissionsTitle_description": {},
   "giveCameraPermission": "Permitir uso da câmera",
   "@giveCameraPermission": {},

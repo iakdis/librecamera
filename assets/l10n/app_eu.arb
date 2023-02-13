@@ -1,7 +1,7 @@
 {
   "permissionsTitle": "BAIMENAK",
   "@permissionsTitle": {},
-  "permissionsTitle_description": "Kamera erabiltzeko, kamera, mikrofono eta biltegiratze baimenak eman behar dituzu.",
+  "permissionsTitle_description": "Kamera erabiltzeko, kamera eta biltegiratze baimenak eman behar dituzu.",
   "@permissionsTitle_description": {},
   "giveCameraPermission": "Kamera-baimenak eman",
   "@giveCameraPermission": {},

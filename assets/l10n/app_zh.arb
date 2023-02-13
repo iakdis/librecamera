@@ -17,7 +17,7 @@
   "@giveMicrophonePermission": {},
   "exposureMode": "曝光控制",
   "@exposureMode": {},
-  "permissionsTitle_description": "作为相机应用，软件需要摄像头、麦克风和存储权限。",
+  "permissionsTitle_description": "作为相机应用程序，该软件需要相机和存储权限。",
   "@permissionsTitle_description": {},
   "exposureModeLocked": "锁定曝光值",
   "@exposureModeLocked": {},

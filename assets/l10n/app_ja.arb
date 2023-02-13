@@ -4,7 +4,7 @@
 
 
     "permissionsTitle": "許可設定",
-    "permissionsTitle_description": "アプリを使用するにはストレージ、カメラとマイクの権限を許可すしてください。",
+    "permissionsTitle_description": "このアプリを使用するには、カメラとストレージの権限を付与する必要があります。",
     "giveCameraPermission": "カメラ権限を許可する",
     "giveMicrophonePermission": "マイク権限を許可する",
     "giveStoragePermission": "ストレージ権限を許可する",

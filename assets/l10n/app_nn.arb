@@ -9,7 +9,7 @@
   "@giveCameraPermission": {},
   "giveStoragePermission": "Gje tilgjenge til gøyme",
   "@giveStoragePermission": {},
-  "permissionsTitle_description": "For å nytte kameraet må du gje det tilgjenge til kamera, mikrofonar og gøyme.",
+  "permissionsTitle_description": "For å nytte kameraet må du gje det tilgjenge til kamera og gøyme.",
   "@permissionsTitle_description": {},
   "welcomeTitle": "Velkomen",
   "@welcomeTitle": {},

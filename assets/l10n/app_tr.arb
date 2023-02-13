@@ -1,7 +1,7 @@
 {
   "permissionsTitle": "İZİNLER",
   "@permissionsTitle": {},
-  "permissionsTitle_description": "Kamerayı kullanmak için kamera, mikrofon ve depolama alanınıza erişim izni vermeniz gerekir.",
+  "permissionsTitle_description": "Kamerayı kullanmak için kameraya ve depolama alanına erişim izni vermeniz gerekir.",
   "@permissionsTitle_description": {},
   "giveCameraPermission": "Kamera izni ver",
   "@giveCameraPermission": {},

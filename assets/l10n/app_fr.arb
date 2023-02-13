@@ -1,7 +1,7 @@
 {
   "permissionsTitle": "PERMISSIONS",
   "@permissionsTitle": {},
-  "permissionsTitle_description": "Pour utiliser la caméra, les permissions d'accès à votre caméra, au microphone, et au stockage sont nécessaires.",
+  "permissionsTitle_description": "Pour utiliser la caméra, les permissions d'accès à votre caméra et au stockage sont nécessaires.",
   "@permissionsTitle_description": {},
   "giveCameraPermission": "Donner la permission d'accès à la caméra",
   "@giveCameraPermission": {},

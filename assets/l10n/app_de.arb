@@ -1,7 +1,7 @@
 {
   "permissionsTitle": "BERECHTIGUNGEN",
   "@permissionsTitle": {},
-  "permissionsTitle_description": "Um die Kamera zu benutzen, musst du die Berechtigung für die Nutzung der Kamera, des Mikrofons und des Speichers erteilen.",
+  "permissionsTitle_description": "Um die Kamera zu benutzen, musst du die Berechtigung für die Nutzung der Kamera und des Speichers erteilen.",
   "@permissionsTitle_description": {},
   "giveCameraPermission": "Kamera-Berechtigung erteilen",
   "@giveCameraPermission": {},

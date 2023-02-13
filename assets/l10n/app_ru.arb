@@ -4,7 +4,7 @@
 
 
     "permissionsTitle": "РАЗРЕШЕНИЯ",
-    "permissionsTitle_description": "Чтобы пользоваться приложением, необходимо дать доступ к памяти, камере и микрофону.",
+    "permissionsTitle_description": "Чтобы пользоваться приложением, необходимо дать доступ к памяти и камере.",
     "giveCameraPermission": "Разрешить доступ к камере",
     "giveMicrophonePermission": "Разрешить доступ к микрофону",
     "giveStoragePermission": "Разрешить доступ к памяти",

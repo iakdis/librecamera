@@ -41,7 +41,7 @@
   "@saving": {},
   "format_description": "Alterar o formato da imagem (padrão: JPEG/JPG)",
   "@format_description": {},
-  "permissionsTitle_description": "Para usar a câmera, você precisa dar permissão para o aplicativo utilizar sua câmera, microfone e armazenamento.",
+  "permissionsTitle_description": "Para usar a câmera, você precisa dar permissão para o aplicativo utilizar sua câmera e armazenamento.",
   "@permissionsTitle_description": {},
   "savePathTitle": "CAMINHO DE SALVAMENTO",
   "@savePathTitle": {},

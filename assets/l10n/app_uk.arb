@@ -9,7 +9,7 @@
   "@savePathTitle": {},
   "giveMicrophonePermission": "Надати дозвіл мікрофону",
   "@giveMicrophonePermission": {},
-  "permissionsTitle_description": "Щоб користуватися камерою, потрібно надати дозвіл на використання камери, мікрофона та сховища.",
+  "permissionsTitle_description": "Щоб користуватися камерою, потрібно надати дозвіл на використання камери та сховища.",
   "@permissionsTitle_description": {},
   "savePathTitle_description": "Виберіть шлях для збереження. Зазвичай зображення зберігаються в DCIM на Android.",
   "@savePathTitle_description": {},

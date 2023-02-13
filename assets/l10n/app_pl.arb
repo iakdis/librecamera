@@ -155,7 +155,7 @@
   },
   "choosePath": "Wybierz ścieżkę",
   "@choosePath": {},
-  "permissionsTitle_description": "Aby korzystać z kamery, musisz zezwolić na korzystanie z kamery, mikrofonu i pamięci.",
+  "permissionsTitle_description": "Aby korzystać z kamery, musisz zezwolić na korzystanie z kamery i pamięci.",
   "@permissionsTitle_description": {},
   "exposureMode": "Tryb ekspozycji",
   "@exposureMode": {},

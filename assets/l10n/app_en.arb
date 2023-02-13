@@ -1,7 +1,7 @@
 {
   "permissionsTitle": "PERMISSIONS",
   "@permissionsTitle": {},
-  "permissionsTitle_description": "To use the camera, you need to give permission to your camera, microphone and storage.",
+  "permissionsTitle_description": "To use the camera, you need to give permission to your camera and storage.",
   "@permissionsTitle_description": {},
   "giveCameraPermission": "Give camera permission",
   "@giveCameraPermission": {},

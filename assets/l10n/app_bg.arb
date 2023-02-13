@@ -101,7 +101,7 @@
       }
     }
   },
-  "permissionsTitle_description": "За да използвате камерата, трябва да дадете разрешение за вашата камера, микрофон и памет.",
+  "permissionsTitle_description": "За да използвате камерата, трябва да дадете разрешение за вашата камера и памет.",
   "@permissionsTitle_description": {},
   "flipToFrontCamera": "Обърнете към предната камера",
   "@flipToFrontCamera": {},

@@ -4,7 +4,7 @@
 
 
     "permissionsTitle": "PERMISOS",
-    "permissionsTitle_description": "Para usar la cámara, necesitas dar los permisos para cámara, micrófono y almacenamiento.",
+    "permissionsTitle_description": "Para usar la cámara, necesitas dar los permisos para cámara y almacenamiento.",
     "giveCameraPermission": "Otorgar permisos de cámara",
     "giveMicrophonePermission": "Otorgar permisos de micrófono",
     "giveStoragePermission": "Otorgar permisos de almacenamiento",

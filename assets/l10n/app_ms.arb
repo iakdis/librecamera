@@ -113,11 +113,11 @@
   "@disableAudio_description": {},
   "onboardingScreen_description": "Buka skrin onboarding permulaan",
   "@onboardingScreen_description": {},
-  "permissionsTitle_description": "Untuk mengguna kamera, anda perlu memberi kebenaran kepada kamera,mikrofon dan simpanan anda.",
+  "permissionsTitle_description": "Untuk mengguna kamera, anda perlu memberi kebenaran kepada kamera dan simpanan anda.",
   "@permissionsTitle_description": {},
   "startRecordingVideo": "Mula merekod video",
   "@startRecordingVideo": {},
-  "enableMaximumScreenBrightness_description": "Apabila dibolehkan,kecerahan skrin peranti anda akan ditetapkan pada tahap maksimum",
+  "enableMaximumScreenBrightness_description": "Apabila dibolehkan, kecerahan skrin peranti anda akan ditetapkan pada tahap maksimum",
   "@enableMaximumScreenBrightness_description": {},
   "savePath_description": "Laluan semasa: {path}",
   "@savePath_description": {
@@ -179,6 +179,6 @@
   "@pauseVideo": {},
   "exposureModeAuto": "PENDEDAHAN AUTOMATIK",
   "@exposureModeAuto": {},
-  "keepEXIFMetadata_description": "Simpan metadata EXIF gambar yang diambil seperti model fon,lokasi GPS, dan sebagainya.",
+  "keepEXIFMetadata_description": "Simpan metadata EXIF gambar yang diambil seperti model fon, lokasi GPS, dan sebagainya.",
   "@keepEXIFMetadata_description": {}
 }
