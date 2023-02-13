@@ -858,13 +858,13 @@ class _CameraPageState extends State<CameraPage>
 
       await _refreshGalleryImages();
 
+      await clearCache();
+
       return file;
     } on CameraException catch (e) {
       print('$e: ${e.description}');
+      return null;
     }
-
-    await clearCache();
-    return null;
   }
 
   Future<void> startVideoRecording() async {
