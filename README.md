@@ -150,7 +150,7 @@ Feel free to send in a [pull request](https://github.com/iakmds/librecamera/pull
 
 1. Clone this repository
 2. Switch to the project's directory and run `flutter pub get` to get all necessary packages. To test the app, run the project in debug mode by selecting an Android device or emulator in your preferred Flutter IDE and running the app in debug mode
-3. To build the final app, run the following command in your terminal: `flutter build apk` – the output apk will be generated at `librecamera/build/app/outputs/apk/release/`. If you'd like to get multiple apks by splitting them into different platforms (results in smaller sizes) use `flutter build apk --split-per-abi`. Run the app by installing the apk on an Android device or emulator
+3. To build the final app, run the following command in your terminal: `flutter build apk` – the output apk will be generated at `librecamera/build/app/outputs/apk/release/`. To receive all localized strings, run `flutter gen-l10n`. If you'd like to get multiple apks by splitting them into different platforms (results in smaller sizes), use `flutter build apk --split-per-abi`.
 
 # Packages used
 
