@@ -9,7 +9,7 @@
 .history
 .svn/
 migrate_working_dir/
-# untranslatedMessages.txt
+untranslatedMessages.txt
 
 # IntelliJ related
 *.iml
