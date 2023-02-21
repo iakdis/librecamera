@@ -33,6 +33,7 @@ class _TimerButtonState extends State<TimerButton> {
     return Tooltip(
       message: AppLocalizations.of(context)!.timer,
       child: DropdownButton(
+        isDense: true,
         menuMaxHeight: 384.0,
         icon: const Icon(Icons.av_timer),
         iconEnabledColor: Colors.white,
