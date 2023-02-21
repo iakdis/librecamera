@@ -62,7 +62,14 @@
       </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
+    <li>
+      <a href="#contributing">Contributing</a>
+      <ul>
+        <li><a href="#translate">Translate</a></li>
+        <li><a href="#bug-reporting-or-feature-requests">Bug reporting or feature requests</a></li>
+        <li><a href="#code">Code</a></li>
+      </ul>
+    </li>
     <li><a href="#packages-used">Packages used</a></li>
     <li><a href="#license">License</a></li>
   </ol>
