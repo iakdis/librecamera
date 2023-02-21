@@ -84,6 +84,7 @@ class _SettingsPageState extends State<SettingsPage> {
       padding: const EdgeInsets.only(left: 32.0),
       child: Column(
         children: [
+          _useMaterial3Tile(),
           const Divider(),
           _captureOrientationLockedTile(),
           const Divider(),
@@ -463,6 +464,22 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
         onChanged: (_) {},
       ),
+    );
+  }
+
+  Widget _useMaterial3Tile() {
+    final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
+
+    return SwitchListTile(
+      title: Text(AppLocalizations.of(context)!.useMaterialYou),
+      subtitle: Text(AppLocalizations.of(context)!.useMaterialYou_description),
+      value: Preferences.getUseMaterial3(),
+      onChanged: (value) {
+        setState(() {
+          Preferences.setUseMaterial3(value);
+          themeProvider.setTheme(ThemeMode.system);
+        });
+      },
     );
   }
 
