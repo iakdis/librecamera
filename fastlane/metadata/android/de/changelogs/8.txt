@@ -1,5 +1,0 @@
-* l10n: Bulgarisch hinzugefügt
-* l10n: Galizisch hinzugefügt
-* l10n: Norwegisch hinzugefügt
-* l10n: Polnisch hinzugefügt
-* l10n: Ukranisch hinzugefügt

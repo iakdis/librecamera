@@ -1,5 +1,0 @@
-* l10n: Agregar idioma búlgaro
-* l10n: Agregar idioma gallego
-* l10n: Agregar idioma noruego
-* l10n: Agregar idioma polaco
-* l10n: Agregar idioma ucraniano

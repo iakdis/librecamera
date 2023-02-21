@@ -1,5 +1,0 @@
-* l10n: Adicionado idioma búlgaro
-* l10n: Adicionado idioma galego
-* l10n: Adicionado idioma norueguês
-* l10n: Adicionado idioma polonês
-* l10n: Adicionado idioma ucraniano
