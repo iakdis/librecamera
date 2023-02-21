@@ -1,0 +1,12 @@
+* nuevo: Nuevo diseño Material You
+* nuevo: Sonido al inicio de un vídeo
+* nuevo: Ahora se borra automáticamente la caché de la aplicación; grandes mejoras en el almacenamiento
+
+* mejorado: Permiso de micrófono ahora opcional (se pide al seleccionar vídeo)
+* mejorado: El botón "abrir onboarding" en ajustes
+* mejorado: Onboarding: Usar siempre tema claro
+* mejorado: Reducción de tamaño apk por alrededor de 1,7 MB
+
+* l10n: Portugués de Brasil
+* l10n: Chino (simplificado)
+* l10n: Malayo

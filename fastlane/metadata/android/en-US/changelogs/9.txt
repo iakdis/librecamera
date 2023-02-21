@@ -1,0 +1,12 @@
+* new: New Material You Design
+* new: Video start sound
+* new: Now clearing app cache automatically; big storage improvements
+
+* improved: Microphone permission now optional (request upon selecting video)
+* improved: The "open onboarding" button in settings
+* improved: Onboarding: Always use light mode
+* improved: Reduced apk size by about 1.7MB
+
+* l10n: Add Brazilian Portuguese
+* l10n: Add Chinese (Simplified)
+* l10n: Add Malay
