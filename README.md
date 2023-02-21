@@ -1,6 +1,6 @@
 
-# 🌟 New as of 23.12.2022 🌟
-### Translations are now handled using [Weblate](https://hosted.weblate.org/engage/librecamera/)! See [#translate](https://github.com/iakmds/librecamera#translate) for more details
+# 🌟 New release: v1.6.0 🌟
+### Take a look at what has changed [here](https://github.com/iakmds/librecamera/releases/tag/v1.6.0)!
 
 <br><br>
 
