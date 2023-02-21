@@ -180,5 +180,9 @@
   "themeLight": "Decorado claro",
   "@themeLight": {},
   "license": "O código está baixo licenza GPLv3 en GitHub. Se atopas problemas o queres pedir unha característica, por favor abre un \"issue\" en GitHub. Grazas!",
-  "@license": {}
+  "@license": {},
+  "useMaterialYou": "Usalo Material You",
+  "@useMaterialYou": {},
+  "useMaterialYou_description": "Usa o Material You para o deseño. Establécese como falso para o Material design antigo",
+  "@useMaterialYou_description": {}
 }
