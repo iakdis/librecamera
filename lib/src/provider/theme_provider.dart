@@ -4,11 +4,11 @@ import 'package:librecamera/src/utils/preferences.dart';
 class ThemeProvider extends ChangeNotifier {
   ThemeMode? _themeMode;
 
-  ThemeMode? themeMode() {
+  ThemeMode themeMode() {
     _themeMode = Preferences.getThemeMode().isNotEmpty
         ? Themes.getThemeModeFromName(Preferences.getThemeMode())
         : ThemeMode.system;
-    return _themeMode;
+    return _themeMode!;
   }
 
   void setTheme(ThemeMode theme) {

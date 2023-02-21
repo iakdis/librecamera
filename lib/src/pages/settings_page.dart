@@ -477,7 +477,7 @@ class _SettingsPageState extends State<SettingsPage> {
       onChanged: (value) {
         setState(() {
           Preferences.setUseMaterial3(value);
-          themeProvider.setTheme(ThemeMode.system);
+          themeProvider.setTheme(themeProvider.themeMode());
         });
       },
     );
