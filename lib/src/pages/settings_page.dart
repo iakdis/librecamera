@@ -168,11 +168,8 @@ class _SettingsPageState extends State<SettingsPage> {
       subtitle: Text(
           AppLocalizations.of(context)!.lockCaptureOrientation_description),
       value: Preferences.getIsCaptureOrientationLocked(),
-      onChanged: (value) {
-        setState(() {
-          Preferences.setIsCaptureOrientationLocked(value);
-        });
-      },
+      onChanged: (value) =>
+          setState(() => Preferences.setIsCaptureOrientationLocked(value)),
     );
   }
 
@@ -182,11 +179,8 @@ class _SettingsPageState extends State<SettingsPage> {
       subtitle:
           Text(AppLocalizations.of(context)!.showNavigationBar_description),
       value: Preferences.getShowNavigationBar(),
-      onChanged: (value) {
-        setState(() {
-          Preferences.setShowNavigationBar(value);
-        });
-      },
+      onChanged: (value) =>
+          setState(() => Preferences.setShowNavigationBar(value)),
     );
   }
 
@@ -239,9 +233,7 @@ class _SettingsPageState extends State<SettingsPage> {
             Preferences.setSavePath(
                 selectedDirectory ?? Preferences.getSavePath());
 
-            setState(() {
-              currentSavePath = Preferences.getSavePath();
-            });
+            setState(() => currentSavePath = Preferences.getSavePath());
           },
           child: Text(AppLocalizations.of(context)!.choosePath)),
     );
@@ -253,11 +245,8 @@ class _SettingsPageState extends State<SettingsPage> {
       subtitle:
           Text(AppLocalizations.of(context)!.keepEXIFMetadata_description),
       value: Preferences.getKeepEXIFMetadata(),
-      onChanged: (value) {
-        setState(() {
-          Preferences.setKeepEXIFMetadata(value);
-        });
-      },
+      onChanged: (value) =>
+          setState(() => Preferences.setKeepEXIFMetadata(value)),
     );
   }
 
@@ -285,11 +274,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 Flexible(
                   child: Slider(
                     value: value,
-                    onChanged: (value) {
-                      setState(() {
-                        this.value = value;
-                      });
-                    },
+                    onChanged: (value) => setState(() => this.value = value),
                     onChangeEnd: (value) {
                       Preferences.setCompressQuality(value.toInt());
                     },
@@ -315,11 +300,8 @@ class _SettingsPageState extends State<SettingsPage> {
       title: Text(AppLocalizations.of(context)!.shutterSound),
       subtitle: Text(AppLocalizations.of(context)!.shutterSound_description),
       value: Preferences.getDisableShutterSound(),
-      onChanged: (value) {
-        setState(() {
-          Preferences.setDisableShutterSound(value);
-        });
-      },
+      onChanged: (value) =>
+          setState(() => Preferences.setDisableShutterSound(value)),
     );
   }
 
@@ -328,11 +310,7 @@ class _SettingsPageState extends State<SettingsPage> {
       title: Text(AppLocalizations.of(context)!.disableAudio),
       subtitle: Text(AppLocalizations.of(context)!.disableAudio_description),
       value: !Preferences.getEnableAudio(),
-      onChanged: (value) {
-        setState(() {
-          Preferences.setEnableAudio(!value);
-        });
-      },
+      onChanged: (value) => setState(() => Preferences.setEnableAudio(!value)),
     );
   }
 
@@ -341,11 +319,7 @@ class _SettingsPageState extends State<SettingsPage> {
       title: Text(AppLocalizations.of(context)!.enableModeRow),
       subtitle: Text(AppLocalizations.of(context)!.enableModeRow_description),
       value: Preferences.getEnableModeRow(),
-      onChanged: (value) {
-        setState(() {
-          Preferences.setEnableModeRow(value);
-        });
-      },
+      onChanged: (value) => setState(() => Preferences.setEnableModeRow(value)),
     );
   }
 
@@ -355,11 +329,8 @@ class _SettingsPageState extends State<SettingsPage> {
       subtitle:
           Text(AppLocalizations.of(context)!.startWithFrontCamera_description),
       value: !Preferences.getStartWithRearCamera(),
-      onChanged: (value) {
-        setState(() {
-          Preferences.setStartWithRearCamera(!value);
-        });
-      },
+      onChanged: (value) =>
+          setState(() => Preferences.setStartWithRearCamera(!value)),
     );
   }
 
@@ -369,11 +340,8 @@ class _SettingsPageState extends State<SettingsPage> {
       subtitle:
           Text(AppLocalizations.of(context)!.flipPhotosFrontCamera_description),
       value: !Preferences.getFlipFrontCameraPhoto(),
-      onChanged: (value) {
-        setState(() {
-          Preferences.setFlipFrontCameraPhoto(!value);
-        });
-      },
+      onChanged: (value) =>
+          setState(() => Preferences.setFlipFrontCameraPhoto(!value)),
     );
   }
 
@@ -391,11 +359,8 @@ class _SettingsPageState extends State<SettingsPage> {
       subtitle:
           Text(AppLocalizations.of(context)!.enableExposureSlider_description),
       value: Preferences.getEnableExposureSlider(),
-      onChanged: (value) {
-        setState(() {
-          Preferences.setEnableExposureSlider(value);
-        });
-      },
+      onChanged: (value) =>
+          setState(() => Preferences.setEnableExposureSlider(value)),
     );
   }
 
@@ -405,15 +370,14 @@ class _SettingsPageState extends State<SettingsPage> {
       subtitle:
           Text(AppLocalizations.of(context)!.enableZoomSlider_description),
       value: Preferences.getEnableZoomSlider(),
-      onChanged: (value) {
-        setState(() {
-          Preferences.setEnableZoomSlider(value);
-        });
-      },
+      onChanged: (value) =>
+          setState(() => Preferences.setEnableZoomSlider(value)),
     );
   }
 
   Widget _themeTile() {
+    final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
+
     return ListTile(
       title: Text(AppLocalizations.of(context)!.theme),
       subtitle: Text(AppLocalizations.of(context)!.theme_description),
@@ -427,12 +391,7 @@ class _SettingsPageState extends State<SettingsPage> {
         items: [
           DropdownMenuItem(
             value: ThemeMode.system,
-            onTap: () {
-              final provider =
-                  Provider.of<ThemeProvider>(context, listen: false);
-
-              provider.setTheme(ThemeMode.system);
-            },
+            onTap: () => themeProvider.setTheme(ThemeMode.system),
             child: Padding(
               padding: const EdgeInsets.only(right: 8.0),
               child: Text(AppLocalizations.of(context)!.themeSystem),
@@ -440,22 +399,12 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
           DropdownMenuItem(
             value: ThemeMode.light,
-            onTap: () {
-              final provider =
-                  Provider.of<ThemeProvider>(context, listen: false);
-
-              provider.setTheme(ThemeMode.light);
-            },
+            onTap: () => themeProvider.setTheme(ThemeMode.light),
             child: Text(AppLocalizations.of(context)!.themeLight),
           ),
           DropdownMenuItem(
             value: ThemeMode.dark,
-            onTap: () {
-              final provider =
-                  Provider.of<ThemeProvider>(context, listen: false);
-
-              provider.setTheme(ThemeMode.dark);
-            },
+            onTap: () => themeProvider.setTheme(ThemeMode.dark),
             child: Text(AppLocalizations.of(context)!.themeDark),
           ),
         ],
@@ -471,9 +420,7 @@ class _SettingsPageState extends State<SettingsPage> {
           .enableMaximumScreenBrightness_description),
       value: Preferences.getMaximumScreenBrightness(),
       onChanged: (value) async {
-        setState(() {
-          Preferences.setMaximumScreenBrightness(value);
-        });
+        setState(() => Preferences.setMaximumScreenBrightness(value));
         Preferences.getMaximumScreenBrightness()
             ? await ScreenBrightness().setScreenBrightness(1.0)
             : await ScreenBrightness().resetScreenBrightness();
@@ -482,6 +429,8 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   Widget _languageTile() {
+    final localeProvider = Provider.of<LocaleProvider>(context, listen: false);
+
     return ListTile(
       title: Text(AppLocalizations.of(context)!.language),
       subtitle: Text(AppLocalizations.of(context)!.language_description),
@@ -496,12 +445,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
             return DropdownMenuItem(
               value: locale.toLanguageTag(),
-              onTap: () {
-                final provider =
-                    Provider.of<LocaleProvider>(context, listen: false);
-
-                provider.setLocale(locale);
-              },
+              onTap: () => localeProvider.setLocale(locale),
               child: Text(name),
             );
           },
@@ -510,12 +454,7 @@ class _SettingsPageState extends State<SettingsPage> {
             0,
             DropdownMenuItem<String>(
               value: null,
-              onTap: () {
-                final provider =
-                    Provider.of<LocaleProvider>(context, listen: false);
-
-                provider.clearLocale();
-              },
+              onTap: () => localeProvider.clearLocale(),
               child: Padding(
                 padding: const EdgeInsets.only(right: 8.0),
                 child: Text(AppLocalizations.of(context)!.systemLanguage),
@@ -533,7 +472,6 @@ class _SettingsPageState extends State<SettingsPage> {
       onWillPop: (() async {
         await widget.onNewCameraSelected(widget.controller!.description);
         return true;
-        //return true;
       }),
       child: Scaffold(
         appBar: AppBar(
@@ -586,7 +524,7 @@ class _SettingsPageState extends State<SettingsPage> {
             _savePathTile(),
             const Divider(),
             _showMoreTile(),
-            isMoreOptions ? _moreTile() : Container()
+            if (isMoreOptions) _moreTile(),
           ],
         ),
       ),
