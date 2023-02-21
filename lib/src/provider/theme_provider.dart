@@ -19,14 +19,16 @@ class ThemeProvider extends ChangeNotifier {
 }
 
 class Themes {
-  static final darkTheme = ThemeData(
+  final darkTheme = ThemeData(
     scaffoldBackgroundColor: Colors.grey.shade900,
     colorScheme: const ColorScheme.dark(primary: Colors.blue),
+    useMaterial3: Preferences.getUseMaterial3(),
   );
 
-  static final lightTheme = ThemeData(
+  final lightTheme = ThemeData(
     scaffoldBackgroundColor: Colors.white,
     colorScheme: const ColorScheme.light(primary: Colors.blue),
+    useMaterial3: Preferences.getUseMaterial3(),
   );
 
   static ThemeMode getThemeModeFromName(String themeModeName) {

@@ -21,6 +21,12 @@ class Preferences {
   static String getThemeMode() =>
       _preferences!.getString(prefThemeMode) ?? ThemeMode.system.name;
 
+  //Use Material You
+  static Future setUseMaterial3(bool useMaterial3) async =>
+      await _preferences!.setBool(prefUseMaterial3, useMaterial3);
+  static bool getUseMaterial3() =>
+      _preferences!.getBool(prefUseMaterial3) ?? true;
+
   //Onboarding
   static Future setOnBoardingComplete(bool complete) async =>
       await _preferences!.setBool(prefOnboardingCompleted, complete);

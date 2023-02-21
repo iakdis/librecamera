@@ -1,5 +1,6 @@
 const String prefLanguage = 'language';
 const String prefThemeMode = 'themeMode';
+const String prefUseMaterial3 = 'useMaterial3';
 const String prefOnboardingCompleted = 'onboardingCompleted';
 const String prefSavePath = 'savePath';
 const String prefFlashMode = 'flashMode';

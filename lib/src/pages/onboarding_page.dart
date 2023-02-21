@@ -415,7 +415,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
     return GestureDetector(
       onTapDown: (details) => unfocusAndRestore(),
       child: Theme(
-        data: Themes.lightTheme,
+        data: Themes().lightTheme,
         child: Scaffold(
           body: Container(
             padding: const EdgeInsets.only(bottom: 80.0),
