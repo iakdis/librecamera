@@ -59,6 +59,8 @@ dev_dependencies:
 flutter_icons:
   android: true
   image_path: "assets/images/icon.png"
+  adaptive_icon_background: '#ffffff'
+  adaptive_icon_foreground: "assets/images/icon.png"
 
 flutter_native_splash:
   color: "000000"
