@@ -124,6 +124,9 @@
     "keepEXIFMetadata": "Guardar datos EXIF",
     "keepEXIFMetadata_description": "Guardar los metadatos EXIF en la foto que tomes, como módelo del teléfono, localización GPS, entre otros",
 
+    "useMaterialYou": "Utilizar Material You",
+    "useMaterialYou_description": "Utilizar el diseño Material You. Deactivar para usar el antiguo diseño Material",
+
     "savePath": "Ruta de guardado",
     "savePath_description": "Ruta actual: {path}",
     "choosePath": "Elige una ruta",
