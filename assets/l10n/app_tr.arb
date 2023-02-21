@@ -168,5 +168,9 @@
   "version": "Sürüm {versionNumber}",
   "@version": {},
   "license": "Kod, GitHub'da GPLv3 altında lisanslanmıştır. Herhangi bir sorunla karşılaşırsanız veya bir özellik talep etmek isterseniz, lütfen GitHub'da bir sorun açın. Teşekkürler!",
-  "@license": {}
+  "@license": {},
+  "useMaterialYou_description": "Material You tasarımını kullan. Eski Material tasarımı için false olarak ayarlayın",
+  "@useMaterialYou_description": {},
+  "useMaterialYou": "Material You kullan",
+  "@useMaterialYou": {}
 }
