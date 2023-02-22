@@ -1,0 +1,12 @@
+* novo: Material You Design
+* novo: son de inicio de vídeo
+* novo: limpa a caché da aplicación automaticamente; grandes melloras de almacenamento
+
+* Mellorado: o permiso do micrófono agora é opcional (solicitude ao seleccionar o vídeo)
+* Mellorado: o botón "abrir incorporación" na configuración
+* mellorada: incorporación: use sempre o modo de luz
+* Mellorado: reduciuse o tamaño da apk nuns 1,7 MB
+
+* l10n: Engade portugués brasileiro
+* l10n: Engadir chinés (simplificado)
+* l10n: Engadir malayo
