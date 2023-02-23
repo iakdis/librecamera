@@ -180,5 +180,9 @@
   "imageCompressionQuality_description": "Стиснення до низької якості означає менший розмір, але гіршу якість, тоді як стиснення до вищої якості означає більший розмір, але кращу якість",
   "@imageCompressionQuality_description": {},
   "keepEXIFMetadata_description": "Зберегти метадані EXIF зроблених знімків, як-от модель телефону, місцезнаходження GPS тощо.",
-  "@keepEXIFMetadata_description": {}
+  "@keepEXIFMetadata_description": {},
+  "useMaterialYou": "Використовувати Material You",
+  "@useMaterialYou": {},
+  "useMaterialYou_description": "Використовувати Material You дизайн. Вимкніть старий дизайн Material",
+  "@useMaterialYou_description": {}
 }
