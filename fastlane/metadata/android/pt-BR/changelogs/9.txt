@@ -1,0 +1,12 @@
+* novo: Novo Material You
+* novo: Vídeo toca som
+* novo: Agora o app limpa o cache automaticamente; melhora na otimização do armazenamento
+
+* melhorado: Dar permissão do microfone agora é opcional (é solicitado ao iniciar um vídeo)
+* melhorado: O botão "open onboarding" nas configurações
+* melhorado: Onboarding: Sempre usa o modo claro
+* melhorado: O tamanho do apk foi diminuído 1.7MB
+
+* l10n: Suporte para o Português (BR)
+* l10n: Suporte para o Chinês Simplificado
+* l10n: Suporte para o Malaio
