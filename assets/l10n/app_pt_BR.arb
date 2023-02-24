@@ -19,7 +19,7 @@
   "@pauseVideo": {},
   "resumeVideo": "Retomar vídeo",
   "@resumeVideo": {},
-  "enableModeRow_description": "Ative uma linha na parte inferior para alternar os modos da exposição e de foco",
+  "enableModeRow_description": "Ativa uma linha na parte inferior para alternar os modos da exposição e de foco",
   "@enableModeRow_description": {},
   "enableZoomSlider": "Ativar controle deslizante de zoom",
   "@enableZoomSlider": {},
@@ -59,7 +59,7 @@
   "@showNavigationBar": {},
   "showNavigationBar_description": "Mostrar sempre a barra de navegação do Android",
   "@showNavigationBar_description": {},
-  "flipToRearCamera": "Virar para câmera traseira",
+  "flipToRearCamera": "Alternar para câmera traseira",
   "@flipToRearCamera": {},
   "autoSmall": "AUTOMÁTICO",
   "@autoSmall": {},
@@ -143,7 +143,7 @@
       }
     }
   },
-  "flipToFrontCamera": "Virar para câmera frontal",
+  "flipToFrontCamera": "Alternar para câmera frontal",
   "@flipToFrontCamera": {},
   "shutterSound": "Desativar o som do obturador",
   "@shutterSound": {},
