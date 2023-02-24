@@ -180,5 +180,9 @@
   "more": "MAIS",
   "@more": {},
   "license": "O código está licenciado sob a GPLv3 no GitHub. Se você encontrar algum problema ou quiser solicitar um recurso, abra um problema no GitHub. Obrigado!",
-  "@license": {}
+  "@license": {},
+  "useMaterialYou": "Usar Material You",
+  "@useMaterialYou": {},
+  "useMaterialYou_description": "Usar o design Material You. Desabilite para usar o antigo Material Design",
+  "@useMaterialYou_description": {}
 }
