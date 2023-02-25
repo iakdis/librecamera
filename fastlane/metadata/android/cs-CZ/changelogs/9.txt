@@ -1,0 +1,12 @@
+* novinka: nový design Material You
+* novinka: zvuk při spuštění videa
+* novinka: automatické vymazání mezipaměti aplikací; velké vylepšení úložiště
+
+* vylepšeno: povolení mikrofonu je nyní volitelné (žádost při výběru videa)
+* vylepšeno: tlačítko „otevřít uvítání“ v nastavení
+* vylepšeno: uvítání: vždy používat světelný režim
+* vylepšeno: zmenšena velikost apk o cca 1,7 MB
+
+* l10n: přidána brazilská portugalština
+* l10n: Přidána čínština (zjednodušená)
+* l10n: přidána malajština

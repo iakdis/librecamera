@@ -1,0 +1,25 @@
+Libre Camera je bezplatná aplikace fotoaparátu s otevřeným zdrojovým kódem pro pořizování snímků a nahrávání videí napsaná v jazycích Flutter a Dart.
+
+Pokud potřebujete open-source aplikaci fotoaparátu s několika funkcemi, pak je tato aplikace určena právě vám. Od svítilny, ovládání zaostření a expozice až po změnu motivů, jazyků a množství komprese - tato aplikace by měla pokrýt všechny vaše potřeby. A pokud ne, neváhejte otevřít problém na <a href="https://github.com/iakmds/librecamera">GitHubu</a> a požádat o nějakou funkci. Níže si můžete prohlédnout seznam funkcí, přičemž v budoucnu přibudou další!
+
+<b>Funkce</b>
+    * Pořizování fotografií a nahrávání videí pomocí zadního a předního fotoaparátu
+    * Ochrana soukromí: při pořizování snímků se ve výchozím nastavení neukládají žádná metadata EXIF (lze povolit v nastavení) - bez reklam, sledování a zbytečných oprávnění
+    * Motivy: Material Design s tmavým, světlým nebo systémovým motivem
+    * Podpora více jazyků - přispějte překladem svého jazyka!
+    * Přiblížení: přiblížení pomocí dvou prstů nebo volitelného posuvníku
+    * Časovač/zpoždění: Zvolte časovač pro pořízení fotografie a připravte se na fotografování
+    * Režimy svítilny: zapnuto při pořízení snímku, vypnuto, automaticky, vždy zapnuto
+    * Zaostření: automatické zaostření, uzamčené zaostření a ruční zaostření dotykem na obrazovku
+    * Expozice: automatická expozice, uzamčená expozice a ruční expozice pomocí volitelného posuvníku
+    * Komprese obrazu: míru komprese lze nastavit v nastavení
+    * Formáty: přepínání mezi 3 formáty fotoaparátu (JPEG, PNG, WebP)
+    * Rozlišení: přepínání mezi různými rozlišeními fotoaparátu
+    * Uložit umístění: zvolte preferované umístění pro uložení
+    * Malá velikost přibližně 21 MB
+    * Možnost přizpůsobení: otevřete nastavení a přizpůsobte si aplikaci podle svých představ!
+
+<b>Kontakt</b>
+Podívejte se na repozitář na GitHubu, který obsahuje roadmapu: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+
+V případě, že jste našli chybu nebo máte požadavek na funkci, neváhejte přidat problém na GitHub: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
