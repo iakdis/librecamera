@@ -1,4 +1,22 @@
 {
   "permissionsTitle": "OPRÁVNĚNÍ",
-  "@permissionsTitle": {}
+  "@permissionsTitle": {},
+  "permissionsTitle_description": "Chcete-li používat fotoaparát, musíte udělit oprávnění fotoaparátu a úložišti.",
+  "@permissionsTitle_description": {},
+  "giveCameraPermission": "Udělit povolení k použití fotoaparátu",
+  "@giveCameraPermission": {},
+  "giveMicrophonePermission": "Udělit oprávnění k mikrofonu",
+  "@giveMicrophonePermission": {},
+  "giveStoragePermission": "Udělit oprávnění k úložišti",
+  "@giveStoragePermission": {},
+  "savePathTitle": "CESTA K UKLÁDÁNÍ",
+  "@savePathTitle": {},
+  "savePathTitle_description": "Vyberte cestu k ukládání souborů. V systému Android se obrázky obvykle ukládají do cesty DCIM.",
+  "@savePathTitle_description": {},
+  "selectPath": "Vybrat cestu",
+  "@selectPath": {},
+  "welcomeTitle": "VÍTEJTE",
+  "@welcomeTitle": {},
+  "welcomeTitle_description": "Gratulujeme! Jste připraveni používat tuto aplikaci fotoaparátu.",
+  "@welcomeTitle_description": {}
 }
