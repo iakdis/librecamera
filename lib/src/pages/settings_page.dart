@@ -112,8 +112,6 @@ class _SettingsPageState extends State<SettingsPage> {
       var url = Uri.parse('https://github.com/iakmds/librecamera');
       if (await canLaunchUrl(url)) {
         await launchUrl(url, mode: LaunchMode.externalApplication);
-      } else {
-        throw 'Could not launch $url';
       }
     }
 
@@ -169,8 +167,10 @@ class _SettingsPageState extends State<SettingsPage> {
       subtitle: Text(
           AppLocalizations.of(context)!.lockCaptureOrientation_description),
       value: Preferences.getIsCaptureOrientationLocked(),
-      onChanged: (value) =>
-          setState(() => Preferences.setIsCaptureOrientationLocked(value)),
+      onChanged: (value) async {
+        Preferences.setIsCaptureOrientationLocked(value);
+        setState(() {});
+      },
     );
   }
 
@@ -180,8 +180,10 @@ class _SettingsPageState extends State<SettingsPage> {
       subtitle:
           Text(AppLocalizations.of(context)!.showNavigationBar_description),
       value: Preferences.getShowNavigationBar(),
-      onChanged: (value) =>
-          setState(() => Preferences.setShowNavigationBar(value)),
+      onChanged: (value) async {
+        await Preferences.setShowNavigationBar(value);
+        setState(() {});
+      },
     );
   }
 
@@ -234,7 +236,8 @@ class _SettingsPageState extends State<SettingsPage> {
             Preferences.setSavePath(
                 selectedDirectory ?? Preferences.getSavePath());
 
-            setState(() => currentSavePath = Preferences.getSavePath());
+            currentSavePath = Preferences.getSavePath();
+            setState(() {});
           },
           child: Text(AppLocalizations.of(context)!.choosePath)),
     );
@@ -246,8 +249,10 @@ class _SettingsPageState extends State<SettingsPage> {
       subtitle:
           Text(AppLocalizations.of(context)!.keepEXIFMetadata_description),
       value: Preferences.getKeepEXIFMetadata(),
-      onChanged: (value) =>
-          setState(() => Preferences.setKeepEXIFMetadata(value)),
+      onChanged: (value) async {
+        await Preferences.setKeepEXIFMetadata(value);
+        setState(() {});
+      },
     );
   }
 
@@ -301,8 +306,10 @@ class _SettingsPageState extends State<SettingsPage> {
       title: Text(AppLocalizations.of(context)!.shutterSound),
       subtitle: Text(AppLocalizations.of(context)!.shutterSound_description),
       value: Preferences.getDisableShutterSound(),
-      onChanged: (value) =>
-          setState(() => Preferences.setDisableShutterSound(value)),
+      onChanged: (value) async {
+        await Preferences.setDisableShutterSound(value);
+        setState(() {});
+      },
     );
   }
 
@@ -311,7 +318,10 @@ class _SettingsPageState extends State<SettingsPage> {
       title: Text(AppLocalizations.of(context)!.disableAudio),
       subtitle: Text(AppLocalizations.of(context)!.disableAudio_description),
       value: !Preferences.getEnableAudio(),
-      onChanged: (value) => setState(() => Preferences.setEnableAudio(!value)),
+      onChanged: (value) async {
+        await Preferences.setEnableAudio(!value);
+        setState(() {});
+      },
     );
   }
 
@@ -320,7 +330,10 @@ class _SettingsPageState extends State<SettingsPage> {
       title: Text(AppLocalizations.of(context)!.enableModeRow),
       subtitle: Text(AppLocalizations.of(context)!.enableModeRow_description),
       value: Preferences.getEnableModeRow(),
-      onChanged: (value) => setState(() => Preferences.setEnableModeRow(value)),
+      onChanged: (value) async {
+        await Preferences.setEnableModeRow(value);
+        setState(() {});
+      },
     );
   }
 
@@ -330,8 +343,10 @@ class _SettingsPageState extends State<SettingsPage> {
       subtitle:
           Text(AppLocalizations.of(context)!.startWithFrontCamera_description),
       value: !Preferences.getStartWithRearCamera(),
-      onChanged: (value) =>
-          setState(() => Preferences.setStartWithRearCamera(!value)),
+      onChanged: (value) async {
+        await Preferences.setStartWithRearCamera(!value);
+        setState(() {});
+      },
     );
   }
 
@@ -341,8 +356,10 @@ class _SettingsPageState extends State<SettingsPage> {
       subtitle:
           Text(AppLocalizations.of(context)!.flipPhotosFrontCamera_description),
       value: !Preferences.getFlipFrontCameraPhoto(),
-      onChanged: (value) =>
-          setState(() => Preferences.setFlipFrontCameraPhoto(!value)),
+      onChanged: (value) async {
+        await Preferences.setFlipFrontCameraPhoto(!value);
+        setState(() {});
+      },
     );
   }
 
@@ -360,8 +377,10 @@ class _SettingsPageState extends State<SettingsPage> {
       subtitle:
           Text(AppLocalizations.of(context)!.enableExposureSlider_description),
       value: Preferences.getEnableExposureSlider(),
-      onChanged: (value) =>
-          setState(() => Preferences.setEnableExposureSlider(value)),
+      onChanged: (value) async {
+        await Preferences.setEnableExposureSlider(value);
+        setState(() {});
+      },
     );
   }
 
@@ -371,8 +390,10 @@ class _SettingsPageState extends State<SettingsPage> {
       subtitle:
           Text(AppLocalizations.of(context)!.enableZoomSlider_description),
       value: Preferences.getEnableZoomSlider(),
-      onChanged: (value) =>
-          setState(() => Preferences.setEnableZoomSlider(value)),
+      onChanged: (value) async {
+        await Preferences.setEnableZoomSlider(value);
+        setState(() {});
+      },
     );
   }
 
@@ -421,10 +442,11 @@ class _SettingsPageState extends State<SettingsPage> {
           .enableMaximumScreenBrightness_description),
       value: Preferences.getMaximumScreenBrightness(),
       onChanged: (value) async {
-        setState(() => Preferences.setMaximumScreenBrightness(value));
+        await Preferences.setMaximumScreenBrightness(value);
         Preferences.getMaximumScreenBrightness()
             ? await ScreenBrightness().setScreenBrightness(1.0)
             : await ScreenBrightness().resetScreenBrightness();
+        setState(() {});
       },
     );
   }
@@ -475,10 +497,8 @@ class _SettingsPageState extends State<SettingsPage> {
       subtitle: Text(AppLocalizations.of(context)!.useMaterialYou_description),
       value: Preferences.getUseMaterial3(),
       onChanged: (value) {
-        setState(() {
-          Preferences.setUseMaterial3(value);
-          themeProvider.setTheme(themeProvider.themeMode());
-        });
+        Preferences.setUseMaterial3(value);
+        themeProvider.setTheme(themeProvider.themeMode());
       },
     );
   }
