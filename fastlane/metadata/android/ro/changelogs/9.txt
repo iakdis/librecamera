@@ -1,0 +1,12 @@
+* nou: Material nou pe care îl design
+* nou: Video start de sunet
+* nou: Acum de compensare cache-ul aplicației în mod automat; îmbunătățiri mari de stocare
+
+* îmbunătățită: permisiunea microfon acum opțional (cerere la selectarea video)
+* îmbunătățit: Butonul "deschidere onboarding" din setări
+* îmbunătățită: Onboarding: Utilizați întotdeauna modul de lumină
+* Îmbunătățit: Reducerea dimensiunii apk cu aproximativ 1.7MB
+
+* L10n: Adauga portugheză braziliană
+* L10n: Adauga chineză (simplificată)
+* L10n: Adauga Malay
