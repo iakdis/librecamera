@@ -16,6 +16,7 @@ class Localization {
     const Locale('pl', ''),
     const Locale('pt', ''),
     const Locale('pt', 'BR'),
+    const Locale('ro', ''),
     const Locale('ru', ''),
     const Locale('tr', ''),
     const Locale('uk', ''),
@@ -50,6 +51,8 @@ class Localization {
         } else {
           return 'Português';
         }
+      case 'ro':
+        return 'Română';
       case 'ru':
         return 'Русский';
       case 'tr':
