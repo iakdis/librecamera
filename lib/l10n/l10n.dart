@@ -57,7 +57,7 @@ class Localization {
       case 'uk':
         return 'Українська';
       case 'zh':
-        return '简化字';
+        return '中文';
       case 'en':
       default:
         return 'English';
