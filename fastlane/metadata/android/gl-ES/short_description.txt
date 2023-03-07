@@ -1,1 +1,1 @@
-App de cámara con múltiples controis para facer fotos e gravar vídeos
+App de cámara moderna para facer fotos e gravar vídeos
