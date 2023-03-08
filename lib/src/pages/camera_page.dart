@@ -384,7 +384,10 @@ class _CameraPageState extends State<CameraPage>
                   if (!status.isGranted) {
                     await Permission.microphone.request();
                   } else {
-                    setState(() => isVideoCameraSelected = true);
+                    setState(() {
+                      isVideoCameraSelected = true;
+                      onNewCameraSelected(controller!.description);
+                    });
                   }
                 } else {
                   controller?.value.isRecordingVideo ?? false
