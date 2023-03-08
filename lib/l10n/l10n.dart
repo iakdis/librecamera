@@ -6,6 +6,7 @@ class Localization {
 
     const Locale('de', ''),
     const Locale('bg', ''),
+    const Locale('cs', ''),
     const Locale('es', ''),
     const Locale('eu', ''),
     const Locale('fr', ''),
@@ -29,6 +30,8 @@ class Localization {
         return 'Deutsch';
       case 'bg':
         return 'Български';
+      case 'cs':
+        return 'Čeština';
       case 'es':
         return 'Español';
       case 'eu':
