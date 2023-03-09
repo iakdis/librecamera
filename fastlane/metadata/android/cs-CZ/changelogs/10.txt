@@ -1,0 +1,7 @@
+* opraveno: Nahrávání zvuku při přepnutí do režimu videa
+
+* vylepšeno: Opraveny přepínače Material You
+* vylepšeno: Zmenšena velikost apk na F-Droidu o cca 1,7 MB
+
+* l10n: Přidána čeština
+* l10n: Přidána rumunština
