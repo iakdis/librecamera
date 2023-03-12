@@ -168,5 +168,9 @@
   "version": "Versão {versionNumber}",
   "@version": {},
   "license": "O código está licenciado sob a licença GPLv3 no GitHub. Se você encontrar qualquer problema ou quiser requisitar algum recurso, por gentileza, abra uma questão no GitHub. Obrigado!",
-  "@license": {}
+  "@license": {},
+  "useMaterialYou": "Usar o Material You",
+  "@useMaterialYou": {},
+  "useMaterialYou_description": "Usar o design Material You. Desative para usar o antigo Material Design",
+  "@useMaterialYou_description": {}
 }
