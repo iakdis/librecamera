@@ -175,7 +175,6 @@ Package | Use case
 [intl](https://pub.dev/packages/intl) | Localization
 [native_device_orientation](https://pub.dev/packages/native_device_orientation) | Automatic orientation based on the phones sensor
 [path](https://pub.dev/packages/path) | Looking up files and directories
-[path_provider](https://pub.dev/packages/path_provider) | Getting the temporary cache directory
 [permission_handler](https://pub.dev/packages/permission_handler) | Handling permissions
 [provider](https://pub.dev/packages/provider) | State management (localization and themes)
 [screen_brightness](https://pub.dev/packages/screen_brightness) | Maximum screen brightness option
