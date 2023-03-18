@@ -1,0 +1,7 @@
+* remediat: Înregistrați sunet la trecerea în modul video
+
+* Îmbunătățit: Materialul dvs. comutați fix
+* îmbunătățit: dimensiunea apk redusă pe F-Droid cu aproximativ 1,7 MB
+
+* l10n: Adăugați limba cehă
+* l10n: Adăugați limba română
