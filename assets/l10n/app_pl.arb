@@ -180,5 +180,7 @@
   "license": "Kod jest udostępniony na licencji GPLv3 na GitHub. Jeśli zauważyłeś jakiś problem lub chcesz poprosić o dodatkową funkcję, zgłoś to jako problem na GitHub. Dzięki!",
   "@license": {},
   "savePathTitle_description": "Wybierz ścieżkę zapisu. W systemie Android zdjęcia zazwyczaj zapisywane są w folderze DCIM.",
-  "@savePathTitle_description": {}
+  "@savePathTitle_description": {},
+  "useMaterialYou": "Użyj Material You",
+  "@useMaterialYou": {}
 }
