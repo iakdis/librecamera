@@ -36,7 +36,7 @@ dependencies:
   flutter_image_compress: ^1.1.2
   flutter_localizations:
     sdk: flutter
-  image: ^3.2.0
+  image: ^4.0.15
   intl: ^0.17.0
   native_device_orientation: ^1.1.4
   path: null
@@ -50,7 +50,7 @@ dependencies:
   wakelock: ^0.6.2
 
 dev_dependencies:
-  flutter_launcher_icons: ^0.11.0
+  flutter_launcher_icons: ^0.13.0
   flutter_lints: ^2.0.0
   flutter_native_splash: ^2.2.9
   flutter_test:
