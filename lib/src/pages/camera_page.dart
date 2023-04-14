@@ -88,6 +88,10 @@ class _CameraPageState extends State<CameraPage>
     /*final methodChannel = AndroidMethodChannel();
     methodChannel.disableIntentCamera(disable: true);*/
 
+    if (!Preferences.getIsCaptureOrientationLocked()) {
+      _subscribeOrientationChangeStream();
+    }
+
     onNewCameraSelected(cameras[Preferences.getStartWithRearCamera() ? 0 : 1]);
   }
 
@@ -123,7 +127,7 @@ class _CameraPageState extends State<CameraPage>
       cameraController.dispose();
       //qrController?.pauseCamera();
     } else if (state == AppLifecycleState.resumed) {
-      onNewCameraSelected(cameraController.description);
+      _initializeCameraController(cameraController.description);
       //qrController?.resumeCamera();
     }
   }
@@ -385,7 +389,7 @@ class _CameraPageState extends State<CameraPage>
                   } else {
                     setState(() {
                       isVideoCameraSelected = true;
-                      onNewCameraSelected(controller!.description);
+                      _initializeCameraController(controller!.description);
                     });
                   }
                 } else {
@@ -414,7 +418,7 @@ class _CameraPageState extends State<CameraPage>
       child: SettingsButton(
         enabled: enabled,
         controller: controller,
-        onNewCameraSelected: onNewCameraSelected,
+        onNewCameraSelected: _initializeCameraController,
       ),
     );
   }
@@ -587,10 +591,15 @@ class _CameraPageState extends State<CameraPage>
 
   //Selecting camera
   Future<void> onNewCameraSelected(CameraDescription cameraDescription) async {
-    if (!Preferences.getIsCaptureOrientationLocked()) {
-      _subscribeOrientationChangeStream();
+    if (controller != null) {
+      return controller!.setDescription(cameraDescription);
+    } else {
+      return _initializeCameraController(cameraDescription);
     }
+  }
 
+  Future<void> _initializeCameraController(
+      CameraDescription cameraDescription) async {
     final flashMode = getFlashMode();
     final resolution = getResolution();
 
@@ -662,7 +671,7 @@ class _CameraPageState extends State<CameraPage>
   }
 
   void setIsRearCameraSelected() {
-    isRearCameraSelected = !isRearCameraSelected;
+    setState(() => isRearCameraSelected = !isRearCameraSelected);
   }
 
   //Camera button functions
@@ -799,7 +808,7 @@ class _CameraPageState extends State<CameraPage>
       String path = '$directory/IMG_${timestamp()}.$fileFormat';
 
       if (!isRearCameraSelected && Preferences.getFlipFrontCameraPhoto()) {
-        List<int> imageBytes = await capturedFile!.readAsBytes();
+        final imageBytes = await capturedFile!.readAsBytes();
         img.Image? originalImage = img.decodeImage(imageBytes);
         img.Image fixedImage = img.flipHorizontal(originalImage!);
 
@@ -955,6 +964,10 @@ class _CameraPageState extends State<CameraPage>
   Widget _zoomSlider({required bool update}) {
     if (mounted && update) {
       setState(() {});
+    }
+
+    if (_currentScale > _maxAvailableZoom) {
+      _currentScale = _maxAvailableZoom;
     }
 
     return RotatedBox(
