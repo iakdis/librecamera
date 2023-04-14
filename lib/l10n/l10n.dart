@@ -5,6 +5,7 @@ class Localization {
     const Locale('en', ''), //English first, as a fallback
 
     const Locale('de', ''),
+    const Locale('be', ''),
     const Locale('bg', ''),
     const Locale('cs', ''),
     const Locale('es', ''),
@@ -28,6 +29,8 @@ class Localization {
     switch (locale.languageCode) {
       case 'de':
         return 'Deutsch';
+      case 'be':
+        return 'Белару́ская мо́ва';
       case 'bg':
         return 'Български';
       case 'cs':
