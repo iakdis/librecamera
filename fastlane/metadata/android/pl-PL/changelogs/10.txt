@@ -1,0 +1,7 @@
+* naprawiono: Nagrywanie audio przy przełączaniu na tryb filmowania
+
+* usprawiono: Przełącznik Material You
+* usprawniono: Pomniejszono rozmiar aplikacji w F-Droid o 1.7MB
+
+* l10n: Dodano język czeski
+* l10n: Dodano język romański
