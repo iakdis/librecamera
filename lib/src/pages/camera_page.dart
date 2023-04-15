@@ -208,7 +208,7 @@ class _CameraPageState extends State<CameraPage>
           ),*/
           _timerWidget(),
           _topControlsWidget(),
-          _topRightControlsWidget(context),
+          _zoomWidget(context),
           _bottomControlsWidget(),
           _circleWidget(),
         ],
@@ -288,11 +288,18 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Widget _topControlsWidget() {
+    final leftHandedMode = Preferences.getLeftHandedMode() &&
+        MediaQuery.of(context).orientation == Orientation.landscape;
+
+    final left = leftHandedMode ? null : 0.0;
+    final right = leftHandedMode ? 0.0 : null;
+
     return Positioned(
       top: 0,
-      left: 0,
-      right:
-          MediaQuery.of(context).orientation == Orientation.portrait ? 0 : null,
+      left: left,
+      right: MediaQuery.of(context).orientation == Orientation.portrait
+          ? 0
+          : right,
       bottom:
           MediaQuery.of(context).orientation == Orientation.portrait ? null : 0,
       child: RotatedBox(
@@ -333,14 +340,22 @@ class _CameraPageState extends State<CameraPage>
     );
   }
 
-  Widget _topRightControlsWidget(context) {
+  Widget _zoomWidget(context) {
+    final leftHandedMode = Preferences.getLeftHandedMode() &&
+        MediaQuery.of(context).orientation == Orientation.landscape;
+
+    final left = leftHandedMode ? null : 0.0;
+    final right = leftHandedMode ? 0.0 : null;
+
     return Positioned(
       top:
           MediaQuery.of(context).orientation == Orientation.portrait ? 0 : null,
-      right:
-          MediaQuery.of(context).orientation == Orientation.portrait ? 0 : null,
-      left:
-          MediaQuery.of(context).orientation == Orientation.portrait ? null : 0,
+      right: MediaQuery.of(context).orientation == Orientation.portrait
+          ? 0
+          : right,
+      left: MediaQuery.of(context).orientation == Orientation.portrait
+          ? null
+          : left,
       bottom:
           MediaQuery.of(context).orientation == Orientation.portrait ? null : 0,
       child: RotatedBox(
@@ -355,15 +370,15 @@ class _CameraPageState extends State<CameraPage>
               //_cameraSwitchWidget(),
               //const SizedBox(height: 10.0),
               //_thumbnailPreviewWidget(),
-              const SizedBox(height: 64.0),
-              Preferences.getEnableZoomSlider()
-                  ? RotatedBox(
-                      quarterTurns: MediaQuery.of(context).orientation ==
-                              Orientation.portrait
-                          ? 0
-                          : 2,
-                      child: _zoomSlider(update: false))
-                  : Container()
+              if (!leftHandedMode) const SizedBox(height: 64.0),
+              if (Preferences.getEnableZoomSlider())
+                RotatedBox(
+                    quarterTurns: MediaQuery.of(context).orientation ==
+                            Orientation.portrait
+                        ? 0
+                        : 2,
+                    child: _zoomSlider(update: false)),
+              if (leftHandedMode) const SizedBox(height: 64.0),
             ],
           ),
         ),
@@ -481,100 +496,92 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Widget _bottomControlsWidget() {
+    final leftHandedMode = Preferences.getLeftHandedMode() &&
+        MediaQuery.of(context).orientation == Orientation.landscape;
+
+    final cameraControls = <Widget>[
+      if (Preferences.getEnableModeRow()) _cameraModesWidget(),
+      const Divider(color: Colors.blue),
+      if (Preferences.getEnableExposureSlider())
+        ExposureSlider(
+          setExposureOffset: _setExposureOffset,
+          currentExposureOffset: _currentExposureOffset,
+          minAvailableExposureOffset: _minAvailableExposureOffset,
+          maxAvailableExposureOffset: _maxAvailableExposureOffset,
+        ),
+      const Divider(color: Colors.blue),
+      Container(
+        padding: const EdgeInsets.fromLTRB(0, 8.0, 0, 8.0),
+        child: CaptureControlWidget(
+          controller: controller,
+          onTakePictureButtonPressed: onTakePictureButtonPressed,
+          onVideoRecordButtonPressed: onVideoRecordButtonPressed,
+          onResumeButtonPressed: onResumeButtonPressed,
+          onPauseButtonPressed: onPauseButtonPressed,
+          onStopButtonPressed: onStopButtonPressed,
+          onNewCameraSelected: onNewCameraSelected,
+          isVideoCameraSelected: isVideoCameraSelected,
+          isRecordingInProgress: controller?.value.isRecordingVideo ?? false,
+          /*flashWidget: FlashModeControlRowWidget(
+                controller: controller,
+                isRearCameraSelected: isRearCameraSelected,
+              ),*/
+          leadingWidget: _thumbnailPreviewWidget(),
+          isRearCameraSelected: getIsRearCameraSelected(),
+          setIsRearCameraSelected: setIsRearCameraSelected,
+        ),
+      ),
+    ];
+
+    final bottomControls = <Widget>[
+      if (controller != null &&
+          isVideoCameraSelected &&
+          controller!.value.isRecordingVideo)
+        Center(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: AnimatedRotation(
+              duration: const Duration(milliseconds: 400),
+              turns: MediaQuery.of(context).orientation == Orientation.portrait
+                  ? 0
+                  : 0.25,
+              child: Container(
+                padding: const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
+                decoration: BoxDecoration(
+                    color: Colors.black38,
+                    borderRadius: BorderRadius.circular(4.0)),
+                child: Text(
+                  _stopwatch.elapsed.inSeconds < 60
+                      ? '${_stopwatch.elapsed.inSeconds}s'
+                      : '${_stopwatch.elapsed.inMinutes}m ${_stopwatch.elapsed.inSeconds % 60}s',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      Container(
+        color: Colors.black12,
+        child: Column(
+          children: leftHandedMode
+              ? cameraControls.reversed.toList()
+              : cameraControls,
+        ),
+      ),
+    ];
+
     return RotatedBox(
       quarterTurns:
           MediaQuery.of(context).orientation == Orientation.portrait ? 0 : 3,
-      child: Align(
-        alignment: Alignment.bottomCenter,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            controller != null &&
-                    isVideoCameraSelected &&
-                    controller!.value.isRecordingVideo
-                ? Center(
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 8.0),
-                      child: AnimatedRotation(
-                        duration: const Duration(milliseconds: 400),
-                        turns: MediaQuery.of(context).orientation ==
-                                Orientation.portrait
-                            ? 0
-                            : 0.25,
-                        child: Container(
-                          padding:
-                              const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
-                          decoration: BoxDecoration(
-                              color: Colors.black38,
-                              borderRadius: BorderRadius.circular(4.0)),
-                          child: Text(
-                            _stopwatch.elapsed.inSeconds < 60
-                                ? '${_stopwatch.elapsed.inSeconds}s'
-                                : '${_stopwatch.elapsed.inMinutes}m ${_stopwatch.elapsed.inSeconds % 60}s',
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 24.0,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  )
-                : Container(),
-            Preferences.getEnableModeRow()
-                ? Container(
-                    color: Colors.black12,
-                    child: Column(
-                      children: [
-                        _cameraModesWidget(),
-                        const Divider(color: Colors.blue),
-                      ],
-                    ))
-                : Container(),
-            Preferences.getEnableExposureSlider()
-                ? Container(
-                    color: Colors.black12,
-                    child: Column(
-                      children: [
-                        ExposureSlider(
-                          setExposureOffset: _setExposureOffset,
-                          currentExposureOffset: _currentExposureOffset,
-                          minAvailableExposureOffset:
-                              _minAvailableExposureOffset,
-                          maxAvailableExposureOffset:
-                              _maxAvailableExposureOffset,
-                        ),
-                        const Divider(color: Colors.blue),
-                      ],
-                    ),
-                  )
-                : Container(),
-            Container(
-              padding: const EdgeInsets.fromLTRB(0, 8.0, 0, 8.0),
-              color: Colors.black12,
-              child: CaptureControlWidget(
-                controller: controller,
-                onTakePictureButtonPressed: onTakePictureButtonPressed,
-                onVideoRecordButtonPressed: onVideoRecordButtonPressed,
-                onResumeButtonPressed: onResumeButtonPressed,
-                onPauseButtonPressed: onPauseButtonPressed,
-                onStopButtonPressed: onStopButtonPressed,
-                onNewCameraSelected: onNewCameraSelected,
-                isVideoCameraSelected: isVideoCameraSelected,
-                isRecordingInProgress:
-                    controller?.value.isRecordingVideo ?? false,
-                /*flashWidget: FlashModeControlRowWidget(
-                  controller: controller,
-                  isRearCameraSelected: isRearCameraSelected,
-                ),*/
-                leadingWidget: _thumbnailPreviewWidget(),
-                isRearCameraSelected: getIsRearCameraSelected(),
-                setIsRearCameraSelected: setIsRearCameraSelected,
-              ),
-            ),
-          ],
-        ),
+      child: Column(
+        mainAxisAlignment:
+            leftHandedMode ? MainAxisAlignment.start : MainAxisAlignment.end,
+        children:
+            leftHandedMode ? bottomControls.reversed.toList() : bottomControls,
       ),
     );
   }

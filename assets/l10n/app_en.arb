@@ -184,5 +184,9 @@
     }
   },
   "license": "The code is licensed under the GPLv3 on GitHub. If you encounter any problems or want to request a feature, please open an issue on GitHub. Thanks!",
-  "@license": {}
+  "@license": {},
+  "leftHandedMode": "Left-handed mode",
+  "@leftHandedMode": {},
+  "leftHandedMode_description": "When enabled, switch the position of the camera controls in landscape for left-handed mode",
+  "@leftHandedMode_description": {}
 }

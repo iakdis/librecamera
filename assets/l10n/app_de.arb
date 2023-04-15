@@ -172,5 +172,9 @@
   "version": "Version {versionNumber}",
   "@version": {},
   "license": "Der Quellcode ist unter der GPLv3 lizenziert und auf GitHub verfügbar. Wenn irgendwelche Probleme auftreten oder du einen Wunsch für ein Feature hast, öffne bitte ein 'Issue' auf GitHub. Danke!",
-  "@license": {}
+  "@license": {},
+  "leftHandedMode": "Linkshändler-Modus",
+  "@leftHandedMode": {},
+  "leftHandedMode_description": "Wenn aktiviert, wird die Position der Kamera-Bedienelemente in der horizontalen Bildschirmausrichtung für linkshändler vertauscht",
+  "@leftHandedMode_description": {}
 }

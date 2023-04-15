@@ -451,6 +451,18 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
+  Widget _leftHandedModeTile() {
+    return SwitchListTile(
+      title: Text(AppLocalizations.of(context)!.leftHandedMode),
+      subtitle: Text(AppLocalizations.of(context)!.leftHandedMode_description),
+      value: Preferences.getLeftHandedMode(),
+      onChanged: (value) async {
+        await Preferences.setLeftHandedMode(value);
+        setState(() {});
+      },
+    );
+  }
+
   Widget _languageTile() {
     final localeProvider = Provider.of<LocaleProvider>(context, listen: false);
 
@@ -533,6 +545,8 @@ class _SettingsPageState extends State<SettingsPage> {
             _themeTile(),
             const Divider(),
             _maximumScreenBrightnessTile(),
+            const Divider(),
+            _leftHandedModeTile(),
             const Divider(),
             _enableModeRow(),
             const Divider(),
