@@ -184,5 +184,9 @@
     }
   },
   "license": "Kód je licencován pod licencí GPLv3 na GitHubu. Pokud narazíte na nějaké problémy nebo chcete požádat o nějakou funkci, otevřete prosím problém na GitHubu. Děkujeme!",
-  "@license": {}
+  "@license": {},
+  "leftHandedMode": "Režim pro leváky",
+  "@leftHandedMode": {},
+  "leftHandedMode_description": "Při povolení se přepne pozice ovládání fotoaparátu v režimu na šířku pro leváky",
+  "@leftHandedMode_description": {}
 }
