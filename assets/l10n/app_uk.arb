@@ -184,5 +184,9 @@
   "useMaterialYou": "Використовувати Material You",
   "@useMaterialYou": {},
   "useMaterialYou_description": "Використовувати Material You дизайн. Вимкніть старий дизайн Material",
-  "@useMaterialYou_description": {}
+  "@useMaterialYou_description": {},
+  "leftHandedMode": "Лівосторонній режим",
+  "@leftHandedMode": {},
+  "leftHandedMode_description": "Якщо увімкнено, перемикає положення елементів керування камерою в альбомному режимі для лівосторонньої орієнтації",
+  "@leftHandedMode_description": {}
 }
