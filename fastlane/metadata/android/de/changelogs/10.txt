@@ -1,7 +1,0 @@
-* behoben: Tonaufnahme beim Wechseln zu Video-Modus
-
-* verbessert: Material You Schieberegler behoben
-* verbessert: Apk-Größe auf F-Droid um etwa 1.7MB reduziert
-
-* l10n: Tschechisch hinzugefügt
-* l10n: Rumänisch hinzugefügt

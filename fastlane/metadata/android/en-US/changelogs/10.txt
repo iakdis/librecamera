@@ -1,7 +1,0 @@
-* fixed: Record audio when switching to video mode
-
-* improved: Material You switches fixed
-* improved: Reduced apk size on F-Droid by about 1.7MB
-
-* l10n: Add Czech language
-* l10n: Add Romanian language
