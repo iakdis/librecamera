@@ -1,7 +1,7 @@
 * new: Flip camera while recording (Android 8.0 and above)
 * new: Add Left-handed mode for horizontal orientation
 
-* improved: Greatly reduced apk size on F-Droid from 20MB to about about 7MB
+* improved: Greatly reduced APK size on F-Droid from 20 MB to about about 7 MB
 * improved: Cache clearing logic
 
 * l10n: Add Belarusian translation
