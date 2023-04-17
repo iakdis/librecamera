@@ -184,5 +184,9 @@
   "useMaterialYou": "Usalo Material You",
   "@useMaterialYou": {},
   "useMaterialYou_description": "Usa o Material You para o deseño. Establécese como falso para o Material design antigo",
-  "@useMaterialYou_description": {}
+  "@useMaterialYou_description": {},
+  "leftHandedMode": "Modo para man sinistra",
+  "@leftHandedMode": {},
+  "leftHandedMode_description": "Ao activalo, cambiar a posición dos controis no modo paisaxe para a man esquerda",
+  "@leftHandedMode_description": {}
 }
