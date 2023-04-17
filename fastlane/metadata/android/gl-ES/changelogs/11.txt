@@ -1,0 +1,7 @@
+* novo: cambiar de cámara mentras gravas (para Android > 8)
+* novo: modo para man sinistra no modo horizontal
+
+* mellora: gran redución no tamaño do APK en F-Droid, de 20 MB a preto de 7 MB
+* mellora: na lóxica de limpeza da caché
+
+* l10n: engádese tradución ao belaruso
