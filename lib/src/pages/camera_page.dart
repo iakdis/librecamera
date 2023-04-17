@@ -501,7 +501,7 @@ class _CameraPageState extends State<CameraPage>
 
     final cameraControls = <Widget>[
       if (Preferences.getEnableModeRow()) _cameraModesWidget(),
-      const Divider(color: Colors.blue),
+      if (Preferences.getEnableModeRow()) const Divider(color: Colors.blue),
       if (Preferences.getEnableExposureSlider())
         ExposureSlider(
           setExposureOffset: _setExposureOffset,
@@ -509,7 +509,7 @@ class _CameraPageState extends State<CameraPage>
           minAvailableExposureOffset: _minAvailableExposureOffset,
           maxAvailableExposureOffset: _maxAvailableExposureOffset,
         ),
-      const Divider(color: Colors.blue),
+       if (Preferences.getEnableExposureSlider())const Divider(color: Colors.blue),
       Container(
         padding: const EdgeInsets.fromLTRB(0, 8.0, 0, 8.0),
         child: CaptureControlWidget(
