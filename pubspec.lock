@@ -45,10 +45,10 @@ packages:
     dependency: transitive
     description:
       name: camera_android
-      sha256: "772c111c78f31f868b98dbf6dbeda8d6ff77acea773a92ea5705ee2f7949ebfb"
+      sha256: "6b7d4529c15c13cfe642abf5110509e9f770b9c87e8f5510d9b5366f5a7b37c9"
       url: "https://pub.dev"
     source: hosted
-    version: "0.10.5"
+    version: "0.10.6"
   camera_avfoundation:
     dependency: transitive
     description:
@@ -189,10 +189,10 @@ packages:
     dependency: "direct main"
     description:
       name: file_picker
-      sha256: dcde5ad1a0cebcf3715ea3f24d0db1888bf77027a26c77d7779e8ef63b8ade62
+      sha256: b85eb92b175767fdaa0c543bf3b0d1f610fe966412ea72845fe5ba7801e763ff
       url: "https://pub.dev"
     source: hosted
-    version: "5.2.9"
+    version: "5.2.10"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -210,10 +210,10 @@ packages:
     dependency: "direct dev"
     description:
       name: flutter_launcher_icons
-      sha256: "8546a9b9510e1a260b8d55fb2d07096e8a8552c6a2c2bf529100344894b2b41a"
+      sha256: "526faf84284b86a4cb36d20a5e45147747b7563d921373d4ee0559c54fcdbcea"
       url: "https://pub.dev"
     source: hosted
-    version: "0.13.0"
+    version: "0.13.1"
   flutter_lints:
     dependency: "direct dev"
     description:
