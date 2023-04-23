@@ -1,0 +1,7 @@
+* nou: Flip camera în timpul înregistrării (Android 8.0 și versiunile superioare)
+* nou: Adăugați modul stângaci pentru orientare orizontală
+
+* îmbunătățit: A redus foarte mult dimensiunea APK pe F-Droid de la 20 MB la aproximativ aproximativ 7 MB
+* îmbunătățit: Logica de curățare a cache-ului
+
+* l10n: Adăugați traducerea în limba belarusă
