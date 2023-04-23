@@ -184,5 +184,9 @@
   "flipToFrontCamera": "Întoarceți la camera frontală",
   "@flipToFrontCamera": {},
   "enableZoomSlider_description": "Când este activat, va apărea un glisor pentru a regla manual zoom-ul",
-  "@enableZoomSlider_description": {}
+  "@enableZoomSlider_description": {},
+  "leftHandedMode": "Modul stângaci",
+  "@leftHandedMode": {},
+  "leftHandedMode_description": "Când este activată, comutați poziția comenzilor camerei în peisaj pentru modul stângaci",
+  "@leftHandedMode_description": {}
 }
