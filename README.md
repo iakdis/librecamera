@@ -1,6 +1,6 @@
 
-# 🌟 New release: v1.6.1 🌟
-### Take a look at what has changed [here](https://github.com/iakmds/librecamera/releases/tag/v1.6.1)!
+# 🌟 New release: v1.7.0 🌟
+### Take a look at what has changed [here](https://github.com/iakmds/librecamera/releases/tag/v1.7.0)!
 
 <br><br>
 
@@ -109,7 +109,7 @@ You can download Libre Camera on [F-Droid](https://f-droid.org/packages/com.iakm
 - Formats: Switch between 3 camera formats (JPEG, PNG, WebP)
 - Resolutions: Switch between different camera resolutions
 - Save location: Choose your preferred save location
-- Small size (~21 MB)
+- Small size (<20 MB)
 - Customizable: Open the settings to customize the app to your liking!
 
 # Roadmap
