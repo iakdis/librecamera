@@ -180,5 +180,13 @@
   "exposureModeAuto": "PENDEDAHAN AUTOMATIK",
   "@exposureModeAuto": {},
   "keepEXIFMetadata_description": "Simpan metadata EXIF gambar yang diambil seperti model fon, lokasi GPS, dan sebagainya.",
-  "@keepEXIFMetadata_description": {}
+  "@keepEXIFMetadata_description": {},
+  "useMaterialYou": "Guna Material You",
+  "@useMaterialYou": {},
+  "useMaterialYou_description": "Guna reka bentuk Material You. Tetapkan kepada palsu untuk reka bentuk Material lama",
+  "@useMaterialYou_description": {},
+  "leftHandedMode": "Mod kidal",
+  "@leftHandedMode": {},
+  "leftHandedMode_description": "Apabila dibenarkan, tukar posisi kawalan kamera dalam landskap untuk mod kidal",
+  "@leftHandedMode_description": {}
 }
