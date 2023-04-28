@@ -1,0 +1,7 @@
+* baharu: Kamera flip ketika merekod (Android 8.0 dan ke atas)
+* baharu: Tambah mod kidal untuk orienrasi mengufuk
+
+* ditambah baik: Dapat mengurangkan saiz APK di F-Droid daripada 20 MB kepada 7 MB
+* ditambah baik: Logik membuang cache 
+
+* l10n: Tambah terjemahan Belarus
