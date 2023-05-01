@@ -116,7 +116,6 @@ You can download Libre Camera on [F-Droid](https://f-droid.org/packages/com.iakm
 
 - [ ] More supported languages (See [#translate](#translate) below)
 - [ ] [Your features](https://github.com/iakmds/librecamera/issues)
-- [ ] Flutter issue: [Flip camera while recording](https://github.com/flutter/plugins/pull/6478)
 - [ ] Flutter issue: [Allow custom resolution and aspect ratio](https://github.com/flutter/flutter/issues/45665) (Fix [#21](https://github.com/iakmds/librecamera/issues/21))
 - [ ] Flutter issue: [Set custom frame rate and bit rate](https://github.com/flutter/flutter/issues/54339) (Fix [#21](https://github.com/iakmds/librecamera/issues/21))
 - [ ] Flutter issue: [Switch between multiple cameras](https://github.com/flutter/flutter/issues/91247) (Fix [#18](https://github.com/iakmds/librecamera/issues/18))
@@ -125,10 +124,11 @@ You can download Libre Camera on [F-Droid](https://f-droid.org/packages/com.iakm
 - [ ] Feature: Add "photo capture at phone volume button press" as an option in settings
 - [ ] Theme: Add a black Dark mode for AMOLED screens
 - [ ] Settings: Add a search bar for the settings page
-- [x] [Weblate](https://hosted.weblate.org/engage/librecamera/) integration
-- [x] Check tablet support
+- [x] (Included in version 1.7.0) Flutter issue: [Flip camera while recording](https://github.com/flutter/flutter/issues/82467)
 - [x] (Included in version 1.3.0) Feature: Add photo capture delay option
 - [x] (Included in version 1.3.0) Feature: Add a capture sound as an option in settings
+- [x] [Weblate](https://hosted.weblate.org/engage/librecamera/) integration
+- [x] Check tablet support
 
 # Contributing
 
