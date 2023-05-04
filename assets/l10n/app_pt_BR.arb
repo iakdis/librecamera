@@ -184,5 +184,9 @@
   "useMaterialYou": "Usar Material You",
   "@useMaterialYou": {},
   "useMaterialYou_description": "Usar o design Material You. Desabilite para usar o antigo Material Design",
-  "@useMaterialYou_description": {}
+  "@useMaterialYou_description": {},
+  "leftHandedMode": "Modo para canhotos",
+  "@leftHandedMode": {},
+  "leftHandedMode_description": "Quando ativado, altera o posicionamento dos controles da câmera em paisagem para o modo para canhotos",
+  "@leftHandedMode_description": {}
 }
