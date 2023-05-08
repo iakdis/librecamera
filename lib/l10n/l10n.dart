@@ -12,6 +12,7 @@ class Localization {
     const Locale('eu', ''),
     const Locale('fr', ''),
     const Locale('gl', ''),
+    const Locale('it', ''),
     const Locale('ja', ''),
     const Locale('nb', ''),
     const Locale('ms', ''),
@@ -43,6 +44,8 @@ class Localization {
         return 'Français';
       case 'gl':
         return 'Galego';
+      case 'it':
+        return 'Italiano';
       case 'ja':
         return '日本語';
       case 'nb':
