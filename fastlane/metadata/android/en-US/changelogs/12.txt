@@ -1,0 +1,3 @@
+* new: Capture photos/videos on volume button press
+
+* l10n: Add Italian translation
