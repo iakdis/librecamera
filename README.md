@@ -169,6 +169,7 @@ Package | Use case
 [device_info_plus](https://pub.dev/packages/device_info_plus) | Getting the Android version to adapt saving behaviour
 [file_picker](https://pub.dev/packages/file_picker) | Picking the save path
 [flutter](https://pub.dev/packages/flutter) | Flutter SDK
+[flutter_android_volume_keydown](https://pub.dev/packages/flutter/flutter_android_volume_keydown) | Capture photo/video on volume button press
 [flutter_image_compress](https://pub.dev/packages/flutter_image_compress) | Image compression and EXIF metadata removal
 [flutter_localizations](https://pub.dev/packages/flutter_localizations) | Localization
 [image](https://pub.dev/packages/image) | Ability to flip captured photos horizontally
