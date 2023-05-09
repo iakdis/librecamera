@@ -188,5 +188,9 @@
   "leftHandedMode": "Left-handed mode",
   "@leftHandedMode": {},
   "leftHandedMode_description": "When enabled, switch the position of the camera controls in landscape for left-handed mode",
-  "@leftHandedMode_description": {}
+  "@leftHandedMode_description": {},
+  "captureAtVolumePress": "Capture at volume press",
+  "@captureAtVolumePress": {},
+  "captureAtVolumePress_description": "When enabled, pressing a volume button will capture a picture or record a video",
+  "@captureAtVolumePress_description": {}
 }

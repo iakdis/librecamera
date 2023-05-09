@@ -15,8 +15,9 @@ import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
 import java.io.File
+import dev.darttools.flutter_android_volume_keydown.FlutterAndroidVolumeKeydownActivity
 
-class MainActivity : FlutterActivity() {
+class MainActivity : FlutterAndroidVolumeKeydownActivity() {
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "media_store")

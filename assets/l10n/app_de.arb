@@ -176,5 +176,9 @@
   "leftHandedMode": "Linkshändler-Modus",
   "@leftHandedMode": {},
   "leftHandedMode_description": "Wenn aktiviert, wird die Position der Kamera-Bedienelemente in der horizontalen Bildschirmausrichtung für linkshändler vertauscht",
-  "@leftHandedMode_description": {}
+  "@leftHandedMode_description": {},
+  "captureAtVolumePress": "Aufnahme beim Drücken der Lautstärketasten",
+  "@captureAtVolumePress": {},
+  "captureAtVolumePress_description": "Wenn aktiviert, sorgt das Drücken einer Lautstärketaste für die Aufnahme eines Fotos bzw. eines Videos",
+  "@captureAtVolumePress_description": {}
 }

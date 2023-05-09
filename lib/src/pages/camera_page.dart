@@ -4,6 +4,7 @@ import 'dart:io';
 //import 'package:flutter/foundation.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_android_volume_keydown/flutter_android_volume_keydown.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:image/image.dart' as img;
 import 'package:camera/camera.dart';
@@ -75,6 +76,10 @@ class _CameraPageState extends State<CameraPage>
   //Orientation
   DateTime _timeOfLastChange = DateTime.now();
 
+  //Volume buttons
+  StreamSubscription<HardwareButton>? volumeSubscription;
+  bool canPressVolume = true;
+
   //QR Code
   /*final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
   qr.Barcode? result;
@@ -131,6 +136,21 @@ class _CameraPageState extends State<CameraPage>
       //qrController?.resumeCamera();
     }
   }
+
+  void _subscribeVolumeButtons() {
+    volumeSubscription = FlutterAndroidVolumeKeydown.stream.listen((event) {
+      if (isVideoCameraSelected) {
+        if (controller?.value.isRecordingVideo == false && canPressVolume) {
+          onVideoRecordButtonPressed();
+          canPressVolume = false;
+        }
+      } else {
+        onTakePictureButtonPressed();
+      }
+    });
+  }
+
+  void _stopVolumeButtons() => volumeSubscription?.cancel();
 
   /*void _onQRViewCreated(qr.QRViewController qrController) {
     this.qrController = qrController;
@@ -509,7 +529,8 @@ class _CameraPageState extends State<CameraPage>
           minAvailableExposureOffset: _minAvailableExposureOffset,
           maxAvailableExposureOffset: _maxAvailableExposureOffset,
         ),
-       if (Preferences.getEnableExposureSlider())const Divider(color: Colors.blue),
+      if (Preferences.getEnableExposureSlider())
+        const Divider(color: Colors.blue),
       Container(
         padding: const EdgeInsets.fromLTRB(0, 8.0, 0, 8.0),
         child: CaptureControlWidget(
@@ -662,6 +683,12 @@ class _CameraPageState extends State<CameraPage>
       setState(() {});
     }
 
+    if (Preferences.getCaptureAtVolumePress()) {
+      _subscribeVolumeButtons();
+    } else {
+      _stopVolumeButtons();
+    }
+
     /*startCameraProcessing();
 
     cameraController.startImageStream((image) async {
@@ -733,6 +760,8 @@ class _CameraPageState extends State<CameraPage>
         print('Video recorded to $path');
         await _refreshGalleryImages();
       }
+
+      canPressVolume = true;
     });
   }
 

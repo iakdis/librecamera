@@ -313,6 +313,19 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
+  Widget _captureAtVolumePressTile() {
+    return SwitchListTile(
+      title: Text(AppLocalizations.of(context)!.captureAtVolumePress),
+      subtitle:
+          Text(AppLocalizations.of(context)!.captureAtVolumePress_description),
+      value: Preferences.getCaptureAtVolumePress(),
+      onChanged: (value) async {
+        await Preferences.setCaptureAtVolumePress(value);
+        setState(() {});
+      },
+    );
+  }
+
   Widget _disableAudioTile() {
     return SwitchListTile(
       title: Text(AppLocalizations.of(context)!.disableAudio),
@@ -556,6 +569,8 @@ class _SettingsPageState extends State<SettingsPage> {
             const Divider(),
             _headingTile(AppLocalizations.of(context)!.cameraBehaviour),
             _resolutionTile(),
+            const Divider(),
+            _captureAtVolumePressTile(),
             const Divider(),
             _disableShutterSoundTile(),
             const Divider(),

@@ -141,4 +141,10 @@ class Preferences {
       await _preferences!.setBool(prefLeftHandedMode, enable);
   static bool getLeftHandedMode() =>
       _preferences!.getBool(prefLeftHandedMode) ?? false;
+
+  // Left Handed Mode
+  static Future setCaptureAtVolumePress(bool enable) async =>
+      await _preferences!.setBool(prefCaptureAtVolumePress, enable);
+  static bool getCaptureAtVolumePress() =>
+      _preferences!.getBool(prefCaptureAtVolumePress) ?? true;
 }
