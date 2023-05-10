@@ -188,5 +188,9 @@
   "leftHandedMode_description": "Se abilitato, cambia la posizione dei comandi della fotocamera in orizzontale per la modalità per mancini",
   "@leftHandedMode_description": {},
   "leftHandedMode": "Modalità per mancini",
-  "@leftHandedMode": {}
+  "@leftHandedMode": {},
+  "captureAtVolumePress": "Scatta con tasti volume",
+  "@captureAtVolumePress": {},
+  "captureAtVolumePress_description": "Se abilitato, premere un tasto volume scatterà una foto o registrerà un video",
+  "@captureAtVolumePress_description": {}
 }
