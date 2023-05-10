@@ -1,0 +1,3 @@
+* novidade: Tomar fotos/vídeos co botón de volume
+
+* l10n: engadido idioma italiano
