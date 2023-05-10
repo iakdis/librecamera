@@ -188,5 +188,9 @@
   "leftHandedMode": "Režim pro leváky",
   "@leftHandedMode": {},
   "leftHandedMode_description": "Při povolení se přepne pozice ovládání fotoaparátu v režimu na šířku pro leváky",
-  "@leftHandedMode_description": {}
+  "@leftHandedMode_description": {},
+  "captureAtVolumePress": "Zachytit při stisknutí tl. hlasitosti",
+  "@captureAtVolumePress": {},
+  "captureAtVolumePress_description": "Pokud je tato funkce povolena, stisknutím tlačítka hlasitosti pořídíte snímek nebo začnete nahrávat video",
+  "@captureAtVolumePress_description": {}
 }
