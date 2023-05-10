@@ -1,0 +1,3 @@
+* novinka: pořizování fotografií/videí při stisknutí tlačítka hlasitosti
+
+* l10n: přidán italský překlad
