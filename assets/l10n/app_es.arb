@@ -176,5 +176,9 @@
   "leftHandedMode_description": "Cuando está activado, cambia la posición de los controles de la cámara en horizontal para el modo zurdo",
   "@leftHandedMode_description": {},
   "leftHandedMode": "Modo para zurdos",
-  "@leftHandedMode": {}
+  "@leftHandedMode": {},
+  "captureAtVolumePress": "Captura al pulsar el volumen",
+  "@captureAtVolumePress": {},
+  "captureAtVolumePress_description": "Cuando está activado, al pulsar un botón de volumen se captura una foto o se graba un vídeo",
+  "@captureAtVolumePress_description": {}
 }
