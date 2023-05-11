@@ -119,7 +119,7 @@ class _SettingsPageState extends State<SettingsPage> {
       icon: const Icon(Icons.info),
       applicationName: 'Libre Camera',
       applicationVersion: AppLocalizations.of(context)!.version(
-          '1.7.0'), //TODO change versions HERE AND pubspec.yaml at 'version'
+          '1.8.0'), //TODO change versions HERE AND pubspec.yaml at 'version'
       applicationIcon: const Image(
         image: AssetImage('assets/images/icon.png'),
         width: 50,
