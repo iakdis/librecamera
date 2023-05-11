@@ -113,7 +113,6 @@ class _CameraPageState extends State<CameraPage>
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
-    controller?.dispose();
 
     //qrController?.dispose();
 
@@ -630,12 +629,6 @@ class _CameraPageState extends State<CameraPage>
       CameraDescription cameraDescription) async {
     final flashMode = getFlashMode();
     final resolution = getResolution();
-
-    final CameraController? oldController = controller;
-    if (oldController != null) {
-      controller = null;
-      await oldController.dispose();
-    }
 
     final CameraController cameraController = CameraController(
       cameraDescription,
