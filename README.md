@@ -1,6 +1,6 @@
 
-# 🌟 New release: v1.7.0 🌟
-### Take a look at what has changed [here](https://github.com/iakmds/librecamera/releases/tag/v1.7.0)!
+# 🌟 New release: v1.8.0 🌟
+### Take a look at what has changed [here](https://github.com/iakmds/librecamera/releases/tag/v1.8.0)!
 
 <br><br>
 
