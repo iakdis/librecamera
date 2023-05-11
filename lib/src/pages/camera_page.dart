@@ -343,7 +343,7 @@ class _CameraPageState extends State<CameraPage>
               ),
               ResolutionButton(
                 isDense: true,
-                onNewCameraSelected: onNewCameraSelected,
+                onNewCameraSelected: _initializeCameraController,
                 isRearCameraSelected: isRearCameraSelected,
                 enabled: controller?.value.isRecordingVideo == false &&
                     _timerStopwatch.elapsedTicks <= 1,
