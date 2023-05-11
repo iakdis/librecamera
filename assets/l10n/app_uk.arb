@@ -188,5 +188,9 @@
   "leftHandedMode": "Лівосторонній режим",
   "@leftHandedMode": {},
   "leftHandedMode_description": "Якщо увімкнено, перемикає положення елементів керування камерою в альбомному режимі для лівосторонньої орієнтації",
-  "@leftHandedMode_description": {}
+  "@leftHandedMode_description": {},
+  "captureAtVolumePress": "Захоплення при натисканні кнопки гучності",
+  "@captureAtVolumePress": {},
+  "captureAtVolumePress_description": "Якщо ввімкнено, натискання кнопки гучності зробить знімок або запише відео",
+  "@captureAtVolumePress_description": {}
 }
