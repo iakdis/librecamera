@@ -18,31 +18,18 @@ import 'package:url_launcher/url_launcher.dart';
 class SettingsButton extends StatelessWidget {
   const SettingsButton({
     Key? key,
-    required this.enabled,
+    required this.onPressed,
     required this.controller,
-    required this.onNewCameraSelected,
   }) : super(key: key);
 
-  final bool enabled;
+  final void Function()? onPressed;
   final CameraController? controller;
-  final Function(CameraDescription) onNewCameraSelected;
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
       disabledColor: Colors.white24,
-      onPressed: enabled
-          ? () async {
-              await Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => SettingsPage(
-                    controller: controller,
-                    onNewCameraSelected: onNewCameraSelected,
-                  ),
-                ),
-              );
-            }
-          : null,
+      onPressed: onPressed,
       icon: const Icon(Icons.settings),
       tooltip: AppLocalizations.of(context)!.settings,
       iconSize: 35,

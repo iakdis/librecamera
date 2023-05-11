@@ -151,6 +151,10 @@ class _CameraPageState extends State<CameraPage>
 
   void _stopVolumeButtons() => volumeSubscription?.cancel();
 
+  void checkVolumeButtons() => Preferences.getCaptureAtVolumePress()
+      ? _subscribeVolumeButtons()
+      : _stopVolumeButtons();
+
   /*void _onQRViewCreated(qr.QRViewController qrController) {
     this.qrController = qrController;
     qrController.pauseCamera();
@@ -450,9 +454,20 @@ class _CameraPageState extends State<CameraPage>
       turns:
           MediaQuery.of(context).orientation == Orientation.portrait ? 0 : 0.25,
       child: SettingsButton(
-        enabled: enabled,
+        onPressed: enabled
+            ? () {
+                _stopVolumeButtons();
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => SettingsPage(
+                      controller: controller,
+                      onNewCameraSelected: _initializeCameraController,
+                    ),
+                  ),
+                );
+              }
+            : null,
         controller: controller,
-        onNewCameraSelected: _initializeCameraController,
       ),
     );
   }
@@ -676,11 +691,7 @@ class _CameraPageState extends State<CameraPage>
       setState(() {});
     }
 
-    if (Preferences.getCaptureAtVolumePress()) {
-      _subscribeVolumeButtons();
-    } else {
-      _stopVolumeButtons();
-    }
+    checkVolumeButtons();
 
     /*startCameraProcessing();
 
