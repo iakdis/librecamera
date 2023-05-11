@@ -137,14 +137,23 @@ class _CameraPageState extends State<CameraPage>
   }
 
   void _subscribeVolumeButtons() {
-    volumeSubscription = FlutterAndroidVolumeKeydown.stream.listen((event) {
-      if (isVideoCameraSelected) {
-        if (controller?.value.isRecordingVideo == false && canPressVolume) {
-          onVideoRecordButtonPressed();
-          canPressVolume = false;
+    volumeSubscription =
+        FlutterAndroidVolumeKeydown.stream.listen((event) async {
+      if (canPressVolume) {
+        final int delay;
+        if (isVideoCameraSelected) {
+          delay = 2;
+          controller?.value.isRecordingVideo == true
+              ? onStopButtonPressed()
+              : onVideoRecordButtonPressed();
+        } else {
+          delay = 1;
+          onTakePictureButtonPressed();
         }
-      } else {
-        onTakePictureButtonPressed();
+
+        canPressVolume = false;
+        await Future.delayed(Duration(seconds: delay));
+        canPressVolume = true;
       }
     });
   }
@@ -764,8 +773,6 @@ class _CameraPageState extends State<CameraPage>
         print('Video recorded to $path');
         await _refreshGalleryImages();
       }
-
-      canPressVolume = true;
     });
   }
 
