@@ -188,5 +188,9 @@
   "leftHandedMode": "Modo para canhotos",
   "@leftHandedMode": {},
   "leftHandedMode_description": "Quando ativado, altera o posicionamento dos controles da câmera em paisagem para o modo para canhotos",
-  "@leftHandedMode_description": {}
+  "@leftHandedMode_description": {},
+  "captureAtVolumePress": "Capturar ao pressionar o volume",
+  "@captureAtVolumePress": {},
+  "captureAtVolumePress_description": "Quando ativado, pressionar um botão de volume captura uma fotografia ou grava um vídeo",
+  "@captureAtVolumePress_description": {}
 }
