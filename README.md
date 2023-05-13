@@ -167,6 +167,7 @@ Package | Use case
 -|-
 [camera](https://pub.dev/packages/camera) | Camera functionality
 [device_info_plus](https://pub.dev/packages/device_info_plus) | Getting the Android version to adapt saving behaviour
+[dynamic_color](https://pub.dev/packages/dynamic_color) | Getting the Android Material 3 dynamic color
 [file_picker](https://pub.dev/packages/file_picker) | Picking the save path
 [flutter](https://pub.dev/packages/flutter) | Flutter SDK
 [flutter_android_volume_keydown](https://pub.dev/packages/flutter/flutter_android_volume_keydown) | Capture photo/video on volume button press
