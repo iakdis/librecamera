@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:dynamic_color/dynamic_color.dart';
 import 'package:librecamera/l10n/l10n.dart';
 import 'package:librecamera/src/pages/camera_page.dart';
 import 'package:librecamera/src/pages/onboarding_page.dart';
@@ -8,6 +9,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:librecamera/src/provider/locale_provider.dart';
 import 'package:librecamera/src/provider/theme_provider.dart';
 import 'package:provider/provider.dart';
+
+const defaultThemeColour = Color(0xFF1E88E5);
 
 /// CameraApp is the Main Application.
 class CameraApp extends StatelessWidget {
@@ -29,24 +32,41 @@ class CameraApp extends StatelessWidget {
         final localeProvider = Provider.of<LocaleProvider>(context);
         final themeProvider = Provider.of<ThemeProvider>(context);
 
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          themeMode: themeProvider.themeMode(),
-          theme: Themes().lightTheme,
-          darkTheme: Themes().darkTheme,
-          locale: localeProvider.locale,
-          supportedLocales: Localization.supportedLocales,
-          localizationsDelegates: const [
-            AppLocalizations.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          home: SafeArea(
-            child: onboardingCompleted
-                ? const CameraPage()
-                : const OnboardingPage(),
-          ),
+        return DynamicColorBuilder(
+          builder: (ColorScheme? lightDynamic, ColorScheme? darkDynamic) {
+            ColorScheme lightColorScheme;
+            ColorScheme darkColorScheme;
+
+            if (lightDynamic != null && darkDynamic != null) {
+              lightColorScheme = lightDynamic.harmonized();
+              darkColorScheme = darkDynamic.harmonized();
+            } else {
+              lightColorScheme =
+                  ColorScheme.fromSeed(seedColor: defaultThemeColour);
+              darkColorScheme = ColorScheme.fromSeed(
+                  seedColor: defaultThemeColour, brightness: Brightness.dark);
+            }
+
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              themeMode: themeProvider.themeMode(),
+              theme: Themes().theme(colorScheme: lightColorScheme),
+              darkTheme: Themes().theme(colorScheme: darkColorScheme),
+              locale: localeProvider.locale,
+              supportedLocales: Localization.supportedLocales,
+              localizationsDelegates: const [
+                AppLocalizations.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              home: SafeArea(
+                child: onboardingCompleted
+                    ? const CameraPage()
+                    : const OnboardingPage(),
+              ),
+            );
+          },
         );
       }),
     );

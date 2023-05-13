@@ -19,17 +19,8 @@ class ThemeProvider extends ChangeNotifier {
 }
 
 class Themes {
-  final darkTheme = ThemeData(
-    scaffoldBackgroundColor: Colors.grey.shade900,
-    colorScheme: const ColorScheme.dark(primary: Colors.blue),
-    useMaterial3: Preferences.getUseMaterial3(),
-  );
-
-  final lightTheme = ThemeData(
-    scaffoldBackgroundColor: Colors.white,
-    colorScheme: const ColorScheme.light(primary: Colors.blue),
-    useMaterial3: Preferences.getUseMaterial3(),
-  );
+  ThemeData theme({required ColorScheme colorScheme}) => ThemeData(
+      colorScheme: colorScheme, useMaterial3: Preferences.getUseMaterial3());
 
   static ThemeMode getThemeModeFromName(String themeModeName) {
     if (themeModeName == ThemeMode.system.name) {

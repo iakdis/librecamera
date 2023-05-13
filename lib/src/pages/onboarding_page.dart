@@ -8,6 +8,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../app.dart';
 import '../provider/theme_provider.dart';
 
 class OnboardingPage extends StatefulWidget {
@@ -415,7 +416,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
     return GestureDetector(
       onTapDown: (details) => unfocusAndRestore(),
       child: Theme(
-        data: Themes().lightTheme,
+        data: Themes().theme(
+            colorScheme: ColorScheme.fromSeed(seedColor: defaultThemeColour)),
         child: Scaffold(
           body: Container(
             padding: const EdgeInsets.only(bottom: 80.0),
