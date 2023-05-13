@@ -176,5 +176,11 @@
   "leftHandedMode": "Sol el modu",
   "@leftHandedMode": {},
   "leftHandedMode_description": "Etkinleştirildiğinde, sol el modu için kamera denetimlerinin konumunu yatay olarak değiştirir",
-  "@leftHandedMode_description": {}
+  "@leftHandedMode_description": {},
+  "captureAtVolumePress": "Ses düğmesine basıldığında yakala",
+  "@captureAtVolumePress": {},
+  "captureAtVolumePress_description": "Etkinleştirildiğinde, bir ses düğmesine basıldığında resim çekilecek veya video kaydedilecektir",
+  "@captureAtVolumePress_description": {},
+  "themeBlack": "Siyah tema",
+  "@themeBlack": {}
 }
