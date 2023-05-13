@@ -180,5 +180,19 @@
   "shutterSound_description": "Skrur av bildeknipselyden",
   "@shutterSound_description": {},
   "imageCompressionQuality_description": "Lavere sammenpakkingskvalitet gir mindre bildestørrelser, men også dårligere kvalitet. Høyere gir større bilder, men bedre kvalitet.",
-  "@imageCompressionQuality_description": {}
+  "@imageCompressionQuality_description": {},
+  "themeBlack": "Svart drakt",
+  "@themeBlack": {},
+  "leftHandedMode": "Venstrehåndsmodus",
+  "@leftHandedMode": {},
+  "captureAtVolumePress": "Knips/spill inn med lydstyrketastene",
+  "@captureAtVolumePress": {},
+  "leftHandedMode_description": "Tilpasser kameraets kontroller venstrehendte i liggende modus",
+  "@leftHandedMode_description": {},
+  "captureAtVolumePress_description": "Knipser bilder eller spiller inn video når lydstyrkeknappene trykkes.",
+  "@captureAtVolumePress_description": {},
+  "useMaterialYou": "Anvend Materiell Deig",
+  "@useMaterialYou": {},
+  "useMaterialYou_description": "Ta i bruk Materiell Deig-design. Skru av for gammel Materiell design.",
+  "@useMaterialYou_description": {}
 }
