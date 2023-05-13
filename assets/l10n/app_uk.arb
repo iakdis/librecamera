@@ -192,5 +192,7 @@
   "captureAtVolumePress": "Захоплення при натисканні кнопки гучності",
   "@captureAtVolumePress": {},
   "captureAtVolumePress_description": "Якщо ввімкнено, натискання кнопки гучності зробить знімок або запише відео",
-  "@captureAtVolumePress_description": {}
+  "@captureAtVolumePress_description": {},
+  "themeBlack": "Чорна тема",
+  "@themeBlack": {}
 }
