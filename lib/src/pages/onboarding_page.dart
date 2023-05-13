@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:librecamera/src/pages/camera_page.dart';
 import 'package:librecamera/src/utils/preferences.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -416,7 +417,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
     return GestureDetector(
       onTapDown: (details) => unfocusAndRestore(),
       child: Theme(
-        data: Themes().theme(
+        data: context.watch<ThemeProvider>().theme(
             colorScheme: ColorScheme.fromSeed(seedColor: defaultThemeColour)),
         child: Scaffold(
           body: Container(

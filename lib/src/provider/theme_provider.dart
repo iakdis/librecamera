@@ -1,36 +1,53 @@
+import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import 'package:librecamera/src/utils/preferences.dart';
 
 class ThemeProvider extends ChangeNotifier {
-  ThemeMode? _themeMode;
+  CustomThemeMode? _themeMode;
 
-  ThemeMode themeMode() {
+  CustomThemeMode themeMode() {
     _themeMode = Preferences.getThemeMode().isNotEmpty
-        ? Themes.getThemeModeFromName(Preferences.getThemeMode())
-        : ThemeMode.system;
+        ? CustomThemeMode.values.byName(Preferences.getThemeMode())
+        : CustomThemeMode.system;
     return _themeMode!;
   }
 
-  void setTheme(ThemeMode theme) {
+  ThemeData theme({required ColorScheme colorScheme}) {
+    final isBlack = themeMode() == CustomThemeMode.black;
+
+    return ThemeData(
+      colorScheme: isBlack
+          ? colorScheme
+              .copyWith(background: Colors.black, surface: Colors.black)
+              .harmonized()
+          : colorScheme,
+      useMaterial3: Preferences.getUseMaterial3(),
+      scaffoldBackgroundColor: isBlack ? Colors.black : null,
+    );
+  }
+
+  ThemeMode getMaterialThemeMode() {
+    switch (themeMode()) {
+      case CustomThemeMode.system:
+        return ThemeMode.system;
+      case CustomThemeMode.light:
+        return ThemeMode.light;
+      case CustomThemeMode.dark:
+      case CustomThemeMode.black:
+        return ThemeMode.dark;
+    }
+  }
+
+  void setTheme(CustomThemeMode theme) {
     Preferences.setThemeMode(theme.name);
     _themeMode = theme;
     notifyListeners();
   }
 }
 
-class Themes {
-  ThemeData theme({required ColorScheme colorScheme}) => ThemeData(
-      colorScheme: colorScheme, useMaterial3: Preferences.getUseMaterial3());
-
-  static ThemeMode getThemeModeFromName(String themeModeName) {
-    if (themeModeName == ThemeMode.system.name) {
-      return ThemeMode.system;
-    } else if (themeModeName == ThemeMode.light.name) {
-      return ThemeMode.light;
-    } else if (themeModeName == ThemeMode.dark.name) {
-      return ThemeMode.dark;
-    } else {
-      return ThemeMode.system;
-    }
-  }
+enum CustomThemeMode {
+  system,
+  light,
+  dark,
+  black,
 }

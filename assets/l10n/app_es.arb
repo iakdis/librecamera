@@ -99,6 +99,8 @@
   "@themeLight": {},
   "themeDark": "Tema oscuro",
   "@themeDark": {},
+  "themeBlack": "Tema negro",
+  "@themeBlack": {},
   "enableMaximumScreenBrightness": "Máximo brillo de la pantalla",
   "@enableMaximumScreenBrightness": {},
   "enableMaximumScreenBrightness_description": "Al activarse, el brillo de la pantalla de su dispositivo se ajustará al máximo",

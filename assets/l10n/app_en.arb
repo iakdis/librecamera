@@ -99,6 +99,8 @@
   "@themeLight": {},
   "themeDark": "Dark theme",
   "@themeDark": {},
+  "themeBlack": "Black theme",
+  "@themeBlack": {},
   "enableMaximumScreenBrightness": "Maximum screen brightness",
   "@enableMaximumScreenBrightness": {},
   "enableMaximumScreenBrightness_description": "When enabled, the screen brightness of your device will be set to the maximum",

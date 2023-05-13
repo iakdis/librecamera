@@ -99,6 +99,8 @@
   "@themeLight": {},
   "themeDark": "Dunkles Thema",
   "@themeDark": {},
+  "themeBlack": "Schwarzes Thema",
+  "@themeBlack": {},
   "enableMaximumScreenBrightness": "Maximale Bildschirmhelligkeit",
   "@enableMaximumScreenBrightness": {},
   "enableMaximumScreenBrightness_description": "Wenn aktiviert, wird die Bildschirmhelligkeit deines Geräts auf das Maximum gesetzt",

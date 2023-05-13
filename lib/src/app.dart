@@ -49,9 +49,9 @@ class CameraApp extends StatelessWidget {
 
             return MaterialApp(
               debugShowCheckedModeBanner: false,
-              themeMode: themeProvider.themeMode(),
-              theme: Themes().theme(colorScheme: lightColorScheme),
-              darkTheme: Themes().theme(colorScheme: darkColorScheme),
+              themeMode: themeProvider.getMaterialThemeMode(),
+              theme: themeProvider.theme(colorScheme: lightColorScheme),
+              darkTheme: themeProvider.theme(colorScheme: darkColorScheme),
               locale: localeProvider.locale,
               supportedLocales: Localization.supportedLocales,
               localizationsDelegates: const [

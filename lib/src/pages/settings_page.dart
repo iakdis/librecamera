@@ -404,30 +404,35 @@ class _SettingsPageState extends State<SettingsPage> {
       title: Text(AppLocalizations.of(context)!.theme),
       subtitle: Text(AppLocalizations.of(context)!.theme_description),
       trailing: DropdownButton(
-        icon: Preferences.getThemeMode() == ThemeMode.system.name
+        icon: Preferences.getThemeMode() == CustomThemeMode.system.name
             ? const Icon(Icons.settings_display)
-            : Preferences.getThemeMode() == ThemeMode.light.name
+            : Preferences.getThemeMode() == CustomThemeMode.light.name
                 ? const Icon(Icons.light_mode)
                 : const Icon(Icons.dark_mode),
-        value: Themes.getThemeModeFromName(Preferences.getThemeMode()),
+        value: CustomThemeMode.values.byName(Preferences.getThemeMode()),
         items: [
           DropdownMenuItem(
-            value: ThemeMode.system,
-            onTap: () => themeProvider.setTheme(ThemeMode.system),
+            value: CustomThemeMode.system,
+            onTap: () => themeProvider.setTheme(CustomThemeMode.system),
             child: Padding(
               padding: const EdgeInsets.only(right: 8.0),
               child: Text(AppLocalizations.of(context)!.themeSystem),
             ),
           ),
           DropdownMenuItem(
-            value: ThemeMode.light,
-            onTap: () => themeProvider.setTheme(ThemeMode.light),
+            value: CustomThemeMode.light,
+            onTap: () => themeProvider.setTheme(CustomThemeMode.light),
             child: Text(AppLocalizations.of(context)!.themeLight),
           ),
           DropdownMenuItem(
-            value: ThemeMode.dark,
-            onTap: () => themeProvider.setTheme(ThemeMode.dark),
+            value: CustomThemeMode.dark,
+            onTap: () => themeProvider.setTheme(CustomThemeMode.dark),
             child: Text(AppLocalizations.of(context)!.themeDark),
+          ),
+          DropdownMenuItem(
+            value: CustomThemeMode.black,
+            onTap: () => themeProvider.setTheme(CustomThemeMode.black),
+            child: Text(AppLocalizations.of(context)!.themeBlack),
           ),
         ],
         onChanged: (_) {},

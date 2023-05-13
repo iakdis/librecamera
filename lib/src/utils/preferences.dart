@@ -1,8 +1,9 @@
 import 'package:camera/camera.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:librecamera/src/globals.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../provider/theme_provider.dart';
 
 class Preferences {
   static SharedPreferences? _preferences;
@@ -19,7 +20,7 @@ class Preferences {
   static Future setThemeMode(String theme) async =>
       await _preferences!.setString(prefThemeMode, theme);
   static String getThemeMode() =>
-      _preferences!.getString(prefThemeMode) ?? ThemeMode.system.name;
+      _preferences!.getString(prefThemeMode) ?? CustomThemeMode.system.name;
 
   // Use Material You
   static Future setUseMaterial3(bool useMaterial3) async =>
