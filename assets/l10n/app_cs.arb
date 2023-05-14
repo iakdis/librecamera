@@ -192,5 +192,7 @@
   "captureAtVolumePress": "Zachytit při stisknutí tl. hlasitosti",
   "@captureAtVolumePress": {},
   "captureAtVolumePress_description": "Pokud je tato funkce povolena, stisknutím tlačítka hlasitosti pořídíte snímek nebo začnete nahrávat video",
-  "@captureAtVolumePress_description": {}
+  "@captureAtVolumePress_description": {},
+  "themeBlack": "Černý motiv",
+  "@themeBlack": {}
 }
