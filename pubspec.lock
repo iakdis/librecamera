@@ -165,10 +165,10 @@ packages:
     dependency: "direct main"
     description:
       name: dynamic_color
-      sha256: bbebb1b7ebed819e0ec83d4abdc2a8482d934f6a85289ffc1c6acf7589fa2aad
+      sha256: "74dff1435a695887ca64899b8990004f8d1232b0e84bfc4faa1fdda7c6f57cc1"
       url: "https://pub.dev"
     source: hosted
-    version: "1.6.3"
+    version: "1.6.5"
   fake_async:
     dependency: transitive
     description:
@@ -425,10 +425,10 @@ packages:
     dependency: transitive
     description:
       name: permission_handler_android
-      sha256: "8028362b40c4a45298f1cbfccd227c8dd6caf0e27088a69f2ba2ab15464159e2"
+      sha256: d8cc6a62ded6d0f49c6eac337e080b066ee3bce4d405bd9439a61e1f1927bfe8
       url: "https://pub.dev"
     source: hosted
-    version: "10.2.0"
+    version: "10.2.1"
   permission_handler_apple:
     dependency: transitive
     description:
@@ -710,10 +710,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_android
-      sha256: "22f8db4a72be26e9e3a4aa3f194b1f7afbc76d20ec141f84be1d787db2155cbd"
+      sha256: "7aac14be5f4731b923cc697ae2d42043945076cd0dbb8806baecc92c1dc88891"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.31"
+    version: "6.0.33"
   url_launcher_ios:
     dependency: transitive
     description:
