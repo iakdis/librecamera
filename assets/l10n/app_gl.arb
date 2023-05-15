@@ -192,5 +192,7 @@
   "captureAtVolumePress": "Tomar foto co botón de volume",
   "@captureAtVolumePress": {},
   "captureAtVolumePress_description": "Se o activas, ao premer o botón de volume tomarás unha foto ou gravarás un vídeo",
-  "@captureAtVolumePress_description": {}
+  "@captureAtVolumePress_description": {},
+  "themeBlack": "Decorado negro",
+  "@themeBlack": {}
 }
