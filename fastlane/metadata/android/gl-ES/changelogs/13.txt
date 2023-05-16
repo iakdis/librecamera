@@ -1,0 +1,4 @@
+* novidade: Uso de cores Dinámicas no decorado Material You
+* novidade: Engadido decorado Negro AMOLED
+
+* l10n: Traducións actualizadas
