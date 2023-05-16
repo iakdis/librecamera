@@ -1,0 +1,4 @@
+* novinka: Použití dynamických barev pro téma Material You
+* novinka: Přidání tématu Black AMOLED
+
+* l10n: Aktualizace překladů
