@@ -1,0 +1,4 @@
+* new: Use Dynamic colors for Material You theme
+* new: Add Black AMOLED theme
+
+* l10n: Update translations

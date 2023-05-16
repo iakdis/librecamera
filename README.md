@@ -1,6 +1,6 @@
 
-# 🌟 New release: v1.8.0 🌟
-### Take a look at what has changed [here](https://github.com/iakmds/librecamera/releases/tag/v1.8.0)!
+# 🌟 New release: v1.9.0 🌟
+### Take a look at what has changed [here](https://github.com/iakmds/librecamera/releases/tag/v1.9.0)!
 
 <br><br>
 
@@ -121,8 +121,8 @@ You can download Libre Camera on [F-Droid](https://f-droid.org/packages/com.iakm
 - [ ] Flutter issue: [Switch between multiple cameras](https://github.com/flutter/flutter/issues/91247) (Fix [#18](https://github.com/iakmds/librecamera/issues/18))
 - [ ] Flutter issue: [Manual focus distance](https://github.com/flutter/flutter/issues/111476) (Fix [#3](https://github.com/iakmds/librecamera/issues/3))
 - [ ] Feature: Add integrated QR-Scanner (Fix [#32](https://github.com/iakmds/librecamera/issues/32))
-- [ ] Theme: Add a black Dark mode for AMOLED screens
 - [ ] Settings: Add a search bar for the settings page
+- [x] (Included in version 1.9.0) Theme: Add a black Dark mode for AMOLED screens
 - [x] (Included in version 1.8.0) Feature: Add "photo capture at phone volume button press" as an option in settings
 - [x] (Included in version 1.7.0) Flutter issue: [Flip camera while recording](https://github.com/flutter/flutter/issues/82467)
 - [x] (Included in version 1.3.0) Feature: Add photo capture delay option

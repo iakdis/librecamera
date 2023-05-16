@@ -1,0 +1,4 @@
+* neu: Dynamische Farben für das Material You-Thema
+* neu: Schwarzes AMOLED-Thema hinzugefügt
+
+* l10n: Übersetzungen aktualisiert

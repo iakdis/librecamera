@@ -1,7 +1,0 @@
-* neu: Wechsel der Kamera während einer Videoaufnahme (Android 8.0 und höher)
-* neu: Linkshändlermodus bei der horizontalen Bildschirmausrichtung hinzugefügt
-
-* verbessert: Apk-Größe auf F-Droid von 20MB auf etwa 7MB stark reduziert
-* verbessert: Logik beim Cache-Leeren
-
-* l10n: Belarussisch hinzugefügt
