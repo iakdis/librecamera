@@ -1,0 +1,4 @@
+* nuevo: Usar colores dinámicos para el tema Material You
+* nuevo: Añadir tema Negro AMOLED
+
+* l10n: Actualizar las traducciones
