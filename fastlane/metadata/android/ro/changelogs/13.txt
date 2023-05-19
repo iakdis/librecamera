@@ -1,0 +1,4 @@
+* nou: Utilizați culori dinamice pentru tema Material You
+* nou: Adaugă tema AMOLED negru
+
+* l10n: Actualizare traduceri
