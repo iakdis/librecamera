@@ -188,5 +188,11 @@
   "leftHandedMode": "Modul stângaci",
   "@leftHandedMode": {},
   "leftHandedMode_description": "Când este activată, comutați poziția comenzilor camerei în peisaj pentru modul stângaci",
-  "@leftHandedMode_description": {}
+  "@leftHandedMode_description": {},
+  "themeBlack": "Tema neagră",
+  "@themeBlack": {},
+  "captureAtVolumePress_description": "Când este activată, apăsarea unui buton de volum va captura o imagine sau va înregistra un videoclip",
+  "@captureAtVolumePress_description": {},
+  "captureAtVolumePress": "Captură la apăsarea volumului",
+  "@captureAtVolumePress": {}
 }
