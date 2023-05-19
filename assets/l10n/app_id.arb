@@ -58,5 +58,35 @@
   "enableMaximumScreenBrightness": "Kecerahan maksimum layar",
   "@enableMaximumScreenBrightness": {},
   "enableMaximumScreenBrightness_description": "Ketika diaktifkan, kecerahan perangkat anda akan diatur ke maksimum",
-  "@enableMaximumScreenBrightness_description": {}
+  "@enableMaximumScreenBrightness_description": {},
+  "startWithFrontCamera_description": "Selalu mulai dengan kamera depan ketika membuka app",
+  "@startWithFrontCamera_description": {},
+  "startWithFrontCamera": "Mulai dengan kamera depan",
+  "@startWithFrontCamera": {},
+  "keepEXIFMetadata": "Simpan data EXIF",
+  "@keepEXIFMetadata": {},
+  "imageCompressionQuality": "Kualitas kompresi gambar",
+  "@imageCompressionQuality": {},
+  "more": "LEBIH BANYAK",
+  "@more": {},
+  "captureAtVolumePress": "Tangkap ketika menekan volume",
+  "@captureAtVolumePress": {},
+  "captureAtVolumePress_description": "Ketika diaktifkan, menekan tombol volume akan menangkap gambar atau merekam video",
+  "@captureAtVolumePress_description": {},
+  "resolution": "Resolusi",
+  "@resolution": {},
+  "resolution_description": "Mengubah resolusi kamera",
+  "@resolution_description": {},
+  "less": "TAMPILKAN LEBIH SEDIKIT",
+  "@less": {},
+  "version": "Versi {versionNumber}",
+  "@version": {
+    "placeholders": {
+      "versionNumber": {
+        "type": "String"
+      }
+    }
+  },
+  "keepEXIFMetadata_description": "Simpan metadata EXIF gambar yang diambil seperti model telepon, lokasi GPS, dsb.",
+  "@keepEXIFMetadata_description": {}
 }
