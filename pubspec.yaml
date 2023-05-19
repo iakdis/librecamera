@@ -51,6 +51,15 @@ dependencies:
   video_thumbnail: ^0.5.3
   wakelock: ^0.6.2
 
+dependency_overrides:
+  # Can be removed when
+  # https://github.com/creativecreatorormaybenot/wakelock/pull/203 is merged.
+  wakelock_windows:
+    git:
+      url: https://github.com/timsneath/wakelock
+      ref: win32-v5
+      path: wakelock_windows
+
 dev_dependencies:
   flutter_launcher_icons: ^0.13.0
   flutter_lints: ^2.0.0

@@ -11,6 +11,7 @@ import 'package:librecamera/src/widgets/format.dart';
 import 'package:librecamera/src/widgets/resolution.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:screen_brightness/screen_brightness.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -102,32 +103,41 @@ class _SettingsPageState extends State<SettingsPage> {
       }
     }
 
-    return AboutListTile(
-      icon: const Icon(Icons.info),
-      applicationName: 'Libre Camera',
-      applicationVersion: AppLocalizations.of(context)!.version(
-          '1.9.0'), //TODO change versions HERE AND pubspec.yaml at 'version'
-      applicationIcon: const Image(
-        image: AssetImage('assets/images/icon.png'),
-        width: 50,
-        height: 50,
-      ),
-      applicationLegalese: 'GNU Public License v3',
-      aboutBoxChildren: [
-        Text(AppLocalizations.of(context)!.license),
-        const Divider(),
-        TextButton.icon(
-          icon: const Icon(Icons.open_in_new),
-          onPressed: launchGitHubURL,
-          label: SelectableText(
-            'https://github.com/iakmds/librecamera',
-            style: const TextStyle(
-              color: Colors.blue,
+    return FutureBuilder(
+      future: PackageInfo.fromPlatform(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return AboutListTile(
+            icon: const Icon(Icons.info),
+            applicationName: 'Libre Camera',
+            applicationVersion: AppLocalizations.of(context)!
+                .version((snapshot.data! as PackageInfo).version),
+            applicationIcon: const Image(
+              image: AssetImage('assets/images/icon.png'),
+              width: 50,
+              height: 50,
             ),
-            onTap: launchGitHubURL,
-          ),
-        ),
-      ],
+            applicationLegalese: 'GNU Public License v3',
+            aboutBoxChildren: [
+              Text(AppLocalizations.of(context)!.license),
+              const Divider(),
+              TextButton.icon(
+                icon: const Icon(Icons.open_in_new),
+                onPressed: launchGitHubURL,
+                label: SelectableText(
+                  'https://github.com/iakmds/librecamera',
+                  style: const TextStyle(
+                    color: Colors.blue,
+                  ),
+                  onTap: launchGitHubURL,
+                ),
+              ),
+            ],
+          );
+        } else {
+          return Container();
+        }
+      },
     );
   }
 
