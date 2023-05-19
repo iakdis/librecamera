@@ -176,6 +176,7 @@ Package | Use case
 [image](https://pub.dev/packages/image) | Ability to flip captured photos horizontally
 [intl](https://pub.dev/packages/intl) | Localization
 [native_device_orientation](https://pub.dev/packages/native_device_orientation) | Automatic orientation based on the phones sensor
+[package_info_plus](https://pub.dev/packages/package_info_plus) | Display the programs version number
 [permission_handler](https://pub.dev/packages/permission_handler) | Handling permissions
 [provider](https://pub.dev/packages/provider) | State management (localization and themes)
 [screen_brightness](https://pub.dev/packages/screen_brightness) | Maximum screen brightness option
