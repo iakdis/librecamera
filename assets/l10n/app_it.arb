@@ -121,7 +121,7 @@
   "@themeSystem": {},
   "themeDark": "Tema scuro",
   "@themeDark": {},
-  "enableMaximumScreenBrightness_description": "Quando abilitato, la luminosità dello schermo viene impostata al massimo",
+  "enableMaximumScreenBrightness_description": "Se abilitato, la luminosità dello schermo viene impostata al massimo",
   "@enableMaximumScreenBrightness_description": {},
   "enableMaximumScreenBrightness": "Massima luminosità schermo",
   "@enableMaximumScreenBrightness": {},
@@ -141,7 +141,7 @@
   "@cameraBehaviour": {},
   "resolution_description": "Modifica la risoluzione",
   "@resolution_description": {},
-  "enableZoomSlider_description": "Quando abilitato, appare un cursore per regolare manualmente lo zoom",
+  "enableZoomSlider_description": "Se abilitato, appare un cursore per regolare manualmente lo zoom",
   "@enableZoomSlider_description": {},
   "format": "Formato immagine",
   "@format": {},
@@ -181,7 +181,7 @@
   "@themeLight": {},
   "startWithFrontCamera_description": "Avvia sempre con la fotocamera frontale all'apertura dell'app",
   "@startWithFrontCamera_description": {},
-  "enableExposureSlider_description": "Quando abilitato, appare un cursore per regolare manualmente l'esposizione",
+  "enableExposureSlider_description": "Se abilitato, appare un cursore per regolare manualmente l'esposizione",
   "@enableExposureSlider_description": {},
   "shutterSound": "Disabilita suono scatto",
   "@shutterSound": {},
@@ -192,5 +192,7 @@
   "captureAtVolumePress": "Scatta con tasti volume",
   "@captureAtVolumePress": {},
   "captureAtVolumePress_description": "Se abilitato, premere un tasto volume scatterà una foto o registrerà un video",
-  "@captureAtVolumePress_description": {}
+  "@captureAtVolumePress_description": {},
+  "themeBlack": "Tema nero",
+  "@themeBlack": {}
 }
