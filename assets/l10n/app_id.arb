@@ -88,5 +88,15 @@
     }
   },
   "keepEXIFMetadata_description": "Simpan metadata EXIF gambar yang diambil seperti model telepon, lokasi GPS, dsb.",
-  "@keepEXIFMetadata_description": {}
+  "@keepEXIFMetadata_description": {},
+  "savePathTitle": "PATH PENYIMPANAN",
+  "@savePathTitle": {},
+  "theme": "Tema",
+  "@theme": {},
+  "themeSystem": "Tema sistem",
+  "@themeSystem": {},
+  "themeLight": "Tema terang",
+  "@themeLight": {},
+  "themeDark": "Tema gelap",
+  "@themeDark": {}
 }
