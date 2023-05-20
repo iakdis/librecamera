@@ -95,7 +95,7 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
-  Widget _aboutTile() {
+  Widget _aboutListTile({String? version}) {
     void launchGitHubURL() async {
       var url = Uri.parse('https://github.com/iakmds/librecamera');
       if (await canLaunchUrl(url)) {
@@ -103,40 +103,44 @@ class _SettingsPageState extends State<SettingsPage> {
       }
     }
 
+    return AboutListTile(
+      icon: const Icon(Icons.info),
+      applicationName: 'Libre Camera',
+      applicationVersion: version != null
+          ? AppLocalizations.of(context)!.version(version)
+          : null,
+      applicationIcon: const Image(
+        image: AssetImage('assets/images/icon.png'),
+        width: 50,
+        height: 50,
+      ),
+      applicationLegalese: 'GNU Public License v3',
+      aboutBoxChildren: [
+        Text(AppLocalizations.of(context)!.license),
+        const Divider(),
+        TextButton.icon(
+          icon: const Icon(Icons.open_in_new),
+          onPressed: launchGitHubURL,
+          label: SelectableText(
+            'https://github.com/iakmds/librecamera',
+            style: const TextStyle(
+              color: Colors.blue,
+            ),
+            onTap: launchGitHubURL,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _aboutTile() {
     return FutureBuilder(
       future: PackageInfo.fromPlatform(),
       builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          return AboutListTile(
-            icon: const Icon(Icons.info),
-            applicationName: 'Libre Camera',
-            applicationVersion: AppLocalizations.of(context)!
-                .version((snapshot.data! as PackageInfo).version),
-            applicationIcon: const Image(
-              image: AssetImage('assets/images/icon.png'),
-              width: 50,
-              height: 50,
-            ),
-            applicationLegalese: 'GNU Public License v3',
-            aboutBoxChildren: [
-              Text(AppLocalizations.of(context)!.license),
-              const Divider(),
-              TextButton.icon(
-                icon: const Icon(Icons.open_in_new),
-                onPressed: launchGitHubURL,
-                label: SelectableText(
-                  'https://github.com/iakmds/librecamera',
-                  style: const TextStyle(
-                    color: Colors.blue,
-                  ),
-                  onTap: launchGitHubURL,
-                ),
-              ),
-            ],
-          );
-        } else {
-          return Container();
-        }
+        return _aboutListTile(
+            version: snapshot.hasData
+                ? (snapshot.data! as PackageInfo).version
+                : null);
       },
     );
   }
