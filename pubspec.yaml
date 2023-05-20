@@ -29,7 +29,7 @@ environment:
 dependencies:
   camera: null
   camera_platform_interface: ^2.4.1
-  device_info_plus: ^8.0.0
+  device_info_plus: ^9.0.1
   dynamic_color: ^1.6.5
   file_picker: ^5.0.1
   flutter:
