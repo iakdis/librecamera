@@ -192,5 +192,7 @@
   "captureAtVolumePress": "Capturar ao pressionar o volume",
   "@captureAtVolumePress": {},
   "captureAtVolumePress_description": "Quando ativado, pressionar um botão de volume captura uma fotografia ou grava um vídeo",
-  "@captureAtVolumePress_description": {}
+  "@captureAtVolumePress_description": {},
+  "themeBlack": "Tema preto",
+  "@themeBlack": {}
 }
