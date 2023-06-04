@@ -1,0 +1,25 @@
+Libre Camera adalah aplikasi kamera gratis dan open source untuk mengambil gambar dan merekam video yang ditulis dalam Flutter dan Dart.
+
+Jika Anda membutuhkan aplikasi kamera open source dengan beberapa fitur, aplikasi ini cocok untuk Anda. Mulai dari senter, kontrol fokus dan eksposur hingga mengubah tema, bahasa, dan jumlah kompresi - aplikasi ini seharusnya bisa memenuhi kebutuhan Anda. Dan jika tidak, jangan ragu untuk membuka masalah di <a href="https://github.com/iakmds/librecamera">GitHub</a> dan meminta fitur. Di bawah ini Anda dapat melihat daftar fitur yang ada, dan akan ada lebih banyak lagi yang akan ditambahkan di masa mendatang!
+
+<b>Fitur</b>
+    * Memotret gambar dan mengambil video dengan kamera belakang dan depan
+    * Privasi: Tanpa Metadata EXIF yang disimpan secara default saat mengambil gambar (aktifkan secara opsional di pengaturan) - tanpa iklan, pelacakan, atau izin yang tidak perlu
+    * Tema: Desain Material dengan tema Gelap, Terang, atau sistem
+    * Mendukung berbagai bahasa - Berkontribusi menerjemahkan bahasa Anda!
+    * Zoom: Memperbesar dengan 2 jari atau dengan penggeser opsional
+    * Pengatur Waktu/Penundaan: Pilih pengatur waktu pengambilan foto untuk bersiap-siap mengambil foto Anda
+    * Mode senter: Aktif saat pengambilan, Mati, Otomatis, Selalu aktif
+    * Fokus: Fokus otomatis, fokus terkunci, dan fokus manual dengan menyentuh layar
+    * Pencahayaan: Pencahayaan otomatis, pencahayaan terkunci dan pencahayaan manual dengan slider opsional
+    * Kompresi gambar: Menetapkan jumlah kompresi dalam pengaturan
+    * Format: Beralih di antara 3 format kamera (JPEG, PNG, WebP)
+    * Resolusi: Beralih di antara resolusi kamera yang berbeda
+    * Lokasi penyimpanan: Pilih lokasi penyimpanan yang Anda inginkan
+    * Ukuran kecil sekitar 21MB
+    * Dapat disesuaikan: Buka pengaturan untuk menyesuaikan aplikasi sesuai keinginan Anda!
+
+<b>Kontak</b>
+Lihat repositori GitHub, yang mencakup Peta Jalan: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+
+Jika Anda menemukan bug atau memiliki permintaan fitur, jangan ragu untuk membuat issue di GitHub: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>

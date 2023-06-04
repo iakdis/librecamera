@@ -1,0 +1,4 @@
+* baru: Gunakan warna Dinamis untuk tema Material You
+* baru: Tambahkan tema AMOLED Hitam
+
+* l10n: Perbarui terjemahan
