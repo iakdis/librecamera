@@ -121,9 +121,9 @@
   "@showNavigationBar_description": {},
   "lockCaptureOrientation": "Kunci orientasi otomatis [MEMERLUKAN RESTART]",
   "@lockCaptureOrientation": {},
-  "lockCaptureOrientation_description": "Mengunci orientasi ke mode potret, tak soal jika mode rotasi otomatis telah diaktifkan",
+  "lockCaptureOrientation_description": "Mengunci orientasi ke mode potret, meskipun mode rotasi otomatis diaktifkan",
   "@lockCaptureOrientation_description": {},
-  "showNavigationBar": "Tampilkan balok navigasi [MEMERLUKAN RESTART]",
+  "showNavigationBar": "Tampilkan bilah navigasi [DIPERLUKAN RESTART]",
   "@showNavigationBar": {},
   "next": "Selanjutnya",
   "@next": {},
@@ -153,7 +153,7 @@
   "@shutterSound_description": {},
   "cameraBehaviour": "PERILAKU KAMERA",
   "@cameraBehaviour": {},
-  "disableAudio": "Matikan audio",
+  "disableAudio": "Nonaktifkan audio",
   "@disableAudio": {},
   "saving": "MENYIMPAN",
   "@saving": {},
@@ -171,9 +171,9 @@
   "@leftHandedMode_description": {},
   "onboardingScreen_description": "Membuka layar onboarding awal",
   "@onboardingScreen_description": {},
-  "format_description": "Merubah format gambar (default: JPEG/JPG)",
+  "format_description": "Mengubah format gambar (default: JPEG/JPG)",
   "@format_description": {},
-  "disableAudio_description": "Matikan audio ketika merekam video",
+  "disableAudio_description": "Nonaktifkan audio saat merekam video",
   "@disableAudio_description": {},
   "savePath": "Direktori penyimpanan",
   "@savePath": {},
@@ -189,8 +189,10 @@
       }
     }
   },
-  "defaultExposure": "Pencahayaan default",
+  "defaultExposure": "Eksposur default",
   "@defaultExposure": {},
   "license": "Kode ini dilisensikan di bawah GPLv3 pada GitHub. Jika anda menemukan masalah apapun atau ingin meminta sebuah fitur, silakan membuka sebuah isu di GitHub. Terima kasih!",
-  "@license": {}
+  "@license": {},
+  "enableModeRow_description": "Aktifkan baris di bagian bawah untuk mengganti mode pencahayaan dan fokus",
+  "@enableModeRow_description": {}
 }
