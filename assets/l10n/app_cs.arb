@@ -165,7 +165,7 @@
       }
     }
   },
-  "choosePath": "Vybrat cestu",
+  "choosePath": "Zvolit cestu",
   "@choosePath": {},
   "onboardingScreen": "Úvodní obrazovka",
   "@onboardingScreen": {},
