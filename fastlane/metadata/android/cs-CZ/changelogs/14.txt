@@ -1,0 +1,3 @@
+* l10n: přidána indonéština
+
+* kód: použití informací o balíčku pro získání čísla verze místo ručního textu
