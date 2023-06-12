@@ -1,0 +1,3 @@
+* l10n: Añadió la traducción al Indonesio
+
+* código: Utilizar información del paquete para obtener el número de versión en lugar de un texto manual
