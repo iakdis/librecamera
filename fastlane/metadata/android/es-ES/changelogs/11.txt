@@ -1,7 +1,0 @@
-* nuevo: Voltear la cámara durante la grabación (Android 8.0 y superior)
-* nuevo: Añadir el modo de la mano izquierda para la orientación horizontal
-
-* mejorado: Gran reducción de tamaño APK en F-Droid de 20 MB a alrededor de 7 MB
-* mejorado: Lógica de limpieza de la caché
-
-* l10n: Añadir traducción Bielorruso

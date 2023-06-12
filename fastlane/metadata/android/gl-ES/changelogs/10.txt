@@ -1,7 +1,0 @@
-* solucionado: gravar audio ao cambiar ao modo vídeo
-
-* melloras: solucionado os cambios en Material You
-* melloras: redución no tamaño do apk en F-Droid, preto de 1.7MB
-
-* l10n: idioma Checo
-* l10n: idioma Rumanés

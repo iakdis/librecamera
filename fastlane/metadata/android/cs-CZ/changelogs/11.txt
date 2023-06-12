@@ -1,7 +1,0 @@
-* novinka: Překlopení fotoaparátu při nahrávání (Android 8.0 a vyšší)
-* novinka: Přidání režimu pro leváky pro horizontální orientaci
-
-* vylepšeno: Výrazně snížena velikost apk na F-Droid z 20 MB na cca 7 MB
-* vylepšeno: Logika vymazávání mezipaměti
-
-* l10n: Přidán běloruský překlad

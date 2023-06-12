@@ -1,3 +1,0 @@
-* Nytt: Ta bilder/spill in video med lydstyrkeknappetrykk
-
-* l10n: Italiensk oversettelse

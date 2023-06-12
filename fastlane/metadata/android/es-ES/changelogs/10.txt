@@ -1,7 +1,0 @@
-* Corregido: Grabación de audio al cambiar a modo vídeo
-
-* mejorado: Material You cambia a fijo
-* mejorado: Reducción de tamaño apk en F-Droid por alrededor de 1,7 MB
-
-* l10n: Añadir idioma checo
-* l10n: Añadir el idioma rumano

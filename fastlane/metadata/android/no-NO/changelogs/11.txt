@@ -1,7 +1,0 @@
-* Nytt: Snu kameraet under opptak (Android 8.0 og nyere)
-* Nytt: Legg til venstrehendt modus for vannrett orientering
-
-* Forbedret: Kraftig redusert APK-størrelse på F-Droid fra 20 MB til omtrent 7 MB
-* forbedret: Hurtiglagertømmingslogikk
-
-* l10n: Ny hviterussisk oversettelse

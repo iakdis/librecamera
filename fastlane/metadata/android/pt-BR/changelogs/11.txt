@@ -1,7 +1,0 @@
-* Novo: Virar a câmera durante a gravação (Android 8.0 e superior)
-* Novo: Adicionar modo para canhotos para orientação horizontal
-
-* Melhorado: Redução significativa do tamanho do APK no F-Droid de 20 MB para cerca de 7 MB
-* Melhorado: Lógica de limpeza do cache
-
-* l10n: Adicionado a tradução em bielorrusso

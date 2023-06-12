@@ -1,3 +1,0 @@
-* Nuevo: Captura fotos/vídeos al pulsar el botón de volumen.
-
-* l10n: Añadir traducción al italiano

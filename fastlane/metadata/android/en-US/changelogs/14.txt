@@ -1,0 +1,3 @@
+* l10n: Add Indonesian translation
+
+* code: Use package info to get version number instead of manual text

@@ -1,0 +1,3 @@
+* l10n: Indonesische Übersetzung hinzugefügt
+
+* code: Verwende Packetinformation statt manuellem Text, um die Versionsnummer zu erhalten

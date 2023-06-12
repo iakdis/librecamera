@@ -1,4 +1,0 @@
-* Novo: Usar cores Dinâmicas para o tema Material You
-* Novo: Adicionado tema Preto AMOLED
-
-* l10n: Traduções atualizadas
