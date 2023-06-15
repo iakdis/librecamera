@@ -2,7 +2,7 @@ Libre Camera è un'applicazione gratuita ed open source per scattare foto e regi
 
 Se hai bisogno di un'applicazione open source per la fotocamera con diverse funzioni, questa farà al caso tuo. Dai controlli della torcia, della messa a fuoco e dell'esposizione alla possibilità di cambiare i temi, le lingue e la qualità di compressione, questa app dovrebbe essere adatta a te. In caso contrario, puoi aprire un issue su <a href="https://github.com/iakmds/librecamera">GitHub</a> e richiedere una nuova funzionalità. Di seguito è riportato un elenco delle funzionalità, con altre in arrivo in futuro!
 
-<b>Features</b>
+<b>Funzionalità</b>
     * Take pictures and record videos with your rear and front camera
     * Privacy: No EXIF Metadata saved by default when taking pictures (enable optionally in settings) – without ads, tracking, or unnecessary permissions
     * Themes: Material Design with a Dark, Light or system theme
@@ -22,4 +22,4 @@ Se hai bisogno di un'applicazione open source per la fotocamera con diverse funz
 <b>Contatti</b>
 Consulta il repository GitHub, che include la roadmap: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
 
-Nel caso tu abbia trovato un bug o voglia richiedere una feature, sentiti libero di aprire un issue su GitHub: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
+Nel caso tu abbia trovato un bug o voglia richiedere una funzionalità, sentiti libero di aprire un issue su GitHub: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
