@@ -1,0 +1,3 @@
+* l10n: tradución ao indonesio
+
+* código: utilización da info do paquete para obter número de versión e non escribilo á man
