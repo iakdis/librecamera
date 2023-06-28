@@ -189,7 +189,7 @@
   "@captureAtVolumePress": {},
   "leftHandedMode_description": "Tilpasser kameraets kontroller venstrehendte i liggende modus",
   "@leftHandedMode_description": {},
-  "captureAtVolumePress_description": "Knipser bilder eller spiller inn video når lydstyrkeknappene trykkes.",
+  "captureAtVolumePress_description": "Når aktivert vil et trykk på en volumknapp ta et bilde eller ta opp video",
   "@captureAtVolumePress_description": {},
   "useMaterialYou": "Anvend Materiell Deig",
   "@useMaterialYou": {},
