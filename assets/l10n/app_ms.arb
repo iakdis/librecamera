@@ -188,5 +188,7 @@
   "leftHandedMode": "Mod kidal",
   "@leftHandedMode": {},
   "leftHandedMode_description": "Apabila dibenarkan, tukar posisi kawalan kamera dalam landskap untuk mod kidal",
-  "@leftHandedMode_description": {}
+  "@leftHandedMode_description": {},
+  "themeBlack": "Tema hitam",
+  "@themeBlack": {}
 }
