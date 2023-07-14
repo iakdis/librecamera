@@ -1,0 +1,3 @@
+* l10n: Adăugați traducerea indoneziană
+
+* cod: Utilizați informațiile pachetului pentru a obține numărul versiunii în loc de textul manual
