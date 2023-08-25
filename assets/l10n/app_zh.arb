@@ -180,5 +180,7 @@
   "focusModeAuto": "自动对焦",
   "@focusModeAuto": {},
   "focusModeLocked": "焦点不动",
-  "@focusModeLocked": {}
+  "@focusModeLocked": {},
+  "themeBlack": "黑色主题",
+  "@themeBlack": {}
 }
