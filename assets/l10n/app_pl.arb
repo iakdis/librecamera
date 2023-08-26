@@ -182,5 +182,17 @@
   "savePathTitle_description": "Wybierz ścieżkę zapisu. W systemie Android zdjęcia zazwyczaj zapisywane są w folderze DCIM.",
   "@savePathTitle_description": {},
   "useMaterialYou": "Użyj Material You",
-  "@useMaterialYou": {}
+  "@useMaterialYou": {},
+  "themeBlack": "Czarny motyw",
+  "@themeBlack": {},
+  "leftHandedMode": "Tryb dla leworęcznych",
+  "@leftHandedMode": {},
+  "useMaterialYou_description": "Użyj wyglądu Material You. Wyłącz aby zastosować stary wygląd Material",
+  "@useMaterialYou_description": {},
+  "captureAtVolumePress_description": "Po włączeniu tej funkcji, naciśnięcie przycisku głośności spowoduje zrobienie zdjęcia lub nagranie filmu",
+  "@captureAtVolumePress_description": {},
+  "leftHandedMode_description": "Gdy ta opcja jest włączona, zmienia położenie elementów sterujących aparatu w trybie poziomym aby były one wygodne dla osób leworęcznych",
+  "@leftHandedMode_description": {},
+  "captureAtVolumePress": "Przechwytywanie po wciśnięciu przycisku głośności",
+  "@captureAtVolumePress": {}
 }
