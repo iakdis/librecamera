@@ -1,0 +1,3 @@
+* l10n: Dodano tłumaczenie na język indonezyjski
+
+* kod: Użyj informacji o pakiecie, aby uzyskać numer wersji zamiast ręcznego tekstu
