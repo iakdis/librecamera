@@ -1,1 +1,16 @@
-{}
+{
+  "permissionsTitle": "ᱟᱫᱮᱨᱠᱚ",
+  "@permissionsTitle": {},
+  "giveMicrophonePermission": "ᱢᱟᱭᱠᱨᱚᱯᱷᱚᱱ ᱟᱫᱮᱨ ᱡᱚᱜᱟᱣᱟᱭ ᱢᱮ",
+  "@giveMicrophonePermission": {},
+  "welcomeTitle": "ᱥᱟᱹᱜᱩᱱ ᱫᱟᱨᱟᱢ",
+  "@welcomeTitle": {},
+  "giveCameraPermission": "ᱠᱮᱢᱨᱟ ᱟᱫᱮᱨ ᱡᱚᱜᱟᱣᱟᱭ ᱢᱮ",
+  "@giveCameraPermission": {},
+  "savePathTitle": "ᱦᱚᱨ ᱥᱟᱧᱪᱟᱣ ᱢᱮ",
+  "@savePathTitle": {},
+  "selectPath": "ᱦᱚᱨ ᱵᱟᱪᱷᱟᱣ ᱢᱮ",
+  "@selectPath": {},
+  "takePicture": "ᱪᱤᱛᱟᱹᱨ ᱤᱫᱤ ᱢᱮ",
+  "@takePicture": {}
+}
