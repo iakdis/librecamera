@@ -1,0 +1,3 @@
+* l10n: Bætt við Indónesískri þýðingu
+
+* kóði: Nota pakkaupplýsingar til að ná í útgáfunúmer í stað handvirks texta
