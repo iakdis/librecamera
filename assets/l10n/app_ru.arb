@@ -168,5 +168,19 @@
   "version": "Версия {versionNumber}",
   "@version": {},
   "license": "Код распространяется по лицензии GPLv3 на GitHub. Если вы столкнулись с какими-то проблемами или хотите посоветовать новый функционал для приложения, пожалуйста, откройте Issue на GitHub. Спасибо!",
-  "@license": {}
+  "@license": {},
+  "leftHandedMode_description": "При включении переключайте положение управления камерой в ландшафте для левостороннего режима",
+  "@leftHandedMode_description": {},
+  "captureAtVolumePress": "Захват в объемном прессе",
+  "@captureAtVolumePress": {},
+  "captureAtVolumePress_description": "При включении нажатие кнопки громкости захватит изображение или запишет видео",
+  "@captureAtVolumePress_description": {},
+  "useMaterialYou": "Используйте материал Вы",
+  "@useMaterialYou": {},
+  "useMaterialYou_description": "Используйте материал Вы проектируете. Установлено ложным для старого Материального дизайна",
+  "@useMaterialYou_description": {},
+  "themeBlack": "Темная Тема",
+  "@themeBlack": {},
+  "leftHandedMode": "Левый режим",
+  "@leftHandedMode": {}
 }
