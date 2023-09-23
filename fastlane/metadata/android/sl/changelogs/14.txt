@@ -1,0 +1,3 @@
+* l10n: Dodan prevod v indonezijski jezik
+
+* koda: Uporabite informacije o paketu, da dobite številko različice namesto ročnega besedila
