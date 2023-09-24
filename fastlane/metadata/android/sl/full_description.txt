@@ -1,0 +1,25 @@
+Libre Camera je brezplačna in odprtokodna aplikacija za fotografiranje in snemanje videoposnetkov, napisana v Flutterju in Dartu.
+
+Če potrebujete odprtokodno aplikacijo za kamero z več funkcijami, bi morala biti ta aplikacija za vas. Od svetilke, nadzora ostrenja in osvetlitve do spreminjanja tem, jezikov in nastavitvi stopnje kompresije slike – ta aplikacija bi morala zadostiti vašim potrebam. In če ne, odprite težavo ali podajte svoj predlog izboljšave funkcionalosti na <a href="https://github.com/iakmds/librecamera">GitHub</a>. Spodaj si lahko ogledate obstoječi seznam funkcij, v prihodnosti pa jih lahko pričakujete še več!
+
+<b>Funkcije in druge lastnosti</b>
+    * Fotografirajte in snemajte videoposnetke z zadnjo in sprednjo kamero
+    * Zasebnost: pri fotografiranju niso privzeto shranjeni metapodatki EXIF (izbirno omogočite v nastavitvah) – brez oglasov, sledenja ali nepotrebnih dovoljenj
+    * Teme: Material Design s temno, svetlo ali sistemsko temo
+    * Podprtih več jezikov – prispevajte k prevodu svojega jezika!
+    * Povečava: povečava z dvema prstoma ali z dodatnim drsnikom
+    * Časovnik/zakasnitev: izberite časovnik za zajem fotografije, medtem ko se pripravljate na fotografiranje
+    * Svetilka: funkcije vklopljena ob zajemu, izklopljena, samodejna ali vedno vklopljena
+    * Ostritev: funkcije avtomatske ostritve, zaklenjene ostritve ali ročna ostritev slike
+    * Osvetlitev: funkcija avtomatske osvetlitve, zaklenjene osvetlitve ali ročne osvetlitve z dodatnim drsnikom na zaslonu
+    * Kompresija slike: v nastavitvah nastavite stopnjo kompresije
+    * Formati: preklapljajte med tremi vrstami datotek (JPEG, PNG, WebP)
+    * Ločljivosti: preklapljajte med različnimi ločljivostmi kamere
+    * Lokacija shranjevanja: izberite želeno lokacijo shranjevanja
+    * Majhna velikost - približno 21 MB
+    * Prilagodljiva: odprite nastavitve, da aplikacijo prilagodite svojim željam!
+
+<b>Kontakt</b>
+Oglejte si repozitorij na portalu GitHub, kjer so napisani prihodnji cilji razvoja aplikacije: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+
+V primeru, da ste našli napako ali imate zahtevo po dodatni funkciji, vas prosimo, da prijavite težavo ali podate predlog na portal GitHub: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
