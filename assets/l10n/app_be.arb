@@ -188,5 +188,11 @@
   "leftHandedMode": "Рэжым для ляўшы",
   "@leftHandedMode": {},
   "leftHandedMode_description": "Калі ўключана, змяняе пазіцыю кнопак для кантралявання камерай у вертыкальнай арыентацыі для рэжыму ляўшы",
-  "@leftHandedMode_description": {}
+  "@leftHandedMode_description": {},
+  "captureAtVolumePress": "Здымаць калі націснута кнопка гуку",
+  "@captureAtVolumePress": {},
+  "captureAtVolumePress_description": "Калі ўключана, націсканне кнопкі гуку будзе здямаць выяву або запісваць відэа",
+  "@captureAtVolumePress_description": {},
+  "themeBlack": "Чорная тэма",
+  "@themeBlack": {}
 }
