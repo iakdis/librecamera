@@ -1,3 +1,3 @@
 * l10n: Indonéz fordítás hozzáadva
 
-* kód: Kézi szöveg helyett csomaginformációt használ a verziószám megszerzéséhez
+* kód: Kézi szöveg helyett a csomaginformációt használja a verziószám megszerzéséhez

@@ -1,0 +1,25 @@
+A Libre Camera egy Flutterben és Dartban írt nyilt forráskódú, szabad szoftver kamera alkalmazás, képek és videó felvételek készítésére.
+Ha sok funkcióval rendelkező nyílt forráskódú kamera alkalmazásra van szüksége, akkor ez az alkalmazásnak az Ön számára készült.
+A vaku, a fókusz és az expozíció-kontrolltól, a téma, a nyelv és a tömörítés mértékének a váltásáig, ez az alkalmazás mind tudja. És ha mégsem, akkor jelentse a problémát a <a href="https://github.com/iakmds/librecamera">GitHub-on</a> és kérje a hiányzó funkciót. Az alábbiakban láthatja a funkciók listáját, a jövőben megvalósulókkal együtt!
+
+<b>Jellemzők</b>
+    * képek és videó felvételek készítése az első és a hátsó kamerával
+    * Magánéletvédelem: Alapértelmezés szerint képkészítéskor nem ment EXIF metaadatokat (engedélyezheti a beállításokban) – nincsenek reklámok, követők és nem kér felesleges engedélyeket
+    * Témák: Anyagszerű megjelenés sötét, világos vagy rendszer téma
+    * Több nyelvre le van fordítva – Közreműködhet az Ön nyelvére történő fordításban!
+    * Nagyítás: Nagyítás 2 ujjal vagy a csúszkával
+    * Időzítő/Késleltető: Válasszon egy felvételidőt, amikor készen áll a fényképhez
+    * Vaku mód: (A felvételnél) Ki, Auto, Be
+    * Fókusz: Auto fókusz, zárolt fókusz és kézi fókusz a képernyő megérintésével
+    * Expozíció: Automatikus expozíció, zárolt expozíció és a csúszkán beállított kézi expozíció
+    * Kép tömörítés: Adja meg a tömörítés mértékét a beállításokban
+    * Formátum: 3 képformátum között válthat (JPEG, PNG, WebP)
+    * Felbontás: Válthat a kamera különböző felbontásai között
+    * Mentés helye: Válassza ki a kép mentésének a helyét
+    * Kis méret kb. 21MB
+    * Testreszabható: Nyissa meg a beállításokat, az alkalmazásnak az Ön tetszésének megfelelő testreszabásához!
+
+<b>Kapcsolat</b>
+Tekintse meg a Github tárolót, ahol megtalálja az ütemtervet: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+
+Abban az esetben, ha hibát talált vagy kér egy funkciót, nyugodtan nyújtsa be a problémát a GitHub-on: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
