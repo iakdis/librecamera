@@ -1,0 +1,25 @@
+Libre Camera er frjálst og opið myndavélarforrit til að taka ljósmyndir og myndskeið, skrifað í Flutter og Dart.
+
+Ef þú ert að leita að myndavélarforriti sem hafi marga eiginleika og sé opinn og frjáls hugbúnaður, þá gæti þetta verið fyrir þig. Stýringar fyrir leifturljós, fókus og lýsingu, auk þess að geta breytt þemum, tungumálum og styrk þjöppunar – þetta forrit uppfyllir slíkar óskir. Og ef þér finnst eitthvað vanta, er þér frjálst að fara á <a href="https://github.com/iakmds/librecamera">GitHub</a> og biðja um nýja eiginleika. Hér fyrir neðan geturðu séð yfirlit yfir eiginleikana sem þegar eru til staðar, með fleira væntanlegt!
+
+<b>Eiginleikar</b>
+    * Taka ljósmyndir og myndskeið með fram- og bakmyndavél
+    * Gagnaleynd: EXIF-lýsigögn eru ekki sjálfgefið vistuð við myndatöku (valkvætt virkjað í stillingum) – án auglýsinga, njósna eða ónauðsynlegra heimilda
+    * Þemu: Material-hönnun með dökku, ljósu eða kerfisþema
+    * Mörg tungumál studd – Legðu þýðingum á tungumálið þitt lið!
+    * Aðdráttur: Renndu að/frá með 2 fingrum eða valkvæðum rennisleða
+    * Niðurtalning/Töf: Veldu tímatöku og bíddu eftir að allt sé klárt
+    * Leifturljóshamir: Á við myndatöku, slökkt, sjálfvirkt, alltaf á
+    * Fókus: Sjálfvirkur, læstur eða handvirkur fókus með því að snerta skjáinn
+    * Lýsing: Sjálfvirk, læst eða handvirk lýsing með valkvæðum rennisleða
+    * Myndþjöppun: Settu magn þjöppunar í stillingum
+    * Myndsnið: Skiptu á milli 3 myndsniða (JPEG, PNG, WebP)
+    * Upplausn: Skiptu á milli mismunandi upplausna myndavélarinnar
+    * Staðsetning vistunar: Veldu hvar þú vilt geyma myndirnar
+    * Tekur lítið pláss, aðeins um 21MB
+    * Sérsníðanlegt: Opnaðu stillingarnar til að sérsníða forritið eins og þér sýnist!
+
+<b>Hafa samband</b>
+Skoðaðu GitHub kóðasafnið, þar má t.d. finna verkáætlun í Roadmap-skránni: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+
+Hafirðu fundið galla eða sért með beiðni um eiginleika, þá er þér frjálst að senda inn verkbeiðni á GitHub: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
