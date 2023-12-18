@@ -172,5 +172,15 @@
   "useMaterialYou": "Usar o Material You",
   "@useMaterialYou": {},
   "useMaterialYou_description": "Usar o design Material You. Desative para usar o antigo Material Design",
-  "@useMaterialYou_description": {}
+  "@useMaterialYou_description": {},
+  "leftHandedMode_description": "Quando ativado, altera o posicionamento dos controles da câmara em paisagem para o modo para canhotos",
+  "@leftHandedMode_description": {},
+  "captureAtVolumePress": "Capturar ao pressionar o volume",
+  "@captureAtVolumePress": {},
+  "captureAtVolumePress_description": "Quando ativado, pressionar um botão de volume capta uma fotografia ou grava um vídeo",
+  "@captureAtVolumePress_description": {},
+  "themeBlack": "Tema preto",
+  "@themeBlack": {},
+  "leftHandedMode": "Modo para canhotos",
+  "@leftHandedMode": {}
 }
