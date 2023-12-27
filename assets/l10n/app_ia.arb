@@ -1,1 +1,48 @@
-{}
+{
+  "themeLight": "Thema clar",
+  "@themeLight": {},
+  "theme": "Thema",
+  "@theme": {},
+  "themeDark": "Thema obscur",
+  "@themeDark": {},
+  "version": "Version {versionNumber}",
+  "@version": {
+    "placeholders": {
+      "versionNumber": {
+        "type": "String"
+      }
+    }
+  },
+  "welcomeTitle": "BENVENITE",
+  "@welcomeTitle": {},
+  "less": "MINUS",
+  "@less": {},
+  "getStarted": "Comenciar",
+  "@getStarted": {},
+  "useMaterialYou": "Usar Material You",
+  "@useMaterialYou": {},
+  "enableMaximumScreenBrightness": "Luminositate maxime de schermo",
+  "@enableMaximumScreenBrightness": {},
+  "more": "PLUS",
+  "@more": {},
+  "disableAudio": "Disactivar le audio",
+  "@disableAudio": {},
+  "language": "Lingua",
+  "@language": {},
+  "permissionsTitle": "PERMISSIONES",
+  "@permissionsTitle": {},
+  "systemLanguage": "Lingua del systema",
+  "@systemLanguage": {},
+  "settings": "Parametros",
+  "@settings": {},
+  "themeBlack": "Thema nigre",
+  "@themeBlack": {},
+  "themeSystem": "Thema del systema",
+  "@themeSystem": {},
+  "format": "Formato de imagine",
+  "@format": {},
+  "appSettings": "PARAMETROS DEL APPLICATION",
+  "@appSettings": {},
+  "keepEXIFMetadata": "Salvar le datos EXIF",
+  "@keepEXIFMetadata": {}
+}
