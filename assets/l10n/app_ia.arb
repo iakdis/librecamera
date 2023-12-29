@@ -82,5 +82,7 @@
   "giveCameraPermission": "Dar permission de camera",
   "@giveCameraPermission": {},
   "resumeVideo": "Resumer le video",
-  "@resumeVideo": {}
+  "@resumeVideo": {},
+  "shutterSound": "Disactiva le sono del obturator",
+  "@shutterSound": {}
 }
