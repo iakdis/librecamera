@@ -84,5 +84,25 @@
   "resumeVideo": "Resumer le video",
   "@resumeVideo": {},
   "shutterSound": "Disactiva le sono del obturator",
-  "@shutterSound": {}
+  "@shutterSound": {},
+  "selectPath": "Seliger percurso",
+  "@selectPath": {},
+  "showNavigationBar_description": "Monstrar sempre le barra de navigation de Android",
+  "@showNavigationBar_description": {},
+  "savePath_description": "Percurso actual: {path}",
+  "@savePath_description": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "savePathTitle": "PERCURSO DE IMMAGAZINAGE",
+  "@savePathTitle": {},
+  "showNavigationBar": "Monstrar le barra de navigation [BESONIA REINITIO]",
+  "@showNavigationBar": {},
+  "choosePath": "Seliger le percurso",
+  "@choosePath": {},
+  "savePath": "Percurso de immagazinage",
+  "@savePath": {}
 }
