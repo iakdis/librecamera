@@ -165,7 +165,7 @@
   "@format_description": {},
   "saving": "MENTÉS",
   "@saving": {},
-  "keepEXIFMetadata_description": "Az EXIF metaadatokat ment a képbe, mint például a telefonmodell, a GPS hely, stb.",
+  "keepEXIFMetadata_description": "EXIF metaadatokat ment a képbe, mint például a telefonmodell, a GPS hely, stb.",
   "@keepEXIFMetadata_description": {},
   "systemLanguage": "A rendszer nyelve",
   "@systemLanguage": {},
