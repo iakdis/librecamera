@@ -104,5 +104,19 @@
   "choosePath": "Seliger le percurso",
   "@choosePath": {},
   "savePath": "Percurso de immagazinage",
-  "@savePath": {}
+  "@savePath": {},
+  "defaultExposure": "Exposition predefinite",
+  "@defaultExposure": {},
+  "exposureMode": "Modo de exposition",
+  "@exposureMode": {},
+  "exposureModeAuto": "EXPOSITION AUTOMATIC",
+  "@exposureModeAuto": {},
+  "exposureModeLocked": "EXPOSITION BLOCATE",
+  "@exposureModeLocked": {},
+  "focusMode": "Modo de focalisation",
+  "@focusMode": {},
+  "focusModeAuto": "FOCALISATION AUTOMATIC",
+  "@focusModeAuto": {},
+  "focusModeLocked": "FOCALISATION BLOCATE",
+  "@focusModeLocked": {}
 }
