@@ -118,5 +118,7 @@
   "focusModeAuto": "FOCALISATION AUTOMATIC",
   "@focusModeAuto": {},
   "focusModeLocked": "FOCALISATION BLOCATE",
-  "@focusModeLocked": {}
+  "@focusModeLocked": {},
+  "resolution_description": "Cambiar le resolution del camera",
+  "@resolution_description": {}
 }
