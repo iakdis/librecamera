@@ -120,5 +120,9 @@
   "focusModeLocked": "FOCALISATION BLOCATE",
   "@focusModeLocked": {},
   "resolution_description": "Cambiar le resolution del camera",
-  "@resolution_description": {}
+  "@resolution_description": {},
+  "off": "Disactivate",
+  "@off": {},
+  "resolution": "Resolution",
+  "@resolution": {}
 }
