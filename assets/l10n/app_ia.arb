@@ -124,5 +124,11 @@
   "off": "Disactivate",
   "@off": {},
   "resolution": "Resolution",
-  "@resolution": {}
+  "@resolution": {},
+  "disableAudio_description": "Disactivar le audio quando un video es registrante",
+  "@disableAudio_description": {},
+  "onboardingScreen": "Schermo de introduction",
+  "@onboardingScreen": {},
+  "onboardingScreen_description": "Aperir le schermo de introduction initial",
+  "@onboardingScreen_description": {}
 }
