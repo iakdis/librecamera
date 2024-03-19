@@ -31,7 +31,7 @@ dependencies:
   camera_platform_interface: ^2.4.1
   device_info_plus: ^9.0.1
   dynamic_color: ^1.6.5
-  file_picker: ^5.0.1
+  file_picker: ^6.2.0
   flutter:
     sdk: flutter
   flutter_android_volume_keydown: ^1.0.0
@@ -40,29 +40,21 @@ dependencies:
     sdk: flutter
   image: ^4.0.15
   intl: ^0.18.0
-  native_device_orientation: ^1.1.4
-  package_info_plus: ^4.0.1
-  permission_handler: ^10.0.0
+  native_device_orientation: ^2.0.3
+  package_info_plus: ^5.0.1
+  permission_handler: ^11.3.0
   provider: ^6.0.3
-  screen_brightness: ^0.2.2
+  screen_brightness: ^1.0.0
   shared_preferences: ^2.0.15
   smooth_page_indicator: ^1.0.0+2
   url_launcher: ^6.1.6
   video_thumbnail: ^0.5.3
-  wakelock: ^0.6.2
+  wakelock_plus: ^1.1.6
 
-dependency_overrides:
-  # Can be removed when
-  # https://github.com/creativecreatorormaybenot/wakelock/pull/203 is merged.
-  wakelock_windows:
-    git:
-      url: https://github.com/timsneath/wakelock
-      ref: win32-v5
-      path: wakelock_windows
 
 dev_dependencies:
   flutter_launcher_icons: ^0.13.0
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.1
   flutter_native_splash: ^2.2.9
   flutter_test:
     sdk: flutter

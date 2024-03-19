@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:librecamera/src/app.dart';
 import 'package:librecamera/src/utils/preferences.dart';
 import 'package:screen_brightness/screen_brightness.dart';
-import 'package:wakelock/wakelock.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
 
 List<CameraDescription> cameras = <CameraDescription>[];
 
@@ -40,7 +40,7 @@ Future<void> main() async {
     await ScreenBrightness().setScreenBrightness(1.0);
   }
 
-  Wakelock.enable();
+  WakelockPlus.enable();
 
   SystemChrome.setPreferredOrientations(_getDeviceOrientations()).then((_) {
     runApp(CameraApp(onboardingCompleted: Preferences.getOnBoardingComplete()));
