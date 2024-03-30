@@ -1051,8 +1051,8 @@ class _CameraPageState extends State<CameraPage>
 
     final CameraController cameraController = controller!;
 
-    _circlePosX = details.localPosition.dx;
-    _circlePosY = details.localPosition.dy;
+    _circlePosX = details.globalPosition.dx;
+    _circlePosY = details.globalPosition.dy;
 
     _displayCircle();
 
@@ -1075,9 +1075,11 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Widget _circleWidget() {
+    const circleRadius = 42.0;
+
     return Positioned(
-      top: _circlePosY - 20.0,
-      left: _circlePosX - 20.0,
+      top: _circlePosY - (circleRadius / 2),
+      left: _circlePosX - (circleRadius / 2),
       child: _circleEnabled
           ? TweenAnimationBuilder(
               tween: _scaleTween,
@@ -1094,7 +1096,7 @@ class _CameraPageState extends State<CameraPage>
                 child: const Icon(
                   Icons.circle,
                   color: Colors.transparent,
-                  size: 42.0,
+                  size: circleRadius,
                 ),
               ),
             )
