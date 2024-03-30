@@ -30,7 +30,7 @@ dependencies:
   camera: null
   camera_android_camerax: ^0.6.1
   camera_platform_interface: ^2.4.1
-  device_info_plus: ^9.0.1
+  device_info_plus: ^10.0.1
   dynamic_color: ^1.6.5
   file_picker: ^8.0.0+1
   flutter:
@@ -42,7 +42,7 @@ dependencies:
   image: ^4.0.15
   intl: ^0.18.0
   native_device_orientation: ^2.0.3
-  package_info_plus: ^5.0.1
+  package_info_plus: ^6.0.0
   permission_handler: ^11.3.0
   provider: ^6.0.3
   screen_brightness: ^1.0.0
