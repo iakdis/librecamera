@@ -46,5 +46,15 @@
   "stopVideo": "أوقف الفيديو",
   "@stopVideo": {},
   "defaultExposure": "التعريض الضوئي الإفتراضي",
-  "@defaultExposure": {}
+  "@defaultExposure": {},
+  "showNavigationBar": "إظهر شريط التنقل [يحتاج إعادة التشغيل]",
+  "@showNavigationBar": {},
+  "showNavigationBar_description": "أظهر دائمًا شريط التنقل في Android",
+  "@showNavigationBar_description": {},
+  "focusMode": "وضع التركيز",
+  "@focusMode": {},
+  "lockCaptureOrientation": "قفل الاتجاه التلقائي [يحتاج إعادة التشغيل]",
+  "@lockCaptureOrientation": {},
+  "lockCaptureOrientation_description": "قفل الاتجاه إلى الوضع الرأسي، بغض النظر عما إذا كان وضع التدوير التلقائي نشطًا",
+  "@lockCaptureOrientation_description": {}
 }
