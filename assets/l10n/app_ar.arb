@@ -1,1 +1,22 @@
-{}
+{
+  "giveCameraPermission": "منح الاذن للكاميرا",
+  "@giveCameraPermission": {},
+  "giveMicrophonePermission": "منح الإذن للميكروفون",
+  "@giveMicrophonePermission": {},
+  "savePathTitle_description": "حدد مسار الحفظ. عادةً، يتم حفظ الصور في مسار DCIM على نظام Android.",
+  "@savePathTitle_description": {},
+  "selectPath": "حدد المسار",
+  "@selectPath": {},
+  "permissionsTitle": "الأذونات",
+  "@permissionsTitle": {},
+  "permissionsTitle_description": "لاستخدام الكاميرا، يجب عليك منح الإذن للكاميرا ووحدة التخزين الخاصة بك.",
+  "@permissionsTitle_description": {},
+  "giveStoragePermission": "منح الإذن لوحدة التخزين",
+  "@giveStoragePermission": {},
+  "savePathTitle": "احفظ المسار",
+  "@savePathTitle": {},
+  "welcomeTitle": "مرحبا",
+  "@welcomeTitle": {},
+  "welcomeTitle_description": "تهانينا! أنت جاهز لاستخدام تطبيق الكاميرا هذا.",
+  "@welcomeTitle_description": {}
+}
