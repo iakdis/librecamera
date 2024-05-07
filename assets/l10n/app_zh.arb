@@ -182,5 +182,17 @@
   "focusModeLocked": "焦点不动",
   "@focusModeLocked": {},
   "themeBlack": "黑色主题",
-  "@themeBlack": {}
+  "@themeBlack": {},
+  "leftHandedMode_description": "交换横屏下相机控件的位置",
+  "@leftHandedMode_description": {},
+  "captureAtVolumePress": "用音量键拍照",
+  "@captureAtVolumePress": {},
+  "captureAtVolumePress_description": "按下一个音量键，就可以拍照或录视频",
+  "@captureAtVolumePress_description": {},
+  "useMaterialYou": "“Material You”界面设计",
+  "@useMaterialYou": {},
+  "useMaterialYou_description": "采用“Material You”界面设计。关闭则采用旧的 Material 界面设计",
+  "@useMaterialYou_description": {},
+  "leftHandedMode": "左利手模式",
+  "@leftHandedMode": {}
 }
