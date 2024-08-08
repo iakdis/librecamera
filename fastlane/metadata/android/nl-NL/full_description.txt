@@ -1,8 +1,8 @@
 Libre Camera is een vrije en opensource camera-app voor het maken van foto's en video's en is geschreven in Flutter en Dart.
 
-Deze app is voor jou als je een opensource camera-app nodig hebt met verschillende features. Van flits, focus en belichting tot het aanpassen van thema, taal en compressiefactor – deze app biedt het je. En indien niet, wees welkom om een issue aan te maken op <a href="https://github.com/iakmds/librecamera">GitHub</a> om een verzoek in te dienen voor een feature. Hieronder kun je de lijst van features zien, die in de toekomst verder zal groeien!
+Deze app is voor jou als je een opensource camera-app nodig hebt met verschillende functies. Van flits, focus en belichting tot het aanpassen van thema, taal en compressiefactor – deze app biedt het je. En zo niet, wees welkom om een issue aan te maken op <a href="https://github.com/iakmds/librecamera">GitHub</a> om een verzoek in te dienen voor een functionaliteit. Hieronder kun je de lijst van functies zien, die in de toekomst verder zal groeien!
 
-<b>Features</b>
+<b>Functies</b>
     * Maak foto's en neem video's op met je camera aan de voor- en achterkant
     * Privacy: standaard worden er geen EXIF-metagegevens opgeslagen bij het maken van foto's (optioneel inschakelen in de instellingen) – zonder advertenties, tracking of onnodige toestemming
     * Thema's: Material Design met een donker-, licht- of systeemthema
