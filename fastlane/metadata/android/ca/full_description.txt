@@ -1,0 +1,25 @@
+Libre Camera és una aplicació de càmera gratuïta i de codi obert per a fer fotos i gravar vídeos, creada en Flutter i Dart.
+
+Si necessiteu una aplicació de càmera de codi obert amb diverses funcions, segurament no cal que cerqueu més. Amb opcions com ara la llanterna, els controls d'enfocament i exposició, fins a una varietat de temes i llengües, aquesta càmera la trobareu molt completa. I, si us cal res addicional, no dubteu a obrir una incidència al <a href="https://github.com/iakmds/librecamera">GitHub</a> on suggerir una funcionalitat. A continuació teniu un llistat de les característiques actuals, amb més que estaran disponibles en un futur!
+
+<b>Característiques</b>
+    * Fotos i vídeos mitjançant la càmera frontal i posterior
+    * Privadesa: No es desa cap Metadada EXIF per defecte (tot i que es pot activar com a opció a la configuració) – sense publicitat, telemetria o permissos no necessaris
+    * Temes: Basats en disseny Material. Disponible en color clar, fosc o el predeterminat al sistema
+    * Disponible en diversos idiomes – Col·laboreu amb la traducció en la vostra llengua!
+    * Zoom: Amb dos dits o un control lliscant opcional
+    * Temporitzador/Retard: Trieu el temps necessari abans de fer una foto
+    * Modes del flaix: Encès en capturar, apagat, automàtic, sempre encès
+    * Enfocament: Autofocus, blocat i enfocament manual tocant la pantalla
+    * Exposició: Automàtica, blocada i exposició manual mitjançant un lliscador opcional
+    * Compressió d'imatge: Podeu personalitzar aquest paràmetre a les opcions
+    * Formats: Trieu entre 3 tipus de format (JPEG, PNG, WebP)
+    * Resolucions: Alterneu la resolució segons sigui necessari
+    * Carpeta personalitzada: Trieu on desar el vostre material
+    * Mida de l'aplicació, poc més de 20MB
+    * Personalitzable: Feu-la vostra mitjançant la resta d'opcions de configuració!
+
+<b>Contacte</b>
+Al nostre GitHub trobareu un full de ruta: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+
+Si voleu suggerir una funcionalitat  o bé teniu cap problema, podeu contactar amb nosaltres via GitHub: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
