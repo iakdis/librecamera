@@ -49,7 +49,7 @@
   "@exposureMode": {},
   "shutterSound": "Zárhang letiltása",
   "@shutterSound": {},
-  "leftHandedMode_description": "Ha engedélyezve van, tájképmódban átkapcsolja a kameravezérlés helyzetét balkezes-módba",
+  "leftHandedMode_description": "Ha engedélyezve van, tájképmódban átkapcsolja a kameravezérlést balkezes-módba",
   "@leftHandedMode_description": {},
   "themeLight": "Világos téma",
   "@themeLight": {},
