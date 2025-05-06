@@ -1,0 +1,25 @@
+Libre Camera (Bezmaksas kamera) – bezmaksas un atvērtā pirmkoda kameras lietotne fotoattēlu uzņemšanai un video ierakstīšanai, kas kodēta Flutter un Dart programmēšanas valodās.
+
+Ja jums nepieciešama atvērtā pirmkoda kameras lietotne ar pietiekamu funkcionalitāti, tad šī lietotne ir paredzēta jums. Sākot ar zibspuldzes (lukturīša), fokusa un ekspozīcijas vadību un beidzot ar motīvu, valodu un saspiešanas līmeņa maiņu – šai lietotnei vajadzētu jūs nodrošināt visām dzīves situācijām. Taču, ja tas tā nav, tad variet droši atvērt problēmu <a href="https://github.com/iakmds/librecamera/issues">GitHub</a> vietnē un pieprasīt vēlamo funkcionalitāti. Zemāk variet apskatīt funkcionalitātes sarakstu, un vēl vairāk funkciju būs pieejamas nākotnē!
+
+<b>Funkcionalitāte</b>
+    * Iespējams uzņemt fotoattēlus un ierakstīt video ar aizmugurējo un priekšējo kameru
+    * Konfidenciāls: Uzņemot fotoattēlu, netiek saglabāti EXIF metadati (pēc izvēles var nomainīt noklusējuma iestatījumu) – bez reklāmām, izsekošanas vai nevajadzīgām atļaujām
+    * Motīvi: Material dizains ar tumšo, gaišo vai sistēmas motīvu
+    * Atbalsta vairākas valodas – Dodiet savu artavu valodas tulkošanā!
+    * Tālummaiņa: Iespēja veikt tālummaiņu ar 2 pirkstiem vai ar papildu slīdni
+    * Taimeris/Aizkave: Iespēja iestatīt fotoattēla uzņemšanas taimeri, lai paspētu sagatavoties fotoattēla uzņemšanai
+    * Zibspuldzes (lukturīšu) režīmi: Ieslēgts uzņemšanas laikā, Izslēgts, Automātiski, Vienmēr ieslēgts
+    * Fokuss: Automātiska fokusēšana, fiksēts fokuss un manuāla fokusēšana, pieskaroties ekrānam
+    * Ekspozīcija: Automātiska ekspozīcija, fiksēta ekspozīcija un manuāla ekspozīcija ar papildu slīdni
+    * Attēlu saspiešana: Iespēja iestatīt saspiešanas līmeni iestatījumos
+    * Formāti: Iespēja atlasīt kādu no 3 kameras formātiem (JPEG, PNG, WebP)
+    * Izšķirtspējas: Iespējams pārslēgties starp dažādām kameras izšķirtspējām
+    * Saglabāšanas vieta: Iespēja atlasīt vēlamo saglabāšanas vietu
+    * Lietotnes mazais izmērs – aptuveni 21 MB
+    * Pielāgojams: Atveriet iestatījumus, lai pielāgotu lietotni savām vēlmēm!
+
+<b>Kontakti</b>
+Apskatiet GitHub pirmkoda repozitoriju, kurā ir iekļauts attīstības plāns: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+
+Ja jūs atrodiet kļūdu vai vēlaties jaunu funkcionalitāti, droši iesniedziet problēmu GitHub vietnē: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
