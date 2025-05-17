@@ -168,5 +168,15 @@
   "version": "Version {versionNumber}",
   "@version": {},
   "license": "Le code est publié sous licence GPLv3 sur GitHub. Si vous rencontrez un problème ou souhaitez une fonctionnalité, vous pouvez ouvrir un ticket sur Github. Merci !",
-  "@license": {}
+  "@license": {},
+  "themeBlack": "Thème noir",
+  "@themeBlack": {},
+  "leftHandedMode": "Mode gaucher",
+  "@leftHandedMode": {},
+  "leftHandedMode_description": "Une fois activé, change la position des contrôles de la caméra en mode paysage pour le mode gaucher",
+  "@leftHandedMode_description": {},
+  "useMaterialYou": "Utiliser Material You",
+  "@useMaterialYou": {},
+  "useMaterialYou_description": "Utiliser le style Material You. Désactiver pour l'ancien style Material",
+  "@useMaterialYou_description": {}
 }
