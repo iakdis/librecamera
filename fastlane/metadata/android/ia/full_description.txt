@@ -4,10 +4,10 @@ Si tu besonia un application de camera de codice aperte con alcun functionalitat
 
 <b>Functionalitates</b>
     * Prender imagines e registrar videos con le cameras frontal e posterior
-    * Privacy: No EXIF Metadata saved by default when taking pictures (enable optionally in settings) – without ads, tracking, or unnecessary permissions
+    * Confidentialitate: Nulle metadatos EXIF salveguardate per predefinition al prender imagines (enable optionally in settings) – sin publicitate, traceamento o permission es non necessari
     * Themas: Material Design con themas clar, obscur o de systema
     * Multiple linguas supportate– Contribue in le traduction de tu lingua!
-    * Zoom: Zoom with 2 fingers or with an optional slider
+    * Zoom: Zoom con duo digitos o un glissator optional
     * Timer/Delay: Select a photo capture timer to get ready for your photo
     * Flashlight modes: On at capture, Off, Auto, Always on
     * Focus: Auto focus, locked focus and manual focus by touching the screen

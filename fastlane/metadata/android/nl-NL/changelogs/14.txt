@@ -1,0 +1,3 @@
+* l10n: Indonesische vertaling is toegevoegd
+
+* code: Gebruik pakketinformatie voor versienummer in plaats van handmatige tekst

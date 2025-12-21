@@ -1,0 +1,3 @@
+* l10n: Afegeix una traducció Indonèsia
+
+* codi: utilitzeu la informació del paquet per obtenir el número de versió en lloc del text manual
