@@ -1,4 +1,5 @@
 import 'package:camera/camera.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:librecamera/l10n/app_localizations.dart' show AppLocalizations;
 import 'package:librecamera/src/utils/preferences.dart';
@@ -47,7 +48,9 @@ class _FlashModeWidgetState extends State<FlashModeWidget> {
       if (mounted) {
         setState(() {});
       }
-      print('Flash mode set to ${mode.toString().split('.').last}');
+      if (kDebugMode) {
+        print('Flash mode set to ${mode.toString().split('.').last}');
+      }
     });
   }
 
@@ -60,7 +63,9 @@ class _FlashModeWidgetState extends State<FlashModeWidget> {
       await widget.controller!.setFlashMode(mode);
       Preferences.setFlashMode(mode.name);
     } on CameraException catch (e) {
-      print('Error: ${e.code}\nError Message: ${e.description}');
+      if (kDebugMode) {
+        print('Error: ${e.code}\nError Message: ${e.description}');
+      }
       rethrow;
     }
   }
@@ -126,8 +131,6 @@ IconData _getFlashlightIcon({required FlashMode flashMode}) {
       return Icons.flash_auto;
     case FlashMode.torch:
       return Icons.highlight;
-    default:
-      return Icons.flashlight_on;
   }
 }
 

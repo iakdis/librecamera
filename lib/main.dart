@@ -30,14 +30,14 @@ Future<void> main() async {
   if (!Preferences.getShowNavigationBar()) {
     await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   } else {
-    await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [
-      SystemUiOverlay.top,
-      SystemUiOverlay.bottom,
-    ]);
+    await SystemChrome.setEnabledSystemUIMode(
+      SystemUiMode.manual,
+      overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom],
+    );
   }
 
   if (Preferences.getMaximumScreenBrightness()) {
-    await ScreenBrightness().setScreenBrightness(1.0);
+    await ScreenBrightness().setApplicationScreenBrightness(1.0);
   }
 
   WakelockPlus.enable();

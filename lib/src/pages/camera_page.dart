@@ -1,16 +1,22 @@
 import 'dart:async';
 import 'dart:io';
 
-//import 'package:flutter/foundation.dart';
+import 'package:camera/camera.dart';
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_android_volume_keydown/flutter_android_volume_keydown.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:image/image.dart' as img;
-import 'package:camera/camera.dart';
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:librecamera/main.dart';
+import 'package:librecamera/src/pages/settings_page.dart';
+import 'package:librecamera/src/utils/preferences.dart';
+import 'package:librecamera/src/widgets/capture_control.dart';
+import 'package:librecamera/src/widgets/exposure.dart';
+import 'package:librecamera/src/widgets/flash.dart';
+import 'package:librecamera/src/widgets/focus.dart';
 import 'package:librecamera/src/widgets/format.dart';
 import 'package:librecamera/src/widgets/resolution.dart';
 import 'package:librecamera/src/widgets/timer.dart';
@@ -18,13 +24,6 @@ import 'package:native_device_orientation/native_device_orientation.dart';
 import 'package:permission_handler/permission_handler.dart';
 //import 'package:qr_code_scanner/qr_code_scanner.dart' as qr;
 import 'package:video_thumbnail/video_thumbnail.dart' as video_thumbnail;
-
-import 'package:librecamera/src/pages/settings_page.dart';
-import 'package:librecamera/src/utils/preferences.dart';
-import 'package:librecamera/src/widgets/exposure.dart';
-import 'package:librecamera/src/widgets/flash.dart';
-import 'package:librecamera/src/widgets/focus.dart';
-import 'package:librecamera/src/widgets/capture_control.dart';
 
 import '../../l10n/app_localizations.dart';
 
@@ -218,7 +217,7 @@ class _CameraPageState extends State<CameraPage>
     return Scaffold(body: _cameraPreview(context));
   }
 
-  Widget _cameraPreview(context) {
+  Widget _cameraPreview(BuildContext context) {
     return Container(
       color: Colors.black,
       child: Stack(
@@ -385,7 +384,7 @@ class _CameraPageState extends State<CameraPage>
     );
   }
 
-  Widget _zoomWidget(context) {
+  Widget _zoomWidget(BuildContext context) {
     final leftHandedMode =
         Preferences.getLeftHandedMode() &&
         MediaQuery.of(context).orientation == Orientation.landscape;
@@ -709,13 +708,19 @@ class _CameraPageState extends State<CameraPage>
     } on CameraException catch (e) {
       switch (e.code) {
         case 'CameraAccessDenied':
-          print('You have denied camera access.');
+          if (kDebugMode) {
+            print('You have denied camera access.');
+          }
           break;
         case 'AudioAccessDenied':
-          print('You have denied audio access.');
+          if (kDebugMode) {
+            print('You have denied audio access.');
+          }
           break;
         default:
-          print('$e: ${e.description}');
+          if (kDebugMode) {
+            print('$e: ${e.description}');
+          }
           break;
       }
     }
@@ -796,7 +801,9 @@ class _CameraPageState extends State<CameraPage>
 
         await File(file.path).delete();
 
-        print('Video recorded to $path');
+        if (kDebugMode) {
+          print('Video recorded to $path');
+        }
         await _refreshGalleryImages();
       }
     });
@@ -807,7 +814,9 @@ class _CameraPageState extends State<CameraPage>
       if (mounted) {
         setState(() {});
       }
-      print('Video recording paused');
+      if (kDebugMode) {
+        print('Video recording paused');
+      }
     });
   }
 
@@ -816,7 +825,9 @@ class _CameraPageState extends State<CameraPage>
       if (mounted) {
         setState(() {});
       }
-      print('Video recording resumed');
+      if (kDebugMode) {
+        print('Video recording resumed');
+      }
     });
   }
 
@@ -839,7 +850,9 @@ class _CameraPageState extends State<CameraPage>
 
     final CameraController? cameraController = controller;
     if (cameraController == null || !cameraController.value.isInitialized) {
-      print('Error: select a camera first.');
+      if (kDebugMode) {
+        print('Error: select a camera first.');
+      }
       return null;
     }
 
@@ -931,7 +944,9 @@ class _CameraPageState extends State<CameraPage>
 
       //OLD without compression and removal of EXIF data: await capturedFile!.copy(path);
 
-      print('Picture saved to $path');
+      if (kDebugMode) {
+        print('Picture saved to $path');
+      }
 
       takingPicture = false;
 
@@ -941,7 +956,9 @@ class _CameraPageState extends State<CameraPage>
 
       return file;
     } on CameraException catch (e) {
-      print('$e: ${e.description}');
+      if (kDebugMode) {
+        print('$e: ${e.description}');
+      }
       return null;
     }
   }
@@ -955,7 +972,9 @@ class _CameraPageState extends State<CameraPage>
     final CameraController? cameraController = controller;
 
     if (cameraController == null || !cameraController.value.isInitialized) {
-      print('Error: select a camera first.');
+      if (kDebugMode) {
+        print('Error: select a camera first.');
+      }
       return;
     }
 
@@ -967,7 +986,9 @@ class _CameraPageState extends State<CameraPage>
     try {
       await cameraController.startVideoRecording();
     } on CameraException catch (e) {
-      print('$e: ${e.description}');
+      if (kDebugMode) {
+        print('$e: ${e.description}');
+      }
       return;
     }
   }
@@ -987,7 +1008,9 @@ class _CameraPageState extends State<CameraPage>
     try {
       return cameraController.stopVideoRecording();
     } on CameraException catch (e) {
-      print('$e: ${e.description}');
+      if (kDebugMode) {
+        print('$e: ${e.description}');
+      }
       return null;
     }
   }
@@ -1006,7 +1029,9 @@ class _CameraPageState extends State<CameraPage>
     try {
       await cameraController.pauseVideoRecording();
     } on CameraException catch (e) {
-      print('$e: ${e.description}');
+      if (kDebugMode) {
+        print('$e: ${e.description}');
+      }
       rethrow;
     }
   }
@@ -1025,7 +1050,9 @@ class _CameraPageState extends State<CameraPage>
     try {
       await cameraController.resumeVideoRecording();
     } on CameraException catch (e) {
-      print('$e: ${e.description}');
+      if (kDebugMode) {
+        print('$e: ${e.description}');
+      }
       rethrow;
     }
   }
@@ -1155,7 +1182,9 @@ class _CameraPageState extends State<CameraPage>
     try {
       offset = await controller!.setExposureOffset(offset);
     } on CameraException catch (e) {
-      print('$e: ${e.description}');
+      if (kDebugMode) {
+        print('$e: ${e.description}');
+      }
       rethrow;
     }
   }

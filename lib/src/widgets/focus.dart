@@ -1,4 +1,5 @@
 import 'package:camera/camera.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:librecamera/l10n/app_localizations.dart' show AppLocalizations;
 
@@ -20,7 +21,9 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
       if (mounted) {
         setState(() {});
       }
-      print('Focus mode set to ${mode.toString().split('.').last}');
+      if (kDebugMode) {
+        print('Focus mode set to ${mode.toString().split('.').last}');
+      }
     });
   }
 
@@ -32,7 +35,9 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
     try {
       await widget.controller!.setFocusMode(mode);
     } on CameraException catch (e) {
-      print('Error: ${e.code}\nError Message: ${e.description}');
+      if (kDebugMode) {
+        print('Error: ${e.code}\nError Message: ${e.description}');
+      }
       rethrow;
     }
   }

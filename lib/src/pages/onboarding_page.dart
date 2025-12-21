@@ -1,4 +1,5 @@
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:librecamera/src/pages/camera_page.dart';
@@ -53,12 +54,16 @@ class _OnboardingPageState extends State<OnboardingPage> {
     var status = await Permission.camera.status;
 
     if (status.isGranted) {
-      print('Camera Permission: GRANTED');
+      if (kDebugMode) {
+        print('Camera Permission: GRANTED');
+      }
       setState(() {
         cameraPermissionGranted = true;
       });
     } else {
-      print('Camera Permission: DENIED');
+      if (kDebugMode) {
+        print('Camera Permission: DENIED');
+      }
     }
   }
 
@@ -67,12 +72,16 @@ class _OnboardingPageState extends State<OnboardingPage> {
     var status = await Permission.storage.status;
 
     if (status.isGranted) {
-      print('Storage Permission: GRANTED');
+      if (kDebugMode) {
+        print('Storage Permission: GRANTED');
+      }
       setState(() {
         storagePermissionGranted = true;
       });
     } else {
-      print('Storage: DENIED');
+      if (kDebugMode) {
+        print('Storage: DENIED');
+      }
     }
   }
 

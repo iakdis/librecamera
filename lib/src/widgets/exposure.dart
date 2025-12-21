@@ -1,4 +1,5 @@
 import 'package:camera/camera.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../l10n/app_localizations.dart';
@@ -22,7 +23,9 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
       if (mounted) {
         setState(() {});
       }
-      print('Exposure mode set to ${mode.toString().split('.').last}');
+      if (kDebugMode) {
+        print('Exposure mode set to ${mode.toString().split('.').last}');
+      }
     });
   }
 
@@ -34,7 +37,9 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
     try {
       await widget.controller!.setExposureMode(mode);
     } on CameraException catch (e) {
-      print('Error: ${e.code}\nError Message: ${e.description}');
+      if (kDebugMode) {
+        print('Error: ${e.code}\nError Message: ${e.description}');
+      }
       rethrow;
     }
   }

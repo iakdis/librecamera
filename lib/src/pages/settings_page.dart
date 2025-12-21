@@ -469,8 +469,8 @@ class _SettingsPageState extends State<SettingsPage> {
       onChanged: (value) async {
         await Preferences.setMaximumScreenBrightness(value);
         Preferences.getMaximumScreenBrightness()
-            ? await ScreenBrightness().setScreenBrightness(1.0)
-            : await ScreenBrightness().resetScreenBrightness();
+            ? await ScreenBrightness().setApplicationScreenBrightness(1.0)
+            : await ScreenBrightness().resetApplicationScreenBrightness();
         setState(() {});
       },
     );
@@ -540,18 +540,17 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: (() async {
+    return PopScope(
+      onPopInvokedWithResult: (didPop, result) async {
         await widget.onNewCameraSelected(widget.controller!.description);
-        return true;
-      }),
+      },
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: (() async {
               await widget.onNewCameraSelected(widget.controller!.description);
-              if (!mounted) return;
+              if (!context.mounted) return;
               Navigator.pop(context);
             }),
             tooltip: AppLocalizations.of(context)!.back,
