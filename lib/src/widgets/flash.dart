@@ -6,10 +6,7 @@ import 'package:librecamera/src/utils/preferences.dart';
 
 class FlashModeWidget extends StatefulWidget {
   const FlashModeWidget({
-    super.key,
-    required this.controller,
-    required this.isRearCameraSelected,
-    required this.isVideoCameraSelected,
+    required this.controller, required this.isRearCameraSelected, required this.isVideoCameraSelected, super.key,
   });
 
   final CameraController? controller;
@@ -88,9 +85,7 @@ class _FlashModeWidgetState extends State<FlashModeWidget> {
       child: IconButton(
         padding: EdgeInsets.zero,
         onPressed: widget.isRearCameraSelected
-            ? (() {
-                _toggleFlashMode();
-              })
+            ? _toggleFlashMode
             : null,
         disabledColor: Colors.white24,
         color: Colors.white,
@@ -136,8 +131,8 @@ IconData _getFlashlightIcon({required FlashMode flashMode}) {
 
 FlashMode getFlashMode() {
   final flashModeString = Preferences.getFlashMode();
-  FlashMode flashMode = FlashMode.off;
-  for (var mode in FlashMode.values) {
+  var flashMode = FlashMode.off;
+  for (final mode in FlashMode.values) {
     if (mode.name == flashModeString) flashMode = mode;
   }
   return flashMode;

@@ -2,6 +2,7 @@ import 'package:camera/camera.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:librecamera/l10n/app_localizations.dart';
 import 'package:librecamera/l10n/l10n.dart';
 import 'package:librecamera/src/pages/onboarding_page.dart';
 import 'package:librecamera/src/provider/locale_provider.dart';
@@ -14,13 +15,11 @@ import 'package:provider/provider.dart';
 import 'package:screen_brightness/screen_brightness.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../l10n/app_localizations.dart';
-
 class SettingsButton extends StatelessWidget {
   const SettingsButton({
-    super.key,
     required this.onPressed,
     required this.controller,
+    super.key,
   });
 
   final void Function()? onPressed;
@@ -41,13 +40,13 @@ class SettingsButton extends StatelessWidget {
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({
-    super.key,
     required this.controller,
     required this.onNewCameraSelected,
+    super.key,
   });
 
   final CameraController? controller;
-  final Function(CameraDescription) onNewCameraSelected;
+  final void Function(CameraDescription) onNewCameraSelected;
 
   @override
   State<SettingsPage> createState() => _SettingsPageState();
@@ -63,13 +62,13 @@ class _SettingsPageState extends State<SettingsPage> {
   double value = Preferences.getCompressQuality().toDouble();
 
   TextStyle style = const TextStyle(
-    fontSize: 16.0,
+    fontSize: 16,
     fontWeight: FontWeight.bold,
   );
 
   Widget _moreTile() {
     return Padding(
-      padding: const EdgeInsets.only(left: 32.0),
+      padding: const EdgeInsets.only(left: 32),
       child: Column(
         children: [
           _useMaterial3Tile(),
@@ -91,8 +90,8 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   Widget _aboutListTile({String? version}) {
-    void launchGitHubURL() async {
-      var url = Uri.parse('https://github.com/iakmds/librecamera');
+    Future<void> launchGitHubURL() async {
+      final url = Uri.parse('https://github.com/iakmds/librecamera');
       if (await canLaunchUrl(url)) {
         await launchUrl(url, mode: LaunchMode.externalApplication);
       }
@@ -145,10 +144,10 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
       trailing: const Icon(Icons.logout),
       onTap: () async {
-        Preferences.setOnBoardingComplete(false);
+        await Preferences.setOnBoardingComplete(false);
 
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const OnboardingPage()),
+        await Navigator.of(context).pushReplacement(
+          MaterialPageRoute<void>(builder: (context) => const OnboardingPage()),
         );
       },
     );
@@ -162,7 +161,7 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
       value: Preferences.getIsCaptureOrientationLocked(),
       onChanged: (value) async {
-        Preferences.setIsCaptureOrientationLocked(value);
+        await Preferences.setIsCaptureOrientationLocked(value);
         setState(() {});
       },
     );
@@ -203,7 +202,7 @@ class _SettingsPageState extends State<SettingsPage> {
           style: style,
         ),
         trailing: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8),
           child: Icon(
             isMoreOptions ? Icons.expand_less : Icons.expand_more,
             size: 35,
@@ -221,14 +220,14 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
       trailing: ElevatedButton(
         onPressed: () async {
-          String? selectedDirectory = await FilePicker.platform
+          final selectedDirectory = await FilePicker.platform
               .getDirectoryPath();
 
           if (selectedDirectory == null) {
             // User canceled the picker
           }
 
-          Preferences.setSavePath(
+          await Preferences.setSavePath(
             selectedDirectory ?? Preferences.getSavePath(),
           );
 
@@ -272,7 +271,7 @@ class _SettingsPageState extends State<SettingsPage> {
             AppLocalizations.of(context)!.imageCompressionQuality_description,
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(16.0, 0, 16.0, 0),
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
             child: Row(
               children: [
                 const Text('10', style: TextStyle(fontWeight: FontWeight.bold)),
@@ -280,8 +279,8 @@ class _SettingsPageState extends State<SettingsPage> {
                   child: Slider(
                     value: value,
                     onChanged: (value) => setState(() => this.value = value),
-                    onChangeEnd: (value) {
-                      Preferences.setCompressQuality(value.toInt());
+                    onChangeEnd: (value) async {
+                      await Preferences.setCompressQuality(value.toInt());
                     },
                     min: 10,
                     max: 100,
@@ -434,7 +433,7 @@ class _SettingsPageState extends State<SettingsPage> {
             value: CustomThemeMode.system,
             onTap: () => themeProvider.setTheme(CustomThemeMode.system),
             child: Padding(
-              padding: const EdgeInsets.only(right: 8.0),
+              padding: const EdgeInsets.only(right: 8),
               child: Text(AppLocalizations.of(context)!.themeSystem),
             ),
           ),
@@ -469,7 +468,7 @@ class _SettingsPageState extends State<SettingsPage> {
       onChanged: (value) async {
         await Preferences.setMaximumScreenBrightness(value);
         Preferences.getMaximumScreenBrightness()
-            ? await ScreenBrightness().setApplicationScreenBrightness(1.0)
+            ? await ScreenBrightness().setApplicationScreenBrightness(1)
             : await ScreenBrightness().resetApplicationScreenBrightness();
         setState(() {});
       },
@@ -511,10 +510,9 @@ class _SettingsPageState extends State<SettingsPage> {
             }).toList()..insert(
               0,
               DropdownMenuItem<String>(
-                value: null,
-                onTap: () => localeProvider.clearLocale(),
+                onTap: localeProvider.clearLocale,
                 child: Padding(
-                  padding: const EdgeInsets.only(right: 8.0),
+                  padding: const EdgeInsets.only(right: 8),
                   child: Text(AppLocalizations.of(context)!.systemLanguage),
                 ),
               ),
@@ -542,24 +540,24 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return PopScope(
       onPopInvokedWithResult: (didPop, result) async {
-        await widget.onNewCameraSelected(widget.controller!.description);
+        widget.onNewCameraSelected(widget.controller!.description);
       },
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
-            onPressed: (() async {
-              await widget.onNewCameraSelected(widget.controller!.description);
+            onPressed: () async {
+              widget.onNewCameraSelected(widget.controller!.description);
               if (!context.mounted) return;
               Navigator.pop(context);
-            }),
+            },
             tooltip: AppLocalizations.of(context)!.back,
           ),
           title: Text(AppLocalizations.of(context)!.settings),
         ),
         body: ListView(
           controller: listScrollController,
-          padding: const EdgeInsets.fromLTRB(0, 8.0, 0, 8.0),
+          padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
           children: <Widget>[
             _headingTile(AppLocalizations.of(context)!.appSettings),
             _languageTile(),

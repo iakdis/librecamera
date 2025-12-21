@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:librecamera/l10n/app_localizations.dart' show AppLocalizations;
 
 class FocusModeControlWidget extends StatefulWidget {
-  const FocusModeControlWidget({super.key, required this.controller});
+  const FocusModeControlWidget({required this.controller, super.key});
 
   final CameraController? controller;
 
@@ -16,7 +16,7 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
   List<FocusMode> focusModes = [FocusMode.auto, FocusMode.locked];
   FocusMode? selectedFocusMode = FocusMode.auto;
 
-  void onSetFocusModeButtonPressed(FocusMode mode) {
+  void onSetFocusModeButtonPressed(FocusMode? mode) {
     setFocusMode(mode).then((_) {
       if (mounted) {
         setState(() {});
@@ -27,13 +27,13 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
     });
   }
 
-  Future<void> setFocusMode(FocusMode mode) async {
+  Future<void> setFocusMode(FocusMode? mode) async {
     if (widget.controller == null) {
       return;
     }
 
     try {
-      await widget.controller!.setFocusMode(mode);
+      await widget.controller!.setFocusMode(mode ?? FocusMode.auto);
     } on CameraException catch (e) {
       if (kDebugMode) {
         print('Error: ${e.code}\nError Message: ${e.description}');
@@ -49,7 +49,7 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
       child: Row(
         children: [
           const Icon(Icons.filter_center_focus, color: Colors.blue),
-          const SizedBox(width: 6.0),
+          const SizedBox(width: 6),
           DropdownButtonHideUnderline(
             child: DropdownButton(
               iconEnabledColor: Colors.blue,
@@ -122,7 +122,7 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
                   )
                   .toList(),*/
               onChanged: (item) => setState(() {
-                selectedFocusMode = item as FocusMode;
+                selectedFocusMode = item;
                 if (widget.controller != null) {
                   onSetFocusModeButtonPressed(item);
                 }

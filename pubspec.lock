@@ -66,7 +66,7 @@ packages:
     source: hosted
     version: "0.9.22+7"
   camera_platform_interface:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: camera_platform_interface
       sha256: "98cfc9357e04bad617671b4c1f78a597f25f08003089dd94050709ae54effc63"
@@ -417,10 +417,10 @@ packages:
     dependency: transitive
     description:
       name: meta
-      sha256: e3641ec5d63ebf0d9b41bd43201a66e3fc79a65db5f61fc181f04cd27aab950c
+      sha256: "23f08335362185a5ea2ad3a4e597f1375e78bce8a040df5c600c8d3552ef2394"
       url: "https://pub.dev"
     source: hosted
-    version: "1.16.0"
+    version: "1.17.0"
   native_device_orientation:
     dependency: "direct main"
     description:
@@ -750,10 +750,10 @@ packages:
     dependency: transitive
     description:
       name: test_api
-      sha256: "522f00f556e73044315fa4585ec3270f1808a4b186c936e612cab0b565ff1e00"
+      sha256: ab2726c1a94d3176a45960b6234466ec367179b87dd74f1611adb1f3b5fb9d55
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.6"
+    version: "0.7.7"
   typed_data:
     dependency: transitive
     description:
@@ -842,6 +842,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.0"
+  very_good_analysis:
+    dependency: "direct dev"
+    description:
+      name: very_good_analysis
+      sha256: "96245839dbcc45dfab1af5fa551603b5c7a282028a64746c19c547d21a7f1e3a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "10.0.0"
   video_thumbnail:
     dependency: "direct main"
     description:

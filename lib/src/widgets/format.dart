@@ -14,7 +14,7 @@ class _FormatButtonState extends State<FormatButton> {
   Widget build(BuildContext context) {
     return DropdownButton(
       icon: const Padding(
-        padding: EdgeInsets.only(left: 4.0),
+        padding: EdgeInsets.only(left: 4),
         child: Icon(Icons.image),
       ),
       value: getCompressFormat(),
@@ -34,7 +34,7 @@ class _FormatButtonState extends State<FormatButton> {
       ],
       onChanged: (format) {
         setState(() {
-          Preferences.setCompressFormat((format as CompressFormat).name);
+          Preferences.setCompressFormat((format!).name);
         });
       },
     );
@@ -42,15 +42,15 @@ class _FormatButtonState extends State<FormatButton> {
 }
 
 CompressFormat getCompressFormat() {
-  List<CompressFormat> formats = [
+  final formats = <CompressFormat>[
     CompressFormat.jpeg,
     CompressFormat.png,
     CompressFormat.webp,
   ];
 
   final formatString = Preferences.getCompressFormat();
-  CompressFormat format = CompressFormat.jpeg;
-  for (var f in formats) {
+  var format = CompressFormat.jpeg;
+  for (final f in formats) {
     if (f.name == formatString) format = f;
   }
 

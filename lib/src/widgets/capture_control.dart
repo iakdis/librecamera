@@ -1,13 +1,11 @@
 import 'package:camera/camera.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:librecamera/l10n/app_localizations.dart';
 import 'package:librecamera/main.dart';
-
-import '../../l10n/app_localizations.dart';
 
 class CaptureControlWidget extends StatefulWidget {
   const CaptureControlWidget({
-    super.key,
     required this.controller,
     required this.onTakePictureButtonPressed,
     required this.onVideoRecordButtonPressed,
@@ -20,6 +18,7 @@ class CaptureControlWidget extends StatefulWidget {
     required this.leadingWidget,
     required this.isRearCameraSelected,
     required this.setIsRearCameraSelected,
+    super.key,
   });
 
   final CameraController? controller;
@@ -28,13 +27,12 @@ class CaptureControlWidget extends StatefulWidget {
   final VoidCallback onResumeButtonPressed;
   final VoidCallback onPauseButtonPressed;
   final VoidCallback onStopButtonPressed;
-  final Function(CameraDescription) onNewCameraSelected;
+  final void Function(CameraDescription) onNewCameraSelected;
   final bool isVideoCameraSelected;
   final bool isRecordingInProgress;
   final Widget leadingWidget;
   final bool isRearCameraSelected;
-  final Function() setIsRearCameraSelected;
-
+  final void Function() setIsRearCameraSelected;
   @override
   State<CaptureControlWidget> createState() => _CaptureControlWidgetState();
 }
@@ -61,7 +59,7 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
   }
 
   Widget pauseResumeButton() {
-    final CameraController? cameraController = widget.controller;
+    final cameraController = widget.controller;
 
     return AnimatedRotation(
       duration: const Duration(milliseconds: 400),
@@ -77,9 +75,10 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
           alignment: Alignment.center,
           children: [
             const Icon(Icons.circle, color: Colors.black38, size: 60),
-            cameraController!.value.isRecordingPaused
-                ? const Icon(Icons.play_arrow, color: Colors.white, size: 30)
-                : const Icon(Icons.pause, color: Colors.white, size: 30),
+            if (cameraController!.value.isRecordingPaused)
+              const Icon(Icons.play_arrow, color: Colors.white, size: 30)
+            else
+              const Icon(Icons.pause, color: Colors.white, size: 30),
           ],
         ),
         tooltip: cameraController.value.isRecordingPaused
@@ -153,8 +152,9 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
           );
           widget.setIsRearCameraSelected();
 
-          animationController.reset();
-          animationController.forward();
+          animationController
+            ..reset()
+            ..forward();
         },
         icon: Stack(
           alignment: Alignment.center,
@@ -194,9 +194,10 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        widget.isRecordingInProgress
-            ? pauseResumeButton()
-            : widget.leadingWidget,
+        if (widget.isRecordingInProgress)
+          pauseResumeButton()
+        else
+          widget.leadingWidget,
         captureButton(),
         FutureBuilder(
           future: deviceInfo.androidInfo,
@@ -204,8 +205,7 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
             if (!widget.isRecordingInProgress) return switchButton();
 
             if (snapshot.hasData) {
-              AndroidDeviceInfo androidInfo =
-                  snapshot.data as AndroidDeviceInfo;
+              final androidInfo = snapshot.data!;
 
               if (androidInfo.version.sdkInt >= 26) {
                 return switchButton();

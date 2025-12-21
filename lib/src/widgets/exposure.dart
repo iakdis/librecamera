@@ -1,11 +1,10 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
-import '../../l10n/app_localizations.dart';
+import 'package:librecamera/l10n/app_localizations.dart';
 
 class ExposureModeControlWidget extends StatefulWidget {
-  const ExposureModeControlWidget({super.key, required this.controller});
+  const ExposureModeControlWidget({required this.controller, super.key});
 
   final CameraController? controller;
 
@@ -18,24 +17,23 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
   List<ExposureMode> exposureModes = [ExposureMode.auto, ExposureMode.locked];
   ExposureMode? selectedExposureMode = ExposureMode.auto;
 
-  void onSetExposureModeButtonPressed(ExposureMode mode) {
-    setExposureMode(mode).then((_) {
-      if (mounted) {
-        setState(() {});
-      }
-      if (kDebugMode) {
-        print('Exposure mode set to ${mode.toString().split('.').last}');
-      }
-    });
+  Future<void> onSetExposureModeButtonPressed(ExposureMode? mode) async {
+    await setExposureMode(mode);
+    if (mounted) {
+      setState(() {});
+    }
+    if (kDebugMode) {
+      print('Exposure mode set to ${mode.toString().split('.').last}');
+    }
   }
 
-  Future<void> setExposureMode(ExposureMode mode) async {
+  Future<void> setExposureMode(ExposureMode? mode) async {
     if (widget.controller == null) {
       return;
     }
 
     try {
-      await widget.controller!.setExposureMode(mode);
+      await widget.controller!.setExposureMode(mode ?? ExposureMode.auto);
     } on CameraException catch (e) {
       if (kDebugMode) {
         print('Error: ${e.code}\nError Message: ${e.description}');
@@ -53,7 +51,7 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
           child: Row(
             children: [
               const Icon(Icons.exposure, color: Colors.blue),
-              const SizedBox(width: 6.0),
+              const SizedBox(width: 6),
               DropdownButtonHideUnderline(
                 child: DropdownButton(
                   iconEnabledColor: Colors.blue,
@@ -127,7 +125,7 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
                     ),
                   ],
                   onChanged: (item) => setState(() {
-                    selectedExposureMode = item as ExposureMode;
+                    selectedExposureMode = item;
                     if (widget.controller != null) {
                       onSetExposureModeButtonPressed(item);
                     }
@@ -161,17 +159,17 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
 
 class ExposureSlider extends StatefulWidget {
   const ExposureSlider({
-    super.key,
     required this.minAvailableExposureOffset,
     required this.maxAvailableExposureOffset,
     required this.currentExposureOffset,
     required this.setExposureOffset,
+    super.key,
   });
 
   final double minAvailableExposureOffset;
   final double maxAvailableExposureOffset;
   final double currentExposureOffset;
-  final Function(double) setExposureOffset;
+  final void Function(double) setExposureOffset;
 
   @override
   State<ExposureSlider> createState() => _ExposureSliderState();
@@ -187,12 +185,12 @@ class _ExposureSliderState extends State<ExposureSlider> {
           message: AppLocalizations.of(context)!.defaultExposure,
           child: TextButton(
             onPressed: () {
-              widget.setExposureOffset(0.0);
+              widget.setExposureOffset(0);
             },
             child: Row(
               children: [
                 const Icon(Icons.restore),
-                const SizedBox(width: 8.0),
+                const SizedBox(width: 8),
                 Text(AppLocalizations.of(context)!.reset),
               ],
             ),

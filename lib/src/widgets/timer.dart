@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:librecamera/l10n/app_localizations.dart';
 import 'package:librecamera/src/utils/preferences.dart';
 
-import '../../l10n/app_localizations.dart';
-
 class TimerButton extends StatefulWidget {
-  const TimerButton({super.key, required this.enabled});
+  const TimerButton({required this.enabled, super.key});
 
   final bool enabled;
 
@@ -30,9 +29,9 @@ class _TimerButtonState extends State<TimerButton> {
   Widget build(BuildContext context) {
     return Tooltip(
       message: AppLocalizations.of(context)!.timer,
-      child: DropdownButton(
+      child: DropdownButton<Duration>(
         isDense: true,
-        menuMaxHeight: 384.0,
+        menuMaxHeight: 384,
         icon: const Icon(Icons.av_timer),
         iconEnabledColor: Colors.white,
         value: Duration(seconds: Preferences.getTimerDuration()),
@@ -42,7 +41,7 @@ class _TimerButtonState extends State<TimerButton> {
                 ? '${duration.inSeconds}s'
                 : '${duration.inMinutes}m';
 
-            return DropdownMenuItem(
+            return DropdownMenuItem<Duration>(
               child: Text(
                 name,
                 style: TextStyle(

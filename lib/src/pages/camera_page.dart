@@ -10,6 +10,7 @@ import 'package:flutter_android_volume_keydown/flutter_android_volume_keydown.da
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:image/image.dart' as img;
 import 'package:intl/intl.dart';
+import 'package:librecamera/l10n/app_localizations.dart';
 import 'package:librecamera/main.dart';
 import 'package:librecamera/src/pages/settings_page.dart';
 import 'package:librecamera/src/utils/preferences.dart';
@@ -24,8 +25,6 @@ import 'package:native_device_orientation/native_device_orientation.dart';
 import 'package:permission_handler/permission_handler.dart';
 //import 'package:qr_code_scanner/qr_code_scanner.dart' as qr;
 import 'package:video_thumbnail/video_thumbnail.dart' as video_thumbnail;
-
-import '../../l10n/app_localizations.dart';
 
 /// Camera example home widget.
 class CameraPage extends StatefulWidget {
@@ -46,16 +45,16 @@ class _CameraPageState extends State<CameraPage>
   Uint8List? videoThumbnailUint8list;
 
   //Zoom
-  double _minAvailableZoom = 1.0;
-  double _maxAvailableZoom = 1.0;
-  double _currentScale = 1.0;
-  double _baseScale = 1.0;
+  double _minAvailableZoom = 1;
+  double _maxAvailableZoom = 1;
+  double _currentScale = 1;
+  double _baseScale = 1;
   int _pointers = 0;
 
   //Exposure
-  double _minAvailableExposureOffset = 0.0;
-  double _maxAvailableExposureOffset = 0.0;
-  double _currentExposureOffset = 0.0;
+  double _minAvailableExposureOffset = 0;
+  double _maxAvailableExposureOffset = 0;
+  double _currentExposureOffset = 0;
 
   //Current camera
   bool isRearCameraSelected = Preferences.getStartWithRearCamera();
@@ -121,7 +120,7 @@ class _CameraPageState extends State<CameraPage>
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    final CameraController? cameraController = controller;
+    final cameraController = controller;
 
     if (cameraController == null || !cameraController.value.isInitialized) {
       return;
@@ -144,7 +143,7 @@ class _CameraPageState extends State<CameraPage>
         final int delay;
         if (isVideoCameraSelected) {
           delay = 2;
-          controller?.value.isRecordingVideo == true
+          controller?.value.isRecordingVideo ?? false
               ? onStopButtonPressed()
               : onVideoRecordButtonPressed();
         } else {
@@ -153,7 +152,7 @@ class _CameraPageState extends State<CameraPage>
         }
 
         canPressVolume = false;
-        await Future.delayed(Duration(seconds: delay));
+        await Future<void>.delayed(Duration(seconds: delay));
         canPressVolume = true;
       }
     });
@@ -178,16 +177,17 @@ class _CameraPageState extends State<CameraPage>
   }*/
 
   void _subscribeOrientationChangeStream() {
-    NativeDeviceOrientationCommunicator nativeDeviceOrientationCommunicator =
+    final nativeDeviceOrientationCommunicator =
         NativeDeviceOrientationCommunicator();
-    Stream<NativeDeviceOrientation> onOrientationChangedStream =
-        nativeDeviceOrientationCommunicator.onOrientationChanged(
+    final onOrientationChangedStream = nativeDeviceOrientationCommunicator
+        .onOrientationChanged(
           useSensor: true,
         );
 
     onOrientationChangedStream.listen((event) {
-      Future<NativeDeviceOrientation> orientation =
-          nativeDeviceOrientationCommunicator.orientation(useSensor: true);
+      final orientation = nativeDeviceOrientationCommunicator.orientation(
+        useSensor: true,
+      );
 
       _timeOfLastChange = DateTime.now();
       Future.delayed(const Duration(milliseconds: 500), () async {
@@ -218,7 +218,7 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Widget _cameraPreview(BuildContext context) {
-    return Container(
+    return ColoredBox(
       color: Colors.black,
       child: Stack(
         children: [
@@ -260,8 +260,7 @@ class _CameraPageState extends State<CameraPage>
             color: takingPicture
                 ? const Color(0xFFFFFFFF)
                 : const Color.fromARGB(0, 255, 255, 255),
-            width: 4.0,
-            style: BorderStyle.solid,
+            width: 4,
           ), //Border.all
         ),
       ),
@@ -269,10 +268,10 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Widget _timerWidget() {
-    var minuteAmount =
+    final minuteAmount =
         (Preferences.getTimerDuration() - _timerStopwatch.elapsed.inSeconds) /
         60;
-    var minute = minuteAmount.floor();
+    final minute = minuteAmount.floor();
 
     return Duration(seconds: Preferences.getTimerDuration()).inSeconds > 0 &&
             _timerStopwatch.elapsedTicks > 1
@@ -286,7 +285,7 @@ class _CameraPageState extends State<CameraPage>
                     : '${minute}m ${(Preferences.getTimerDuration() - _timerStopwatch.elapsed.inSeconds) % 60}s',
                 style: const TextStyle(
                   color: Colors.red,
-                  fontSize: 64.0,
+                  fontSize: 64,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -296,7 +295,7 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Widget _previewWidget() {
-    final CameraController? cameraController = controller;
+    final cameraController = controller;
 
     if (cameraController != null && cameraController.value.isInitialized) {
       return Center(
@@ -345,7 +344,7 @@ class _CameraPageState extends State<CameraPage>
         quarterTurns: MediaQuery.of(context).orientation == Orientation.portrait
             ? 0
             : 3,
-        child: Container(
+        child: ColoredBox(
           color: Colors.black12,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -410,15 +409,14 @@ class _CameraPageState extends State<CameraPage>
             ? 0
             : 3,
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               //_settingsWidget(),
               //_cameraSwitchWidget(),
               //const SizedBox(height: 10.0),
               //_thumbnailPreviewWidget(),
-              if (!leftHandedMode) const SizedBox(height: 64.0),
+              if (!leftHandedMode) const SizedBox(height: 64),
               if (Preferences.getEnableZoomSlider())
                 RotatedBox(
                   quarterTurns:
@@ -427,7 +425,7 @@ class _CameraPageState extends State<CameraPage>
                       : 2,
                   child: _zoomSlider(update: false),
                 ),
-              if (leftHandedMode) const SizedBox(height: 64.0),
+              if (leftHandedMode) const SizedBox(height: 64),
             ],
           ),
         ),
@@ -483,10 +481,10 @@ class _CameraPageState extends State<CameraPage>
           : 0.25,
       child: SettingsButton(
         onPressed: enabled
-            ? () {
+            ? () async {
                 _stopVolumeButtons();
-                Navigator.of(context).push(
-                  MaterialPageRoute(
+                await Navigator.of(context).push(
+                  MaterialPageRoute<void>(
                     builder: (context) => SettingsPage(
                       controller: controller,
                       onNewCameraSelected: _initializeCameraController,
@@ -502,7 +500,7 @@ class _CameraPageState extends State<CameraPage>
 
   Widget _thumbnailPreviewWidget() {
     return _timerStopwatch.elapsedTicks > 1 ||
-            controller?.value.isRecordingVideo == true
+            (controller?.value.isRecordingVideo ?? false)
         ? const SizedBox(height: 60, width: 60)
         : AnimatedRotation(
             duration: const Duration(milliseconds: 400),
@@ -512,16 +510,15 @@ class _CameraPageState extends State<CameraPage>
             child: Tooltip(
               message: AppLocalizations.of(context)!.openCapturedPictureOrVideo,
               child: Padding(
-                padding: const EdgeInsets.only(right: 8.0),
+                padding: const EdgeInsets.only(right: 8),
                 child: SizedBox(
                   width: 52,
                   height: 52,
                   child: GestureDetector(
                     onTap: () async {
-                      DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-                      AndroidDeviceInfo androidInfo =
-                          await deviceInfo.androidInfo;
-                      int sdkInt = androidInfo.version.sdkInt;
+                      final deviceInfo = DeviceInfoPlugin();
+                      final androidInfo = await deviceInfo.androidInfo;
+                      final sdkInt = androidInfo.version.sdkInt;
 
                       final String mimeType;
                       if (capturedFile!.path.split('.').last == 'mp4') {
@@ -530,13 +527,10 @@ class _CameraPageState extends State<CameraPage>
                         switch (getCompressFormat()) {
                           case CompressFormat.jpeg:
                             mimeType = 'image/jpeg';
-                            break;
                           case CompressFormat.png:
                             mimeType = 'image/png';
-                            break;
                           case CompressFormat.webp:
                             mimeType = 'image/webp';
-                            break;
                           default:
                             mimeType = 'image/jpeg';
                         }
@@ -546,7 +540,7 @@ class _CameraPageState extends State<CameraPage>
                       await methodChannel.openItem(
                         file: capturedFile!,
                         mimeType: mimeType,
-                        openInGallery: sdkInt > 27 ? false : true,
+                        openInGallery: !(sdkInt > 27),
                       );
                     },
                     child: _thumbnailWidget(),
@@ -575,7 +569,7 @@ class _CameraPageState extends State<CameraPage>
       if (Preferences.getEnableExposureSlider())
         const Divider(color: Colors.blue),
       Container(
-        padding: const EdgeInsets.fromLTRB(0, 8.0, 0, 8.0),
+        padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
         child: CaptureControlWidget(
           controller: controller,
           onTakePictureButtonPressed: onTakePictureButtonPressed,
@@ -603,17 +597,17 @@ class _CameraPageState extends State<CameraPage>
           controller!.value.isRecordingVideo)
         Center(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8),
             child: AnimatedRotation(
               duration: const Duration(milliseconds: 400),
               turns: MediaQuery.of(context).orientation == Orientation.portrait
                   ? 0
                   : 0.25,
               child: Container(
-                padding: const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
+                padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
                 decoration: BoxDecoration(
                   color: Colors.black38,
-                  borderRadius: BorderRadius.circular(4.0),
+                  borderRadius: BorderRadius.circular(4),
                 ),
                 child: Text(
                   _stopwatch.elapsed.inSeconds < 60
@@ -621,7 +615,7 @@ class _CameraPageState extends State<CameraPage>
                       : '${_stopwatch.elapsed.inMinutes}m ${_stopwatch.elapsed.inSeconds % 60}s',
                   style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 24.0,
+                    fontSize: 24,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -629,7 +623,7 @@ class _CameraPageState extends State<CameraPage>
             ),
           ),
         ),
-      Container(
+      ColoredBox(
         color: Colors.black12,
         child: Column(
           children: leftHandedMode
@@ -679,10 +673,10 @@ class _CameraPageState extends State<CameraPage>
     final flashMode = getFlashMode();
     final resolution = getResolution();
 
-    final CameraController cameraController = CameraController(
+    final cameraController = CameraController(
       cameraDescription,
       resolution,
-      enableAudio: isVideoCameraSelected ? Preferences.getEnableAudio() : false,
+      enableAudio: isVideoCameraSelected && Preferences.getEnableAudio(),
       imageFormatGroup: ImageFormatGroup.jpeg,
     );
 
@@ -711,17 +705,14 @@ class _CameraPageState extends State<CameraPage>
           if (kDebugMode) {
             print('You have denied camera access.');
           }
-          break;
         case 'AudioAccessDenied':
           if (kDebugMode) {
             print('You have denied audio access.');
           }
-          break;
         default:
           if (kDebugMode) {
             print('$e: ${e.description}');
           }
-          break;
       }
     }
 
@@ -765,7 +756,7 @@ class _CameraPageState extends State<CameraPage>
 
   void onVideoRecordButtonPressed() {
     if (!Preferences.getDisableShutterSound()) {
-      var methodChannel = AndroidMethodChannel();
+      final methodChannel = AndroidMethodChannel();
       methodChannel.startVideoSound();
     }
 
@@ -786,8 +777,8 @@ class _CameraPageState extends State<CameraPage>
 
         final directory = Preferences.getSavePath();
 
-        String fileFormat = capturedFile!.path.split('.').last;
-        String path = '$directory/VID_${timestamp()}.$fileFormat';
+        final fileFormat = capturedFile!.path.split('.').last;
+        final path = '$directory/VID_${timestamp()}.$fileFormat';
 
         try {
           final tempFile = capturedFile!.copySync(path);
@@ -841,14 +832,17 @@ class _CameraPageState extends State<CameraPage>
       _timerStopwatch.start();
     });
 
-    await Future.delayed(Duration(seconds: Preferences.getTimerDuration()));
+    await Future<void>.delayed(
+      Duration(seconds: Preferences.getTimerDuration()),
+    );
 
     setState(() {
-      _timerStopwatch.stop();
-      _timerStopwatch.reset();
+      _timerStopwatch
+        ..stop()
+        ..reset();
     });
 
-    final CameraController? cameraController = controller;
+    final cameraController = controller;
     if (cameraController == null || !cameraController.value.isInitialized) {
       if (kDebugMode) {
         print('Error: select a camera first.');
@@ -862,11 +856,11 @@ class _CameraPageState extends State<CameraPage>
     }
 
     try {
-      final XFile file = await cameraController.takePicture();
+      final file = await cameraController.takePicture();
       takingPicture = true;
 
       if (!Preferences.getDisableShutterSound()) {
-        var methodChannel = AndroidMethodChannel();
+        final methodChannel = AndroidMethodChannel();
         methodChannel.shutterSound();
       }
 
@@ -875,28 +869,25 @@ class _CameraPageState extends State<CameraPage>
       final directory = Preferences.getSavePath();
 
       //String fileFormat = capturedFile!.path.split('.').last;
-      final CompressFormat format = getCompressFormat();
+      final format = getCompressFormat();
       final String fileFormat;
       switch (getCompressFormat()) {
         case CompressFormat.jpeg:
           fileFormat = 'jpg';
-          break;
         case CompressFormat.png:
           fileFormat = 'png';
-          break;
         case CompressFormat.webp:
           fileFormat = 'webp';
-          break;
-        default:
-          fileFormat = 'jpg';
+        case CompressFormat.heic:
+          fileFormat = 'heic';
       }
 
-      String path = '$directory/IMG_${timestamp()}.$fileFormat';
+      final path = '$directory/IMG_${timestamp()}.$fileFormat';
 
       if (!isRearCameraSelected && Preferences.getFlipFrontCameraPhoto()) {
         final imageBytes = await capturedFile!.readAsBytes();
-        img.Image? originalImage = img.decodeImage(imageBytes);
-        img.Image fixedImage = img.flipHorizontal(originalImage!);
+        final originalImage = img.decodeImage(imageBytes);
+        final fixedImage = img.flipHorizontal(originalImage!);
 
         await capturedFile!.writeAsBytes(
           img.encodeJpg(fixedImage),
@@ -910,7 +901,7 @@ class _CameraPageState extends State<CameraPage>
         if (res.name == resolutionString) resolution = res;
       }*/
 
-      Uint8List? newFileBytes = await FlutterImageCompress.compressWithFile(
+      final newFileBytes = await FlutterImageCompress.compressWithFile(
         capturedFile!.path,
         quality: Preferences.getCompressQuality(),
         keepExif: Preferences.getKeepEXIFMetadata(),
@@ -969,7 +960,7 @@ class _CameraPageState extends State<CameraPage>
       _stopwatch.start();
     });
 
-    final CameraController? cameraController = controller;
+    final cameraController = controller;
 
     if (cameraController == null || !cameraController.value.isInitialized) {
       if (kDebugMode) {
@@ -999,7 +990,7 @@ class _CameraPageState extends State<CameraPage>
       _stopwatch.reset();
     });
 
-    final CameraController? cameraController = controller;
+    final cameraController = controller;
 
     if (cameraController == null || !cameraController.value.isRecordingVideo) {
       return null;
@@ -1016,11 +1007,9 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Future<void> pauseVideoRecording() async {
-    setState(() {
-      _stopwatch.stop();
-    });
+    setState(_stopwatch.stop);
 
-    final CameraController? cameraController = controller;
+    final cameraController = controller;
 
     if (cameraController == null || !cameraController.value.isRecordingVideo) {
       return;
@@ -1037,11 +1026,9 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Future<void> resumeVideoRecording() async {
-    setState(() {
-      _stopwatch.start();
-    });
+    setState(_stopwatch.start);
 
-    final CameraController? cameraController = controller;
+    final cameraController = controller;
 
     if (cameraController == null || !cameraController.value.isRecordingVideo) {
       return;
@@ -1079,12 +1066,12 @@ class _CameraPageState extends State<CameraPage>
           min: _minAvailableZoom,
           max: _maxAvailableZoom,
           label: _currentScale.toStringAsFixed(2),
-          onChanged: ((value) async {
+          onChanged: (value) async {
             setState(() {
               _currentScale = value;
             });
             await controller!.setZoomLevel(value);
-          }),
+          },
         ),
       ),
     );
@@ -1094,31 +1081,34 @@ class _CameraPageState extends State<CameraPage>
     _baseScale = _currentScale;
   }
 
-  void _onViewFinderTap(TapDownDetails details, BoxConstraints constraints) {
+  Future<void> _onViewFinderTap(
+    TapDownDetails details,
+    BoxConstraints constraints,
+  ) async {
     if (controller == null) {
       return;
     }
 
-    final CameraController cameraController = controller!;
+    final cameraController = controller!;
 
     _circlePosX = details.globalPosition.dx;
     _circlePosY = details.globalPosition.dy;
 
-    _displayCircle();
+    await _displayCircle();
 
-    final Offset offset = Offset(
+    final offset = Offset(
       details.localPosition.dx / constraints.maxWidth,
       details.localPosition.dy / constraints.maxHeight,
     );
-    cameraController.setExposurePoint(offset);
-    cameraController.setFocusPoint(offset);
+    await cameraController.setExposurePoint(offset);
+    await cameraController.setFocusPoint(offset);
   }
 
-  void _displayCircle() async {
+  Future<void> _displayCircle() async {
     setState(() {
       _circleEnabled = true;
     });
-    await Future.delayed(const Duration(milliseconds: 600));
+    await Future<void>.delayed(const Duration(milliseconds: 600));
     setState(() {
       _circleEnabled = false;
     });
@@ -1140,7 +1130,7 @@ class _CameraPageState extends State<CameraPage>
               },
               child: Container(
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.white, width: 1),
+                  border: Border.all(color: Colors.white),
                   borderRadius: BorderRadius.circular(50),
                 ),
                 child: const Icon(
@@ -1192,12 +1182,12 @@ class _CameraPageState extends State<CameraPage>
   //Thumbnail
   Widget _thumbnailWidget() {
     if (videoThumbnailUint8list == null && capturedFile == null) {
-      return const Center(child: null); //child: CircularProgressIndicator(),
+      return const Center(); //child: CircularProgressIndicator(),
     } else {
       if (videoThumbnailUint8list == null) {
         return Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(7.0),
+            borderRadius: BorderRadius.circular(7),
             image: DecorationImage(
               fit: BoxFit.cover,
               image: FileImage(File(capturedFile!.path)),
@@ -1210,7 +1200,7 @@ class _CameraPageState extends State<CameraPage>
           children: [
             SizedBox(
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(7.0),
+                borderRadius: BorderRadius.circular(7),
                 child: SizedBox.expand(
                   child: FittedBox(
                     fit: BoxFit.cover,
@@ -1219,7 +1209,7 @@ class _CameraPageState extends State<CameraPage>
                       height: 42,
                       child: Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(7.0),
+                          borderRadius: BorderRadius.circular(7),
                           image: DecorationImage(
                             fit: BoxFit.cover,
                             image: MemoryImage(videoThumbnailUint8list!),
@@ -1243,11 +1233,11 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Future<void> _refreshGalleryImages() async {
-    List<File> allFileList = [];
+    final allFileList = <File>[];
 
     final directory = Directory(Preferences.getSavePath());
 
-    List<FileSystemEntity> fileList = [];
+    var fileList = <FileSystemEntity>[];
     try {
       fileList = await directory.list().toList();
     } catch (e) {
@@ -1255,18 +1245,18 @@ class _CameraPageState extends State<CameraPage>
       return;
     }
 
-    List<String> fileNames = [];
-    List<DateTime> dateTimes = [];
+    final fileNames = <String>[];
+    final dateTimes = <DateTime>[];
 
-    String recentFileName = '';
+    var recentFileName = '';
 
-    for (var file in fileList) {
+    for (final file in fileList) {
       if (file.path.contains('.jpg') ||
           file.path.contains('.png') ||
           file.path.contains('.webp') ||
           file.path.contains('.mp4')) {
         allFileList.add(File(file.path));
-        String name = file.path.split('/').last; //.split('.').first;
+        final name = file.path.split('/').last; //.split('.').first;
         final stat = FileStat.statSync(file.path);
 
         dateTimes.add(stat.modified);
@@ -1276,7 +1266,7 @@ class _CameraPageState extends State<CameraPage>
     }
 
     if (fileNames.isNotEmpty) {
-      for (var name in fileNames) {
+      for (final name in fileNames) {
         final now = DateTime.now();
         final mostRecentDateTimeToNow = dateTimes.reduce(
           (a, b) => a.difference(now).abs() < b.difference(now).abs() ? a : b,
@@ -1316,9 +1306,9 @@ class _CameraPageState extends State<CameraPage>
 
   //Misc
   String timestamp() {
-    final DateTime now = DateTime.now();
-    final DateFormat formatter = DateFormat('yyyyMMdd_HHmmss');
-    final String formatted = formatter.format(now);
+    final now = DateTime.now();
+    final formatter = DateFormat('yyyyMMdd_HHmmss');
+    final formatted = formatter.format(now);
     return formatted;
   }
 
@@ -1353,10 +1343,10 @@ class AndroidMethodChannel {
   }
 
   Future<void> shutterSound() async {
-    await _channel.invokeMethod('shutterSound', {});
+    await _channel.invokeMethod('shutterSound', <String, dynamic>{});
   }
 
   Future<void> startVideoSound() async {
-    await _channel.invokeMethod('startVideoSound', {});
+    await _channel.invokeMethod('startVideoSound', <String, dynamic>{});
   }
 }

@@ -37,7 +37,7 @@ Future<void> main() async {
   }
 
   if (Preferences.getMaximumScreenBrightness()) {
-    await ScreenBrightness().setApplicationScreenBrightness(1.0);
+    await ScreenBrightness().setApplicationScreenBrightness(1);
   }
 
   WakelockPlus.enable();

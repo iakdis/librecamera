@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:intl/locale.dart' as intl;
 import 'package:librecamera/l10n/l10n.dart';
 import 'package:librecamera/src/utils/preferences.dart';
-import 'package:intl/locale.dart' as intl;
 
 Locale? tryParseLocale(final String rawLocale) {
   final intlLocale = intl.Locale.tryParse(rawLocale);

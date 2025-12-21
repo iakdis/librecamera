@@ -2,15 +2,14 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:librecamera/l10n/app_localizations.dart';
+import 'package:librecamera/src/app.dart';
 import 'package:librecamera/src/pages/camera_page.dart';
+import 'package:librecamera/src/provider/theme_provider.dart';
 import 'package:librecamera/src/utils/preferences.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
-import '../../l10n/app_localizations.dart';
-import '../app.dart';
-import '../provider/theme_provider.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -49,9 +48,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
     return cameraPermissionGranted;
   }
 
-  void cameraPermission() async {
+  Future<void> cameraPermission() async {
     await Permission.camera.request();
-    var status = await Permission.camera.status;
+    final status = await Permission.camera.status;
 
     if (status.isGranted) {
       if (kDebugMode) {
@@ -67,9 +66,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
     }
   }
 
-  void storagePermission() async {
+  Future<void> storagePermission() async {
     await Permission.storage.request();
-    var status = await Permission.storage.status;
+    final status = await Permission.storage.status;
 
     if (status.isGranted) {
       if (kDebugMode) {
@@ -85,8 +84,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
     }
   }
 
-  void savePath() async {
-    String? selectedDirectory = await FilePicker.platform.getDirectoryPath();
+  Future<void> savePath() async {
+    final selectedDirectory = await FilePicker.platform.getDirectoryPath();
 
     if (selectedDirectory == null) {
       // User canceled the picker
@@ -146,7 +145,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   }
 
   Widget _permissionsPage() {
-    return Container(
+    return ColoredBox(
       color: Colors.orange.shade100,
       child: MediaQuery.of(context).orientation == Orientation.portrait
           ? Column(
@@ -171,24 +170,26 @@ class _OnboardingPageState extends State<OnboardingPage> {
           AppLocalizations.of(context)!.permissionsTitle,
           style: TextStyle(
             color: Colors.teal.shade700,
-            fontSize: 24.0,
+            fontSize: 24,
             fontWeight: FontWeight.bold,
           ),
         ),
-        const SizedBox(height: 24.0),
-        MediaQuery.of(context).orientation == Orientation.portrait
-            ? const Icon(Icons.settings, size: 100, color: Colors.white)
-            : Container(),
-        MediaQuery.of(context).orientation == Orientation.portrait
-            ? const SizedBox(height: 24.0)
-            : Container(),
+        const SizedBox(height: 24),
+        if (MediaQuery.of(context).orientation == Orientation.portrait)
+          const Icon(Icons.settings, size: 100, color: Colors.white)
+        else
+          Container(),
+        if (MediaQuery.of(context).orientation == Orientation.portrait)
+          const SizedBox(height: 24)
+        else
+          Container(),
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 64.0),
+          padding: const EdgeInsets.symmetric(horizontal: 64),
           child: Text(
             AppLocalizations.of(context)!.permissionsTitle_description,
             style: TextStyle(
               color: Colors.teal.shade700,
-              fontSize: 17.0,
+              fontSize: 17,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -201,12 +202,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const SizedBox(height: 24.0),
+        const SizedBox(height: 24),
         ElevatedButton(
           onPressed: cameraPermissionGranted ? null : cameraPermission,
           child: Text(AppLocalizations.of(context)!.giveCameraPermission),
         ),
-        const SizedBox(height: 16.0),
+        const SizedBox(height: 16),
         ElevatedButton(
           onPressed: storagePermissionGranted ? null : storagePermission,
           child: Text(AppLocalizations.of(context)!.giveStoragePermission),
@@ -216,11 +217,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
   }
 
   Widget _savePathPage() {
-    return Container(
+    return ColoredBox(
       color: Colors.blue.shade100,
       child: MediaQuery.of(context).orientation == Orientation.portrait
           ? SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(vertical: 64.0),
+              padding: const EdgeInsets.symmetric(vertical: 64),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [_savePathPageInfo(), _savePathPageButtons()],
@@ -244,24 +245,26 @@ class _OnboardingPageState extends State<OnboardingPage> {
           AppLocalizations.of(context)!.savePathTitle,
           style: TextStyle(
             color: Colors.teal.shade700,
-            fontSize: 24.0,
+            fontSize: 24,
             fontWeight: FontWeight.bold,
           ),
         ),
-        const SizedBox(height: 24.0),
-        MediaQuery.of(context).orientation == Orientation.portrait
-            ? const Icon(Icons.save_as, size: 100, color: Colors.white)
-            : Container(),
-        MediaQuery.of(context).orientation == Orientation.portrait
-            ? const SizedBox(height: 24.0)
-            : Container(),
+        const SizedBox(height: 24),
+        if (MediaQuery.of(context).orientation == Orientation.portrait)
+          const Icon(Icons.save_as, size: 100, color: Colors.white)
+        else
+          Container(),
+        if (MediaQuery.of(context).orientation == Orientation.portrait)
+          const SizedBox(height: 24)
+        else
+          Container(),
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 64.0),
+          padding: const EdgeInsets.symmetric(horizontal: 64),
           child: Text(
             AppLocalizations.of(context)!.savePathTitle_description,
             style: TextStyle(
               color: Colors.teal.shade700,
-              fontSize: 17.0,
+              fontSize: 17,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -274,12 +277,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const SizedBox(height: 24.0),
+        const SizedBox(height: 24),
         ElevatedButton(
           onPressed: savePath,
           child: Text(AppLocalizations.of(context)!.choosePath),
         ),
-        const SizedBox(height: 48.0),
+        const SizedBox(height: 48),
         SizedBox(
           width: 256,
           child: TextField(
@@ -291,7 +294,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               focusNode.unfocus();
               SystemChrome.restoreSystemUIOverlays();
             },
-            style: TextStyle(color: Colors.grey[600], fontSize: 17.0),
+            style: TextStyle(color: Colors.grey[600], fontSize: 17),
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               labelText: AppLocalizations.of(context)!.savePath,
@@ -309,7 +312,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   }
 
   Widget _welcomePageInfo() {
-    return Container(
+    return ColoredBox(
       color: Colors.green.shade100,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -318,24 +321,26 @@ class _OnboardingPageState extends State<OnboardingPage> {
             AppLocalizations.of(context)!.welcomeTitle,
             style: TextStyle(
               color: Colors.teal.shade700,
-              fontSize: 36.0,
+              fontSize: 36,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 24.0),
-          MediaQuery.of(context).orientation == Orientation.portrait
-              ? const Icon(Icons.handshake, size: 100, color: Colors.white)
-              : Container(),
-          MediaQuery.of(context).orientation == Orientation.portrait
-              ? const SizedBox(height: 24.0)
-              : Container(),
+          const SizedBox(height: 24),
+          if (MediaQuery.of(context).orientation == Orientation.portrait)
+            const Icon(Icons.handshake, size: 100, color: Colors.white)
+          else
+            Container(),
+          if (MediaQuery.of(context).orientation == Orientation.portrait)
+            const SizedBox(height: 24)
+          else
+            Container(),
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 64.0),
+            padding: const EdgeInsets.symmetric(horizontal: 64),
             child: Text(
               AppLocalizations.of(context)!.welcomeTitle_description,
               style: TextStyle(
                 color: Colors.teal.shade700,
-                fontSize: 17.0,
+                fontSize: 17,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -351,17 +356,17 @@ class _OnboardingPageState extends State<OnboardingPage> {
         foregroundColor: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
         backgroundColor: Colors.teal.shade700,
-        minimumSize: const Size.fromHeight(80.0),
+        minimumSize: const Size.fromHeight(80),
       ),
       child: Text(
         AppLocalizations.of(context)!.getStarted,
-        style: const TextStyle(fontSize: 24.0),
+        style: const TextStyle(fontSize: 24),
       ),
-      onPressed: () {
-        Preferences.setOnBoardingComplete(true);
+      onPressed: () async {
+        await Preferences.setOnBoardingComplete(true);
 
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const CameraPage()),
+        await Navigator.of(context).pushReplacement(
+          MaterialPageRoute<void>(builder: (context) => const CameraPage()),
         );
       },
     );
@@ -370,7 +375,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   Widget _bottomPageIndicator() {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 6),
-      height: 80.0,
+      height: 80,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -383,7 +388,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               controller: controller,
               count: 3,
               effect: WormEffect(
-                spacing: 16.0,
+                spacing: 16,
                 dotColor: Colors.black26,
                 activeDotColor: Colors.teal.shade700,
               ),
@@ -399,7 +404,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   }
 
   void unfocusAndRestore() {
-    FocusScopeNode currentFocus = FocusScope.of(context);
+    final currentFocus = FocusScope.of(context);
 
     if (!currentFocus.hasPrimaryFocus) {
       currentFocus.unfocus();
@@ -417,7 +422,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         ),
         child: Scaffold(
           body: Container(
-            padding: const EdgeInsets.only(bottom: 80.0),
+            padding: const EdgeInsets.only(bottom: 80),
             child: PageView(
               physics: nextEnabled()
                   ? const ScrollPhysics()

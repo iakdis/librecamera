@@ -1,6 +1,7 @@
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:librecamera/l10n/app_localizations.dart';
 import 'package:librecamera/l10n/l10n.dart';
 import 'package:librecamera/src/pages/camera_page.dart';
 import 'package:librecamera/src/pages/onboarding_page.dart';
@@ -8,14 +9,12 @@ import 'package:librecamera/src/provider/locale_provider.dart';
 import 'package:librecamera/src/provider/theme_provider.dart';
 import 'package:provider/provider.dart';
 
-import '../l10n/app_localizations.dart';
-
 const defaultThemeColour = Color(0xFF1E88E5);
 
 /// CameraApp is the Main Application.
 class CameraApp extends StatelessWidget {
   /// Default Constructor
-  const CameraApp({super.key, required this.onboardingCompleted});
+  const CameraApp({required this.onboardingCompleted, super.key});
 
   final bool onboardingCompleted;
 
@@ -27,7 +26,7 @@ class CameraApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => ThemeProvider()),
       ],
       //create: (context) => LocaleProvider(),
-      builder: ((context, child) {
+      builder: (context, child) {
         final localeProvider = Provider.of<LocaleProvider>(context);
         final themeProvider = Provider.of<ThemeProvider>(context);
 
@@ -70,7 +69,7 @@ class CameraApp extends StatelessWidget {
             );
           },
         );
-      }),
+      },
     );
   }
 }
