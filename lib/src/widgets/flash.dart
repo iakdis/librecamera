@@ -1,15 +1,15 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:librecamera/l10n/app_localizations.dart' show AppLocalizations;
 import 'package:librecamera/src/utils/preferences.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FlashModeWidget extends StatefulWidget {
   const FlashModeWidget({
-    Key? key,
+    super.key,
     required this.controller,
     required this.isRearCameraSelected,
     required this.isVideoCameraSelected,
-  }) : super(key: key);
+  });
 
   final CameraController? controller;
   final bool isRearCameraSelected;
@@ -24,13 +24,16 @@ class _FlashModeWidgetState extends State<FlashModeWidget> {
     if (widget.controller != null) {
       if (widget.controller?.value.flashMode == FlashMode.off) {
         _onSetFlashModeButtonPressed(
-            widget.isVideoCameraSelected ? FlashMode.torch : FlashMode.always);
+          widget.isVideoCameraSelected ? FlashMode.torch : FlashMode.always,
+        );
       } else if (widget.controller?.value.flashMode == FlashMode.always) {
         _onSetFlashModeButtonPressed(
-            widget.isVideoCameraSelected ? FlashMode.off : FlashMode.auto);
+          widget.isVideoCameraSelected ? FlashMode.off : FlashMode.auto,
+        );
       } else if (widget.controller?.value.flashMode == FlashMode.auto) {
         _onSetFlashModeButtonPressed(
-            widget.isVideoCameraSelected ? FlashMode.off : FlashMode.torch);
+          widget.isVideoCameraSelected ? FlashMode.off : FlashMode.torch,
+        );
       } else if (widget.controller?.value.flashMode == FlashMode.torch) {
         _onSetFlashModeButtonPressed(FlashMode.off);
       }
@@ -74,8 +77,9 @@ class _FlashModeWidgetState extends State<FlashModeWidget> {
 
     return AnimatedRotation(
       duration: const Duration(milliseconds: 400),
-      turns:
-          MediaQuery.of(context).orientation == Orientation.portrait ? 0 : 0.25,
+      turns: MediaQuery.of(context).orientation == Orientation.portrait
+          ? 0
+          : 0.25,
       child: IconButton(
         padding: EdgeInsets.zero,
         onPressed: widget.isRearCameraSelected
@@ -96,11 +100,12 @@ class _FlashModeWidgetState extends State<FlashModeWidget> {
                   ),*/
             Icon(
               _getFlashlightIcon(
-                  flashMode: widget.controller != null
-                      ? widget.controller!.value.isInitialized
+                flashMode: widget.controller != null
+                    ? widget.controller!.value.isInitialized
                           ? widget.controller!.value.flashMode
                           : getFlashMode()
-                      : FlashMode.off),
+                    : FlashMode.off,
+              ),
               size: 30,
             ),
           ],

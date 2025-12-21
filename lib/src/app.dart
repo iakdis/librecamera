@@ -1,22 +1,21 @@
-import 'package:flutter/material.dart';
 import 'package:dynamic_color/dynamic_color.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:librecamera/l10n/l10n.dart';
 import 'package:librecamera/src/pages/camera_page.dart';
 import 'package:librecamera/src/pages/onboarding_page.dart';
-
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:librecamera/src/provider/locale_provider.dart';
 import 'package:librecamera/src/provider/theme_provider.dart';
 import 'package:provider/provider.dart';
+
+import '../l10n/app_localizations.dart';
 
 const defaultThemeColour = Color(0xFF1E88E5);
 
 /// CameraApp is the Main Application.
 class CameraApp extends StatelessWidget {
   /// Default Constructor
-  const CameraApp({Key? key, required this.onboardingCompleted})
-      : super(key: key);
+  const CameraApp({super.key, required this.onboardingCompleted});
 
   final bool onboardingCompleted;
 
@@ -41,10 +40,13 @@ class CameraApp extends StatelessWidget {
               lightColorScheme = lightDynamic.harmonized();
               darkColorScheme = darkDynamic.harmonized();
             } else {
-              lightColorScheme =
-                  ColorScheme.fromSeed(seedColor: defaultThemeColour);
+              lightColorScheme = ColorScheme.fromSeed(
+                seedColor: defaultThemeColour,
+              );
               darkColorScheme = ColorScheme.fromSeed(
-                  seedColor: defaultThemeColour, brightness: Brightness.dark);
+                seedColor: defaultThemeColour,
+                brightness: Brightness.dark,
+              );
             }
 
             return MaterialApp(

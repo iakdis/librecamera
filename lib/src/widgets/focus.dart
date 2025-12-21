@@ -1,12 +1,9 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:librecamera/l10n/app_localizations.dart' show AppLocalizations;
 
 class FocusModeControlWidget extends StatefulWidget {
-  const FocusModeControlWidget({
-    Key? key,
-    required this.controller,
-  }) : super(key: key);
+  const FocusModeControlWidget({super.key, required this.controller});
 
   final CameraController? controller;
 
@@ -46,10 +43,7 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
       message: AppLocalizations.of(context)!.focusMode,
       child: Row(
         children: [
-          const Icon(
-            Icons.filter_center_focus,
-            color: Colors.blue,
-          ),
+          const Icon(Icons.filter_center_focus, color: Colors.blue),
           const SizedBox(width: 6.0),
           DropdownButtonHideUnderline(
             child: DropdownButton(
@@ -72,7 +66,9 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
                   child: Text(
                     AppLocalizations.of(context)!.autoSmall,
                     style: const TextStyle(
-                        color: Colors.blue, fontWeight: FontWeight.w500),
+                      color: Colors.blue,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
                 DropdownMenuItem(
@@ -80,7 +76,9 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
                   child: Text(
                     AppLocalizations.of(context)!.lockedSmall,
                     style: const TextStyle(
-                        color: Colors.blue, fontWeight: FontWeight.w500),
+                      color: Colors.blue,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
               ],
@@ -90,7 +88,9 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
                   child: Text(
                     AppLocalizations.of(context)!.focusModeAuto,
                     style: const TextStyle(
-                        color: Colors.blue, fontWeight: FontWeight.w500),
+                      color: Colors.blue,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
                 DropdownMenuItem(
@@ -98,7 +98,9 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
                   child: Text(
                     AppLocalizations.of(context)!.focusModeLocked,
                     style: const TextStyle(
-                        color: Colors.blue, fontWeight: FontWeight.w500),
+                      color: Colors.blue,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
               ],

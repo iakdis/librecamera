@@ -1,12 +1,13 @@
 import 'package:camera/camera.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:librecamera/main.dart';
+
+import '../../l10n/app_localizations.dart';
 
 class CaptureControlWidget extends StatefulWidget {
   const CaptureControlWidget({
-    Key? key,
+    super.key,
     required this.controller,
     required this.onTakePictureButtonPressed,
     required this.onVideoRecordButtonPressed,
@@ -19,7 +20,7 @@ class CaptureControlWidget extends StatefulWidget {
     required this.leadingWidget,
     required this.isRearCameraSelected,
     required this.setIsRearCameraSelected,
-  }) : super(key: key);
+  });
 
   final CameraController? controller;
   final VoidCallback onTakePictureButtonPressed;
@@ -64,32 +65,21 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
 
     return AnimatedRotation(
       duration: const Duration(milliseconds: 400),
-      turns:
-          MediaQuery.of(context).orientation == Orientation.portrait ? 0 : 0.25,
+      turns: MediaQuery.of(context).orientation == Orientation.portrait
+          ? 0
+          : 0.25,
       child: IconButton(
         padding: EdgeInsets.zero,
-        onPressed: () => cameraController!.value.isRecordingPaused
+        onPressed: () => cameraController.value.isRecordingPaused
             ? widget.onResumeButtonPressed()
             : widget.onPauseButtonPressed(),
         icon: Stack(
           alignment: Alignment.center,
           children: [
-            const Icon(
-              Icons.circle,
-              color: Colors.black38,
-              size: 60,
-            ),
+            const Icon(Icons.circle, color: Colors.black38, size: 60),
             cameraController!.value.isRecordingPaused
-                ? const Icon(
-                    Icons.play_arrow,
-                    color: Colors.white,
-                    size: 30,
-                  )
-                : const Icon(
-                    Icons.pause,
-                    color: Colors.white,
-                    size: 30,
-                  ),
+                ? const Icon(Icons.play_arrow, color: Colors.white, size: 30)
+                : const Icon(Icons.pause, color: Colors.white, size: 30),
           ],
         ),
         tooltip: cameraController.value.isRecordingPaused
@@ -103,22 +93,24 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
   Widget captureButton() {
     return AnimatedRotation(
       duration: const Duration(milliseconds: 400),
-      turns:
-          MediaQuery.of(context).orientation == Orientation.portrait ? 0 : 0.25,
+      turns: MediaQuery.of(context).orientation == Orientation.portrait
+          ? 0
+          : 0.25,
       child: IconButton(
         padding: EdgeInsets.zero,
         onPressed: widget.isVideoCameraSelected
             ? () => widget.isRecordingInProgress
-                ? widget.onStopButtonPressed()
-                : widget.onVideoRecordButtonPressed()
+                  ? widget.onStopButtonPressed()
+                  : widget.onVideoRecordButtonPressed()
             : () => widget.onTakePictureButtonPressed(),
         icon: Stack(
           alignment: Alignment.center,
           children: [
             Icon(
               Icons.circle,
-              color:
-                  widget.isVideoCameraSelected ? Colors.white : Colors.white38,
+              color: widget.isVideoCameraSelected
+                  ? Colors.white
+                  : Colors.white38,
               size: 80,
             ),
             Icon(
@@ -134,17 +126,13 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
               size: 32,
             ),
             if (!widget.isVideoCameraSelected)
-              Icon(
-                Icons.camera_alt,
-                color: Colors.grey.shade800,
-                size: 32,
-              )
+              Icon(Icons.camera_alt, color: Colors.grey.shade800, size: 32),
           ],
         ),
         tooltip: widget.isVideoCameraSelected
             ? widget.isVideoCameraSelected && widget.isRecordingInProgress
-                ? AppLocalizations.of(context)!.stopVideo
-                : AppLocalizations.of(context)!.startRecordingVideo
+                  ? AppLocalizations.of(context)!.stopVideo
+                  : AppLocalizations.of(context)!.startRecordingVideo
             : AppLocalizations.of(context)!.takePicture,
         iconSize: 80,
       ),
@@ -154,13 +142,15 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
   Widget switchButton() {
     return AnimatedRotation(
       duration: const Duration(milliseconds: 400),
-      turns:
-          MediaQuery.of(context).orientation == Orientation.portrait ? 0 : 0.25,
+      turns: MediaQuery.of(context).orientation == Orientation.portrait
+          ? 0
+          : 0.25,
       child: IconButton(
         padding: EdgeInsets.zero,
         onPressed: () {
           widget.onNewCameraSelected(
-              cameras[widget.isRearCameraSelected ? 1 : 0]);
+            cameras[widget.isRearCameraSelected ? 1 : 0],
+          );
           widget.setIsRearCameraSelected();
 
           animationController.reset();
@@ -169,11 +159,7 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
         icon: Stack(
           alignment: Alignment.center,
           children: [
-            const Icon(
-              Icons.circle,
-              color: Colors.black38,
-              size: 60,
-            ),
+            const Icon(Icons.circle, color: Colors.black38, size: 60),
             AnimatedBuilder(
               animation: animationController,
               builder: (context, child) {

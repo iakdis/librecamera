@@ -3,7 +3,7 @@ import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:librecamera/src/utils/preferences.dart';
 
 class FormatButton extends StatefulWidget {
-  const FormatButton({Key? key}) : super(key: key);
+  const FormatButton({super.key});
 
   @override
   State<FormatButton> createState() => _FormatButtonState();

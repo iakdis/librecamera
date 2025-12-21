@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.9.1+14
 
 environment:
-  sdk: ">=2.17.6 <3.0.0"
+  sdk: ^3.9.2
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -27,36 +27,35 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  camera: null
-  camera_android_camerax: ^0.6.1
-  camera_platform_interface: ^2.4.1
-  device_info_plus: ^10.0.1
-  dynamic_color: ^1.6.5
-  file_picker: ^8.0.0+1
+  camera: ^0.11.0
+  camera_platform_interface: ^2.7.4
+  device_info_plus: ^12.3.0
+  dynamic_color: ^1.7.0
+  file_picker: ^10.3.8
   flutter:
     sdk: flutter
   flutter_android_volume_keydown: ^1.0.0
-  flutter_image_compress: ^2.0.1
+  flutter_image_compress: ^2.3.0
   flutter_localizations:
     sdk: flutter
-  image: ^4.0.15
-  intl: ^0.18.0
+  image: ^4.1.7
+  intl: any
   native_device_orientation: ^2.0.3
-  package_info_plus: ^6.0.0
-  permission_handler: ^11.3.0
-  provider: ^6.0.3
-  screen_brightness: ^1.0.0
-  shared_preferences: ^2.0.15
-  smooth_page_indicator: ^1.0.0+2
-  url_launcher: ^6.1.6
+  package_info_plus: ^9.0.0
+  permission_handler: ^12.0.1
+  provider: ^6.1.2
+  screen_brightness: ^2.1.7
+  shared_preferences: ^2.2.3
+  smooth_page_indicator: ^2.0.1
+  url_launcher: ^6.2.6
   video_thumbnail: ^0.5.3
-  wakelock_plus: ^1.1.6
+  wakelock_plus: ^1.2.5
 
 
 dev_dependencies:
-  flutter_launcher_icons: ^0.13.0
-  flutter_lints: ^3.0.1
-  flutter_native_splash: ^2.2.9
+  flutter_launcher_icons: ^0.14.4
+  flutter_lints: ^6.0.0
+  flutter_native_splash: ^2.4.0
   flutter_test:
     sdk: flutter
 

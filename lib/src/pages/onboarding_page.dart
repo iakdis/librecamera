@@ -7,13 +7,12 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
+import '../../l10n/app_localizations.dart';
 import '../app.dart';
 import '../provider/theme_provider.dart';
 
 class OnboardingPage extends StatefulWidget {
-  const OnboardingPage({Key? key}) : super(key: key);
+  const OnboardingPage({super.key});
 
   @override
   State<OnboardingPage> createState() => _OnboardingPageState();
@@ -38,8 +37,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
       Preferences.setSavePath(currentSavePath);
     });
     textController.selection = TextSelection(
-        baseOffset: textController.text.length,
-        extentOffset: textController.text.length);
+      baseOffset: textController.text.length,
+      extentOffset: textController.text.length,
+    );
     focusNode = FocusNode();
     super.initState();
   }
@@ -89,22 +89,27 @@ class _OnboardingPageState extends State<OnboardingPage> {
       currentSavePath = Preferences.getSavePath();
       textController.text = currentSavePath;
       textController.selection = TextSelection(
-          baseOffset: textController.text.length,
-          extentOffset: textController.text.length);
+        baseOffset: textController.text.length,
+        extentOffset: textController.text.length,
+      );
     });
   }
 
   void previousPage() {
     focusNode.unfocus();
     controller.previousPage(
-        duration: const Duration(milliseconds: 200), curve: Curves.easeInOut);
+      duration: const Duration(milliseconds: 200),
+      curve: Curves.easeInOut,
+    );
     unfocusAndRestore();
   }
 
   void nextPage() {
     focusNode.unfocus();
     controller.nextPage(
-        duration: const Duration(milliseconds: 200), curve: Curves.easeInOut);
+      duration: const Duration(milliseconds: 200),
+      curve: Curves.easeInOut,
+    );
     unfocusAndRestore();
   }
 
@@ -137,10 +142,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
       child: MediaQuery.of(context).orientation == Orientation.portrait
           ? Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                _permissionsPageInfo(),
-                _permissionsPageButtons(),
-              ],
+              children: [_permissionsPageInfo(), _permissionsPageButtons()],
             )
           : Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -166,11 +168,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         ),
         const SizedBox(height: 24.0),
         MediaQuery.of(context).orientation == Orientation.portrait
-            ? const Icon(
-                Icons.settings,
-                size: 100,
-                color: Colors.white,
-              )
+            ? const Icon(Icons.settings, size: 100, color: Colors.white)
             : Container(),
         MediaQuery.of(context).orientation == Orientation.portrait
             ? const SizedBox(height: 24.0)
@@ -216,10 +214,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               padding: const EdgeInsets.symmetric(vertical: 64.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  _savePathPageInfo(),
-                  _savePathPageButtons(),
-                ],
+                children: [_savePathPageInfo(), _savePathPageButtons()],
               ),
             )
           : Row(
@@ -246,11 +241,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         ),
         const SizedBox(height: 24.0),
         MediaQuery.of(context).orientation == Orientation.portrait
-            ? const Icon(
-                Icons.save_as,
-                size: 100,
-                color: Colors.white,
-              )
+            ? const Icon(Icons.save_as, size: 100, color: Colors.white)
             : Container(),
         MediaQuery.of(context).orientation == Orientation.portrait
             ? const SizedBox(height: 24.0)
@@ -324,11 +315,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           ),
           const SizedBox(height: 24.0),
           MediaQuery.of(context).orientation == Orientation.portrait
-              ? const Icon(
-                  Icons.handshake,
-                  size: 100,
-                  color: Colors.white,
-                )
+              ? const Icon(Icons.handshake, size: 100, color: Colors.white)
               : Container(),
           MediaQuery.of(context).orientation == Orientation.portrait
               ? const SizedBox(height: 24.0)
@@ -353,9 +340,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
     return TextButton(
       style: TextButton.styleFrom(
         foregroundColor: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(0),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
         backgroundColor: Colors.teal.shade700,
         minimumSize: const Size.fromHeight(80.0),
       ),
@@ -389,9 +374,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
               controller: controller,
               count: 3,
               effect: WormEffect(
-                  spacing: 16.0,
-                  dotColor: Colors.black26,
-                  activeDotColor: Colors.teal.shade700),
+                spacing: 16.0,
+                dotColor: Colors.black26,
+                activeDotColor: Colors.teal.shade700,
+              ),
             ),
           ),
           TextButton(
@@ -418,7 +404,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
       onTapDown: (details) => unfocusAndRestore(),
       child: Theme(
         data: context.watch<ThemeProvider>().theme(
-            colorScheme: ColorScheme.fromSeed(seedColor: defaultThemeColour)),
+          colorScheme: ColorScheme.fromSeed(seedColor: defaultThemeColour),
+        ),
         child: Scaffold(
           body: Container(
             padding: const EdgeInsets.only(bottom: 80.0),
@@ -442,8 +429,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
               ],
             ),
           ),
-          bottomSheet:
-              isLastPage ? _welcomePageBottomButton() : _bottomPageIndicator(),
+          bottomSheet: isLastPage
+              ? _welcomePageBottomButton()
+              : _bottomPageIndicator(),
         ),
       ),
     );

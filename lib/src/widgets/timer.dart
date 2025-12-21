@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:librecamera/src/utils/preferences.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../l10n/app_localizations.dart';
 
 class TimerButton extends StatefulWidget {
-  const TimerButton({
-    Key? key,
-    required this.enabled,
-  }) : super(key: key);
+  const TimerButton({super.key, required this.enabled});
 
   final bool enabled;
 
@@ -39,67 +37,61 @@ class _TimerButtonState extends State<TimerButton> {
         iconEnabledColor: Colors.white,
         value: Duration(seconds: Preferences.getTimerDuration()),
         selectedItemBuilder: (context) {
-          return durations.map(
-            (duration) {
-              final name = duration.inSeconds < 60
-                  ? '${duration.inSeconds}s'
-                  : '${duration.inMinutes}m';
-
-              return DropdownMenuItem(
-                child: Text(
-                  name,
-                  style: TextStyle(
-                      color: widget.enabled ? Colors.white : Colors.white24),
-                ),
-              );
-            },
-          ).toList()
-            ..insert(
-              0,
-              DropdownMenuItem<Duration>(
-                child: Text(
-                  '––',
-                  style: TextStyle(
-                      color: widget.enabled ? Colors.white : Colors.white24),
-                ),
-              ),
-            );
-        },
-        items: durations.map(
-          (duration) {
+          return durations.map((duration) {
             final name = duration.inSeconds < 60
                 ? '${duration.inSeconds}s'
                 : '${duration.inMinutes}m';
 
             return DropdownMenuItem(
-              value: duration,
-              onTap: () {
-                setState(() {
-                  Preferences.setTimerDuration(duration.inSeconds);
-                });
-              },
               child: Text(
                 name,
-                style: const TextStyle(color: Colors.blue),
+                style: TextStyle(
+                  color: widget.enabled ? Colors.white : Colors.white24,
+                ),
               ),
             );
-          },
-        ).toList()
-          ..insert(
+          }).toList()..insert(
             0,
             DropdownMenuItem<Duration>(
-              value: const Duration(),
-              onTap: () {
-                setState(() {
-                  Preferences.setTimerDuration(0);
-                });
-              },
               child: Text(
-                AppLocalizations.of(context)!.off,
-                style: const TextStyle(color: Colors.blue),
+                '––',
+                style: TextStyle(
+                  color: widget.enabled ? Colors.white : Colors.white24,
+                ),
               ),
             ),
-          ),
+          );
+        },
+        items:
+            durations.map((duration) {
+              final name = duration.inSeconds < 60
+                  ? '${duration.inSeconds}s'
+                  : '${duration.inMinutes}m';
+
+              return DropdownMenuItem(
+                value: duration,
+                onTap: () {
+                  setState(() {
+                    Preferences.setTimerDuration(duration.inSeconds);
+                  });
+                },
+                child: Text(name, style: const TextStyle(color: Colors.blue)),
+              );
+            }).toList()..insert(
+              0,
+              DropdownMenuItem<Duration>(
+                value: const Duration(),
+                onTap: () {
+                  setState(() {
+                    Preferences.setTimerDuration(0);
+                  });
+                },
+                child: Text(
+                  AppLocalizations.of(context)!.off,
+                  style: const TextStyle(color: Colors.blue),
+                ),
+              ),
+            ),
         onChanged: widget.enabled ? (_) {} : null,
         iconDisabledColor: Colors.white24,
       ),

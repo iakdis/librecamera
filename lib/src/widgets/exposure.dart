@@ -1,12 +1,10 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../l10n/app_localizations.dart';
 
 class ExposureModeControlWidget extends StatefulWidget {
-  const ExposureModeControlWidget({
-    Key? key,
-    required this.controller,
-  }) : super(key: key);
+  const ExposureModeControlWidget({super.key, required this.controller});
 
   final CameraController? controller;
 
@@ -49,10 +47,7 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
           message: AppLocalizations.of(context)!.exposureMode,
           child: Row(
             children: [
-              const Icon(
-                Icons.exposure,
-                color: Colors.blue,
-              ),
+              const Icon(Icons.exposure, color: Colors.blue),
               const SizedBox(width: 6.0),
               DropdownButtonHideUnderline(
                 child: DropdownButton(
@@ -64,7 +59,9 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
                       child: Text(
                         AppLocalizations.of(context)!.autoSmall,
                         style: const TextStyle(
-                            color: Colors.blue, fontWeight: FontWeight.w500),
+                          color: Colors.blue,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                     DropdownMenuItem(
@@ -72,7 +69,9 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
                       child: Text(
                         AppLocalizations.of(context)!.lockedSmall,
                         style: const TextStyle(
-                            color: Colors.blue, fontWeight: FontWeight.w500),
+                          color: Colors.blue,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                   ],
@@ -106,7 +105,9 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
                       child: Text(
                         AppLocalizations.of(context)!.exposureModeAuto,
                         style: const TextStyle(
-                            color: Colors.blue, fontWeight: FontWeight.w500),
+                          color: Colors.blue,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                     DropdownMenuItem(
@@ -114,7 +115,9 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
                       child: Text(
                         AppLocalizations.of(context)!.exposureModeLocked,
                         style: const TextStyle(
-                            color: Colors.blue, fontWeight: FontWeight.w500),
+                          color: Colors.blue,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                   ],
@@ -153,12 +156,12 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
 
 class ExposureSlider extends StatefulWidget {
   const ExposureSlider({
-    Key? key,
+    super.key,
     required this.minAvailableExposureOffset,
     required this.maxAvailableExposureOffset,
     required this.currentExposureOffset,
     required this.setExposureOffset,
-  }) : super(key: key);
+  });
 
   final double minAvailableExposureOffset;
   final double maxAvailableExposureOffset;
@@ -184,9 +187,7 @@ class _ExposureSliderState extends State<ExposureSlider> {
             child: Row(
               children: [
                 const Icon(Icons.restore),
-                const SizedBox(
-                  width: 8.0,
-                ),
+                const SizedBox(width: 8.0),
                 Text(AppLocalizations.of(context)!.reset),
               ],
             ),
@@ -201,7 +202,7 @@ class _ExposureSliderState extends State<ExposureSlider> {
             ),
             SliderTheme(
               data: SliderThemeData(
-                showValueIndicator: ShowValueIndicator.always,
+                showValueIndicator: ShowValueIndicator.onDrag,
                 overlayShape: SliderComponentShape.noOverlay,
               ),
               child: Slider(
@@ -209,7 +210,8 @@ class _ExposureSliderState extends State<ExposureSlider> {
                 min: widget.minAvailableExposureOffset,
                 max: widget.maxAvailableExposureOffset,
                 label: widget.currentExposureOffset.toStringAsFixed(2),
-                onChanged: widget.minAvailableExposureOffset ==
+                onChanged:
+                    widget.minAvailableExposureOffset ==
                         widget.maxAvailableExposureOffset
                     ? null
                     : widget.setExposureOffset,

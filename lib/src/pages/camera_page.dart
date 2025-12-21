@@ -10,7 +10,6 @@ import 'package:image/image.dart' as img;
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:librecamera/main.dart';
 import 'package:librecamera/src/widgets/format.dart';
 import 'package:librecamera/src/widgets/resolution.dart';
@@ -27,10 +26,12 @@ import 'package:librecamera/src/widgets/flash.dart';
 import 'package:librecamera/src/widgets/focus.dart';
 import 'package:librecamera/src/widgets/capture_control.dart';
 
+import '../../l10n/app_localizations.dart';
+
 /// Camera example home widget.
 class CameraPage extends StatefulWidget {
   /// Default Constructor
-  const CameraPage({Key? key}) : super(key: key);
+  const CameraPage({super.key});
 
   @override
   State<CameraPage> createState() {
@@ -137,8 +138,9 @@ class _CameraPageState extends State<CameraPage>
   }
 
   void _subscribeVolumeButtons() {
-    volumeSubscription =
-        FlutterAndroidVolumeKeydown.stream.listen((event) async {
+    volumeSubscription = FlutterAndroidVolumeKeydown.stream.listen((
+      event,
+    ) async {
       if (canPressVolume) {
         final int delay;
         if (isVideoCameraSelected) {
@@ -181,7 +183,8 @@ class _CameraPageState extends State<CameraPage>
         NativeDeviceOrientationCommunicator();
     Stream<NativeDeviceOrientation> onOrientationChangedStream =
         nativeDeviceOrientationCommunicator.onOrientationChanged(
-            useSensor: true);
+          useSensor: true,
+        );
 
     onOrientationChangedStream.listen((event) {
       Future<NativeDeviceOrientation> orientation =
@@ -191,16 +194,19 @@ class _CameraPageState extends State<CameraPage>
       Future.delayed(const Duration(milliseconds: 500), () async {
         if (DateTime.now().difference(_timeOfLastChange).inMilliseconds > 500) {
           if (await orientation == NativeDeviceOrientation.portraitUp) {
-            await SystemChrome.setPreferredOrientations(
-                [DeviceOrientation.portraitUp]);
+            await SystemChrome.setPreferredOrientations([
+              DeviceOrientation.portraitUp,
+            ]);
           } else if (await orientation ==
               NativeDeviceOrientation.landscapeLeft) {
-            await SystemChrome.setPreferredOrientations(
-                [DeviceOrientation.landscapeLeft]);
+            await SystemChrome.setPreferredOrientations([
+              DeviceOrientation.landscapeLeft,
+            ]);
           } else if (await orientation ==
               NativeDeviceOrientation.landscapeRight) {
-            await SystemChrome.setPreferredOrientations(
-                [DeviceOrientation.landscapeRight]);
+            await SystemChrome.setPreferredOrientations([
+              DeviceOrientation.landscapeRight,
+            ]);
           }
         }
       });
@@ -209,9 +215,7 @@ class _CameraPageState extends State<CameraPage>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _cameraPreview(context),
-    );
+    return Scaffold(body: _cameraPreview(context));
   }
 
   Widget _cameraPreview(context) {
@@ -254,11 +258,12 @@ class _CameraPageState extends State<CameraPage>
         duration: const Duration(milliseconds: 200),
         decoration: BoxDecoration(
           border: Border.all(
-              color: takingPicture
-                  ? const Color(0xFFFFFFFF)
-                  : const Color.fromARGB(0, 255, 255, 255),
-              width: 4.0,
-              style: BorderStyle.solid), //Border.all
+            color: takingPicture
+                ? const Color(0xFFFFFFFF)
+                : const Color.fromARGB(0, 255, 255, 255),
+            width: 4.0,
+            style: BorderStyle.solid,
+          ), //Border.all
         ),
       ),
     );
@@ -267,7 +272,7 @@ class _CameraPageState extends State<CameraPage>
   Widget _timerWidget() {
     var minuteAmount =
         (Preferences.getTimerDuration() - _timerStopwatch.elapsed.inSeconds) /
-            60;
+        60;
     var minute = minuteAmount.floor();
 
     return Duration(seconds: Preferences.getTimerDuration()).inSeconds > 0 &&
@@ -300,17 +305,18 @@ class _CameraPageState extends State<CameraPage>
           onPointerDown: (_) => _pointers++,
           onPointerUp: (_) => _pointers--,
           child: CameraPreview(
-            controller!,
+            cameraController,
             child: LayoutBuilder(
-                builder: (BuildContext context, BoxConstraints constraints) {
-              return GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onScaleStart: _handleScaleStart,
-                onScaleUpdate: _handleScaleUpdate,
-                onTapDown: (TapDownDetails details) =>
-                    _onViewFinderTap(details, constraints),
-              );
-            }),
+              builder: (BuildContext context, BoxConstraints constraints) {
+                return GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onScaleStart: _handleScaleStart,
+                  onScaleUpdate: _handleScaleUpdate,
+                  onTapDown: (TapDownDetails details) =>
+                      _onViewFinderTap(details, constraints),
+                );
+              },
+            ),
           ),
         ),
       );
@@ -320,7 +326,8 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Widget _topControlsWidget() {
-    final leftHandedMode = Preferences.getLeftHandedMode() &&
+    final leftHandedMode =
+        Preferences.getLeftHandedMode() &&
         MediaQuery.of(context).orientation == Orientation.landscape;
 
     final left = leftHandedMode ? null : 0.0;
@@ -332,23 +339,27 @@ class _CameraPageState extends State<CameraPage>
       right: MediaQuery.of(context).orientation == Orientation.portrait
           ? 0
           : right,
-      bottom:
-          MediaQuery.of(context).orientation == Orientation.portrait ? null : 0,
+      bottom: MediaQuery.of(context).orientation == Orientation.portrait
+          ? null
+          : 0,
       child: RotatedBox(
-        quarterTurns:
-            MediaQuery.of(context).orientation == Orientation.portrait ? 0 : 3,
+        quarterTurns: MediaQuery.of(context).orientation == Orientation.portrait
+            ? 0
+            : 3,
         child: Container(
           color: Colors.black12,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               _cameraSwitchWidget(
-                enabled: controller?.value.isRecordingVideo == false &&
+                enabled:
+                    controller?.value.isRecordingVideo == false &&
                     _timerStopwatch.elapsedTicks <= 1,
               ),
               TimerButton(
-                  enabled: !isVideoCameraSelected &&
-                      _timerStopwatch.elapsedTicks <= 1),
+                enabled:
+                    !isVideoCameraSelected && _timerStopwatch.elapsedTicks <= 1,
+              ),
               FlashModeWidget(
                 controller: controller,
                 isRearCameraSelected: isRearCameraSelected,
@@ -358,11 +369,13 @@ class _CameraPageState extends State<CameraPage>
                 isDense: true,
                 onNewCameraSelected: _initializeCameraController,
                 isRearCameraSelected: isRearCameraSelected,
-                enabled: controller?.value.isRecordingVideo == false &&
+                enabled:
+                    controller?.value.isRecordingVideo == false &&
                     _timerStopwatch.elapsedTicks <= 1,
               ),
               _settingsWidget(
-                enabled: controller?.value.isRecordingVideo == false &&
+                enabled:
+                    controller?.value.isRecordingVideo == false &&
                     _timerStopwatch.elapsedTicks <= 1,
               ),
             ],
@@ -373,26 +386,30 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Widget _zoomWidget(context) {
-    final leftHandedMode = Preferences.getLeftHandedMode() &&
+    final leftHandedMode =
+        Preferences.getLeftHandedMode() &&
         MediaQuery.of(context).orientation == Orientation.landscape;
 
     final left = leftHandedMode ? null : 0.0;
     final right = leftHandedMode ? 0.0 : null;
 
     return Positioned(
-      top:
-          MediaQuery.of(context).orientation == Orientation.portrait ? 0 : null,
+      top: MediaQuery.of(context).orientation == Orientation.portrait
+          ? 0
+          : null,
       right: MediaQuery.of(context).orientation == Orientation.portrait
           ? 0
           : right,
       left: MediaQuery.of(context).orientation == Orientation.portrait
           ? null
           : left,
-      bottom:
-          MediaQuery.of(context).orientation == Orientation.portrait ? null : 0,
+      bottom: MediaQuery.of(context).orientation == Orientation.portrait
+          ? null
+          : 0,
       child: RotatedBox(
-        quarterTurns:
-            MediaQuery.of(context).orientation == Orientation.portrait ? 0 : 3,
+        quarterTurns: MediaQuery.of(context).orientation == Orientation.portrait
+            ? 0
+            : 3,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -405,11 +422,12 @@ class _CameraPageState extends State<CameraPage>
               if (!leftHandedMode) const SizedBox(height: 64.0),
               if (Preferences.getEnableZoomSlider())
                 RotatedBox(
-                    quarterTurns: MediaQuery.of(context).orientation ==
-                            Orientation.portrait
-                        ? 0
-                        : 2,
-                    child: _zoomSlider(update: false)),
+                  quarterTurns:
+                      MediaQuery.of(context).orientation == Orientation.portrait
+                      ? 0
+                      : 2,
+                  child: _zoomSlider(update: false),
+                ),
               if (leftHandedMode) const SizedBox(height: 64.0),
             ],
           ),
@@ -421,8 +439,9 @@ class _CameraPageState extends State<CameraPage>
   Widget _cameraSwitchWidget({required bool enabled}) {
     return AnimatedRotation(
       duration: const Duration(milliseconds: 400),
-      turns:
-          MediaQuery.of(context).orientation == Orientation.portrait ? 0 : 0.25,
+      turns: MediaQuery.of(context).orientation == Orientation.portrait
+          ? 0
+          : 0.25,
       child: IconButton(
         color: Colors.white,
         disabledColor: Colors.white24,
@@ -460,8 +479,9 @@ class _CameraPageState extends State<CameraPage>
   Widget _settingsWidget({required bool enabled}) {
     return AnimatedRotation(
       duration: const Duration(milliseconds: 400),
-      turns:
-          MediaQuery.of(context).orientation == Orientation.portrait ? 0 : 0.25,
+      turns: MediaQuery.of(context).orientation == Orientation.portrait
+          ? 0
+          : 0.25,
       child: SettingsButton(
         onPressed: enabled
             ? () {
@@ -539,7 +559,8 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Widget _bottomControlsWidget() {
-    final leftHandedMode = Preferences.getLeftHandedMode() &&
+    final leftHandedMode =
+        Preferences.getLeftHandedMode() &&
         MediaQuery.of(context).orientation == Orientation.landscape;
 
     final cameraControls = <Widget>[
@@ -592,8 +613,9 @@ class _CameraPageState extends State<CameraPage>
               child: Container(
                 padding: const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
                 decoration: BoxDecoration(
-                    color: Colors.black38,
-                    borderRadius: BorderRadius.circular(4.0)),
+                  color: Colors.black38,
+                  borderRadius: BorderRadius.circular(4.0),
+                ),
                 child: Text(
                   _stopwatch.elapsed.inSeconds < 60
                       ? '${_stopwatch.elapsed.inSeconds}s'
@@ -619,13 +641,16 @@ class _CameraPageState extends State<CameraPage>
     ];
 
     return RotatedBox(
-      quarterTurns:
-          MediaQuery.of(context).orientation == Orientation.portrait ? 0 : 3,
+      quarterTurns: MediaQuery.of(context).orientation == Orientation.portrait
+          ? 0
+          : 3,
       child: Column(
-        mainAxisAlignment:
-            leftHandedMode ? MainAxisAlignment.start : MainAxisAlignment.end,
-        children:
-            leftHandedMode ? bottomControls.reversed.toList() : bottomControls,
+        mainAxisAlignment: leftHandedMode
+            ? MainAxisAlignment.start
+            : MainAxisAlignment.end,
+        children: leftHandedMode
+            ? bottomControls.reversed.toList()
+            : bottomControls,
       ),
     );
   }
@@ -650,7 +675,8 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Future<void> _initializeCameraController(
-      CameraDescription cameraDescription) async {
+    CameraDescription cameraDescription,
+  ) async {
     final flashMode = getFlashMode();
     final resolution = getResolution();
 
@@ -667,18 +693,18 @@ class _CameraPageState extends State<CameraPage>
       await cameraController.initialize();
       await Future.wait(<Future<Object?>>[
         cameraController.setFlashMode(flashMode),
-        cameraController
-            .getMinExposureOffset()
-            .then((double value) => _minAvailableExposureOffset = value),
-        cameraController
-            .getMaxExposureOffset()
-            .then((double value) => _maxAvailableExposureOffset = value),
-        cameraController
-            .getMaxZoomLevel()
-            .then((double value) => _maxAvailableZoom = value),
-        cameraController
-            .getMinZoomLevel()
-            .then((double value) => _minAvailableZoom = value),
+        cameraController.getMinExposureOffset().then(
+          (double value) => _minAvailableExposureOffset = value,
+        ),
+        cameraController.getMaxExposureOffset().then(
+          (double value) => _maxAvailableExposureOffset = value,
+        ),
+        cameraController.getMaxZoomLevel().then(
+          (double value) => _maxAvailableZoom = value,
+        ),
+        cameraController.getMinZoomLevel().then(
+          (double value) => _minAvailableZoom = value,
+        ),
       ]);
     } on CameraException catch (e) {
       switch (e.code) {
@@ -922,10 +948,7 @@ class _CameraPageState extends State<CameraPage>
 
   Future<void> startVideoRecording() async {
     setState(() {
-      Timer.periodic(
-        const Duration(seconds: 1),
-        (Timer t) => setState(() {}),
-      );
+      Timer.periodic(const Duration(seconds: 1), (Timer t) => setState(() {}));
       _stopwatch.start();
     });
 
@@ -1021,7 +1044,7 @@ class _CameraPageState extends State<CameraPage>
       quarterTurns: 3,
       child: SliderTheme(
         data: SliderThemeData(
-          showValueIndicator: ShowValueIndicator.always,
+          showValueIndicator: ShowValueIndicator.onDrag,
           overlayShape: SliderComponentShape.noOverlay,
         ),
         child: Slider(
@@ -1086,7 +1109,7 @@ class _CameraPageState extends State<CameraPage>
               duration: const Duration(milliseconds: 250),
               curve: Curves.easeInOut,
               builder: (context, scale, child) {
-                return Transform.scale(scale: scale as double, child: child);
+                return Transform.scale(scale: scale, child: child);
               },
               child: Container(
                 decoration: BoxDecoration(
@@ -1110,8 +1133,10 @@ class _CameraPageState extends State<CameraPage>
       return;
     }
 
-    _currentScale = (_baseScale * details.scale)
-        .clamp(_minAvailableZoom, _maxAvailableZoom);
+    _currentScale = (_baseScale * details.scale).clamp(
+      _minAvailableZoom,
+      _maxAvailableZoom,
+    );
 
     _zoomSlider(update: true);
 
@@ -1146,9 +1171,7 @@ class _CameraPageState extends State<CameraPage>
             borderRadius: BorderRadius.circular(7.0),
             image: DecorationImage(
               fit: BoxFit.cover,
-              image: FileImage(
-                File(capturedFile!.path),
-              ),
+              image: FileImage(File(capturedFile!.path)),
             ),
           ),
         );
@@ -1182,12 +1205,8 @@ class _CameraPageState extends State<CameraPage>
             const CircleAvatar(
               radius: 15,
               backgroundColor: Colors.black45,
-              child: Icon(
-                Icons.play_arrow,
-                size: 20,
-                color: Colors.white,
-              ),
-            )
+              child: Icon(Icons.play_arrow, size: 20, color: Colors.white),
+            ),
           ],
         );
       }
@@ -1230,8 +1249,9 @@ class _CameraPageState extends State<CameraPage>
     if (fileNames.isNotEmpty) {
       for (var name in fileNames) {
         final now = DateTime.now();
-        final mostRecentDateTimeToNow = dateTimes.reduce((a, b) =>
-            a.difference(now).abs() < b.difference(now).abs() ? a : b);
+        final mostRecentDateTimeToNow = dateTimes.reduce(
+          (a, b) => a.difference(now).abs() < b.difference(now).abs() ? a : b,
+        );
 
         final file = File('${directory.path}/$name');
 
@@ -1256,11 +1276,11 @@ class _CameraPageState extends State<CameraPage>
 
     videoThumbnailUint8list =
         await video_thumbnail.VideoThumbnail.thumbnailData(
-      video: 'file://${capturedFile?.path}',
-      imageFormat: video_thumbnail.ImageFormat.JPEG,
-      maxWidth: 100,
-      quality: 20,
-    );
+          video: 'file://${capturedFile?.path}',
+          imageFormat: video_thumbnail.ImageFormat.JPEG,
+          maxWidth: 100,
+          quality: 20,
+        );
 
     setState(() {});
   }
@@ -1274,10 +1294,9 @@ class _CameraPageState extends State<CameraPage>
   }
 
   void showSnackbar({required String text}) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text(text),
-      duration: const Duration(seconds: 5),
-    ));
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(text), duration: const Duration(seconds: 5)),
+    );
   }
 }
 
@@ -1285,9 +1304,7 @@ class AndroidMethodChannel {
   static const _channel = MethodChannel('media_store');
 
   Future<void> updateItem({required File file}) async {
-    await _channel.invokeMethod('updateItem', {
-      'path': file.path,
-    });
+    await _channel.invokeMethod('updateItem', {'path': file.path});
   }
 
   Future<void> openItem({
@@ -1303,9 +1320,7 @@ class AndroidMethodChannel {
   }
 
   Future<void> disableIntentCamera({required bool disable}) async {
-    await _channel.invokeMethod('disableIntentCamera', {
-      'disable': disable,
-    });
+    await _channel.invokeMethod('disableIntentCamera', {'disable': disable});
   }
 
   Future<void> shutterSound() async {

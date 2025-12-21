@@ -9,19 +9,19 @@ import 'package:librecamera/src/provider/theme_provider.dart';
 import 'package:librecamera/src/utils/preferences.dart';
 import 'package:librecamera/src/widgets/format.dart';
 import 'package:librecamera/src/widgets/resolution.dart';
-
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:screen_brightness/screen_brightness.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../l10n/app_localizations.dart';
+
 class SettingsButton extends StatelessWidget {
   const SettingsButton({
-    Key? key,
+    super.key,
     required this.onPressed,
     required this.controller,
-  }) : super(key: key);
+  });
 
   final void Function()? onPressed;
   final CameraController? controller;
@@ -41,10 +41,10 @@ class SettingsButton extends StatelessWidget {
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({
-    Key? key,
+    super.key,
     required this.controller,
     required this.onNewCameraSelected,
-  }) : super(key: key);
+  });
 
   final CameraController? controller;
   final Function(CameraDescription) onNewCameraSelected;
@@ -87,12 +87,7 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   Widget _headingTile(String text) {
-    return ListTile(
-      title: Text(
-        text,
-        style: style,
-      ),
-    );
+    return ListTile(title: Text(text, style: style));
   }
 
   Widget _aboutListTile({String? version}) {
@@ -123,9 +118,7 @@ class _SettingsPageState extends State<SettingsPage> {
           onPressed: launchGitHubURL,
           label: SelectableText(
             'https://github.com/iakmds/librecamera',
-            style: const TextStyle(
-              color: Colors.blue,
-            ),
+            style: const TextStyle(color: Colors.blue),
             onTap: launchGitHubURL,
           ),
         ),
@@ -138,9 +131,8 @@ class _SettingsPageState extends State<SettingsPage> {
       future: PackageInfo.fromPlatform(),
       builder: (context, snapshot) {
         return _aboutListTile(
-            version: snapshot.hasData
-                ? (snapshot.data! as PackageInfo).version
-                : null);
+          version: snapshot.hasData ? (snapshot.data!).version : null,
+        );
       },
     );
   }
@@ -166,7 +158,8 @@ class _SettingsPageState extends State<SettingsPage> {
     return SwitchListTile(
       title: Text(AppLocalizations.of(context)!.lockCaptureOrientation),
       subtitle: Text(
-          AppLocalizations.of(context)!.lockCaptureOrientation_description),
+        AppLocalizations.of(context)!.lockCaptureOrientation_description,
+      ),
       value: Preferences.getIsCaptureOrientationLocked(),
       onChanged: (value) async {
         Preferences.setIsCaptureOrientationLocked(value);
@@ -178,8 +171,9 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget _showNavigationBarTile() {
     return SwitchListTile(
       title: Text(AppLocalizations.of(context)!.showNavigationBar),
-      subtitle:
-          Text(AppLocalizations.of(context)!.showNavigationBar_description),
+      subtitle: Text(
+        AppLocalizations.of(context)!.showNavigationBar_description,
+      ),
       value: Preferences.getShowNavigationBar(),
       onChanged: (value) async {
         await Preferences.setShowNavigationBar(value);
@@ -226,29 +220,32 @@ class _SettingsPageState extends State<SettingsPage> {
         AppLocalizations.of(context)!.savePath_description(currentSavePath),
       ),
       trailing: ElevatedButton(
-          onPressed: () async {
-            String? selectedDirectory =
-                await FilePicker.platform.getDirectoryPath();
+        onPressed: () async {
+          String? selectedDirectory = await FilePicker.platform
+              .getDirectoryPath();
 
-            if (selectedDirectory == null) {
-              // User canceled the picker
-            }
+          if (selectedDirectory == null) {
+            // User canceled the picker
+          }
 
-            Preferences.setSavePath(
-                selectedDirectory ?? Preferences.getSavePath());
+          Preferences.setSavePath(
+            selectedDirectory ?? Preferences.getSavePath(),
+          );
 
-            currentSavePath = Preferences.getSavePath();
-            setState(() {});
-          },
-          child: Text(AppLocalizations.of(context)!.choosePath)),
+          currentSavePath = Preferences.getSavePath();
+          setState(() {});
+        },
+        child: Text(AppLocalizations.of(context)!.choosePath),
+      ),
     );
   }
 
   Widget _keepEXIFMetadataTile() {
     return SwitchListTile(
       title: Text(AppLocalizations.of(context)!.keepEXIFMetadata),
-      subtitle:
-          Text(AppLocalizations.of(context)!.keepEXIFMetadata_description),
+      subtitle: Text(
+        AppLocalizations.of(context)!.keepEXIFMetadata_description,
+      ),
       value: Preferences.getKeepEXIFMetadata(),
       onChanged: (value) async {
         await Preferences.setKeepEXIFMetadata(value);
@@ -271,8 +268,9 @@ class _SettingsPageState extends State<SettingsPage> {
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(AppLocalizations.of(context)!
-              .imageCompressionQuality_description),
+          Text(
+            AppLocalizations.of(context)!.imageCompressionQuality_description,
+          ),
           Padding(
             padding: const EdgeInsets.fromLTRB(16.0, 0, 16.0, 0),
             child: Row(
@@ -292,8 +290,10 @@ class _SettingsPageState extends State<SettingsPage> {
                     divisions: 90,
                   ),
                 ),
-                const Text('100',
-                    style: TextStyle(fontWeight: FontWeight.bold)),
+                const Text(
+                  '100',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
               ],
             ),
           ),
@@ -317,8 +317,9 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget _captureAtVolumePressTile() {
     return SwitchListTile(
       title: Text(AppLocalizations.of(context)!.captureAtVolumePress),
-      subtitle:
-          Text(AppLocalizations.of(context)!.captureAtVolumePress_description),
+      subtitle: Text(
+        AppLocalizations.of(context)!.captureAtVolumePress_description,
+      ),
       value: Preferences.getCaptureAtVolumePress(),
       onChanged: (value) async {
         await Preferences.setCaptureAtVolumePress(value);
@@ -354,8 +355,9 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget _startWithFrontCameraTile() {
     return SwitchListTile(
       title: Text(AppLocalizations.of(context)!.startWithFrontCamera),
-      subtitle:
-          Text(AppLocalizations.of(context)!.startWithFrontCamera_description),
+      subtitle: Text(
+        AppLocalizations.of(context)!.startWithFrontCamera_description,
+      ),
       value: !Preferences.getStartWithRearCamera(),
       onChanged: (value) async {
         await Preferences.setStartWithRearCamera(!value);
@@ -367,8 +369,9 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget _flipPhotosFrontCameraTile() {
     return SwitchListTile(
       title: Text(AppLocalizations.of(context)!.flipPhotosFrontCamera),
-      subtitle:
-          Text(AppLocalizations.of(context)!.flipPhotosFrontCamera_description),
+      subtitle: Text(
+        AppLocalizations.of(context)!.flipPhotosFrontCamera_description,
+      ),
       value: !Preferences.getFlipFrontCameraPhoto(),
       onChanged: (value) async {
         await Preferences.setFlipFrontCameraPhoto(!value);
@@ -388,8 +391,9 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget _enableExposureSliderTile() {
     return SwitchListTile(
       title: Text(AppLocalizations.of(context)!.enableExposureSlider),
-      subtitle:
-          Text(AppLocalizations.of(context)!.enableExposureSlider_description),
+      subtitle: Text(
+        AppLocalizations.of(context)!.enableExposureSlider_description,
+      ),
       value: Preferences.getEnableExposureSlider(),
       onChanged: (value) async {
         await Preferences.setEnableExposureSlider(value);
@@ -401,8 +405,9 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget _enableZoomSliderTile() {
     return SwitchListTile(
       title: Text(AppLocalizations.of(context)!.enableZoomSlider),
-      subtitle:
-          Text(AppLocalizations.of(context)!.enableZoomSlider_description),
+      subtitle: Text(
+        AppLocalizations.of(context)!.enableZoomSlider_description,
+      ),
       value: Preferences.getEnableZoomSlider(),
       onChanged: (value) async {
         await Preferences.setEnableZoomSlider(value);
@@ -421,8 +426,8 @@ class _SettingsPageState extends State<SettingsPage> {
         icon: Preferences.getThemeMode() == CustomThemeMode.system.name
             ? const Icon(Icons.settings_display)
             : Preferences.getThemeMode() == CustomThemeMode.light.name
-                ? const Icon(Icons.light_mode)
-                : const Icon(Icons.dark_mode),
+            ? const Icon(Icons.light_mode)
+            : const Icon(Icons.dark_mode),
         value: CustomThemeMode.values.byName(Preferences.getThemeMode()),
         items: [
           DropdownMenuItem(
@@ -457,8 +462,9 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget _maximumScreenBrightnessTile() {
     return SwitchListTile(
       title: Text(AppLocalizations.of(context)!.enableMaximumScreenBrightness),
-      subtitle: Text(AppLocalizations.of(context)!
-          .enableMaximumScreenBrightness_description),
+      subtitle: Text(
+        AppLocalizations.of(context)!.enableMaximumScreenBrightness_description,
+      ),
       value: Preferences.getMaximumScreenBrightness(),
       onChanged: (value) async {
         await Preferences.setMaximumScreenBrightness(value);
@@ -493,28 +499,26 @@ class _SettingsPageState extends State<SettingsPage> {
         value: Preferences.getLanguage().isNotEmpty
             ? Preferences.getLanguage()
             : null,
-        items: Localization.supportedLocales.map(
-          (locale) {
-            final name = Localization.getName(locale);
+        items:
+            Localization.supportedLocales.map((locale) {
+              final name = Localization.getName(locale);
 
-            return DropdownMenuItem(
-              value: locale.toLanguageTag(),
-              onTap: () => localeProvider.setLocale(locale),
-              child: Text(name),
-            );
-          },
-        ).toList()
-          ..insert(
-            0,
-            DropdownMenuItem<String>(
-              value: null,
-              onTap: () => localeProvider.clearLocale(),
-              child: Padding(
-                padding: const EdgeInsets.only(right: 8.0),
-                child: Text(AppLocalizations.of(context)!.systemLanguage),
+              return DropdownMenuItem(
+                value: locale.toLanguageTag(),
+                onTap: () => localeProvider.setLocale(locale),
+                child: Text(name),
+              );
+            }).toList()..insert(
+              0,
+              DropdownMenuItem<String>(
+                value: null,
+                onTap: () => localeProvider.clearLocale(),
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: Text(AppLocalizations.of(context)!.systemLanguage),
+                ),
               ),
             ),
-          ),
         onChanged: (_) {},
       ),
     );

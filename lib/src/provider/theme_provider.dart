@@ -18,7 +18,7 @@ class ThemeProvider extends ChangeNotifier {
     return ThemeData(
       colorScheme: isBlack
           ? colorScheme
-              .copyWith(background: Colors.black, surface: Colors.black)
+              .copyWith(surface: Colors.black)
               .harmonized()
           : colorScheme,
       useMaterial3: Preferences.getUseMaterial3(),
