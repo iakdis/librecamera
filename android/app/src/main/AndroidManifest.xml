@@ -85,16 +85,15 @@
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize" />
         <service
            android:name=".OpenTileService"
-           android:icon="@drawable/ic_baseline_camera_alt_24"
-           android:label="Libre Camera"
-           android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
-           android:exported="true">
-
+            android:exported="true"
+            android:icon="@drawable/monochrome"
+            android:label="@string/AppName"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
            <intent-filter>
-               <action android:name="android.service.quicksettings.action.QS_TILE"/>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
            </intent-filter>
        </service>
 
