@@ -146,15 +146,14 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
           : 0.25,
       child: IconButton(
         padding: EdgeInsets.zero,
-        onPressed: () {
+        onPressed: () async {
           widget.onNewCameraSelected(
             cameras[widget.isRearCameraSelected ? 1 : 0],
           );
           widget.setIsRearCameraSelected();
 
-          animationController
-            ..reset()
-            ..forward();
+          animationController.reset();
+          await animationController.forward();
         },
         icon: Stack(
           alignment: Alignment.center,

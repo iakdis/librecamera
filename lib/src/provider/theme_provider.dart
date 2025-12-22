@@ -3,23 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:librecamera/src/utils/preferences.dart';
 
 class ThemeProvider extends ChangeNotifier {
-  CustomThemeMode? _themeMode;
-
-  CustomThemeMode themeMode() {
-    _themeMode = Preferences.getThemeMode().isNotEmpty
-        ? CustomThemeMode.values.byName(Preferences.getThemeMode())
-        : CustomThemeMode.system;
-    return _themeMode!;
-  }
+  CustomThemeMode _themeMode = CustomThemeMode.system;
+  CustomThemeMode get themeMode => _themeMode;
 
   ThemeData theme({required ColorScheme colorScheme}) {
-    final isBlack = themeMode() == CustomThemeMode.black;
+    final isBlack = themeMode == CustomThemeMode.black;
 
     return ThemeData(
       colorScheme: isBlack
-          ? colorScheme
-              .copyWith(surface: Colors.black)
-              .harmonized()
+          ? colorScheme.copyWith(surface: Colors.black).harmonized()
           : colorScheme,
       useMaterial3: Preferences.getUseMaterial3(),
       scaffoldBackgroundColor: isBlack ? Colors.black : null,
@@ -27,7 +19,7 @@ class ThemeProvider extends ChangeNotifier {
   }
 
   ThemeMode getMaterialThemeMode() {
-    switch (themeMode()) {
+    switch (themeMode) {
       case CustomThemeMode.system:
         return ThemeMode.system;
       case CustomThemeMode.light:
@@ -38,9 +30,11 @@ class ThemeProvider extends ChangeNotifier {
     }
   }
 
-  void setTheme(CustomThemeMode theme) {
-    Preferences.setThemeMode(theme.name);
-    _themeMode = theme;
+  Future<void> setTheme(CustomThemeMode theme) async {
+    await Preferences.setThemeMode(theme.name);
+    _themeMode = theme.name.isNotEmpty
+        ? CustomThemeMode.values.byName(Preferences.getThemeMode())
+        : CustomThemeMode.system;
     notifyListeners();
   }
 }

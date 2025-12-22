@@ -69,21 +69,19 @@ class _TimerButtonState extends State<TimerButton> {
 
               return DropdownMenuItem(
                 value: duration,
-                onTap: () {
-                  setState(() {
-                    Preferences.setTimerDuration(duration.inSeconds);
-                  });
+                onTap: () async {
+                  await Preferences.setTimerDuration(duration.inSeconds);
+                  setState(() {});
                 },
                 child: Text(name, style: const TextStyle(color: Colors.blue)),
               );
             }).toList()..insert(
               0,
               DropdownMenuItem<Duration>(
-                value: const Duration(),
-                onTap: () {
-                  setState(() {
-                    Preferences.setTimerDuration(0);
-                  });
+                value: Duration.zero,
+                onTap: () async {
+                  await Preferences.setTimerDuration(0);
+                  setState(() {});
                 },
                 child: Text(
                   AppLocalizations.of(context)!.off,

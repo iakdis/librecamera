@@ -32,11 +32,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
   @override
   void initState() {
     textController.text = currentSavePath;
-    textController.addListener(() {
+    textController
+      ..addListener(() async {
       currentSavePath = textController.text;
-      Preferences.setSavePath(currentSavePath);
-    });
-    textController.selection = TextSelection(
+        await Preferences.setSavePath(currentSavePath);
+      })
+      ..selection = TextSelection(
       baseOffset: textController.text.length,
       extentOffset: textController.text.length,
     );
@@ -91,7 +92,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
       // User canceled the picker
     }
 
-    Preferences.setSavePath(selectedDirectory ?? Preferences.getSavePath());
+    await Preferences.setSavePath(
+      selectedDirectory ?? Preferences.getSavePath(),
+    );
 
     setState(() {
       currentSavePath = Preferences.getSavePath();
@@ -103,22 +106,22 @@ class _OnboardingPageState extends State<OnboardingPage> {
     });
   }
 
-  void previousPage() {
+  Future<void> previousPage() async {
     focusNode.unfocus();
-    controller.previousPage(
+    await controller.previousPage(
       duration: const Duration(milliseconds: 200),
       curve: Curves.easeInOut,
     );
-    unfocusAndRestore();
+    await unfocusAndRestore();
   }
 
-  void nextPage() {
+  Future<void> nextPage() async {
     focusNode.unfocus();
-    controller.nextPage(
+    await controller.nextPage(
       duration: const Duration(milliseconds: 200),
       curve: Curves.easeInOut,
     );
-    unfocusAndRestore();
+    await unfocusAndRestore();
   }
 
   bool nextEnabled() {
@@ -288,11 +291,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
           child: TextField(
             controller: textController,
             focusNode: focusNode,
-            onSubmitted: (value) {
+            onSubmitted: (value) async {
               currentSavePath = value;
-              Preferences.setSavePath(currentSavePath);
+              await Preferences.setSavePath(currentSavePath);
               focusNode.unfocus();
-              SystemChrome.restoreSystemUIOverlays();
+              await SystemChrome.restoreSystemUIOverlays();
             },
             style: TextStyle(color: Colors.grey[600], fontSize: 17),
             decoration: InputDecoration(
@@ -363,7 +366,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         style: const TextStyle(fontSize: 24),
       ),
       onPressed: () async {
-        await Preferences.setOnBoardingComplete(true);
+        await Preferences.setOnBoardingComplete(complete: true);
 
         await Navigator.of(context).pushReplacement(
           MaterialPageRoute<void>(builder: (context) => const CameraPage()),
@@ -403,12 +406,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
     );
   }
 
-  void unfocusAndRestore() {
+  Future<void> unfocusAndRestore() async {
     final currentFocus = FocusScope.of(context);
 
     if (!currentFocus.hasPrimaryFocus) {
       currentFocus.unfocus();
-      SystemChrome.restoreSystemUIOverlays();
+      await SystemChrome.restoreSystemUIOverlays();
     }
   }
 
@@ -428,13 +431,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   ? const ScrollPhysics()
                   : const NeverScrollableScrollPhysics(),
               controller: controller,
-              onPageChanged: (index) {
+              onPageChanged: (index) async {
                 setState(() {
                   isLastPage = index == 2;
                   currentPage = index;
-
-                  unfocusAndRestore();
                 });
+                await unfocusAndRestore();
               },
               children: [
                 _permissionsPage(),

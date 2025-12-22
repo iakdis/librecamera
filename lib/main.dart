@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -40,11 +41,11 @@ Future<void> main() async {
     await ScreenBrightness().setApplicationScreenBrightness(1);
   }
 
-  WakelockPlus.enable();
+  await WakelockPlus.enable();
 
-  SystemChrome.setPreferredOrientations(_getDeviceOrientations()).then((_) {
-    runApp(CameraApp(onboardingCompleted: Preferences.getOnBoardingComplete()));
-  });
+  await SystemChrome.setPreferredOrientations(_getDeviceOrientations());
+
+  runApp(CameraApp(onboardingCompleted: Preferences.getOnBoardingComplete()));
 }
 
 List<DeviceOrientation> _getDeviceOrientations() {

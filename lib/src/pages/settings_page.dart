@@ -41,12 +41,10 @@ class SettingsButton extends StatelessWidget {
 class SettingsPage extends StatefulWidget {
   const SettingsPage({
     required this.controller,
-    required this.onNewCameraSelected,
     super.key,
   });
 
   final CameraController? controller;
-  final void Function(CameraDescription) onNewCameraSelected;
 
   @override
   State<SettingsPage> createState() => _SettingsPageState();
@@ -144,7 +142,7 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
       trailing: const Icon(Icons.logout),
       onTap: () async {
-        await Preferences.setOnBoardingComplete(false);
+        await Preferences.setOnBoardingComplete(complete: false);
 
         await Navigator.of(context).pushReplacement(
           MaterialPageRoute<void>(builder: (context) => const OnboardingPage()),
@@ -161,7 +159,9 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
       value: Preferences.getIsCaptureOrientationLocked(),
       onChanged: (value) async {
-        await Preferences.setIsCaptureOrientationLocked(value);
+        await Preferences.setIsCaptureOrientationLocked(
+          isCaptureOrientationLocked: value,
+        );
         setState(() {});
       },
     );
@@ -175,7 +175,7 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
       value: Preferences.getShowNavigationBar(),
       onChanged: (value) async {
-        await Preferences.setShowNavigationBar(value);
+        await Preferences.setShowNavigationBar(showNavigationBar: value);
         setState(() {});
       },
     );
@@ -186,8 +186,8 @@ class _SettingsPageState extends State<SettingsPage> {
       onTap: () => setState(() {
         isMoreOptions = !isMoreOptions;
 
-        SchedulerBinding.instance.addPostFrameCallback((_) {
-          listScrollController.animateTo(
+        SchedulerBinding.instance.addPostFrameCallback((_) async {
+          await listScrollController.animateTo(
             listScrollController.position.maxScrollExtent,
             duration: const Duration(milliseconds: 200),
             curve: Curves.easeInOut,
@@ -247,7 +247,7 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
       value: Preferences.getKeepEXIFMetadata(),
       onChanged: (value) async {
-        await Preferences.setKeepEXIFMetadata(value);
+        await Preferences.setKeepEXIFMetadata(keepEXIFMetadata: value);
         setState(() {});
       },
     );
@@ -307,7 +307,7 @@ class _SettingsPageState extends State<SettingsPage> {
       subtitle: Text(AppLocalizations.of(context)!.shutterSound_description),
       value: Preferences.getDisableShutterSound(),
       onChanged: (value) async {
-        await Preferences.setDisableShutterSound(value);
+        await Preferences.setDisableShutterSound(disable: value);
         setState(() {});
       },
     );
@@ -321,7 +321,7 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
       value: Preferences.getCaptureAtVolumePress(),
       onChanged: (value) async {
-        await Preferences.setCaptureAtVolumePress(value);
+        await Preferences.setCaptureAtVolumePress(enable: value);
         setState(() {});
       },
     );
@@ -333,7 +333,7 @@ class _SettingsPageState extends State<SettingsPage> {
       subtitle: Text(AppLocalizations.of(context)!.disableAudio_description),
       value: !Preferences.getEnableAudio(),
       onChanged: (value) async {
-        await Preferences.setEnableAudio(!value);
+        await Preferences.setEnableAudio(enableAudio: !value);
         setState(() {});
       },
     );
@@ -345,7 +345,7 @@ class _SettingsPageState extends State<SettingsPage> {
       subtitle: Text(AppLocalizations.of(context)!.enableModeRow_description),
       value: Preferences.getEnableModeRow(),
       onChanged: (value) async {
-        await Preferences.setEnableModeRow(value);
+        await Preferences.setEnableModeRow(enable: value);
         setState(() {});
       },
     );
@@ -359,7 +359,7 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
       value: !Preferences.getStartWithRearCamera(),
       onChanged: (value) async {
-        await Preferences.setStartWithRearCamera(!value);
+        await Preferences.setStartWithRearCamera(rear: !value);
         setState(() {});
       },
     );
@@ -373,7 +373,7 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
       value: !Preferences.getFlipFrontCameraPhoto(),
       onChanged: (value) async {
-        await Preferences.setFlipFrontCameraPhoto(!value);
+        await Preferences.setFlipFrontCameraPhoto(flip: !value);
         setState(() {});
       },
     );
@@ -395,7 +395,7 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
       value: Preferences.getEnableExposureSlider(),
       onChanged: (value) async {
-        await Preferences.setEnableExposureSlider(value);
+        await Preferences.setEnableExposureSlider(enable: value);
         setState(() {});
       },
     );
@@ -409,7 +409,7 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
       value: Preferences.getEnableZoomSlider(),
       onChanged: (value) async {
-        await Preferences.setEnableZoomSlider(value);
+        await Preferences.setEnableZoomSlider(enable: value);
         setState(() {});
       },
     );
@@ -466,7 +466,7 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
       value: Preferences.getMaximumScreenBrightness(),
       onChanged: (value) async {
-        await Preferences.setMaximumScreenBrightness(value);
+        await Preferences.setMaximumScreenBrightness(enable: value);
         Preferences.getMaximumScreenBrightness()
             ? await ScreenBrightness().setApplicationScreenBrightness(1)
             : await ScreenBrightness().resetApplicationScreenBrightness();
@@ -481,7 +481,7 @@ class _SettingsPageState extends State<SettingsPage> {
       subtitle: Text(AppLocalizations.of(context)!.leftHandedMode_description),
       value: Preferences.getLeftHandedMode(),
       onChanged: (value) async {
-        await Preferences.setLeftHandedMode(value);
+        await Preferences.setLeftHandedMode(enable: value);
         setState(() {});
       },
     );
@@ -529,77 +529,70 @@ class _SettingsPageState extends State<SettingsPage> {
       title: Text(AppLocalizations.of(context)!.useMaterialYou),
       subtitle: Text(AppLocalizations.of(context)!.useMaterialYou_description),
       value: Preferences.getUseMaterial3(),
-      onChanged: (value) {
-        Preferences.setUseMaterial3(value);
-        themeProvider.setTheme(themeProvider.themeMode());
+      onChanged: (value) async {
+        await Preferences.setUseMaterial3(useMaterial3: value);
+        await themeProvider.setTheme(themeProvider.themeMode);
       },
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return PopScope(
-      onPopInvokedWithResult: (didPop, result) async {
-        widget.onNewCameraSelected(widget.controller!.description);
-      },
-      child: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () async {
-              widget.onNewCameraSelected(widget.controller!.description);
-              if (!context.mounted) return;
-              Navigator.pop(context);
-            },
-            tooltip: AppLocalizations.of(context)!.back,
-          ),
-          title: Text(AppLocalizations.of(context)!.settings),
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () async {
+            Navigator.pop(context);
+          },
+          tooltip: AppLocalizations.of(context)!.back,
         ),
-        body: ListView(
-          controller: listScrollController,
-          padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
-          children: <Widget>[
-            _headingTile(AppLocalizations.of(context)!.appSettings),
-            _languageTile(),
-            const Divider(),
-            _themeTile(),
-            const Divider(),
-            _maximumScreenBrightnessTile(),
-            const Divider(),
-            _leftHandedModeTile(),
-            const Divider(),
-            _enableModeRow(),
-            const Divider(),
-            _enableZoomSliderTile(),
-            const Divider(),
-            _enableExposureSliderTile(),
-            const Divider(),
-            _headingTile(AppLocalizations.of(context)!.cameraBehaviour),
-            _resolutionTile(),
-            const Divider(),
-            _captureAtVolumePressTile(),
-            const Divider(),
-            _disableShutterSoundTile(),
-            const Divider(),
-            _startWithFrontCameraTile(),
-            const Divider(),
-            _disableAudioTile(),
-            const Divider(),
-            _headingTile(AppLocalizations.of(context)!.saving),
-            _flipPhotosFrontCameraTile(),
-            const Divider(),
-            _imageCompressionFormat(),
-            const Divider(),
-            _imageCompressionTile(),
-            const Divider(),
-            _keepEXIFMetadataTile(),
-            const Divider(),
-            _savePathTile(),
-            const Divider(),
-            _showMoreTile(),
-            if (isMoreOptions) _moreTile(),
-          ],
-        ),
+        title: Text(AppLocalizations.of(context)!.settings),
+      ),
+      body: ListView(
+        controller: listScrollController,
+        padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+        children: <Widget>[
+          _headingTile(AppLocalizations.of(context)!.appSettings),
+          _languageTile(),
+          const Divider(),
+          _themeTile(),
+          const Divider(),
+          _maximumScreenBrightnessTile(),
+          const Divider(),
+          _leftHandedModeTile(),
+          const Divider(),
+          _enableModeRow(),
+          const Divider(),
+          _enableZoomSliderTile(),
+          const Divider(),
+          _enableExposureSliderTile(),
+          const Divider(),
+          _headingTile(AppLocalizations.of(context)!.cameraBehaviour),
+          _resolutionTile(),
+          const Divider(),
+          _captureAtVolumePressTile(),
+          const Divider(),
+          _disableShutterSoundTile(),
+          const Divider(),
+          _startWithFrontCameraTile(),
+          const Divider(),
+          _disableAudioTile(),
+          const Divider(),
+          _headingTile(AppLocalizations.of(context)!.saving),
+          _flipPhotosFrontCameraTile(),
+          const Divider(),
+          _imageCompressionFormat(),
+          const Divider(),
+          _imageCompressionTile(),
+          const Divider(),
+          _keepEXIFMetadataTile(),
+          const Divider(),
+          _savePathTile(),
+          const Divider(),
+          _showMoreTile(),
+          if (isMoreOptions) _moreTile(),
+        ],
       ),
     );
   }

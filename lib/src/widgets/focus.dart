@@ -14,17 +14,15 @@ class FocusModeControlWidget extends StatefulWidget {
 
 class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
   List<FocusMode> focusModes = [FocusMode.auto, FocusMode.locked];
-  FocusMode? selectedFocusMode = FocusMode.auto;
+  final ValueNotifier<FocusMode?> _selectedFocusModeNotifier = ValueNotifier(
+    FocusMode.auto,
+  );
 
-  void onSetFocusModeButtonPressed(FocusMode? mode) {
-    setFocusMode(mode).then((_) {
-      if (mounted) {
-        setState(() {});
-      }
-      if (kDebugMode) {
-        print('Focus mode set to ${mode.toString().split('.').last}');
-      }
-    });
+  Future<void> onSetFocusModeButtonPressed(FocusMode? mode) async {
+    await setFocusMode(mode);
+    if (kDebugMode) {
+      print('Focus mode set to ${mode.toString().split('.').last}');
+    }
   }
 
   Future<void> setFocusMode(FocusMode? mode) async {
@@ -51,82 +49,88 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
           const Icon(Icons.filter_center_focus, color: Colors.blue),
           const SizedBox(width: 6),
           DropdownButtonHideUnderline(
-            child: DropdownButton(
-              iconEnabledColor: Colors.blue,
-              value: selectedFocusMode,
-              /*selectedItemBuilder: (context) => [
-                for (final item in focusModes)
-                  DropdownMenuItem<FocusMode>(
-                    value: item,
-                    child: Text(
-                      item.name.toUpperCase(),
-                      style: const TextStyle(
-                          color: Colors.blue, fontWeight: FontWeight.w500),
-                    ),
-                  ),
-              ],*/
-              selectedItemBuilder: (context) => [
-                DropdownMenuItem(
-                  value: FocusMode.auto,
-                  child: Text(
-                    AppLocalizations.of(context)!.autoSmall,
-                    style: const TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-                DropdownMenuItem(
-                  value: FocusMode.locked,
-                  child: Text(
-                    AppLocalizations.of(context)!.lockedSmall,
-                    style: const TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              ],
-              items: [
-                DropdownMenuItem(
-                  value: FocusMode.auto,
-                  child: Text(
-                    AppLocalizations.of(context)!.focusModeAuto,
-                    style: const TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-                DropdownMenuItem(
-                  value: FocusMode.locked,
-                  child: Text(
-                    AppLocalizations.of(context)!.focusModeLocked,
-                    style: const TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              ],
-              /*items: focusModes
-                  .map(
-                    (item) => DropdownMenuItem<FocusMode>(
-                      value: item,
+            child: ValueListenableBuilder(
+              valueListenable: _selectedFocusModeNotifier,
+              builder: (context, selectedFocusMode, child) {
+                return DropdownButton(
+                  menuWidth: 250,
+                  iconEnabledColor: Colors.blue,
+                  value: selectedFocusMode,
+                  /*selectedItemBuilder: (context) => [
+                    for (final item in focusModes)
+                      DropdownMenuItem<FocusMode>(
+                        value: item,
+                        child: Text(
+                          item.name.toUpperCase(),
+                          style: const TextStyle(
+                              color: Colors.blue, fontWeight: FontWeight.w500),
+                        ),
+                      ),
+                  ],*/
+                  selectedItemBuilder: (context) => [
+                    DropdownMenuItem(
+                      value: FocusMode.auto,
                       child: Text(
-                        '${item.name.toUpperCase()} FOCUS',
+                        AppLocalizations.of(context)!.autoSmall,
                         style: const TextStyle(
-                            color: Colors.blue, fontWeight: FontWeight.w500),
+                          color: Colors.blue,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
-                  )
-                  .toList(),*/
-              onChanged: (item) => setState(() {
-                selectedFocusMode = item;
-                if (widget.controller != null) {
-                  onSetFocusModeButtonPressed(item);
-                }
-              }),
+                    DropdownMenuItem(
+                      value: FocusMode.locked,
+                      child: Text(
+                        AppLocalizations.of(context)!.lockedSmall,
+                        style: const TextStyle(
+                          color: Colors.blue,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ],
+                  items: [
+                    DropdownMenuItem(
+                      value: FocusMode.auto,
+                      child: Text(
+                        AppLocalizations.of(context)!.focusModeAuto,
+                        style: const TextStyle(
+                          color: Colors.blue,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    DropdownMenuItem(
+                      value: FocusMode.locked,
+                      child: Text(
+                        AppLocalizations.of(context)!.focusModeLocked,
+                        style: const TextStyle(
+                          color: Colors.blue,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ],
+                  /*items: focusModes
+                      .map(
+                        (item) => DropdownMenuItem<FocusMode>(
+                          value: item,
+                          child: Text(
+                            '${item.name.toUpperCase()} FOCUS',
+                            style: const TextStyle(
+                                color: Colors.blue, fontWeight: FontWeight.w500),
+                          ),
+                        ),
+                      )
+                      .toList(),*/
+                  onChanged: (item) async {
+                    _selectedFocusModeNotifier.value = item;
+                    if (widget.controller != null) {
+                      await onSetFocusModeButtonPressed(item);
+                    }
+                  },
+                );
+              },
             ),
           ),
         ],

@@ -18,7 +18,6 @@ import 'package:librecamera/src/widgets/capture_control.dart';
 import 'package:librecamera/src/widgets/exposure.dart';
 import 'package:librecamera/src/widgets/flash.dart';
 import 'package:librecamera/src/widgets/focus.dart';
-import 'package:librecamera/src/widgets/format.dart';
 import 'package:librecamera/src/widgets/resolution.dart';
 import 'package:librecamera/src/widgets/timer.dart';
 import 'package:native_device_orientation/native_device_orientation.dart';
@@ -47,23 +46,28 @@ class _CameraPageState extends State<CameraPage>
   //Zoom
   double _minAvailableZoom = 1;
   double _maxAvailableZoom = 1;
-  double _currentScale = 1;
+  final ValueNotifier<double> _currentScaleNotifier = ValueNotifier(1);
   double _baseScale = 1;
   int _pointers = 0;
 
   //Exposure
   double _minAvailableExposureOffset = 0;
   double _maxAvailableExposureOffset = 0;
-  double _currentExposureOffset = 0;
+  final ValueNotifier<double> _currentExposureOffsetNotifier = ValueNotifier(0);
 
   //Current camera
-  bool isRearCameraSelected = Preferences.getStartWithRearCamera();
-  bool isVideoCameraSelected = false;
+  final ValueNotifier<bool> _isRearCameraSelectedNotifier = ValueNotifier(
+    Preferences.getStartWithRearCamera(),
+  );
+  final ValueNotifier<bool> _isVideoCameraSelectedNotifier = ValueNotifier(
+    false,
+  );
   bool takingPicture = false;
 
   //Circle position
-  double _circlePosX = 0, _circlePosY = 0;
-  bool _circleEnabled = false;
+  double _circlePosX = 0;
+  double _circlePosY = 0;
+  final ValueNotifier<bool> _circleEnabledNotifier = ValueNotifier(false);
   final Tween<double> _scaleTween = Tween<double>(begin: 1, end: 0.75);
 
   //Video recording timer
@@ -78,6 +82,8 @@ class _CameraPageState extends State<CameraPage>
   //Volume buttons
   StreamSubscription<HardwareButton>? volumeSubscription;
   bool canPressVolume = true;
+
+  final ValueNotifier<bool> _showPreviewNotifier = ValueNotifier(true);
 
   //QR Code
   /*final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
@@ -96,7 +102,11 @@ class _CameraPageState extends State<CameraPage>
       _subscribeOrientationChangeStream();
     }
 
-    onNewCameraSelected(cameras[Preferences.getStartWithRearCamera() ? 0 : 1]);
+    unawaited(
+      onNewCameraSelected(
+        cameras[Preferences.getStartWithRearCamera() ? 0 : 1],
+      ),
+    );
   }
 
   // In order to get hot reload to work we need to pause the camera if the platform
@@ -112,7 +122,6 @@ class _CameraPageState extends State<CameraPage>
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
-
     //qrController?.dispose();
 
     super.dispose();
@@ -122,17 +131,27 @@ class _CameraPageState extends State<CameraPage>
   void didChangeAppLifecycleState(AppLifecycleState state) {
     final cameraController = controller;
 
+    // App state changed before we got the chance to initialize.
     if (cameraController == null || !cameraController.value.isInitialized) {
       return;
     }
 
     if (state == AppLifecycleState.inactive) {
-      cameraController.dispose();
-      //qrController?.pauseCamera();
+      unawaited(_hideCamera());
     } else if (state == AppLifecycleState.resumed) {
-      _initializeCameraController(cameraController.description);
-      //qrController?.resumeCamera();
+      unawaited(_showCamera());
     }
+  }
+
+  Future<void> _hideCamera() async {
+    if (mounted) _showPreviewNotifier.value = false;
+    await controller?.dispose();
+  }
+
+  Future<void> _showCamera() async {
+    if (controller == null) return;
+    await _initializeCameraController(controller!.description);
+    if (mounted) _showPreviewNotifier.value = true;
   }
 
   void _subscribeVolumeButtons() {
@@ -141,14 +160,14 @@ class _CameraPageState extends State<CameraPage>
     ) async {
       if (canPressVolume) {
         final int delay;
-        if (isVideoCameraSelected) {
+        if (_isVideoCameraSelectedNotifier.value) {
           delay = 2;
-          controller?.value.isRecordingVideo ?? false
+          await (controller?.value.isRecordingVideo ?? false
               ? onStopButtonPressed()
-              : onVideoRecordButtonPressed();
+              : onVideoRecordButtonPressed());
         } else {
           delay = 1;
-          onTakePictureButtonPressed();
+          await onTakePictureButtonPressed();
         }
 
         canPressVolume = false;
@@ -179,37 +198,38 @@ class _CameraPageState extends State<CameraPage>
   void _subscribeOrientationChangeStream() {
     final nativeDeviceOrientationCommunicator =
         NativeDeviceOrientationCommunicator();
-    final onOrientationChangedStream = nativeDeviceOrientationCommunicator
+
+    nativeDeviceOrientationCommunicator
         .onOrientationChanged(
           useSensor: true,
-        );
+        )
+        .listen((event) {
+          final orientation = nativeDeviceOrientationCommunicator.orientation(
+            useSensor: true,
+          );
 
-    onOrientationChangedStream.listen((event) {
-      final orientation = nativeDeviceOrientationCommunicator.orientation(
-        useSensor: true,
-      );
-
-      _timeOfLastChange = DateTime.now();
-      Future.delayed(const Duration(milliseconds: 500), () async {
-        if (DateTime.now().difference(_timeOfLastChange).inMilliseconds > 500) {
-          if (await orientation == NativeDeviceOrientation.portraitUp) {
-            await SystemChrome.setPreferredOrientations([
-              DeviceOrientation.portraitUp,
-            ]);
-          } else if (await orientation ==
-              NativeDeviceOrientation.landscapeLeft) {
-            await SystemChrome.setPreferredOrientations([
-              DeviceOrientation.landscapeLeft,
-            ]);
-          } else if (await orientation ==
-              NativeDeviceOrientation.landscapeRight) {
-            await SystemChrome.setPreferredOrientations([
-              DeviceOrientation.landscapeRight,
-            ]);
-          }
-        }
-      });
-    });
+          _timeOfLastChange = DateTime.now();
+          Future.delayed(const Duration(milliseconds: 500), () async {
+            if (DateTime.now().difference(_timeOfLastChange).inMilliseconds >
+                500) {
+              if (await orientation == NativeDeviceOrientation.portraitUp) {
+                await SystemChrome.setPreferredOrientations([
+                  DeviceOrientation.portraitUp,
+                ]);
+              } else if (await orientation ==
+                  NativeDeviceOrientation.landscapeLeft) {
+                await SystemChrome.setPreferredOrientations([
+                  DeviceOrientation.landscapeLeft,
+                ]);
+              } else if (await orientation ==
+                  NativeDeviceOrientation.landscapeRight) {
+                await SystemChrome.setPreferredOrientations([
+                  DeviceOrientation.landscapeRight,
+                ]);
+              }
+            }
+          });
+        });
   }
 
   @override
@@ -297,30 +317,37 @@ class _CameraPageState extends State<CameraPage>
   Widget _previewWidget() {
     final cameraController = controller;
 
-    if (cameraController != null && cameraController.value.isInitialized) {
-      return Center(
-        child: Listener(
-          onPointerDown: (_) => _pointers++,
-          onPointerUp: (_) => _pointers--,
-          child: CameraPreview(
-            cameraController,
-            child: LayoutBuilder(
-              builder: (BuildContext context, BoxConstraints constraints) {
-                return GestureDetector(
-                  behavior: HitTestBehavior.opaque,
-                  onScaleStart: _handleScaleStart,
-                  onScaleUpdate: _handleScaleUpdate,
-                  onTapDown: (TapDownDetails details) =>
-                      _onViewFinderTap(details, constraints),
-                );
-              },
+    return ValueListenableBuilder(
+      valueListenable: _showPreviewNotifier,
+      builder: (context, showPreview, child) {
+        if (showPreview &&
+            (cameraController != null &&
+                cameraController.value.isInitialized)) {
+          return Center(
+            child: Listener(
+              onPointerDown: (_) => _pointers++,
+              onPointerUp: (_) => _pointers--,
+              child: CameraPreview(
+                cameraController,
+                child: LayoutBuilder(
+                  builder: (BuildContext context, BoxConstraints constraints) {
+                    return GestureDetector(
+                      behavior: HitTestBehavior.opaque,
+                      onScaleStart: _handleScaleStart,
+                      onScaleUpdate: _handleScaleUpdate,
+                      onTapDown: (TapDownDetails details) =>
+                          _onViewFinderTap(details, constraints),
+                    );
+                  },
+                ),
+              ),
             ),
-          ),
-        ),
-      );
-    } else {
-      return const Center(child: CircularProgressIndicator());
-    }
+          );
+        } else {
+          return const SizedBox.shrink();
+        }
+      },
+    );
   }
 
   Widget _topControlsWidget() {
@@ -354,22 +381,43 @@ class _CameraPageState extends State<CameraPage>
                     controller?.value.isRecordingVideo == false &&
                     _timerStopwatch.elapsedTicks <= 1,
               ),
-              TimerButton(
-                enabled:
-                    !isVideoCameraSelected && _timerStopwatch.elapsedTicks <= 1,
+              ValueListenableBuilder(
+                valueListenable: _isVideoCameraSelectedNotifier,
+                builder: (context, isVideoCameraSelected, child) {
+                  return TimerButton(
+                    enabled:
+                        !isVideoCameraSelected &&
+                        _timerStopwatch.elapsedTicks <= 1,
+                  );
+                },
               ),
-              FlashModeWidget(
-                controller: controller,
-                isRearCameraSelected: isRearCameraSelected,
-                isVideoCameraSelected: isVideoCameraSelected,
+              ValueListenableBuilder(
+                valueListenable: _isRearCameraSelectedNotifier,
+                builder: (context, isRearCameraSelected, child) {
+                  return ValueListenableBuilder(
+                    valueListenable: _isVideoCameraSelectedNotifier,
+                    builder: (context, isVideoCameraSelected, child) {
+                      return FlashModeWidget(
+                        controller: controller,
+                        isRearCameraSelected: isRearCameraSelected,
+                        isVideoCameraSelected: isVideoCameraSelected,
+                      );
+                    },
+                  );
+                },
               ),
-              ResolutionButton(
-                isDense: true,
-                onNewCameraSelected: _initializeCameraController,
-                isRearCameraSelected: isRearCameraSelected,
-                enabled:
-                    controller?.value.isRecordingVideo == false &&
-                    _timerStopwatch.elapsedTicks <= 1,
+              ValueListenableBuilder(
+                valueListenable: _isRearCameraSelectedNotifier,
+                builder: (context, isRearCameraSelected, child) {
+                  return ResolutionButton(
+                    isDense: true,
+                    onNewCameraSelected: _initializeCameraController,
+                    isRearCameraSelected: isRearCameraSelected,
+                    enabled:
+                        controller?.value.isRecordingVideo == false &&
+                        _timerStopwatch.elapsedTicks <= 1,
+                  );
+                },
               ),
               _settingsWidget(
                 enabled:
@@ -423,7 +471,7 @@ class _CameraPageState extends State<CameraPage>
                       MediaQuery.of(context).orientation == Orientation.portrait
                       ? 0
                       : 2,
-                  child: _zoomSlider(update: false),
+                  child: _zoomSlider(),
                 ),
               if (leftHandedMode) const SizedBox(height: 64),
             ],
@@ -439,36 +487,39 @@ class _CameraPageState extends State<CameraPage>
       turns: MediaQuery.of(context).orientation == Orientation.portrait
           ? 0
           : 0.25,
-      child: IconButton(
-        color: Colors.white,
-        disabledColor: Colors.white24,
-        onPressed: enabled
-            ? () async {
-                if (!isVideoCameraSelected) {
-                  final status = await Permission.microphone.status;
+      child: ValueListenableBuilder(
+        valueListenable: _isVideoCameraSelectedNotifier,
+        builder: (context, isVideoCameraSelected, child) {
+          return IconButton(
+            color: Colors.white,
+            disabledColor: Colors.white24,
+            onPressed: enabled
+                ? () async {
+                    if (!_isVideoCameraSelectedNotifier.value) {
+                      final status = await Permission.microphone.status;
 
-                  if (!status.isGranted) {
-                    await Permission.microphone.request();
-                  } else {
-                    setState(() {
-                      isVideoCameraSelected = true;
-                      _initializeCameraController(controller!.description);
-                    });
+                      if (!status.isGranted) {
+                        await Permission.microphone.request();
+                      } else {
+                        await _initializeCameraController(
+                          controller!.description,
+                        );
+                        _isVideoCameraSelectedNotifier.value = true;
+                      }
+                    } else if (!(controller?.value.isRecordingVideo ?? false)) {
+                      _isVideoCameraSelectedNotifier.value = false;
+                    }
                   }
-                } else {
-                  controller?.value.isRecordingVideo ?? false
-                      ? null
-                      : setState(() => isVideoCameraSelected = false);
-                }
-              }
-            : null,
-        iconSize: 36,
-        icon: isVideoCameraSelected
-            ? const Icon(Icons.camera_alt)
-            : const Icon(Icons.videocam),
-        tooltip: isVideoCameraSelected
-            ? AppLocalizations.of(context)!.switchToPictureMode
-            : AppLocalizations.of(context)!.switchToVideoRecordingMode,
+                : null,
+            iconSize: 36,
+            icon: isVideoCameraSelected
+                ? const Icon(Icons.camera_alt)
+                : const Icon(Icons.videocam),
+            tooltip: isVideoCameraSelected
+                ? AppLocalizations.of(context)!.switchToPictureMode
+                : AppLocalizations.of(context)!.switchToVideoRecordingMode,
+          );
+        },
       ),
     );
   }
@@ -485,11 +536,11 @@ class _CameraPageState extends State<CameraPage>
                 _stopVolumeButtons();
                 await Navigator.of(context).push(
                   MaterialPageRoute<void>(
-                    builder: (context) => SettingsPage(
-                      controller: controller,
-                      onNewCameraSelected: _initializeCameraController,
-                    ),
+                    builder: (context) => SettingsPage(controller: controller),
                   ),
+                );
+                await _initializeCameraController(
+                  controller!.description,
                 );
               }
             : null,
@@ -524,15 +575,20 @@ class _CameraPageState extends State<CameraPage>
                       if (capturedFile!.path.split('.').last == 'mp4') {
                         mimeType = 'video/mp4';
                       } else {
-                        switch (getCompressFormat()) {
+                        final format = CompressFormat.values.firstWhere(
+                          (format) =>
+                              format.name == Preferences.getCompressFormat(),
+                          orElse: () => CompressFormat.jpeg,
+                        );
+                        switch (format) {
                           case CompressFormat.jpeg:
                             mimeType = 'image/jpeg';
                           case CompressFormat.png:
                             mimeType = 'image/png';
                           case CompressFormat.webp:
                             mimeType = 'image/webp';
-                          default:
-                            mimeType = 'image/jpeg';
+                          case CompressFormat.heic:
+                            mimeType = 'image/heic';
                         }
                       }
 
@@ -560,69 +616,97 @@ class _CameraPageState extends State<CameraPage>
       if (Preferences.getEnableModeRow()) _cameraModesWidget(),
       if (Preferences.getEnableModeRow()) const Divider(color: Colors.blue),
       if (Preferences.getEnableExposureSlider())
-        ExposureSlider(
-          setExposureOffset: _setExposureOffset,
-          currentExposureOffset: _currentExposureOffset,
-          minAvailableExposureOffset: _minAvailableExposureOffset,
-          maxAvailableExposureOffset: _maxAvailableExposureOffset,
+        ValueListenableBuilder(
+          valueListenable: _currentExposureOffsetNotifier,
+          builder: (context, currentExposureOffset, child) {
+            return ExposureSlider(
+              setExposureOffset: _setExposureOffset,
+              currentExposureOffset: currentExposureOffset,
+              minAvailableExposureOffset: _minAvailableExposureOffset,
+              maxAvailableExposureOffset: _maxAvailableExposureOffset,
+            );
+          },
         ),
       if (Preferences.getEnableExposureSlider())
         const Divider(color: Colors.blue),
       Container(
         padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
-        child: CaptureControlWidget(
-          controller: controller,
-          onTakePictureButtonPressed: onTakePictureButtonPressed,
-          onVideoRecordButtonPressed: onVideoRecordButtonPressed,
-          onResumeButtonPressed: onResumeButtonPressed,
-          onPauseButtonPressed: onPauseButtonPressed,
-          onStopButtonPressed: onStopButtonPressed,
-          onNewCameraSelected: onNewCameraSelected,
-          isVideoCameraSelected: isVideoCameraSelected,
-          isRecordingInProgress: controller?.value.isRecordingVideo ?? false,
-          /*flashWidget: FlashModeControlRowWidget(
-                controller: controller,
-                isRearCameraSelected: isRearCameraSelected,
-              ),*/
-          leadingWidget: _thumbnailPreviewWidget(),
-          isRearCameraSelected: getIsRearCameraSelected(),
-          setIsRearCameraSelected: setIsRearCameraSelected,
+        child: ValueListenableBuilder(
+          valueListenable: _isRearCameraSelectedNotifier,
+          builder: (context, isRearCameraSelected, child) {
+            return ValueListenableBuilder(
+              valueListenable: _isVideoCameraSelectedNotifier,
+              builder: (context, isVideoCameraSelected, child) {
+                return CaptureControlWidget(
+                  controller: controller,
+                  onTakePictureButtonPressed: onTakePictureButtonPressed,
+                  onVideoRecordButtonPressed: onVideoRecordButtonPressed,
+                  onResumeButtonPressed: onResumeButtonPressed,
+                  onPauseButtonPressed: onPauseButtonPressed,
+                  onStopButtonPressed: onStopButtonPressed,
+                  onNewCameraSelected: onNewCameraSelected,
+                  isVideoCameraSelected: isVideoCameraSelected,
+                  isRecordingInProgress:
+                      controller?.value.isRecordingVideo ?? false,
+                  /*flashWidget: FlashModeControlRowWidget(
+                        controller: controller,
+                        isRearCameraSelected: isRearCameraSelected,
+                      ),*/
+                  leadingWidget: _thumbnailPreviewWidget(),
+                  isRearCameraSelected: isRearCameraSelected,
+                  setIsRearCameraSelected: () =>
+                      _isRearCameraSelectedNotifier.value =
+                          !_isRearCameraSelectedNotifier.value,
+                );
+              },
+            );
+          },
         ),
       ),
     ];
 
     final bottomControls = <Widget>[
-      if (controller != null &&
-          isVideoCameraSelected &&
-          controller!.value.isRecordingVideo)
-        Center(
-          child: Padding(
-            padding: const EdgeInsets.all(8),
-            child: AnimatedRotation(
-              duration: const Duration(milliseconds: 400),
-              turns: MediaQuery.of(context).orientation == Orientation.portrait
-                  ? 0
-                  : 0.25,
-              child: Container(
-                padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
-                decoration: BoxDecoration(
-                  color: Colors.black38,
-                  borderRadius: BorderRadius.circular(4),
-                ),
-                child: Text(
-                  _stopwatch.elapsed.inSeconds < 60
-                      ? '${_stopwatch.elapsed.inSeconds}s'
-                      : '${_stopwatch.elapsed.inMinutes}m ${_stopwatch.elapsed.inSeconds % 60}s',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600,
+      ValueListenableBuilder(
+        valueListenable: _isVideoCameraSelectedNotifier,
+        builder: (context, isVideoCameraSelected, child) {
+          if (controller != null &&
+              isVideoCameraSelected &&
+              controller!.value.isRecordingVideo) {
+            return Center(
+              child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: AnimatedRotation(
+                  duration: const Duration(milliseconds: 400),
+                  turns:
+                      MediaQuery.of(context).orientation == Orientation.portrait
+                      ? 0
+                      : 0.25,
+                  child: Container(
+                    padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
+                    decoration: BoxDecoration(
+                      color: Colors.black38,
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: Text(
+                      _stopwatch.elapsed.inSeconds < 60
+                          ? '${_stopwatch.elapsed.inSeconds}s'
+                          : '${_stopwatch.elapsed.inMinutes}m ${_stopwatch.elapsed.inSeconds % 60}s',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ),
-        ),
+            );
+          } else {
+            return const SizedBox.shrink();
+          }
+        },
+      ),
+
       ColoredBox(
         color: Colors.black12,
         child: Column(
@@ -676,11 +760,26 @@ class _CameraPageState extends State<CameraPage>
     final cameraController = CameraController(
       cameraDescription,
       resolution,
-      enableAudio: isVideoCameraSelected && Preferences.getEnableAudio(),
+      enableAudio:
+          _isVideoCameraSelectedNotifier.value && Preferences.getEnableAudio(),
       imageFormatGroup: ImageFormatGroup.jpeg,
     );
 
     controller = cameraController;
+
+    // If the controller is updated then update the UI.
+    cameraController.addListener(() {
+      if (mounted) {
+        setState(() {});
+      }
+      if (cameraController.value.hasError) {
+        if (kDebugMode) {
+          print(
+            'Camera error ${cameraController.value.errorDescription}',
+          );
+        }
+      }
+    });
 
     try {
       await cameraController.initialize();
@@ -735,91 +834,82 @@ class _CameraPageState extends State<CameraPage>
     });*/
   }
 
-  bool getIsRearCameraSelected() {
-    return isRearCameraSelected;
-  }
-
-  void setIsRearCameraSelected() {
-    setState(() => isRearCameraSelected = !isRearCameraSelected);
-  }
-
   //Camera button functions
-  void onTakePictureButtonPressed() {
-    takePicture().then((XFile? file) {
-      if (mounted) {
-        setState(() {
-          videoThumbnailUint8list = null;
-        });
-      }
-    });
+  Future<void> onTakePictureButtonPressed() async {
+    await takePicture();
+
+    if (mounted) {
+      setState(() {
+        videoThumbnailUint8list = null;
+      });
+    }
   }
 
-  void onVideoRecordButtonPressed() {
+  Future<void> onVideoRecordButtonPressed() async {
     if (!Preferences.getDisableShutterSound()) {
-      final methodChannel = AndroidMethodChannel();
-      methodChannel.startVideoSound();
+      await AndroidMethodChannel().startVideoSound();
     }
 
-    startVideoRecording().then((_) {
-      if (mounted) {
-        setState(() {});
-      }
-    });
+    await startVideoRecording();
+
+    if (mounted) {
+      setState(() {});
+    }
   }
 
-  void onStopButtonPressed() {
-    stopVideoRecording().then((XFile? file) async {
-      if (mounted) {
-        setState(() {});
+  Future<void> onStopButtonPressed() async {
+    final file = await stopVideoRecording();
+
+    if (mounted) {
+      setState(() {});
+    }
+    if (file != null) {
+      capturedFile = File(file.path);
+
+      final directory = Preferences.getSavePath();
+
+      final fileFormat = capturedFile!.path.split('.').last;
+      final path = '$directory/VID_${timestamp()}.$fileFormat';
+
+      try {
+        final tempFile = capturedFile!.copySync(path);
+
+        final methodChannel = AndroidMethodChannel();
+        await methodChannel.updateItem(file: tempFile);
+        capturedFile = File(path);
+      } catch (e) {
+        if (mounted) showSnackbar(text: e.toString());
       }
-      if (file != null) {
-        capturedFile = File(file.path);
 
-        final directory = Preferences.getSavePath();
+      await File(file.path).delete();
 
-        final fileFormat = capturedFile!.path.split('.').last;
-        final path = '$directory/VID_${timestamp()}.$fileFormat';
-
-        try {
-          final tempFile = capturedFile!.copySync(path);
-
-          final methodChannel = AndroidMethodChannel();
-          await methodChannel.updateItem(file: tempFile);
-          capturedFile = File(path);
-        } catch (e) {
-          if (mounted) showSnackbar(text: e.toString());
-        }
-
-        await File(file.path).delete();
-
-        if (kDebugMode) {
-          print('Video recorded to $path');
-        }
-        await _refreshGalleryImages();
-      }
-    });
-  }
-
-  void onPauseButtonPressed() {
-    pauseVideoRecording().then((_) {
-      if (mounted) {
-        setState(() {});
-      }
       if (kDebugMode) {
-        print('Video recording paused');
+        print('Video recorded to $path');
       }
-    });
+      await _refreshGalleryImages();
+    }
   }
 
-  void onResumeButtonPressed() {
-    resumeVideoRecording().then((_) {
-      if (mounted) {
-        setState(() {});
-      }
-      if (kDebugMode) {
-        print('Video recording resumed');
-      }
-    });
+  Future<void> onPauseButtonPressed() async {
+    await pauseVideoRecording();
+
+    if (mounted) {
+      setState(() {});
+    }
+    if (kDebugMode) {
+      print('Video recording paused');
+    }
+  }
+
+  Future<void> onResumeButtonPressed() async {
+    await resumeVideoRecording();
+
+    if (mounted) {
+      setState(() {});
+    }
+    if (kDebugMode) {
+      print('Video recording resumed');
+    }
   }
 
   //Camera controls
@@ -860,8 +950,7 @@ class _CameraPageState extends State<CameraPage>
       takingPicture = true;
 
       if (!Preferences.getDisableShutterSound()) {
-        final methodChannel = AndroidMethodChannel();
-        methodChannel.shutterSound();
+        await AndroidMethodChannel().shutterSound();
       }
 
       capturedFile = File(file.path);
@@ -869,9 +958,12 @@ class _CameraPageState extends State<CameraPage>
       final directory = Preferences.getSavePath();
 
       //String fileFormat = capturedFile!.path.split('.').last;
-      final format = getCompressFormat();
+      final format = CompressFormat.values.firstWhere(
+        (format) => format.name == Preferences.getCompressFormat(),
+        orElse: () => CompressFormat.jpeg,
+      );
       final String fileFormat;
-      switch (getCompressFormat()) {
+      switch (format) {
         case CompressFormat.jpeg:
           fileFormat = 'jpg';
         case CompressFormat.png:
@@ -884,7 +976,8 @@ class _CameraPageState extends State<CameraPage>
 
       final path = '$directory/IMG_${timestamp()}.$fileFormat';
 
-      if (!isRearCameraSelected && Preferences.getFlipFrontCameraPhoto()) {
+      if (!_isRearCameraSelectedNotifier.value &&
+          Preferences.getFlipFrontCameraPhoto()) {
         final imageBytes = await capturedFile!.readAsBytes();
         final originalImage = img.decodeImage(imageBytes);
         final fixedImage = img.flipHorizontal(originalImage!);
@@ -986,8 +1079,9 @@ class _CameraPageState extends State<CameraPage>
 
   Future<XFile?> stopVideoRecording() async {
     setState(() {
-      _stopwatch.stop();
-      _stopwatch.reset();
+      _stopwatch
+        ..stop()
+        ..reset();
     });
 
     final cameraController = controller;
@@ -1045,15 +1139,7 @@ class _CameraPageState extends State<CameraPage>
   }
 
   //Zoom
-  Widget _zoomSlider({required bool update}) {
-    if (mounted && update) {
-      setState(() {});
-    }
-
-    if (_currentScale > _maxAvailableZoom) {
-      _currentScale = _maxAvailableZoom;
-    }
-
+  Widget _zoomSlider() {
     return RotatedBox(
       quarterTurns: 3,
       child: SliderTheme(
@@ -1061,16 +1147,22 @@ class _CameraPageState extends State<CameraPage>
           showValueIndicator: ShowValueIndicator.onDrag,
           overlayShape: SliderComponentShape.noOverlay,
         ),
-        child: Slider(
-          value: _currentScale,
-          min: _minAvailableZoom,
-          max: _maxAvailableZoom,
-          label: _currentScale.toStringAsFixed(2),
-          onChanged: (value) async {
-            setState(() {
-              _currentScale = value;
-            });
-            await controller!.setZoomLevel(value);
+        child: ValueListenableBuilder(
+          valueListenable: _currentScaleNotifier,
+          builder: (context, currentScale, child) {
+            return Slider(
+              value: currentScale,
+              min: _minAvailableZoom,
+              max: _maxAvailableZoom,
+              label: currentScale.toStringAsFixed(2),
+              onChanged: (value) async {
+                _currentScaleNotifier.value = value.clamp(
+                  _minAvailableZoom,
+                  _maxAvailableZoom,
+                );
+                await controller!.setZoomLevel(value);
+              },
+            );
           },
         ),
       ),
@@ -1078,7 +1170,7 @@ class _CameraPageState extends State<CameraPage>
   }
 
   void _handleScaleStart(ScaleStartDetails details) {
-    _baseScale = _currentScale;
+    _baseScale = _currentScaleNotifier.value;
   }
 
   Future<void> _onViewFinderTap(
@@ -1091,8 +1183,8 @@ class _CameraPageState extends State<CameraPage>
 
     final cameraController = controller!;
 
-    _circlePosX = details.globalPosition.dx;
-    _circlePosY = details.globalPosition.dy;
+    _circlePosX = details.localPosition.dx;
+    _circlePosY = details.localPosition.dy;
 
     await _displayCircle();
 
@@ -1105,42 +1197,43 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Future<void> _displayCircle() async {
-    setState(() {
-      _circleEnabled = true;
-    });
+    _circleEnabledNotifier.value = true;
     await Future<void>.delayed(const Duration(milliseconds: 600));
-    setState(() {
-      _circleEnabled = false;
-    });
+    _circleEnabledNotifier.value = false;
   }
 
   Widget _circleWidget() {
     const circleRadius = 42.0;
 
-    return Positioned(
-      top: _circlePosY - (circleRadius / 2),
-      left: _circlePosX - (circleRadius / 2),
-      child: _circleEnabled
-          ? TweenAnimationBuilder(
-              tween: _scaleTween,
-              duration: const Duration(milliseconds: 250),
-              curve: Curves.easeInOut,
-              builder: (context, scale, child) {
-                return Transform.scale(scale: scale, child: child);
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.white),
-                  borderRadius: BorderRadius.circular(50),
-                ),
-                child: const Icon(
-                  Icons.circle,
-                  color: Colors.transparent,
-                  size: circleRadius,
-                ),
-              ),
-            )
-          : Container(),
+    return ValueListenableBuilder(
+      valueListenable: _circleEnabledNotifier,
+      builder: (context, circleEnabled, child) {
+        return Positioned(
+          top: _circlePosY - (circleRadius / 2),
+          left: _circlePosX - (circleRadius / 2),
+          child: circleEnabled
+              ? TweenAnimationBuilder(
+                  tween: _scaleTween,
+                  duration: const Duration(milliseconds: 250),
+                  curve: Curves.easeInOut,
+                  builder: (context, scale, child) {
+                    return Transform.scale(scale: scale, child: child);
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.white),
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: const Icon(
+                      Icons.circle,
+                      color: Colors.transparent,
+                      size: circleRadius,
+                    ),
+                  ),
+                )
+              : Container(),
+        );
+      },
     );
   }
 
@@ -1150,14 +1243,14 @@ class _CameraPageState extends State<CameraPage>
       return;
     }
 
-    _currentScale = (_baseScale * details.scale).clamp(
+    _currentScaleNotifier.value = (_baseScale * details.scale).clamp(
       _minAvailableZoom,
       _maxAvailableZoom,
     );
 
-    _zoomSlider(update: true);
+    _zoomSlider();
 
-    await controller!.setZoomLevel(_currentScale);
+    await controller!.setZoomLevel(_currentScaleNotifier.value);
   }
 
   //Exposure
@@ -1166,16 +1259,14 @@ class _CameraPageState extends State<CameraPage>
       return;
     }
 
-    setState(() {
-      _currentExposureOffset = offset;
-    });
+    _currentExposureOffsetNotifier.value = offset;
+
     try {
-      offset = await controller!.setExposureOffset(offset);
+      await controller!.setExposureOffset(offset);
     } on CameraException catch (e) {
       if (kDebugMode) {
         print('$e: ${e.description}');
       }
-      rethrow;
     }
   }
 

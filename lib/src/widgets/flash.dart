@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +8,10 @@ import 'package:librecamera/src/utils/preferences.dart';
 
 class FlashModeWidget extends StatefulWidget {
   const FlashModeWidget({
-    required this.controller, required this.isRearCameraSelected, required this.isVideoCameraSelected, super.key,
+    required this.controller,
+    required this.isRearCameraSelected,
+    required this.isVideoCameraSelected,
+    super.key,
   });
 
   final CameraController? controller;
@@ -18,37 +23,31 @@ class FlashModeWidget extends StatefulWidget {
 }
 
 class _FlashModeWidgetState extends State<FlashModeWidget> {
-  void _toggleFlashMode() {
+  Future<void> _toggleFlashMode() async {
     if (widget.controller != null) {
       if (widget.controller?.value.flashMode == FlashMode.off) {
-        _onSetFlashModeButtonPressed(
+        await _onSetFlashModeButtonPressed(
           widget.isVideoCameraSelected ? FlashMode.torch : FlashMode.always,
         );
       } else if (widget.controller?.value.flashMode == FlashMode.always) {
-        _onSetFlashModeButtonPressed(
+        await _onSetFlashModeButtonPressed(
           widget.isVideoCameraSelected ? FlashMode.off : FlashMode.auto,
         );
       } else if (widget.controller?.value.flashMode == FlashMode.auto) {
-        _onSetFlashModeButtonPressed(
+        await _onSetFlashModeButtonPressed(
           widget.isVideoCameraSelected ? FlashMode.off : FlashMode.torch,
         );
       } else if (widget.controller?.value.flashMode == FlashMode.torch) {
-        _onSetFlashModeButtonPressed(FlashMode.off);
+        await _onSetFlashModeButtonPressed(FlashMode.off);
       }
-    } else {
-      null;
     }
   }
 
-  void _onSetFlashModeButtonPressed(FlashMode mode) {
-    _setFlashMode(mode).then((_) {
-      if (mounted) {
-        setState(() {});
-      }
-      if (kDebugMode) {
-        print('Flash mode set to ${mode.toString().split('.').last}');
-      }
-    });
+  Future<void> _onSetFlashModeButtonPressed(FlashMode mode) async {
+    await _setFlashMode(mode);
+    if (kDebugMode) {
+      print('Flash mode set to ${mode.toString().split('.').last}');
+    }
   }
 
   Future<void> _setFlashMode(FlashMode mode) async {
@@ -58,7 +57,7 @@ class _FlashModeWidgetState extends State<FlashModeWidget> {
 
     try {
       await widget.controller!.setFlashMode(mode);
-      Preferences.setFlashMode(mode.name);
+      await Preferences.setFlashMode(mode.name);
     } on CameraException catch (e) {
       if (kDebugMode) {
         print('Error: ${e.code}\nError Message: ${e.description}');
@@ -68,15 +67,19 @@ class _FlashModeWidgetState extends State<FlashModeWidget> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    if (widget.isVideoCameraSelected) {
-      if (widget.controller?.value.flashMode == FlashMode.always) {
-        _onSetFlashModeButtonPressed(FlashMode.off);
-      } else if (widget.controller?.value.flashMode == FlashMode.auto) {
-        _onSetFlashModeButtonPressed(FlashMode.off);
+  void didUpdateWidget(FlashModeWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // Ensure flash mode is compatible when switching to video
+    if (widget.isVideoCameraSelected && !oldWidget.isVideoCameraSelected) {
+      if (widget.controller?.value.flashMode
+          case FlashMode.always || FlashMode.auto) {
+        unawaited(_onSetFlashModeButtonPressed(FlashMode.off));
       }
     }
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return AnimatedRotation(
       duration: const Duration(milliseconds: 400),
       turns: MediaQuery.of(context).orientation == Orientation.portrait
@@ -84,9 +87,7 @@ class _FlashModeWidgetState extends State<FlashModeWidget> {
           : 0.25,
       child: IconButton(
         padding: EdgeInsets.zero,
-        onPressed: widget.isRearCameraSelected
-            ? _toggleFlashMode
-            : null,
+        onPressed: widget.isRearCameraSelected ? _toggleFlashMode : null,
         disabledColor: Colors.white24,
         color: Colors.white,
         iconSize: 60,

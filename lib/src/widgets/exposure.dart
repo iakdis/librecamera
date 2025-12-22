@@ -15,13 +15,13 @@ class ExposureModeControlWidget extends StatefulWidget {
 
 class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
   List<ExposureMode> exposureModes = [ExposureMode.auto, ExposureMode.locked];
-  ExposureMode? selectedExposureMode = ExposureMode.auto;
+  final ValueNotifier<ExposureMode?> _selectedExposureModeNotifier =
+      ValueNotifier(
+        ExposureMode.auto,
+      );
 
   Future<void> onSetExposureModeButtonPressed(ExposureMode? mode) async {
     await setExposureMode(mode);
-    if (mounted) {
-      setState(() {});
-    }
     if (kDebugMode) {
       print('Exposure mode set to ${mode.toString().split('.').last}');
     }
@@ -53,83 +53,89 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
               const Icon(Icons.exposure, color: Colors.blue),
               const SizedBox(width: 6),
               DropdownButtonHideUnderline(
-                child: DropdownButton(
-                  iconEnabledColor: Colors.blue,
-                  value: selectedExposureMode,
-                  selectedItemBuilder: (context) => [
-                    DropdownMenuItem(
-                      value: ExposureMode.auto,
-                      child: Text(
-                        AppLocalizations.of(context)!.autoSmall,
-                        style: const TextStyle(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                    DropdownMenuItem(
-                      value: ExposureMode.locked,
-                      child: Text(
-                        AppLocalizations.of(context)!.lockedSmall,
-                        style: const TextStyle(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                  ],
-                  /*selectedItemBuilder: (context) => [
-                    for (final item in exposureModes)
-                      DropdownMenuItem<ExposureMode>(
-                        value: item,
-                        child: Text(
-                          item.name.toUpperCase(),
-                          style: const TextStyle(
-                              color: Colors.blue, fontWeight: FontWeight.w500),
-                        ),
-                      ),
-                  ],*/
-                  /*items: exposureModes
-                      .map(
-                        (item) => DropdownMenuItem<ExposureMode>(
-                          value: item,
+                child: ValueListenableBuilder(
+                  valueListenable: _selectedExposureModeNotifier,
+                  builder: (context, selectedExposureMode, child) {
+                    return DropdownButton(
+                      menuWidth: 250,
+                      iconEnabledColor: Colors.blue,
+                      value: selectedExposureMode,
+                      selectedItemBuilder: (context) => [
+                        DropdownMenuItem(
+                          value: ExposureMode.auto,
                           child: Text(
-                            "${item.name.toUpperCase()} EXPOSURE",
+                            AppLocalizations.of(context)!.autoSmall,
                             style: const TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.w500),
+                              color: Colors.blue,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
-                      )
-                      .toList(),*/
-                  items: [
-                    DropdownMenuItem(
-                      value: ExposureMode.auto,
-                      child: Text(
-                        AppLocalizations.of(context)!.exposureModeAuto,
-                        style: const TextStyle(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.w500,
+                        DropdownMenuItem(
+                          value: ExposureMode.locked,
+                          child: Text(
+                            AppLocalizations.of(context)!.lockedSmall,
+                            style: const TextStyle(
+                              color: Colors.blue,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    DropdownMenuItem(
-                      value: ExposureMode.locked,
-                      child: Text(
-                        AppLocalizations.of(context)!.exposureModeLocked,
-                        style: const TextStyle(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.w500,
+                      ],
+                      /*selectedItemBuilder: (context) => [
+                        for (final item in exposureModes)
+                          DropdownMenuItem<ExposureMode>(
+                            value: item,
+                            child: Text(
+                              item.name.toUpperCase(),
+                              style: const TextStyle(
+                                  color: Colors.blue, fontWeight: FontWeight.w500),
+                            ),
+                          ),
+                      ],*/
+                      /*items: exposureModes
+                          .map(
+                            (item) => DropdownMenuItem<ExposureMode>(
+                              value: item,
+                              child: Text(
+                                "${item.name.toUpperCase()} EXPOSURE",
+                                style: const TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ),
+                          )
+                          .toList(),*/
+                      items: [
+                        DropdownMenuItem(
+                          value: ExposureMode.auto,
+                          child: Text(
+                            AppLocalizations.of(context)!.exposureModeAuto,
+                            style: const TextStyle(
+                              color: Colors.blue,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                  ],
-                  onChanged: (item) => setState(() {
-                    selectedExposureMode = item;
-                    if (widget.controller != null) {
-                      onSetExposureModeButtonPressed(item);
-                    }
-                  }),
+                        DropdownMenuItem(
+                          value: ExposureMode.locked,
+                          child: Text(
+                            AppLocalizations.of(context)!.exposureModeLocked,
+                            style: const TextStyle(
+                              color: Colors.blue,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                      onChanged: (item) async {
+                        _selectedExposureModeNotifier.value = item;
+                        if (widget.controller != null) {
+                          await onSetExposureModeButtonPressed(item);
+                        }
+                      },
+                    );
+                  },
                 ),
               ),
             ],
