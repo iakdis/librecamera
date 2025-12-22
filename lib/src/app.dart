@@ -60,6 +60,7 @@ class CameraApp extends StatelessWidget {
                 GlobalMaterialLocalizations.delegate,
                 GlobalWidgetsLocalizations.delegate,
                 GlobalCupertinoLocalizations.delegate,
+                FallbackMaterialLocalizationsDelegate(),
               ],
               home: SafeArea(
                 child: onboardingCompleted
