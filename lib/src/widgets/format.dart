@@ -10,6 +10,24 @@ class FormatButton extends StatefulWidget {
 }
 
 class _FormatButtonState extends State<FormatButton> {
+  CompressFormat? _compressFormat;
+  String _nameByCompressFormat(CompressFormat format) => switch (format) {
+    CompressFormat.jpeg => 'JPEG/JPG',
+    CompressFormat.png => 'PNG',
+    CompressFormat.heic => 'HEIC',
+    CompressFormat.webp => 'WebP',
+  };
+
+  @override
+  void initState() {
+    super.initState();
+
+    _compressFormat = CompressFormat.values.firstWhere(
+      (format) => format.name == Preferences.getCompressFormat(),
+      orElse: () => CompressFormat.jpeg,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return DropdownButton(
@@ -17,42 +35,19 @@ class _FormatButtonState extends State<FormatButton> {
         padding: EdgeInsets.only(left: 4),
         child: Icon(Icons.image),
       ),
-      value: getCompressFormat(),
-      items: const [
-        DropdownMenuItem<CompressFormat>(
-          value: CompressFormat.jpeg,
-          child: Text('JPEG/JPG'),
-        ),
-        DropdownMenuItem<CompressFormat>(
-          value: CompressFormat.png,
-          child: Text('PNG'),
-        ),
-        DropdownMenuItem<CompressFormat>(
-          value: CompressFormat.webp,
-          child: Text('WebP'),
+      value: _compressFormat,
+      items: [
+        ...CompressFormat.values.map(
+          (format) => DropdownMenuItem<CompressFormat>(
+            value: format,
+            child: Text(_nameByCompressFormat(format)),
+          ),
         ),
       ],
-      onChanged: (format) {
-        setState(() {
-          Preferences.setCompressFormat((format!).name);
-        });
+      onChanged: (format) async {
+        await Preferences.setCompressFormat((format!).name);
+        setState(() => _compressFormat = format);
       },
     );
   }
-}
-
-CompressFormat getCompressFormat() {
-  final formats = <CompressFormat>[
-    CompressFormat.jpeg,
-    CompressFormat.png,
-    CompressFormat.webp,
-  ];
-
-  final formatString = Preferences.getCompressFormat();
-  var format = CompressFormat.jpeg;
-  for (final f in formats) {
-    if (f.name == formatString) format = f;
-  }
-
-  return format;
 }
