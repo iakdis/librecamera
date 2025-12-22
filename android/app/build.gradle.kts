@@ -45,7 +45,7 @@ android {
                 val abiCodes = mapOf("x86_64" to 1, "armeabi-v7a" to 2, "arm64-v8a" to 3)
                 val abiName = output.filters.find { it.filterType == com.android.build.api.variant.FilterConfiguration.FilterType.ABI }?.identifier
                 val abiCode = abiCodes[abiName] ?: 0
-                output.versionCode.set((variant.versionCode.get() ?: 1) * 10 + abiCode)
+                output.versionCode.set((output.versionCode.get() ?: 1) * 10 + abiCode)
             }
         }
     }
