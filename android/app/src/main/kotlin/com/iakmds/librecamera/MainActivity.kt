@@ -1,5 +1,6 @@
 package com.iakmds.librecamera
 
+import android.app.PendingIntent
 import android.content.ComponentName
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -132,16 +133,23 @@ class MainActivity : FlutterAndroidVolumeKeydownActivity() {
     }
 }
 
-@RequiresApi(Build.VERSION_CODES.N)
 class OpenTileService : TileService() {
-
     override fun onClick() {
         super.onClick()
 
         try {
-            val newIntent = FlutterActivity.withNewEngine().build(this)
-            newIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            startActivityAndCollapse(newIntent)
+            val intent = FlutterActivity.withNewEngine().build(this)
+            if (Build.VERSION.SDK_INT >= 28) {
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            }
+
+            val pendingIntent = PendingIntent.getActivity(
+                this,
+                0,
+                intent,
+                PendingIntent.FLAG_IMMUTABLE
+            )
+            startActivityAndCollapse(pendingIntent)
         } catch (e: Exception) {
             Log.d("debug", "Exception ${e.toString()}")
         }
