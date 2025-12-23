@@ -41,6 +41,13 @@ class AppLocalizationsRo extends AppLocalizations {
       'Dezactivați sunetul când înregistrați un videoclip';
 
   @override
+  String get enableCompression => 'Activează comprimarea';
+
+  @override
+  String get enableCompression_description =>
+      'Folosește comprimarea când salvezi imaginile pentru a economisi spațiu de stocare.';
+
+  @override
   String get enableExposureSlider => 'Activați glisorul de expunere';
 
   @override

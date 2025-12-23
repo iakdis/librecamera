@@ -40,6 +40,13 @@ class AppLocalizationsId extends AppLocalizations {
   String get disableAudio_description => 'Nonaktifkan audio saat merekam video';
 
   @override
+  String get enableCompression => 'Aktifkan kompresi';
+
+  @override
+  String get enableCompression_description =>
+      'Gunakan kompresi saat menyimpan gambar untuk menghemat ruang penyimpanan.';
+
+  @override
   String get enableExposureSlider => 'Aktifkan penggeser pencahayaan';
 
   @override
@@ -229,11 +236,11 @@ class AppLocalizationsId extends AppLocalizations {
   String get settings => 'Pengaturan';
 
   @override
-  String get shutterSound => 'Matikan bunyi rana';
+  String get shutterSound => 'Nyalakan bunyi rana';
 
   @override
   String get shutterSound_description =>
-      'Mematikan bunyi rana ketika mengambil gambar';
+      'Mengaktifkan bunyi rana ketika mengambil gambar';
 
   @override
   String get startRecordingVideo => 'Mulai perekaman video';

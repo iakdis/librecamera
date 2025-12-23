@@ -41,6 +41,13 @@ class AppLocalizationsEl extends AppLocalizations {
       'Απενεργοποίηση ήχου κατά την εγγραφή βίντεο';
 
   @override
+  String get enableCompression => 'Ενεργοποίηση συμπίεσης';
+
+  @override
+  String get enableCompression_description =>
+      'Χρησιμοποιήστε συμπίεση κατά την αποθήκευση εικόνων για εξοικονόμηση χώρου αποθήκευσης.';
+
+  @override
   String get enableExposureSlider => 'Ενεργοποίηση διακόπτη κύλισης έκθεσης';
 
   @override

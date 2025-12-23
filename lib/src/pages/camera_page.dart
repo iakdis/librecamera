@@ -1021,6 +1021,8 @@ class _CameraPageState extends State<CameraPage>
       }
 
       _capturedFile = File(file.path);
+      final imageBytes = await _capturedFile!.readAsBytes();
+      var decodedImage = img.decodeImage(imageBytes);
 
       final directory = Preferences.getSavePath();
 
@@ -1045,36 +1047,43 @@ class _CameraPageState extends State<CameraPage>
 
       if (!_isRearCameraSelectedNotifier.value &&
           Preferences.getFlipFrontCameraPhoto()) {
-        final imageBytes = await _capturedFile!.readAsBytes();
-        final originalImage = img.decodeImage(imageBytes);
-        final fixedImage = img.flipHorizontal(originalImage!);
-
-        await _capturedFile!.writeAsBytes(
-          img.encodeJpg(fixedImage),
-          flush: true,
-        );
+        decodedImage = img.flipHorizontal(decodedImage!);
       }
 
-      /*final resolutionString = Preferences.getResolution();
-      ResolutionPreset resolution = ResolutionPreset.high;
-      for (var res in ResolutionPreset.values) {
-        if (res.name == resolutionString) resolution = res;
-      }*/
+      if (!Preferences.getKeepEXIFMetadata()) {
+        decodedImage!.exif = img.ExifData();
+      }
 
-      final newFileBytes = await FlutterImageCompress.compressWithFile(
-        _capturedFile!.path,
-        quality: Preferences.getCompressQuality(),
-        keepExif: Preferences.getKeepEXIFMetadata(),
-        format: format,
+      await _capturedFile!.writeAsBytes(
+        img.encodeJpg(decodedImage!),
+        flush: true,
       );
 
-      //var tempFile = capturedFile!.copySync('$directory/IMG_${timestamp()}.$fileFormat');
+      Uint8List? fileBytes;
+
+      if (Preferences.getEnableCompression()) {
+        fileBytes = await FlutterImageCompress.compressWithFile(
+          _capturedFile!.path,
+          minHeight: decodedImage.height,
+          minWidth: decodedImage.width,
+          quality: Preferences.getCompressQuality(),
+          keepExif: Preferences.getKeepEXIFMetadata(),
+          format: format,
+        );
+      } else {
+        fileBytes = await _capturedFile!.readAsBytes();
+      }
+
       try {
-        final tempFile = await _capturedFile!.copy(path);
-        await tempFile.writeAsBytes(newFileBytes!);
+        if (fileBytes == null) {
+          throw Exception('Failed to compress image.');
+        }
+
+        final file = await _capturedFile!.copy(path);
+        await file.writeAsBytes(fileBytes);
 
         final methodChannel = AndroidMethodChannel();
-        await methodChannel.updateItem(file: tempFile);
+        await methodChannel.updateItem(file: file);
         _capturedFile = File(path);
       } catch (e) {
         if (mounted) showSnackbar(text: e.toString());

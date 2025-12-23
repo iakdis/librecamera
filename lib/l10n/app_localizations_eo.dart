@@ -40,6 +40,13 @@ class AppLocalizationsEo extends AppLocalizations {
   String get disableAudio_description => 'Disable audio when recording a video';
 
   @override
+  String get enableCompression => 'Ŝalti kunpremadon';
+
+  @override
+  String get enableCompression_description =>
+      'Uzi kunpremadon kiam vi konservas bildojn por ŝpari diskospacon';
+
+  @override
   String get enableExposureSlider => 'Enable exposure slider';
 
   @override
@@ -102,11 +109,11 @@ class AppLocalizationsEo extends AppLocalizations {
   String get focusModeLocked => 'ŜLOSITA FOKUSO';
 
   @override
-  String get format => 'Bilda dosierformo';
+  String get format => 'Bilda kunpremada formato';
 
   @override
   String get format_description =>
-      'Ŝanĝi la bildan dosierformon (implicite: JPEG)';
+      'Ŝanĝi la bildan kunpremadan formaton (implicite: JPEG/JPG)';
 
   @override
   String get getStarted => 'Get started';
@@ -231,11 +238,11 @@ class AppLocalizationsEo extends AppLocalizations {
   String get settings => 'Agordoj';
 
   @override
-  String get shutterSound => 'Disable shutter sound';
+  String get shutterSound => 'Enable shutter sound';
 
   @override
   String get shutterSound_description =>
-      'Disable the shutter sound when taking a picture';
+      'Enable the shutter sound when taking a picture';
 
   @override
   String get startRecordingVideo => 'Ekregistri filmon';

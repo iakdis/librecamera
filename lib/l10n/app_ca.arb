@@ -23,6 +23,8 @@
   "defaultExposure": "Exposició per defecte",
   "disableAudio": "Inhabilita l'àudio",
   "disableAudio_description": "Desactiva l'àudio quan s'enregistra un vídeo",
+  "enableCompression": "Activa la compressió",
+  "enableCompression_description": "Utilitza la compressió en desar imatges per estalviar espai d'emmagatzematge.",
   "enableExposureSlider": "Habilita el control d'exposició",
   "enableExposureSlider_description": "Mostra a la interfície un lliscador on ajustar el control d'exposició",
   "enableMaximumScreenBrightness": "Brillantor de pantalla màxima",

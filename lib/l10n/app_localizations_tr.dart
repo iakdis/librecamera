@@ -41,6 +41,13 @@ class AppLocalizationsTr extends AppLocalizations {
       'Video kaydederken sesi devre dışı bırak';
 
   @override
+  String get enableCompression => 'Sıkıştırmayı etkinleştir';
+
+  @override
+  String get enableCompression_description =>
+      'Görüntüleri kaydederken depolama alanından tasarruf etmek için sıkıştırma kullanın';
+
+  @override
   String get enableExposureSlider => 'Pozlandırma kaydırıcısını etkinleştir';
 
   @override
@@ -103,11 +110,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get focusModeLocked => 'KİLİTLİ ODAK';
 
   @override
-  String get format => 'Görüntü biçimi';
+  String get format => 'Görüntü sıkıştırma formatı';
 
   @override
   String get format_description =>
-      'Görüntü biçimini değiştirir (öntanımlı: JPEG/JPG)';
+      'Görüntü sıkıştırma formatını değiştirin (öntanımlı: JPEG/JPG)';
 
   @override
   String get getStarted => 'Başlayın';

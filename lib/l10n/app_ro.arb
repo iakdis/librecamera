@@ -23,6 +23,8 @@
   "defaultExposure": "Expunere implicită",
   "disableAudio": "Dezactivați audio",
   "disableAudio_description": "Dezactivați sunetul când înregistrați un videoclip",
+  "enableCompression": "Activează comprimarea",
+  "enableCompression_description": "Folosește comprimarea când salvezi imaginile pentru a economisi spațiu de stocare.",
   "enableExposureSlider": "Activați glisorul de expunere",
   "enableExposureSlider_description": "Când este activată, va apărea un glisor pentru a regla manual expunerea",
   "enableMaximumScreenBrightness": "Luminozitatea maximă a ecranului",

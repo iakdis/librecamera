@@ -23,6 +23,8 @@
   "defaultExposure": "Прадвызначаная экспазіцыя",
   "disableAudio": "Адключыць аўдыё",
   "disableAudio_description": "Адключае аўдыё пад час запісу відэа",
+  "enableCompression": "Уключыць сціск",
+  "enableCompression_description": "Выкарыстоўваць сціск пры захаванні малюнкаў, каб эканоміць месца на дыску.",
   "enableExposureSlider": "Уключыць экспазіцыйны прагортвальнік",
   "enableExposureSlider_description": "Калі ўключана, прагортвальнік можна выкарыстоўваць каб ўласна экспазіцыянаваць камеру",
   "enableMaximumScreenBrightness": "Максімальная яркасць экрану",

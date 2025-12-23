@@ -1,5 +1,7 @@
 {
   "appSettings": "LIETOTNES IESTATĪJUMI",
+  "enableCompression": "Iespējot saspiešanu",
+  "enableCompression_description": "Izmantojiet saspiešanu, saglabājot attēlus, lai ietaupītu vietu krātuvē.",
   "giveCameraPermission": "Atļaut piekļuvi kamerai",
   "giveMicrophonePermission": "Atļaut piekļuvi mikrofonam",
   "giveStoragePermission": "Atļaut piekļuvi krātuvei",

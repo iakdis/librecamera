@@ -23,6 +23,8 @@
   "defaultExposure": "Προεπιλεγμένη έκθεση",
   "disableAudio": "Απενεργοποίηση ήχου",
   "disableAudio_description": "Απενεργοποίηση ήχου κατά την εγγραφή βίντεο",
+  "enableCompression": "Ενεργοποίηση συμπίεσης",
+  "enableCompression_description": "Χρησιμοποιήστε συμπίεση κατά την αποθήκευση εικόνων για εξοικονόμηση χώρου αποθήκευσης.",
   "enableExposureSlider": "Ενεργοποίηση διακόπτη κύλισης έκθεσης",
   "enableExposureSlider_description": "Όταν είναι ενεργοποιημένο, ένας διακόπτης κύλισης θα εμφανιστεί για την χειροκίνητη ρύθμιση της έκθεσης",
   "enableMaximumScreenBrightness": "Μέγιστη φωτεινότητα οθόνης",

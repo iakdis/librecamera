@@ -41,6 +41,13 @@ class AppLocalizationsIs extends AppLocalizations {
       'Gera hljóð óvirkt við upptöku myndskeiðs';
 
   @override
+  String get enableCompression => 'Virkja þjöppun';
+
+  @override
+  String get enableCompression_description =>
+      'Notaðu þjöppun þegar myndir eru vistaðar til að spara geymslupláss.';
+
+  @override
   String get enableExposureSlider => 'Virkja lýsingarsleða';
 
   @override

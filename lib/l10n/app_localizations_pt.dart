@@ -41,6 +41,13 @@ class AppLocalizationsPt extends AppLocalizations {
       'Desabilita o áudio ao gravar um vídeo';
 
   @override
+  String get enableCompression => 'Ativar compressão';
+
+  @override
+  String get enableCompression_description =>
+      'Use compressão ao salvar imagens para economizar espaço de armazenamento';
+
+  @override
   String get enableExposureSlider =>
       'Habilitar controle deslizante de exposição';
 
@@ -104,11 +111,11 @@ class AppLocalizationsPt extends AppLocalizations {
   String get focusModeLocked => 'FOCO TRAVADO';
 
   @override
-  String get format => 'Formato da imagem';
+  String get format => 'Formato de compressão da imagem';
 
   @override
   String get format_description =>
-      'Troca o formato da imagem (padrão: JPEG/JPG)';
+      'Altere o formato de compressão da imagem (padrão: JPEG/JPG)';
 
   @override
   String get getStarted => 'Iniciar';
@@ -343,6 +350,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get disableAudio_description => 'Desativa o áudio ao gravar um vídeo';
 
   @override
+  String get enableCompression => 'Ativar compressão';
+
+  @override
+  String get enableCompression_description =>
+      'Use compressão ao salvar imagens para economizar espaço de armazenamento';
+
+  @override
   String get enableExposureSlider => 'Ativar controle deslizante da exposição';
 
   @override
@@ -405,11 +419,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get focusModeLocked => 'FOCO TRAVADO';
 
   @override
-  String get format => 'Formato da imagem';
+  String get format => 'Formato de compressão da imagem';
 
   @override
   String get format_description =>
-      'Alterar o formato da imagem (padrão: JPEG/JPG)';
+      'Altere o formato de compressão da imagem (padrão: JPEG/JPG)';
 
   @override
   String get getStarted => 'Começar';
@@ -534,11 +548,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get settings => 'Configurações';
 
   @override
-  String get shutterSound => 'Desativar o som do obturador';
+  String get shutterSound => 'Ativar o som do obturador';
 
   @override
   String get shutterSound_description =>
-      'Desativa o som do obturador ao tirar uma foto';
+      'Ativa o som do obturador ao tirar uma foto';
 
   @override
   String get startRecordingVideo => 'Iniciar gravação de vídeo';

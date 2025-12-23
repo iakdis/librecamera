@@ -228,6 +228,18 @@ abstract class AppLocalizations {
   /// **'Disable audio when recording a video'**
   String get disableAudio_description;
 
+  /// No description provided for @enableCompression.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable compression'**
+  String get enableCompression;
+
+  /// No description provided for @enableCompression_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Use compression when saving images to save storage space.'**
+  String get enableCompression_description;
+
   /// No description provided for @enableExposureSlider.
   ///
   /// In en, this message translates to:
@@ -345,13 +357,13 @@ abstract class AppLocalizations {
   /// No description provided for @format.
   ///
   /// In en, this message translates to:
-  /// **'Image format'**
+  /// **'Image compression format'**
   String get format;
 
   /// No description provided for @format_description.
   ///
   /// In en, this message translates to:
-  /// **'Change the image format (default: JPEG/JPG)'**
+  /// **'Change the image compression format (default: JPEG/JPG)'**
   String get format_description;
 
   /// No description provided for @getStarted.
@@ -579,13 +591,13 @@ abstract class AppLocalizations {
   /// No description provided for @shutterSound.
   ///
   /// In en, this message translates to:
-  /// **'Disable shutter sound'**
+  /// **'Enable shutter sound'**
   String get shutterSound;
 
   /// No description provided for @shutterSound_description.
   ///
   /// In en, this message translates to:
-  /// **'Disable the shutter sound when taking a picture'**
+  /// **'Enable the shutter sound when taking a picture'**
   String get shutterSound_description;
 
   /// No description provided for @startRecordingVideo.

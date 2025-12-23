@@ -40,6 +40,13 @@ class AppLocalizationsNb extends AppLocalizations {
   String get disableAudio_description => 'Skru av lyd ved videoopptak';
 
   @override
+  String get enableCompression => 'Aktiver komprimering';
+
+  @override
+  String get enableCompression_description =>
+      'Bruk komprimering når du lagrer bilder for å spare lagringsplass';
+
+  @override
   String get enableExposureSlider => 'Eksponeringsglidebryter';
 
   @override
@@ -102,10 +109,11 @@ class AppLocalizationsNb extends AppLocalizations {
   String get focusModeLocked => 'Låst fokus';
 
   @override
-  String get format => 'Bildeformat';
+  String get format => 'Bildekomprimeringsformat';
 
   @override
-  String get format_description => 'Endre bildeformat (forvalg: JPEG/JPG)';
+  String get format_description =>
+      'Endre bildet komprimeringsformat (standard: JPEG/JPG)';
 
   @override
   String get getStarted => 'Begynn';

@@ -40,6 +40,13 @@ class AppLocalizationsCs extends AppLocalizations {
   String get disableAudio_description => 'Zakázat zvuk při nahrávání videa';
 
   @override
+  String get enableCompression => 'Povolit kompresi';
+
+  @override
+  String get enableCompression_description =>
+      'Při ukládání obrázků použijte kompresi pro úsporu místa na disku.';
+
+  @override
   String get enableExposureSlider => 'Povolit posuvník expozice';
 
   @override
@@ -231,11 +238,11 @@ class AppLocalizationsCs extends AppLocalizations {
   String get settings => 'Nastavení';
 
   @override
-  String get shutterSound => 'Zakázat zvuk závěrky';
+  String get shutterSound => 'Povolit zvuk závěrky';
 
   @override
   String get shutterSound_description =>
-      'Zakázat zvuk závěrky při pořízení obrázku';
+      'Povolit zvuk závěrky při pořízení obrázku';
 
   @override
   String get startRecordingVideo => 'Spustit nahrávání videa';

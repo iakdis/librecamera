@@ -123,7 +123,7 @@ class Preferences {
   static Future<void> setDisableShutterSound({required bool disable}) async =>
       _preferences.setBool(prefDisableShutterSound, disable);
   static bool getDisableShutterSound() =>
-      _preferences.getBool(prefDisableShutterSound) ?? false;
+      _preferences.getBool(prefDisableShutterSound) ?? true;
 
   // Maximum Screen Brightness
   static Future<void> setMaximumScreenBrightness({
@@ -143,4 +143,11 @@ class Preferences {
       _preferences.setBool(prefCaptureAtVolumePress, enable);
   static bool getCaptureAtVolumePress() =>
       _preferences.getBool(prefCaptureAtVolumePress) ?? true;
+
+  // Enable compression
+  static Future<void> setEnableCompression({
+    required bool value,
+  }) async => _preferences.setBool(prefEnableCompression, value);
+  static bool getEnableCompression() =>
+      _preferences.getBool(prefEnableCompression) ?? true;
 }

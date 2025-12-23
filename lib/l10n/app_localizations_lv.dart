@@ -40,6 +40,13 @@ class AppLocalizationsLv extends AppLocalizations {
   String get disableAudio_description => 'Disable audio when recording a video';
 
   @override
+  String get enableCompression => 'Iespējot saspiešanu';
+
+  @override
+  String get enableCompression_description =>
+      'Izmantojiet saspiešanu, saglabājot attēlus, lai ietaupītu vietu krātuvē.';
+
+  @override
   String get enableExposureSlider => 'Enable exposure slider';
 
   @override
@@ -102,11 +109,11 @@ class AppLocalizationsLv extends AppLocalizations {
   String get focusModeLocked => 'LOCKED FOCUS';
 
   @override
-  String get format => 'Image format';
+  String get format => 'Image compression format';
 
   @override
   String get format_description =>
-      'Change the image format (default: JPEG/JPG)';
+      'Change the image compression format (default: JPEG/JPG)';
 
   @override
   String get getStarted => 'Get started';
@@ -231,11 +238,11 @@ class AppLocalizationsLv extends AppLocalizations {
   String get settings => 'Iestatījumi';
 
   @override
-  String get shutterSound => 'Disable shutter sound';
+  String get shutterSound => 'Enable shutter sound';
 
   @override
   String get shutterSound_description =>
-      'Disable the shutter sound when taking a picture';
+      'Enable the shutter sound when taking a picture';
 
   @override
   String get startRecordingVideo => 'Start recording video';

@@ -41,6 +41,13 @@ class AppLocalizationsUk extends AppLocalizations {
   String get disableAudio_description => 'Вимкнути звук під час запису відео';
 
   @override
+  String get enableCompression => 'Увімкнути стиснення';
+
+  @override
+  String get enableCompression_description =>
+      'Використовуйте стиснення при збереженні зображень, щоб заощадити місце на диску.';
+
+  @override
   String get enableExposureSlider => 'Ввімкнути повзунок експозиції';
 
   @override
@@ -235,11 +242,11 @@ class AppLocalizationsUk extends AppLocalizations {
   String get settings => 'Налаштування';
 
   @override
-  String get shutterSound => 'Вимкнути звук затвору';
+  String get shutterSound => 'Увімкнути звук затвору';
 
   @override
   String get shutterSound_description =>
-      'Вимкнути звук затвору під час фотографування';
+      'Увімкнути звук затвора під час фотографування';
 
   @override
   String get startRecordingVideo => 'Почати запис відео';

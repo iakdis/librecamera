@@ -41,6 +41,13 @@ class AppLocalizationsIa extends AppLocalizations {
       'Disactivar le audio quando un video es registrante';
 
   @override
+  String get enableCompression => 'Activar compression';
+
+  @override
+  String get enableCompression_description =>
+      'Usar compression al salvar imagines pro sparer spatio de almacenamiento.';
+
+  @override
   String get enableExposureSlider => 'Activar glissator de exposition';
 
   @override
@@ -233,11 +240,11 @@ class AppLocalizationsIa extends AppLocalizations {
   String get settings => 'Parametros';
 
   @override
-  String get shutterSound => 'Disactiva le sono del obturator';
+  String get shutterSound => 'Activa le sono del obturator';
 
   @override
   String get shutterSound_description =>
-      'Disactivar le sono de obturator al prender un photo';
+      'Activa le sono del obturator al prender un photo';
 
   @override
   String get startRecordingVideo => 'Initiar le registration de video';

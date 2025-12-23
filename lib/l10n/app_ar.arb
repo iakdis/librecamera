@@ -3,6 +3,8 @@
   "autoSmall": "تلقائي",
   "back": "خلف",
   "defaultExposure": "التعريض الضوئي الإفتراضي",
+  "enableCompression": "تمكين الضغط",
+  "enableCompression_description": "استخدم الضغط عند حفظ الصور لتوفير مساحة التخزين.",
   "enableMaximumScreenBrightness": "الحد الأقصى لسطوع الشاشة",
   "enableMaximumScreenBrightness_description": "عند التمكين، سيتم ضبط سطوع شاشة جهازك على الحد الأقصى",
   "exposureMode": "وضع التعريض الضوئي",

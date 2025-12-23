@@ -40,6 +40,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get disableAudio_description => '録画するとき音声を録音しない';
 
   @override
+  String get enableCompression => '圧縮を有効にする';
+
+  @override
+  String get enableCompression_description => '画像を保存するときに圧縮を使用してストレージを節約します';
+
+  @override
   String get enableExposureSlider => '露出スライダーを表示';
 
   @override
@@ -98,10 +104,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get focusModeLocked => '固定フォーカス';
 
   @override
-  String get format => '画像ファイル形式';
+  String get format => '画像圧縮フォーマット';
 
   @override
-  String get format_description => '保存する画像ファイルの形式を変更する (デフォルト： JPEG/JPG)';
+  String get format_description => '画像の圧縮フォーマットを変更します（デフォルト：JPEG/JPG）';
 
   @override
   String get getStarted => '完了';

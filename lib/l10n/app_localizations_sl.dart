@@ -41,6 +41,13 @@ class AppLocalizationsSl extends AppLocalizations {
       'Onemogoči zvok med snemanjem videoposnetka';
 
   @override
+  String get enableCompression => 'Omogoči stiskanje';
+
+  @override
+  String get enableCompression_description =>
+      'Uporabite stiskanje pri shranjevanju slik, da prihranite prostor za shranjevanje.';
+
+  @override
   String get enableExposureSlider => 'Omogoči drsnik za osvetlitev';
 
   @override
@@ -233,11 +240,11 @@ class AppLocalizationsSl extends AppLocalizations {
   String get settings => 'Nastavitve';
 
   @override
-  String get shutterSound => 'Onemogoči zvok sprožilca';
+  String get shutterSound => 'Omogoči zvok sprožilca';
 
   @override
   String get shutterSound_description =>
-      'Onemogočite zvok sprožilca med fotografiranjem';
+      'Omogočite zvok sprožilca med fotografiranjem';
 
   @override
   String get startRecordingVideo => 'Začnite snemati videoposnetek';

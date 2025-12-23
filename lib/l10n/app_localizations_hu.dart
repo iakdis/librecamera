@@ -41,6 +41,13 @@ class AppLocalizationsHu extends AppLocalizations {
       'A videó rögzítésénél letiltja a hangot';
 
   @override
+  String get enableCompression => 'Tömörítés engedélyezése';
+
+  @override
+  String get enableCompression_description =>
+      'Képek mentésekor a tárhely megtakarítása érdekében tömörítést használjon';
+
+  @override
   String get enableExposureSlider => 'Expozíciós csúszka engedélyezése';
 
   @override
@@ -104,11 +111,11 @@ class AppLocalizationsHu extends AppLocalizations {
   String get focusModeLocked => 'ZÁROLT FÓKUSZ';
 
   @override
-  String get format => 'Képformátum';
+  String get format => 'Kép tömörítési formátuma';
 
   @override
   String get format_description =>
-      'Képformátum módosítása (alapértelmezett a JPEG/JPG)';
+      'Módosítsa a kép tömörítési formátumát (alapértelmezett: JPEG/JPG)';
 
   @override
   String get getStarted => 'Kezdjen hozzá';

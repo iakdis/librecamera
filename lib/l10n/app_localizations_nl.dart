@@ -41,6 +41,13 @@ class AppLocalizationsNl extends AppLocalizations {
       'Audio uitschakelen bij een video-opname';
 
   @override
+  String get enableCompression => 'Compressie inschakelen';
+
+  @override
+  String get enableCompression_description =>
+      'Gebruik compressie bij het opslaan van afbeeldingen om schijfruimte te besparen';
+
+  @override
   String get enableExposureSlider => 'Belichtingsschuifregelaar inschakelen';
 
   @override
@@ -105,11 +112,11 @@ class AppLocalizationsNl extends AppLocalizations {
   String get focusModeLocked => 'VERGRENDELDE FOCUS';
 
   @override
-  String get format => 'Afbeeldingsformaat';
+  String get format => 'Afbeeldingscompressieformaat';
 
   @override
   String get format_description =>
-      'Het afbeeldingsformaat aanpassen (standaard: JPEG/JPG)';
+      'Wijzig het afbeeldingscompressieformaat (standaard: JPEG/JPG)';
 
   @override
   String get getStarted => 'Aan de slag';
@@ -233,11 +240,11 @@ class AppLocalizationsNl extends AppLocalizations {
   String get settings => 'Instellingen';
 
   @override
-  String get shutterSound => 'Sluitergeluid uitschakelen';
+  String get shutterSound => 'Schakel sluitergeluid in';
 
   @override
   String get shutterSound_description =>
-      'Sluitergeluid uitschakelen bij het maken van een foto';
+      'Schakel het sluitergeluid in bij het maken van een foto';
 
   @override
   String get startRecordingVideo => 'Video-opname starten';

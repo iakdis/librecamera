@@ -40,6 +40,13 @@ class AppLocalizationsBe extends AppLocalizations {
   String get disableAudio_description => 'Адключае аўдыё пад час запісу відэа';
 
   @override
+  String get enableCompression => 'Уключыць сціск';
+
+  @override
+  String get enableCompression_description =>
+      'Выкарыстоўваць сціск пры захаванні малюнкаў, каб эканоміць месца на дыску.';
+
+  @override
   String get enableExposureSlider => 'Уключыць экспазіцыйны прагортвальнік';
 
   @override

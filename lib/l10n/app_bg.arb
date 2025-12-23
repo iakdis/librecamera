@@ -21,6 +21,8 @@
   "defaultExposure": "Експозиция по подразбиране",
   "disableAudio": "Деактивирайте аудиото",
   "disableAudio_description": "Деактивирайте звука, когато записвате видео",
+  "enableCompression": "Активиране на компресията",
+  "enableCompression_description": "Използвайте компресия при записване на изображения, за да спестите място за съхранение.",
   "enableExposureSlider": "Активирайте плъзгача за експозиция",
   "enableExposureSlider_description": "Когато е активиран, ще се появи плъзгач за ръчно регулиране на експонацията",
   "enableMaximumScreenBrightness": "Максимална яркост на екрана",

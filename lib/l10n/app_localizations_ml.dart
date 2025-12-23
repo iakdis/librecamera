@@ -40,6 +40,13 @@ class AppLocalizationsMl extends AppLocalizations {
   String get disableAudio_description => 'Disable audio when recording a video';
 
   @override
+  String get enableCompression => 'സങ്കുചിതപ്പെടുത്തൽ സജീവമാക്കുക';
+
+  @override
+  String get enableCompression_description =>
+      'ചിത്രങ്ങൾ സേവ് ചെയ്യുമ്പോൾ സംഭരണശേഷി ലാഭിക്കാൻ സങ്കുചിതപ്പെടുത്തൽ ഉപയോഗിക്കുക';
+
+  @override
   String get enableExposureSlider => 'Enable exposure slider';
 
   @override
@@ -102,11 +109,11 @@ class AppLocalizationsMl extends AppLocalizations {
   String get focusModeLocked => 'LOCKED FOCUS';
 
   @override
-  String get format => 'Image format';
+  String get format => 'ചിത്രം ചുരുക്കൽ ഫോർമാറ്റ്';
 
   @override
   String get format_description =>
-      'ചിത്രത്തിന്റെ തരം മാറ്റുക (സ്ഥിരസ്ഥിതിട്: JPEG/JPG)';
+      'ചിത്രത്തിന്റെ ചുരുക്കൽ ഫോർമാറ്റ് മാറ്റുക (സ്ഥിരസ്ഥിതിട്: JPEG/JPG)';
 
   @override
   String get getStarted => 'ആരംഭിക്കുക';
@@ -235,7 +242,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get shutterSound_description =>
-      'Disable the shutter sound when taking a picture';
+      'Enable the shutter sound when taking a picture';
 
   @override
   String get startRecordingVideo => 'Start recording video';

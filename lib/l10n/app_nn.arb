@@ -1,4 +1,6 @@
 {
+  "enableCompression": "Slå på komprimering",
+  "enableCompression_description": "Bruk komprimering når du lagrar bilete for å spare lagringsplass.",
   "getStarted": "Byrj",
   "giveCameraPermission": "Gje tilgjenge til kamera",
   "giveMicrophonePermission": "Gje tilgjenge til mikrofonar",

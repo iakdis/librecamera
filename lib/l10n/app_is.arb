@@ -23,6 +23,8 @@
   "defaultExposure": "Sjálfgefin lýsing",
   "disableAudio": "Gera hljóð óvirkt",
   "disableAudio_description": "Gera hljóð óvirkt við upptöku myndskeiðs",
+  "enableCompression": "Virkja þjöppun",
+  "enableCompression_description": "Notaðu þjöppun þegar myndir eru vistaðar til að spara geymslupláss.",
   "enableExposureSlider": "Virkja lýsingarsleða",
   "enableExposureSlider_description": "Þegar þetta er virkjað mun birtast sleði til að aðlaga lýsingu handvirkt",
   "enableMaximumScreenBrightness": "Hámarks birtustig skjás",

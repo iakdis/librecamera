@@ -40,6 +40,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get disableAudio_description => '동영상을 녹화할 때 오디오를 비활성화합니다';
 
   @override
+  String get enableCompression => '압축 사용';
+
+  @override
+  String get enableCompression_description =>
+      '이미지를 저장할 때 압축을 사용하여 저장 공간을 절약합니다';
+
+  @override
   String get enableExposureSlider => '노출 슬라이더 활성화';
 
   @override
@@ -100,10 +107,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get focusModeLocked => '고정 포커스';
 
   @override
-  String get format => '이미지 파일 형식';
+  String get format => '이미지 압축 형식';
 
   @override
-  String get format_description => '이미지 형식을 변경합니다 (기본값: JPEG/JPG)';
+  String get format_description => '이미지 압축 형식을 변경합니다 (기본값: JPEG/JPG)';
 
   @override
   String get getStarted => '시작하기';
@@ -225,10 +232,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get settings => '설정';
 
   @override
-  String get shutterSound => '셔터음 비활성화';
+  String get shutterSound => '셔터음 활성화';
 
   @override
-  String get shutterSound_description => '사진을 촬영할 때 셔터음을 비활성화합니다';
+  String get shutterSound_description => '사진을 촬영할 때 셔터음을 활성화합니다';
 
   @override
   String get startRecordingVideo => '동영상 녹화 시작';

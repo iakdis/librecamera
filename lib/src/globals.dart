@@ -21,3 +21,4 @@ const String prefDisableShutterSound = 'disableShutterSound';
 const String prefMaximumScreenBrightness = 'maximumScreenBrightness';
 const String prefLeftHandedMode = 'leftHandedMode';
 const String prefCaptureAtVolumePress = 'captureAtVolumePress';
+const String prefEnableCompression = 'enableCompression';

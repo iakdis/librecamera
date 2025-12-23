@@ -41,6 +41,13 @@ class AppLocalizationsRu extends AppLocalizations {
       'Отключить запись звука при съёмке видео';
 
   @override
+  String get enableCompression => 'Включить сжатие';
+
+  @override
+  String get enableCompression_description =>
+      'Использовать сжатие при сохранении изображений, чтобы экономить место на диске';
+
+  @override
   String get enableExposureSlider => 'Слайдер выдержки';
 
   @override
@@ -103,11 +110,11 @@ class AppLocalizationsRu extends AppLocalizations {
   String get focusModeLocked => 'ФИКСИРОВАННЫЙ';
 
   @override
-  String get format => 'Формат изображений';
+  String get format => 'Формат сжатия изображения';
 
   @override
   String get format_description =>
-      'Выбрать формат изображений (по умолчанию: JPEG/JPG)';
+      'Выбрать формат сжатия изображения (по умолчанию: JPEG/JPG)';
 
   @override
   String get getStarted => 'Начать';
@@ -232,11 +239,11 @@ class AppLocalizationsRu extends AppLocalizations {
   String get settings => 'Настройки';
 
   @override
-  String get shutterSound => 'Отключить звук затвора';
+  String get shutterSound => 'Включить звук затвора';
 
   @override
   String get shutterSound_description =>
-      'Отключение звука затвора при съемке фотографии';
+      'Включение звука затвора при съемке фотографии';
 
   @override
   String get startRecordingVideo => 'Начать запись видео';

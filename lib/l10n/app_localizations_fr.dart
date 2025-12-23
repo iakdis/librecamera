@@ -41,6 +41,13 @@ class AppLocalizationsFr extends AppLocalizations {
       'Désactiver l\'audio durant l\'enregistrement d\'une vidéo';
 
   @override
+  String get enableCompression => 'Activer la compression';
+
+  @override
+  String get enableCompression_description =>
+      'Utiliser la compression lors de l\'enregistrement des images pour économiser de l\'espace de stockage';
+
+  @override
   String get enableExposureSlider => 'Activer le curseur d\'exposition';
 
   @override
@@ -105,11 +112,11 @@ class AppLocalizationsFr extends AppLocalizations {
   String get focusModeLocked => 'FOCUS VERROUILLÉ';
 
   @override
-  String get format => 'Format d\'image';
+  String get format => 'Format de compression d\'image';
 
   @override
   String get format_description =>
-      'Changer le format d\'image (par défaut : JPEG/JPG)';
+      'Changer le format de compression d\'image (par défaut : JPEG/JPG)';
 
   @override
   String get getStarted => 'Commencer';

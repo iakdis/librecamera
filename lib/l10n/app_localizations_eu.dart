@@ -41,6 +41,13 @@ class AppLocalizationsEu extends AppLocalizations {
       'Bideoa grabatzerakoan soinua desaktibatzen du';
 
   @override
+  String get enableCompression => 'Konpresioa aktibatu';
+
+  @override
+  String get enableCompression_description =>
+      'Erabili konpresioa irudiak gordetzen dituzunean biltegiratze-lekua aurrezteko.';
+
+  @override
   String get enableExposureSlider => 'Esposizio-barra gaitu';
 
   @override

@@ -7,6 +7,8 @@
   "defaultExposure": "Lehenetsitako Esposizioa",
   "disableAudio": "Soinua desaktibatu",
   "disableAudio_description": "Bideoa grabatzerakoan soinua desaktibatzen du",
+  "enableCompression": "Konpresioa aktibatu",
+  "enableCompression_description": "Erabili konpresioa irudiak gordetzen dituzunean biltegiratze-lekua aurrezteko.",
   "enableExposureSlider": "Esposizio-barra gaitu",
   "enableExposureSlider_description": "Aktibatzean, barra bat agertuko da, esposizioa eskuz kontrolatzeko",
   "enableMaximumScreenBrightness": "Pantailaren distira maximoa",

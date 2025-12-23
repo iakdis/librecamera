@@ -41,6 +41,13 @@ class AppLocalizationsEs extends AppLocalizations {
       'Desactiva el audio cuando estás grabando un vídeo';
 
   @override
+  String get enableCompression => 'Activar compresión';
+
+  @override
+  String get enableCompression_description =>
+      'Usar compresión al guardar imágenes para ahorrar espacio de almacenamiento';
+
+  @override
   String get enableExposureSlider => 'Habilitar la barra de exposición';
 
   @override
@@ -104,11 +111,11 @@ class AppLocalizationsEs extends AppLocalizations {
   String get focusModeLocked => 'ENFOQUE BLOQUEADO';
 
   @override
-  String get format => 'Formato de la imagen';
+  String get format => 'Formato de compresión de imagen';
 
   @override
   String get format_description =>
-      'Cambia el formato la imagen (por defecto: JPEG/JPG)';
+      'Cambiar el formato de compresión de imagen (por defecto: JPEG/JPG)';
 
   @override
   String get getStarted => 'Iniciar';
@@ -232,11 +239,11 @@ class AppLocalizationsEs extends AppLocalizations {
   String get settings => 'Configuración';
 
   @override
-  String get shutterSound => 'Desactivar el sonido del obturador';
+  String get shutterSound => 'Activar el sonido del obturador';
 
   @override
   String get shutterSound_description =>
-      'Desactiva el sonido del obturador al tomar una foto';
+      'Activa el sonido del obturador al tomar una foto';
 
   @override
   String get startRecordingVideo => 'Empezar a grabar vídeo';

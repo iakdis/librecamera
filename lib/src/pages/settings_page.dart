@@ -1,7 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:librecamera/l10n/app_localizations.dart';
 import 'package:librecamera/l10n/l10n.dart';
 import 'package:librecamera/src/pages/onboarding_page.dart';
@@ -169,7 +168,7 @@ class _SettingsPageState extends State<SettingsPage> {
       onTap: () => setState(() {
         isMoreOptions = !isMoreOptions;
 
-        SchedulerBinding.instance.addPostFrameCallback((_) async {
+        WidgetsBinding.instance.addPostFrameCallback((_) async {
           await listScrollController.animateTo(
             listScrollController.position.maxScrollExtent,
             duration: const Duration(milliseconds: 200),
@@ -245,8 +244,32 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   Widget _imageCompressionTile() {
+    return SwitchListTile(
+      value: Preferences.getEnableCompression(),
+      onChanged: (value) async {
+        await Preferences.setEnableCompression(value: value);
+        setState(() {});
+
+        WidgetsBinding.instance.addPostFrameCallback((_) async {
+          await listScrollController.animateTo(
+            listScrollController.position.maxScrollExtent,
+            duration: const Duration(milliseconds: 200),
+            curve: Curves.easeInOut,
+          );
+        });
+      },
+      title: Text(AppLocalizations.of(context)!.enableCompression),
+      subtitle: Text(
+        AppLocalizations.of(context)!.enableCompression_description,
+      ),
+    );
+  }
+
+  Widget _imageCompressionQualityTile() {
     return ListTile(
-      title: Text(AppLocalizations.of(context)!.imageCompressionQuality),
+      title: Text(
+        AppLocalizations.of(context)!.imageCompressionQuality,
+      ),
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -257,7 +280,10 @@ class _SettingsPageState extends State<SettingsPage> {
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
             child: Row(
               children: [
-                const Text('10', style: TextStyle(fontWeight: FontWeight.bold)),
+                const Text(
+                  '10',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
                 Flexible(
                   child: Slider(
                     value: value,
@@ -286,11 +312,13 @@ class _SettingsPageState extends State<SettingsPage> {
 
   Widget _disableShutterSoundTile() {
     return SwitchListTile(
-      title: Text(AppLocalizations.of(context)!.shutterSound),
+      title: Text(
+        AppLocalizations.of(context)!.shutterSound,
+      ),
       subtitle: Text(AppLocalizations.of(context)!.shutterSound_description),
-      value: Preferences.getDisableShutterSound(),
+      value: !Preferences.getDisableShutterSound(),
       onChanged: (value) async {
-        await Preferences.setDisableShutterSound(disable: value);
+        await Preferences.setDisableShutterSound(disable: !value);
         setState(() {});
       },
     );
@@ -556,13 +584,17 @@ class _SettingsPageState extends State<SettingsPage> {
             _headingTile(AppLocalizations.of(context)!.saving),
             _flipPhotosFrontCameraTile(),
             const Divider(),
-            _imageCompressionFormat(),
-            const Divider(),
-            _imageCompressionTile(),
-            const Divider(),
             _keepEXIFMetadataTile(),
             const Divider(),
             _savePathTile(),
+            const Divider(),
+            _imageCompressionTile(),
+            if (Preferences.getEnableCompression()) ...[
+              const Divider(),
+              _imageCompressionQualityTile(),
+              const Divider(),
+              _imageCompressionFormat(),
+            ],
             const Divider(),
             _showMoreTile(),
             if (isMoreOptions) _moreTile(),

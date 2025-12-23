@@ -42,6 +42,13 @@ class AppLocalizationsDe extends AppLocalizations {
       'Deaktiviere den Ton beim Aufnehmen von Videos';
 
   @override
+  String get enableCompression => 'Komprimierung aktivieren';
+
+  @override
+  String get enableCompression_description =>
+      'Verwende Komprimierung beim Speichern von Bildern, um Speicherplatz zu sparen';
+
+  @override
   String get enableExposureSlider => 'Belichtungs-Schieberegler aktiveren';
 
   @override
@@ -105,11 +112,11 @@ class AppLocalizationsDe extends AppLocalizations {
   String get focusModeLocked => 'GESPERRTER FOKUS';
 
   @override
-  String get format => 'Bildformat';
+  String get format => 'Bildkomprimierungsformat';
 
   @override
   String get format_description =>
-      'Ändere das Bildformat (Standardformat: JPEG/JPG)';
+      'Ändere das Bildkomprimierungsformat (Standardformat: JPEG/JPG)';
 
   @override
   String get getStarted => 'Jetzt loslegen';
@@ -234,11 +241,11 @@ class AppLocalizationsDe extends AppLocalizations {
   String get settings => 'Einstellungen';
 
   @override
-  String get shutterSound => 'Auslöseton deaktivieren';
+  String get shutterSound => 'Auslöseton aktivieren';
 
   @override
   String get shutterSound_description =>
-      'Deaktiviere den Auslöseton bei der Aufnahme eines Bildes';
+      'Aktiviere den Auslöseton bei der Aufnahme eines Bildes';
 
   @override
   String get startRecordingVideo => 'Videoaufnahme starten';

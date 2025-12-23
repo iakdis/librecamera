@@ -42,6 +42,13 @@ class AppLocalizationsPl extends AppLocalizations {
       'Wyłącza dźwięk podczas nagrywania wideo';
 
   @override
+  String get enableCompression => 'Włącz kompresję';
+
+  @override
+  String get enableCompression_description =>
+      'Użyj kompresji podczas zapisywania obrazów, aby zaoszczędzić miejsce na dysku.';
+
+  @override
   String get enableExposureSlider => 'Włącz suwak ekspozycji';
 
   @override
@@ -231,11 +238,11 @@ class AppLocalizationsPl extends AppLocalizations {
   String get settings => 'Ustawienia';
 
   @override
-  String get shutterSound => 'Wyłącz dźwięk migawki';
+  String get shutterSound => 'Włącz dźwięk migawki';
 
   @override
   String get shutterSound_description =>
-      'Wyłącza dźwięk migawki podczas robienia zdjęcia';
+      'Włącza dźwięk migawki podczas robienia zdjęcia';
 
   @override
   String get startRecordingVideo => 'Rozpocznij nagrywanie';

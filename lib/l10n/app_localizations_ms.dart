@@ -41,6 +41,13 @@ class AppLocalizationsMs extends AppLocalizations {
       'Menghalang audio apabila merekod video';
 
   @override
+  String get enableCompression => 'Dayakan pemampatan';
+
+  @override
+  String get enableCompression_description =>
+      'Gunakan pemampatan semasa menyimpan imej untuk menjimatkan ruang storan';
+
+  @override
   String get enableExposureSlider => 'Membolehkan peluncur pendedahan';
 
   @override
@@ -103,10 +110,11 @@ class AppLocalizationsMs extends AppLocalizations {
   String get focusModeLocked => 'FOKUS TERKUNCI';
 
   @override
-  String get format => 'Format gambar';
+  String get format => 'Format pemampatan imej';
 
   @override
-  String get format_description => 'Tukar format gambar (lalai: JPEG/JPG)';
+  String get format_description =>
+      'Tukar format pemampatan imej (lalai: JPEG/JPG)';
 
   @override
   String get getStarted => 'Mulakan';

@@ -39,6 +39,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get disableAudio_description => '录视频时不录音频';
 
   @override
+  String get enableCompression => '启用压缩';
+
+  @override
+  String get enableCompression_description => '在保存图像时使用压缩以节省存储空间';
+
+  @override
   String get enableExposureSlider => '显示曝光滑动条';
 
   @override
@@ -96,10 +102,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get focusModeLocked => '焦点不动';
 
   @override
-  String get format => '图像格式';
+  String get format => '图像压缩格式';
 
   @override
-  String get format_description => '选择图像格式（默认：JPEG/JPG）';
+  String get format_description => '更改图像压缩格式（默认：JPEG/JPG）';
 
   @override
   String get getStarted => '开始使用';
@@ -322,6 +328,12 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   String get disableAudio_description => '錄製影片時停用音訊';
 
   @override
+  String get enableCompression => '啟用壓縮';
+
+  @override
+  String get enableCompression_description => '在儲存圖片時使用壓縮以節省儲存空間';
+
+  @override
   String get enableExposureSlider => '啟用曝光滑桿';
 
   @override
@@ -379,10 +391,10 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   String get focusModeLocked => '已鎖定焦點';
 
   @override
-  String get format => '照片格式';
+  String get format => '圖像壓縮格式';
 
   @override
-  String get format_description => '變更照片格式（預設：JPEG／JPG）';
+  String get format_description => '變更圖像壓縮格式（預設：JPEG/JPG）';
 
   @override
   String get getStarted => '開始使用';

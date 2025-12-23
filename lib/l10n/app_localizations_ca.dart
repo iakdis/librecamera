@@ -41,6 +41,13 @@ class AppLocalizationsCa extends AppLocalizations {
       'Desactiva l\'àudio quan s\'enregistra un vídeo';
 
   @override
+  String get enableCompression => 'Activa la compressió';
+
+  @override
+  String get enableCompression_description =>
+      'Utilitza la compressió en desar imatges per estalviar espai d\'emmagatzematge.';
+
+  @override
   String get enableExposureSlider => 'Habilita el control d\'exposició';
 
   @override

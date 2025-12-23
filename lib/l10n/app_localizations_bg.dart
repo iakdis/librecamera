@@ -41,6 +41,13 @@ class AppLocalizationsBg extends AppLocalizations {
       'Деактивирайте звука, когато записвате видео';
 
   @override
+  String get enableCompression => 'Активиране на компресията';
+
+  @override
+  String get enableCompression_description =>
+      'Използвайте компресия при записване на изображения, за да спестите място за съхранение.';
+
+  @override
   String get enableExposureSlider => 'Активирайте плъзгача за експозиция';
 
   @override

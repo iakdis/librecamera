@@ -41,6 +41,13 @@ class AppLocalizationsTa extends AppLocalizations {
       'வீடியோவைப் பதிவுசெய்யும்போது ஆடியோவை முடக்கு';
 
   @override
+  String get enableCompression => 'சுருக்கலை இயக்கவும்';
+
+  @override
+  String get enableCompression_description =>
+      'படங்களை சேமிக்கும்போது சேமிப்பு இடத்தைச் சேமிக்க சுருக்கலைப் பயன்படுத்தவும்.';
+
+  @override
   String get enableExposureSlider => 'வெளிப்பாடு ச்லைடரை இயக்கவும்';
 
   @override
