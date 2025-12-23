@@ -47,7 +47,13 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
       message: AppLocalizations.of(context)!.focusMode,
       child: Row(
         children: [
-          const Icon(Icons.filter_center_focus, color: primaryColor),
+          RotatedBox(
+            quarterTurns:
+                MediaQuery.orientationOf(context) == Orientation.portrait
+                ? 0
+                : 1,
+            child: const Icon(Icons.filter_center_focus, color: primaryColor),
+          ),
           const SizedBox(width: 6),
           DropdownButtonHideUnderline(
             child: ValueListenableBuilder(

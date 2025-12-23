@@ -51,7 +51,13 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
           message: AppLocalizations.of(context)!.exposureMode,
           child: Row(
             children: [
-              const Icon(Icons.exposure, color: primaryColor),
+              RotatedBox(
+                quarterTurns:
+                    MediaQuery.orientationOf(context) == Orientation.portrait
+                    ? 0
+                    : 1,
+                child: const Icon(Icons.exposure, color: primaryColor),
+              ),
               const SizedBox(width: 6),
               DropdownButtonHideUnderline(
                 child: ValueListenableBuilder(
@@ -194,7 +200,13 @@ class _ExposureSliderState extends State<ExposureSlider> {
             },
             child: Row(
               children: [
-                const Icon(Icons.restore, color: primaryColor),
+                RotatedBox(
+                  quarterTurns:
+                      MediaQuery.orientationOf(context) == Orientation.portrait
+                      ? 0
+                      : 1,
+                  child: const Icon(Icons.restore, color: primaryColor),
+                ),
                 const SizedBox(width: 8),
                 Text(
                   AppLocalizations.of(context)!.reset,

@@ -32,7 +32,11 @@ class _TimerButtonState extends State<TimerButton> {
       child: DropdownButton<Duration>(
         isDense: true,
         menuMaxHeight: 384,
-        icon: const Icon(Icons.av_timer),
+        icon: RotatedBox(
+          quarterTurns:
+              MediaQuery.orientationOf(context) == Orientation.portrait ? 0 : 1,
+          child: const Icon(Icons.av_timer),
+        ),
         iconEnabledColor: Colors.white,
         value: Duration(seconds: Preferences.getTimerDuration()),
         selectedItemBuilder: (context) {

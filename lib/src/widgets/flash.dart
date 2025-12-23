@@ -82,7 +82,7 @@ class _FlashModeWidgetState extends State<FlashModeWidget> {
   Widget build(BuildContext context) {
     return AnimatedRotation(
       duration: const Duration(milliseconds: 400),
-      turns: MediaQuery.of(context).orientation == Orientation.portrait
+      turns: MediaQuery.orientationOf(context) == Orientation.portrait
           ? 0
           : 0.25,
       child: IconButton(

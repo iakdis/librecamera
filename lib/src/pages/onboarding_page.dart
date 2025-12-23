@@ -3,7 +3,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:librecamera/l10n/app_localizations.dart';
-import 'package:librecamera/src/app.dart';
 import 'package:librecamera/src/pages/camera_page.dart';
 import 'package:librecamera/src/provider/theme_provider.dart';
 import 'package:librecamera/src/utils/preferences.dart';
@@ -150,7 +149,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   Widget _permissionsPage() {
     return ColoredBox(
       color: Colors.orange.shade100,
-      child: MediaQuery.of(context).orientation == Orientation.portrait
+      child: MediaQuery.orientationOf(context) == Orientation.portrait
           ? Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [_permissionsPageInfo(), _permissionsPageButtons()],
@@ -178,11 +177,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
           ),
         ),
         const SizedBox(height: 24),
-        if (MediaQuery.of(context).orientation == Orientation.portrait)
+        if (MediaQuery.orientationOf(context) == Orientation.portrait)
           const Icon(Icons.settings, size: 100, color: Colors.white)
         else
           Container(),
-        if (MediaQuery.of(context).orientation == Orientation.portrait)
+        if (MediaQuery.orientationOf(context) == Orientation.portrait)
           const SizedBox(height: 24)
         else
           Container(),
@@ -222,7 +221,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   Widget _savePathPage() {
     return ColoredBox(
       color: Colors.blue.shade100,
-      child: MediaQuery.of(context).orientation == Orientation.portrait
+      child: MediaQuery.orientationOf(context) == Orientation.portrait
           ? SingleChildScrollView(
               padding: const EdgeInsets.symmetric(vertical: 64),
               child: Column(
@@ -253,11 +252,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
           ),
         ),
         const SizedBox(height: 24),
-        if (MediaQuery.of(context).orientation == Orientation.portrait)
+        if (MediaQuery.orientationOf(context) == Orientation.portrait)
           const Icon(Icons.save_as, size: 100, color: Colors.white)
         else
           Container(),
-        if (MediaQuery.of(context).orientation == Orientation.portrait)
+        if (MediaQuery.orientationOf(context) == Orientation.portrait)
           const SizedBox(height: 24)
         else
           Container(),
@@ -329,11 +328,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
             ),
           ),
           const SizedBox(height: 24),
-          if (MediaQuery.of(context).orientation == Orientation.portrait)
+          if (MediaQuery.orientationOf(context) == Orientation.portrait)
             const Icon(Icons.handshake, size: 100, color: Colors.white)
           else
             Container(),
-          if (MediaQuery.of(context).orientation == Orientation.portrait)
+          if (MediaQuery.orientationOf(context) == Orientation.portrait)
             const SizedBox(height: 24)
           else
             Container(),
@@ -421,7 +420,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
       onTapDown: (details) => unfocusAndRestore(),
       child: Theme(
         data: context.watch<ThemeProvider>().theme(
-          colorScheme: ColorScheme.fromSeed(seedColor: defaultThemeColour),
+          colorScheme: ColorScheme.fromSeed(seedColor: seedColor),
         ),
         child: Scaffold(
           body: Container(

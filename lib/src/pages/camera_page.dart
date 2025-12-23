@@ -14,6 +14,7 @@ import 'package:librecamera/l10n/app_localizations.dart';
 import 'package:librecamera/main.dart';
 import 'package:librecamera/src/models/media_file.dart';
 import 'package:librecamera/src/pages/settings_page.dart';
+import 'package:librecamera/src/provider/theme_provider.dart';
 import 'package:librecamera/src/utils/preferences.dart';
 import 'package:librecamera/src/widgets/capture_control.dart';
 import 'package:librecamera/src/widgets/exposure.dart';
@@ -45,9 +46,13 @@ class _CameraPageState extends State<CameraPage>
   VideoPlayerController? _videoPlayerController;
 
   //Zoom
+  static const _defaultZoomLevel = 1.0;
   double _minAvailableZoom = 1;
   double _maxAvailableZoom = 1;
   final ValueNotifier<double> _currentScaleNotifier = ValueNotifier(1);
+  final ValueNotifier<bool> _showZoomSliderNotifier = ValueNotifier(
+    Preferences.getEnableZoomSlider(),
+  );
   double _baseScale = 1;
   int _pointers = 0;
 
@@ -83,6 +88,10 @@ class _CameraPageState extends State<CameraPage>
   //Volume buttons
   StreamSubscription<HardwareButton>? volumeSubscription;
   bool canPressVolume = true;
+
+  //Zoom slider auto-hide
+  Timer? _zoomSliderHideTimer;
+  bool _isInteractingWithSlider = false;
 
   final ValueNotifier<bool> _showPreviewNotifier = ValueNotifier(true);
 
@@ -128,6 +137,7 @@ class _CameraPageState extends State<CameraPage>
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
     unawaited(_videoPlayerController?.dispose());
+    _zoomSliderHideTimer?.cancel();
     //qrController?.dispose();
 
     super.dispose();
@@ -270,7 +280,6 @@ class _CameraPageState extends State<CameraPage>
           _topControlsWidget(),
           _zoomWidget(context),
           _bottomControlsWidget(),
-          _circleWidget(),
         ],
       ),
     );
@@ -336,12 +345,17 @@ class _CameraPageState extends State<CameraPage>
                 cameraController,
                 child: LayoutBuilder(
                   builder: (BuildContext context, BoxConstraints constraints) {
-                    return GestureDetector(
-                      behavior: HitTestBehavior.opaque,
-                      onScaleStart: _handleScaleStart,
-                      onScaleUpdate: _handleScaleUpdate,
-                      onTapDown: (TapDownDetails details) =>
-                          _onViewFinderTap(details, constraints),
+                    return Stack(
+                      children: [
+                        GestureDetector(
+                          behavior: HitTestBehavior.opaque,
+                          onScaleStart: _handleScaleStart,
+                          onScaleUpdate: _handleScaleUpdate,
+                          onTapDown: (TapDownDetails details) =>
+                              _onViewFinderTap(details, constraints),
+                        ),
+                        _circleWidget(),
+                      ],
                     );
                   },
                 ),
@@ -358,7 +372,7 @@ class _CameraPageState extends State<CameraPage>
   Widget _topControlsWidget() {
     final leftHandedMode =
         Preferences.getLeftHandedMode() &&
-        MediaQuery.of(context).orientation == Orientation.landscape;
+        MediaQuery.orientationOf(context) == Orientation.landscape;
 
     final left = leftHandedMode ? null : 0.0;
     final right = leftHandedMode ? 0.0 : null;
@@ -366,14 +380,14 @@ class _CameraPageState extends State<CameraPage>
     return Positioned(
       top: 0,
       left: left,
-      right: MediaQuery.of(context).orientation == Orientation.portrait
+      right: MediaQuery.orientationOf(context) == Orientation.portrait
           ? 0
           : right,
-      bottom: MediaQuery.of(context).orientation == Orientation.portrait
+      bottom: MediaQuery.orientationOf(context) == Orientation.portrait
           ? null
           : 0,
       child: RotatedBox(
-        quarterTurns: MediaQuery.of(context).orientation == Orientation.portrait
+        quarterTurns: MediaQuery.orientationOf(context) == Orientation.portrait
             ? 0
             : 3,
         child: ColoredBox(
@@ -439,48 +453,49 @@ class _CameraPageState extends State<CameraPage>
   Widget _zoomWidget(BuildContext context) {
     final leftHandedMode =
         Preferences.getLeftHandedMode() &&
-        MediaQuery.of(context).orientation == Orientation.landscape;
+        MediaQuery.orientationOf(context) == Orientation.landscape;
 
     final left = leftHandedMode ? null : 0.0;
     final right = leftHandedMode ? 0.0 : null;
 
     return Positioned(
-      top: MediaQuery.of(context).orientation == Orientation.portrait
-          ? 0
-          : null,
-      right: MediaQuery.of(context).orientation == Orientation.portrait
+      top: MediaQuery.orientationOf(context) == Orientation.portrait ? 0 : null,
+      right: MediaQuery.orientationOf(context) == Orientation.portrait
           ? 0
           : right,
-      left: MediaQuery.of(context).orientation == Orientation.portrait
+      left: MediaQuery.orientationOf(context) == Orientation.portrait
           ? null
           : left,
-      bottom: MediaQuery.of(context).orientation == Orientation.portrait
+      bottom: MediaQuery.orientationOf(context) == Orientation.portrait
           ? null
           : 0,
       child: RotatedBox(
-        quarterTurns: MediaQuery.of(context).orientation == Orientation.portrait
+        quarterTurns: MediaQuery.orientationOf(context) == Orientation.portrait
             ? 0
             : 3,
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            children: [
-              //_settingsWidget(),
-              //_cameraSwitchWidget(),
-              //const SizedBox(height: 10.0),
-              //_thumbnailPreviewWidget(),
-              if (!leftHandedMode) const SizedBox(height: 64),
-              if (Preferences.getEnableZoomSlider())
-                RotatedBox(
-                  quarterTurns:
-                      MediaQuery.of(context).orientation == Orientation.portrait
-                      ? 0
-                      : 2,
-                  child: _zoomSlider(),
-                ),
-              if (leftHandedMode) const SizedBox(height: 64),
-            ],
-          ),
+        child: ValueListenableBuilder(
+          valueListenable: _showZoomSliderNotifier,
+          builder: (context, showZoomSlider, child) {
+            return Column(
+              children: [
+                //_settingsWidget(),
+                //_cameraSwitchWidget(),
+                //const SizedBox(height: 10.0),
+                //_thumbnailPreviewWidget(),
+                if (!leftHandedMode) const SizedBox(height: 64),
+                if (showZoomSlider || Preferences.getEnableZoomSlider())
+                  RotatedBox(
+                    quarterTurns:
+                        MediaQuery.orientationOf(context) ==
+                            Orientation.portrait
+                        ? 0
+                        : 2,
+                    child: _zoomSlider(),
+                  ),
+                if (leftHandedMode) const SizedBox(height: 64),
+              ],
+            );
+          },
         ),
       ),
     );
@@ -489,7 +504,7 @@ class _CameraPageState extends State<CameraPage>
   Widget _cameraSwitchWidget({required bool enabled}) {
     return AnimatedRotation(
       duration: const Duration(milliseconds: 400),
-      turns: MediaQuery.of(context).orientation == Orientation.portrait
+      turns: MediaQuery.orientationOf(context) == Orientation.portrait
           ? 0
           : 0.25,
       child: ValueListenableBuilder(
@@ -533,7 +548,7 @@ class _CameraPageState extends State<CameraPage>
   Widget _settingsWidget({required bool enabled}) {
     return AnimatedRotation(
       duration: const Duration(milliseconds: 400),
-      turns: MediaQuery.of(context).orientation == Orientation.portrait
+      turns: MediaQuery.orientationOf(context) == Orientation.portrait
           ? 0
           : 0.25,
       child: SettingsButton(
@@ -562,7 +577,7 @@ class _CameraPageState extends State<CameraPage>
         ? const SizedBox(height: 60, width: 60)
         : AnimatedRotation(
             duration: const Duration(milliseconds: 400),
-            turns: MediaQuery.of(context).orientation == Orientation.portrait
+            turns: MediaQuery.orientationOf(context) == Orientation.portrait
                 ? 0
                 : 0.25,
             child: Tooltip(
@@ -617,7 +632,7 @@ class _CameraPageState extends State<CameraPage>
   Widget _bottomControlsWidget() {
     final leftHandedMode =
         Preferences.getLeftHandedMode() &&
-        MediaQuery.of(context).orientation == Orientation.landscape;
+        MediaQuery.orientationOf(context) == Orientation.landscape;
 
     final cameraControls = <Widget>[
       if (Preferences.getEnableModeRow()) _cameraModesWidget(),
@@ -684,7 +699,7 @@ class _CameraPageState extends State<CameraPage>
                 child: AnimatedRotation(
                   duration: const Duration(milliseconds: 400),
                   turns:
-                      MediaQuery.of(context).orientation == Orientation.portrait
+                      MediaQuery.orientationOf(context) == Orientation.portrait
                       ? 0
                       : 0.25,
                   child: Container(
@@ -724,7 +739,7 @@ class _CameraPageState extends State<CameraPage>
     ];
 
     return RotatedBox(
-      quarterTurns: MediaQuery.of(context).orientation == Orientation.portrait
+      quarterTurns: MediaQuery.orientationOf(context) == Orientation.portrait
           ? 0
           : 3,
       child: Column(
@@ -751,10 +766,13 @@ class _CameraPageState extends State<CameraPage>
   //Selecting camera
   Future<void> onNewCameraSelected(CameraDescription cameraDescription) async {
     if (_cameraController != null) {
-      return _cameraController!.setDescription(cameraDescription);
+      await _cameraController!.setDescription(cameraDescription);
     } else {
-      return _initializeCameraController(cameraDescription);
+      await _initializeCameraController(cameraDescription);
     }
+
+    // Reset zoom level
+    _currentScaleNotifier.value = _defaultZoomLevel;
   }
 
   Future<void> _initializeCameraController(
@@ -1134,34 +1152,86 @@ class _CameraPageState extends State<CameraPage>
 
   //Zoom
   Widget _zoomSlider() {
-    return RotatedBox(
-      quarterTurns: 3,
-      child: SliderTheme(
-        data: SliderThemeData(
-          showValueIndicator: ShowValueIndicator.onDrag,
-          overlayShape: SliderComponentShape.noOverlay,
+    return Column(
+      children: [
+        if (MediaQuery.orientationOf(context) == Orientation.landscape)
+          _zoomResetButton(),
+        Padding(
+          padding: .fromLTRB(
+            16,
+            MediaQuery.orientationOf(context) == Orientation.portrait ? 16 : 0,
+            16,
+            MediaQuery.orientationOf(context) == Orientation.portrait ? 0 : 16,
+          ),
+          child: RotatedBox(
+            quarterTurns: 3,
+            child: SliderTheme(
+              data: SliderThemeData(
+                showValueIndicator: ShowValueIndicator.onDrag,
+                overlayShape: SliderComponentShape.noOverlay,
+              ),
+              child: ValueListenableBuilder(
+                valueListenable: _currentScaleNotifier,
+                builder: (context, currentScale, child) {
+                  return Slider(
+                    value: currentScale.clamp(
+                      _minAvailableZoom,
+                      _maxAvailableZoom,
+                    ),
+                    min: _minAvailableZoom,
+                    max: _maxAvailableZoom,
+                    label: currentScale.toStringAsFixed(2),
+                    onChangeStart: (value) {
+                      _isInteractingWithSlider = true;
+                      _peekZoomSlider();
+                    },
+                    onChanged: (value) async {
+                      _currentScaleNotifier.value = value.clamp(
+                        _minAvailableZoom,
+                        _maxAvailableZoom,
+                      );
+                      await _cameraController!.setZoomLevel(value);
+                      _peekZoomSlider();
+                    },
+                    onChangeEnd: (value) {
+                      _isInteractingWithSlider = false;
+                      _peekZoomSlider();
+                    },
+                  );
+                },
+              ),
+            ),
+          ),
         ),
-        child: ValueListenableBuilder(
-          valueListenable: _currentScaleNotifier,
-          builder: (context, currentScale, child) {
-            return Slider(
-              value: currentScale,
-              min: _minAvailableZoom,
-              max: _maxAvailableZoom,
-              label: currentScale.toStringAsFixed(2),
-              onChanged: (value) async {
-                _currentScaleNotifier.value = value.clamp(
-                  _minAvailableZoom,
-                  _maxAvailableZoom,
-                );
-                await _cameraController!.setZoomLevel(value);
-              },
-            );
-          },
-        ),
-      ),
+        if (MediaQuery.orientationOf(context) == Orientation.portrait)
+          _zoomResetButton(),
+      ],
     );
   }
+
+  Widget _zoomResetButton() => ValueListenableBuilder(
+    valueListenable: _currentScaleNotifier,
+    builder: (context, currentScale, child) {
+      if (currentScale < _defaultZoomLevel ||
+          currentScale > _defaultZoomLevel) {
+        return RotatedBox(
+          quarterTurns:
+              MediaQuery.orientationOf(context) == Orientation.portrait ? 0 : 3,
+          child: IconButton(
+            onPressed: () async {
+              _peekZoomSlider();
+              _currentScaleNotifier.value = _defaultZoomLevel;
+              await _cameraController!.setZoomLevel(_defaultZoomLevel);
+            },
+            icon: const Icon(Icons.restore, color: primaryColor),
+            tooltip: AppLocalizations.of(context)!.reset,
+          ),
+        );
+      } else {
+        return const SizedBox.shrink();
+      }
+    },
+  );
 
   void _handleScaleStart(ScaleStartDetails details) {
     _baseScale = _currentScaleNotifier.value;
@@ -1197,38 +1267,52 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Widget _circleWidget() {
-    const circleRadius = 42.0;
+    const circleRadius = 52.0;
 
     return ValueListenableBuilder(
       valueListenable: _circleEnabledNotifier,
       builder: (context, circleEnabled, child) {
-        return Positioned(
-          top: _circlePosY - (circleRadius / 2),
-          left: _circlePosX - (circleRadius / 2),
-          child: circleEnabled
-              ? TweenAnimationBuilder(
-                  tween: _scaleTween,
-                  duration: const Duration(milliseconds: 250),
-                  curve: Curves.easeInOut,
-                  builder: (context, scale, child) {
-                    return Transform.scale(scale: scale, child: child);
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.white),
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    child: const Icon(
-                      Icons.circle,
-                      color: Colors.transparent,
-                      size: circleRadius,
-                    ),
-                  ),
-                )
-              : Container(),
-        );
+        if (circleEnabled) {
+          return Positioned(
+            top: _circlePosY - (circleRadius / 2),
+            left: _circlePosX - (circleRadius / 2),
+            child: TweenAnimationBuilder(
+              tween: _scaleTween,
+              duration: const Duration(milliseconds: 250),
+              curve: Curves.easeInOut,
+              builder: (context, scale, child) {
+                return Transform.scale(scale: scale, child: child);
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.white),
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: const Icon(
+                  Icons.circle,
+                  color: Colors.transparent,
+                  size: circleRadius,
+                ),
+              ),
+            ),
+          );
+        } else {
+          return const SizedBox.shrink();
+        }
       },
     );
+  }
+
+  void _peekZoomSlider() {
+    const duration = Duration(milliseconds: 1500);
+    _showZoomSliderNotifier.value = true;
+    _zoomSliderHideTimer?.cancel();
+
+    _zoomSliderHideTimer = Timer(duration, () {
+      if (!_isInteractingWithSlider) {
+        _showZoomSliderNotifier.value = false;
+      }
+    });
   }
 
   Future<void> _handleScaleUpdate(ScaleUpdateDetails details) async {
@@ -1242,7 +1326,7 @@ class _CameraPageState extends State<CameraPage>
       _maxAvailableZoom,
     );
 
-    _zoomSlider();
+    _peekZoomSlider();
 
     await _cameraController!.setZoomLevel(_currentScaleNotifier.value);
   }

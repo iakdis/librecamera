@@ -63,7 +63,7 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
 
     return AnimatedRotation(
       duration: const Duration(milliseconds: 400),
-      turns: MediaQuery.of(context).orientation == Orientation.portrait
+      turns: MediaQuery.orientationOf(context) == Orientation.portrait
           ? 0
           : 0.25,
       child: IconButton(
@@ -92,7 +92,7 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
   Widget captureButton() {
     return AnimatedRotation(
       duration: const Duration(milliseconds: 400),
-      turns: MediaQuery.of(context).orientation == Orientation.portrait
+      turns: MediaQuery.orientationOf(context) == Orientation.portrait
           ? 0
           : 0.25,
       child: IconButton(
@@ -141,7 +141,7 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
   Widget switchButton() {
     return AnimatedRotation(
       duration: const Duration(milliseconds: 400),
-      turns: MediaQuery.of(context).orientation == Orientation.portrait
+      turns: MediaQuery.orientationOf(context) == Orientation.portrait
           ? 0
           : 0.25,
       child: IconButton(
