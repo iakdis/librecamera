@@ -27,16 +27,6 @@ Future<void> main() async {
 
   await Preferences.init();
 
-  //Setting SystmeUIMode for navigation buttons and status bar
-  if (!Preferences.getShowNavigationBar()) {
-    await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-  } else {
-    await SystemChrome.setEnabledSystemUIMode(
-      SystemUiMode.manual,
-      overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom],
-    );
-  }
-
   if (Preferences.getMaximumScreenBrightness()) {
     await ScreenBrightness().setApplicationScreenBrightness(1);
   }

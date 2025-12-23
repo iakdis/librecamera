@@ -9,166 +9,44 @@ class AppLocalizationsPt extends AppLocalizations {
   AppLocalizationsPt([String locale = 'pt']) : super(locale);
 
   @override
-  String get permissionsTitle => 'PERMISSÕES';
-
-  @override
-  String get permissionsTitle_description =>
-      'Para usar a câmera, é preciso que você dê permissão para o app usar sua câmera e armazenamento.';
-
-  @override
-  String get giveCameraPermission => 'Permitir uso da câmera';
-
-  @override
-  String get giveMicrophonePermission => 'Permitir uso do microfone';
-
-  @override
-  String get giveStoragePermission => 'Permitir uso do armazenamento';
-
-  @override
-  String get savePathTitle => 'CAMINHO PARA SALVAR';
-
-  @override
-  String get savePathTitle_description =>
-      'Selecione um caminho para salvar. No Android, as imagens são geralmente salvas na pasta DCIM.';
-
-  @override
-  String get selectPath => 'Selecione o caminho';
-
-  @override
-  String get welcomeTitle => 'Bem-vindo';
-
-  @override
-  String get welcomeTitle_description =>
-      'Parabéns! Você já pode usar este app de câmera.';
-
-  @override
-  String get getStarted => 'Iniciar';
-
-  @override
-  String get switchToPictureMode => 'Alternar para o modo de fotografia';
-
-  @override
-  String get switchToVideoRecordingMode =>
-      'Alternar para o modo de gravação de vídeo';
-
-  @override
-  String get openCapturedPictureOrVideo =>
-      'Abrir fotografia ou vídeo capturado';
-
-  @override
-  String get takePicture => 'Tirar uma foto';
-
-  @override
-  String get startRecordingVideo => 'Iniciar gravação de vídeo';
-
-  @override
-  String get pauseVideo => 'Pausar vídeo';
-
-  @override
-  String get resumeVideo => 'Retomar vídeo';
-
-  @override
-  String get stopVideo => 'Parar vídeo';
-
-  @override
-  String get exposureMode => 'Modo de exposição';
-
-  @override
-  String get exposureModeAuto => 'AUTO EXPOSIÇÃO';
-
-  @override
-  String get exposureModeLocked => 'EXPOSIÇÃO TRAVADA';
-
-  @override
-  String get defaultExposure => 'Exposição padrão';
-
-  @override
-  String get flashlight => 'Flash';
-
-  @override
-  String get lockCaptureOrientation =>
-      'Travar a auto-orientação [É PRECISO REINICIAR]';
-
-  @override
-  String get lockCaptureOrientation_description =>
-      'Travar a orientação no modo retrato, não importando se o modo de rotação está ativado';
-
-  @override
-  String get showNavigationBar =>
-      'Mostrar a barra de navegação [É PRECISO REINICIAR]';
-
-  @override
-  String get showNavigationBar_description =>
-      'Mostrar sempre a barra de navegação do Android';
-
-  @override
-  String get focusMode => 'Modo de Foco';
-
-  @override
-  String get focusModeAuto => 'AUTO-FOCO';
-
-  @override
-  String get focusModeLocked => 'FOCO TRAVADO';
-
-  @override
-  String get reset => 'Reiniciar';
-
-  @override
-  String get flipToFrontCamera => 'Alternar para a câmera frontal';
-
-  @override
-  String get flipToRearCamera => 'Alternar para a câmera traseira';
+  String get appSettings => 'CONFIGURAÇÕES';
 
   @override
   String get autoSmall => 'AUTO';
 
   @override
-  String get lockedSmall => 'TRAVADO';
-
-  @override
-  String get off => 'Desligado';
-
-  @override
-  String get timer => 'Temporizador';
-
-  @override
   String get back => 'Voltar';
 
   @override
-  String get next => 'Próxima';
+  String get cameraBehaviour => 'COMPORTAMENTO DA CÂMERA';
 
   @override
-  String get settings => 'Configurações';
+  String get captureAtVolumePress => 'Capturar ao pressionar o volume';
 
   @override
-  String get appSettings => 'CONFIGURAÇÕES';
+  String get captureAtVolumePress_description =>
+      'Quando ativado, pressionar um botão de volume capta uma fotografia ou grava um vídeo';
 
   @override
-  String get language => 'Idioma';
+  String get choosePath => 'Escolha o caminho';
 
   @override
-  String get language_description => 'Troca o idioma do app';
+  String get defaultExposure => 'Exposição padrão';
 
   @override
-  String get systemLanguage => 'Idioma padrão do sistema';
+  String get disableAudio => 'Desabilitar áudio';
 
   @override
-  String get theme => 'Tema';
+  String get disableAudio_description =>
+      'Desabilita o áudio ao gravar um vídeo';
 
   @override
-  String get theme_description => 'Troca o tema do app';
+  String get enableExposureSlider =>
+      'Habilitar controle deslizante de exposição';
 
   @override
-  String get themeSystem => 'Tema padrão do sistema';
-
-  @override
-  String get themeLight => 'Tema claro';
-
-  @override
-  String get themeDark => 'Tema escuro';
-
-  @override
-  String get themeBlack => 'Tema preto';
+  String get enableExposureSlider_description =>
+      'Quando habilitado, um controle deslizante aparecerá para que se possa ajustar a exposição manualmente';
 
   @override
   String get enableMaximumScreenBrightness => 'Máxima luminosidade da tela';
@@ -192,35 +70,16 @@ class AppLocalizationsPt extends AppLocalizations {
       'Quando habilitado, um controle deslizante aparecerá para que se possa ajustar o zoom manualmente';
 
   @override
-  String get enableExposureSlider =>
-      'Habilitar controle deslizante de exposição';
+  String get exposureMode => 'Modo de exposição';
 
   @override
-  String get enableExposureSlider_description =>
-      'Quando habilitado, um controle deslizante aparecerá para que se possa ajustar a exposição manualmente';
+  String get exposureModeAuto => 'AUTO EXPOSIÇÃO';
 
   @override
-  String get cameraBehaviour => 'COMPORTAMENTO DA CÂMERA';
+  String get exposureModeLocked => 'EXPOSIÇÃO TRAVADA';
 
   @override
-  String get format => 'Formato da imagem';
-
-  @override
-  String get format_description =>
-      'Troca o formato da imagem (padrão: JPEG/JPG)';
-
-  @override
-  String get resolution => 'Resolução';
-
-  @override
-  String get resolution_description => 'Troca a resolução da câmera';
-
-  @override
-  String get shutterSound => 'Desabilitar o som do obturador';
-
-  @override
-  String get shutterSound_description =>
-      'Desabilita o som do obturador ao tirar uma foto';
+  String get flashlight => 'Flash';
 
   @override
   String get flipPhotosFrontCamera => 'Inverter fotos na câmera frontal';
@@ -230,21 +89,38 @@ class AppLocalizationsPt extends AppLocalizations {
       'Inverte horizontalmente as fotos que foram tiradas com a câmera frontal';
 
   @override
-  String get startWithFrontCamera => 'Iniciar com a câmera frontal';
+  String get flipToFrontCamera => 'Alternar para a câmera frontal';
 
   @override
-  String get startWithFrontCamera_description =>
-      'Sempre inicia com a câmera frontal ao abrir o app';
+  String get flipToRearCamera => 'Alternar para a câmera traseira';
 
   @override
-  String get disableAudio => 'Desabilitar áudio';
+  String get focusMode => 'Modo de Foco';
 
   @override
-  String get disableAudio_description =>
-      'Desabilita o áudio ao gravar um vídeo';
+  String get focusModeAuto => 'AUTO-FOCO';
 
   @override
-  String get saving => 'SALVANDO';
+  String get focusModeLocked => 'FOCO TRAVADO';
+
+  @override
+  String get format => 'Formato da imagem';
+
+  @override
+  String get format_description =>
+      'Troca o formato da imagem (padrão: JPEG/JPG)';
+
+  @override
+  String get getStarted => 'Iniciar';
+
+  @override
+  String get giveCameraPermission => 'Permitir uso da câmera';
+
+  @override
+  String get giveMicrophonePermission => 'Permitir uso do microfone';
+
+  @override
+  String get giveStoragePermission => 'Permitir uso do armazenamento';
 
   @override
   String get imageCompressionQuality => 'Qualidade da compressão da imagem';
@@ -261,44 +137,10 @@ class AppLocalizationsPt extends AppLocalizations {
       'Salva os metadados EXIF para a fotografia, como: modelo do telefone, localização de GPS, etc.';
 
   @override
-  String get useMaterialYou => 'Usar o Material You';
+  String get language => 'Idioma';
 
   @override
-  String get useMaterialYou_description =>
-      'Usar o design Material You. Desative para usar o antigo Material Design';
-
-  @override
-  String get savePath => 'Caminho para salvar';
-
-  @override
-  String savePath_description(String path) {
-    return 'Caminho atual: $path';
-  }
-
-  @override
-  String get choosePath => 'Escolha o caminho';
-
-  @override
-  String get onboardingScreen => 'Tela de integração';
-
-  @override
-  String get onboardingScreen_description =>
-      'Abre a tela inicial de integração';
-
-  @override
-  String get more => 'MAIS';
-
-  @override
-  String get less => 'MOSTRAR MENOS';
-
-  @override
-  String version(String versionNumber) {
-    return 'Versão $versionNumber';
-  }
-
-  @override
-  String get license =>
-      'O código está licenciado sob a licença GPLv3 no GitHub. Se você encontrar qualquer problema ou quiser requisitar algum recurso, por gentileza, abra uma questão no GitHub. Obrigado!';
+  String get language_description => 'Troca o idioma do app';
 
   @override
   String get leftHandedMode => 'Modo para canhotos';
@@ -308,52 +150,108 @@ class AppLocalizationsPt extends AppLocalizations {
       'Quando ativado, altera o posicionamento dos controles da câmara em paisagem para o modo para canhotos';
 
   @override
-  String get captureAtVolumePress => 'Capturar ao pressionar o volume';
+  String get less => 'MOSTRAR MENOS';
 
   @override
-  String get captureAtVolumePress_description =>
-      'Quando ativado, pressionar um botão de volume capta uma fotografia ou grava um vídeo';
-}
+  String get license =>
+      'O código está licenciado sob a licença GPLv3 no GitHub. Se você encontrar qualquer problema ou quiser requisitar algum recurso, por gentileza, abra uma questão no GitHub. Obrigado!';
 
-/// The translations for Portuguese, as used in Brazil (`pt_BR`).
-class AppLocalizationsPtBr extends AppLocalizationsPt {
-  AppLocalizationsPtBr() : super('pt_BR');
+  @override
+  String get lockCaptureOrientation =>
+      'Travar a auto-orientação [É PRECISO REINICIAR]';
+
+  @override
+  String get lockCaptureOrientation_description =>
+      'Travar a orientação no modo retrato, não importando se o modo de rotação está ativado';
+
+  @override
+  String get lockedSmall => 'TRAVADO';
+
+  @override
+  String get more => 'MAIS';
+
+  @override
+  String get next => 'Próxima';
+
+  @override
+  String get off => 'Desligado';
+
+  @override
+  String get onboardingScreen => 'Tela de integração';
+
+  @override
+  String get onboardingScreen_description =>
+      'Abre a tela inicial de integração';
+
+  @override
+  String get openCapturedPictureOrVideo =>
+      'Abrir fotografia ou vídeo capturado';
+
+  @override
+  String get pauseVideo => 'Pausar vídeo';
 
   @override
   String get permissionsTitle => 'PERMISSÕES';
 
   @override
   String get permissionsTitle_description =>
-      'Para usar a câmera, você precisa dar permissão para o aplicativo utilizar sua câmera e armazenamento.';
+      'Para usar a câmera, é preciso que você dê permissão para o app usar sua câmera e armazenamento.';
 
   @override
-  String get giveCameraPermission => 'Permitir utilização da câmera';
+  String get reset => 'Reiniciar';
 
   @override
-  String get giveMicrophonePermission => 'Permitir utilização do microfone';
+  String get resolution => 'Resolução';
 
   @override
-  String get giveStoragePermission => 'Permitir utilização do armazenamento';
+  String get resolution_description => 'Troca a resolução da câmera';
 
   @override
-  String get savePathTitle => 'CAMINHO DE SALVAMENTO';
+  String get resumeVideo => 'Retomar vídeo';
+
+  @override
+  String get savePath => 'Caminho para salvar';
+
+  @override
+  String get savePathTitle => 'CAMINHO PARA SALVAR';
 
   @override
   String get savePathTitle_description =>
-      'Selecione um caminho de salvamento. Normalmente, as imagens são salvas no caminho da pasta DCIM no Android.';
+      'Selecione um caminho para salvar. No Android, as imagens são geralmente salvas na pasta DCIM.';
 
   @override
-  String get selectPath => 'Selecionar caminho';
+  String savePath_description(String path) {
+    return 'Caminho atual: $path';
+  }
 
   @override
-  String get welcomeTitle => 'BEM-VINDO(A)';
+  String get saving => 'SALVANDO';
 
   @override
-  String get welcomeTitle_description =>
-      'Parabéns! Você está pronto(a) para usar este aplicativo de câmera.';
+  String get selectPath => 'Selecione o caminho';
 
   @override
-  String get getStarted => 'Começar';
+  String get settings => 'Configurações';
+
+  @override
+  String get shutterSound => 'Desabilitar o som do obturador';
+
+  @override
+  String get shutterSound_description =>
+      'Desabilita o som do obturador ao tirar uma foto';
+
+  @override
+  String get startRecordingVideo => 'Iniciar gravação de vídeo';
+
+  @override
+  String get startWithFrontCamera => 'Iniciar com a câmera frontal';
+
+  @override
+  String get startWithFrontCamera_description =>
+      'Sempre inicia com a câmera frontal ao abrir o app';
+
+  @override
+  String get stopVideo => 'Parar vídeo';
 
   @override
   String get switchToPictureMode => 'Alternar para o modo de fotografia';
@@ -363,122 +261,93 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Alternar para o modo de gravação de vídeo';
 
   @override
-  String get openCapturedPictureOrVideo => 'Abrir foto ou vídeo capturado';
+  String get systemLanguage => 'Idioma padrão do sistema';
 
   @override
-  String get takePicture => 'Tirar fotografia';
-
-  @override
-  String get startRecordingVideo => 'Iniciar gravação de vídeo';
-
-  @override
-  String get pauseVideo => 'Pausar vídeo';
-
-  @override
-  String get resumeVideo => 'Retomar vídeo';
-
-  @override
-  String get stopVideo => 'Parar vídeo';
-
-  @override
-  String get exposureMode => 'Modo da exposição';
-
-  @override
-  String get exposureModeAuto => 'EXPOSIÇÃO AUTOMÁTICA';
-
-  @override
-  String get exposureModeLocked => 'EXPOSIÇÃO TRAVADA';
-
-  @override
-  String get defaultExposure => 'Exposição padrão';
-
-  @override
-  String get flashlight => 'Lanterna';
-
-  @override
-  String get lockCaptureOrientation =>
-      'Travar orientação automática [NECESSÁRIO REINICIAR]';
-
-  @override
-  String get lockCaptureOrientation_description =>
-      'Travar a orientação para o modo retrato, não importando se o modo de rotação automática estiver ativado';
-
-  @override
-  String get showNavigationBar =>
-      'Mostrar barra de navegação [NECESSÁRIO REINICIAR]';
-
-  @override
-  String get showNavigationBar_description =>
-      'Mostrar sempre a barra de navegação do Android';
-
-  @override
-  String get focusMode => 'Modo de foco';
-
-  @override
-  String get focusModeAuto => 'FOCO AUTOMÁTICO';
-
-  @override
-  String get focusModeLocked => 'FOCO TRAVADO';
-
-  @override
-  String get reset => 'Redefinir';
-
-  @override
-  String get flipToFrontCamera => 'Alternar para câmera frontal';
-
-  @override
-  String get flipToRearCamera => 'Alternar para câmera traseira';
-
-  @override
-  String get autoSmall => 'AUTOMÁTICO';
-
-  @override
-  String get lockedSmall => 'TRAVADO';
-
-  @override
-  String get off => 'Desligado';
-
-  @override
-  String get timer => 'Temporizador';
-
-  @override
-  String get back => 'Voltar';
-
-  @override
-  String get next => 'Seguinte';
-
-  @override
-  String get settings => 'Configurações';
-
-  @override
-  String get appSettings => 'CONFIGURAÇÕES DO APLICATIVO';
-
-  @override
-  String get language => 'Idioma';
-
-  @override
-  String get language_description => 'Alterar o idioma do aplicativo';
-
-  @override
-  String get systemLanguage => 'Idioma do sistema';
+  String get takePicture => 'Tirar uma foto';
 
   @override
   String get theme => 'Tema';
 
   @override
-  String get theme_description => 'Alterar o tema do aplicativo';
-
-  @override
-  String get themeSystem => 'Tema do sistema';
-
-  @override
-  String get themeLight => 'Tema claro';
+  String get themeBlack => 'Tema preto';
 
   @override
   String get themeDark => 'Tema escuro';
 
   @override
-  String get themeBlack => 'Tema preto';
+  String get themeLight => 'Tema claro';
+
+  @override
+  String get themeSystem => 'Tema padrão do sistema';
+
+  @override
+  String get theme_description => 'Troca o tema do app';
+
+  @override
+  String get timer => 'Temporizador';
+
+  @override
+  String get useMaterialYou => 'Usar o Material You';
+
+  @override
+  String get useMaterialYou_description =>
+      'Usar o design Material You. Desative para usar o antigo Material Design';
+
+  @override
+  String version(String versionNumber) {
+    return 'Versão $versionNumber';
+  }
+
+  @override
+  String get welcomeTitle => 'Bem-vindo';
+
+  @override
+  String get welcomeTitle_description =>
+      'Parabéns! Você já pode usar este app de câmera.';
+}
+
+/// The translations for Portuguese, as used in Brazil (`pt_BR`).
+class AppLocalizationsPtBr extends AppLocalizationsPt {
+  AppLocalizationsPtBr() : super('pt_BR');
+
+  @override
+  String get appSettings => 'CONFIGURAÇÕES DO APLICATIVO';
+
+  @override
+  String get autoSmall => 'AUTOMÁTICO';
+
+  @override
+  String get back => 'Voltar';
+
+  @override
+  String get cameraBehaviour => 'COMPORTAMENTO DA CÂMERA';
+
+  @override
+  String get captureAtVolumePress => 'Capturar ao pressionar o volume';
+
+  @override
+  String get captureAtVolumePress_description =>
+      'Quando ativado, pressionar um botão de volume captura uma fotografia ou grava um vídeo';
+
+  @override
+  String get choosePath => 'Escolher caminho';
+
+  @override
+  String get defaultExposure => 'Exposição padrão';
+
+  @override
+  String get disableAudio => 'Desativar o áudio';
+
+  @override
+  String get disableAudio_description => 'Desativa o áudio ao gravar um vídeo';
+
+  @override
+  String get enableExposureSlider => 'Ativar controle deslizante da exposição';
+
+  @override
+  String get enableExposureSlider_description =>
+      'Quando ativado, um controle deslizante aparecerá para se ajustar manualmente a exposição';
 
   @override
   String get enableMaximumScreenBrightness => 'Brilho máximo da tela';
@@ -502,34 +371,16 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Quando ativado, um controle deslizante aparecerá para se ajustar manualmente o zoom';
 
   @override
-  String get enableExposureSlider => 'Ativar controle deslizante da exposição';
+  String get exposureMode => 'Modo da exposição';
 
   @override
-  String get enableExposureSlider_description =>
-      'Quando ativado, um controle deslizante aparecerá para se ajustar manualmente a exposição';
+  String get exposureModeAuto => 'EXPOSIÇÃO AUTOMÁTICA';
 
   @override
-  String get cameraBehaviour => 'COMPORTAMENTO DA CÂMERA';
+  String get exposureModeLocked => 'EXPOSIÇÃO TRAVADA';
 
   @override
-  String get format => 'Formato da imagem';
-
-  @override
-  String get format_description =>
-      'Alterar o formato da imagem (padrão: JPEG/JPG)';
-
-  @override
-  String get resolution => 'Resolução';
-
-  @override
-  String get resolution_description => 'Alterar a resolução da câmera';
-
-  @override
-  String get shutterSound => 'Desativar o som do obturador';
-
-  @override
-  String get shutterSound_description =>
-      'Desativa o som do obturador ao tirar uma foto';
+  String get flashlight => 'Lanterna';
 
   @override
   String get flipPhotosFrontCamera => 'Virar fotos na câmera frontal';
@@ -539,20 +390,38 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Vira fotos horizontalmente que foram tiradas com a câmera frontal';
 
   @override
-  String get startWithFrontCamera => 'Começar com a câmera frontal';
+  String get flipToFrontCamera => 'Alternar para câmera frontal';
 
   @override
-  String get startWithFrontCamera_description =>
-      'Sempre começar com a câmera frontal ao abrir o aplicativo';
+  String get flipToRearCamera => 'Alternar para câmera traseira';
 
   @override
-  String get disableAudio => 'Desativar o áudio';
+  String get focusMode => 'Modo de foco';
 
   @override
-  String get disableAudio_description => 'Desativa o áudio ao gravar um vídeo';
+  String get focusModeAuto => 'FOCO AUTOMÁTICO';
 
   @override
-  String get saving => 'SALVANDO';
+  String get focusModeLocked => 'FOCO TRAVADO';
+
+  @override
+  String get format => 'Formato da imagem';
+
+  @override
+  String get format_description =>
+      'Alterar o formato da imagem (padrão: JPEG/JPG)';
+
+  @override
+  String get getStarted => 'Começar';
+
+  @override
+  String get giveCameraPermission => 'Permitir utilização da câmera';
+
+  @override
+  String get giveMicrophonePermission => 'Permitir utilização do microfone';
+
+  @override
+  String get giveStoragePermission => 'Permitir utilização do armazenamento';
 
   @override
   String get imageCompressionQuality => 'Qualidade da compressão de imagem';
@@ -569,44 +438,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Salva metadados EXIF da foto tirada, como modelo de telefone, localização GPS, etc.';
 
   @override
-  String get useMaterialYou => 'Usar Material You';
+  String get language => 'Idioma';
 
   @override
-  String get useMaterialYou_description =>
-      'Usar o design Material You. Desabilite para usar o antigo Material Design';
-
-  @override
-  String get savePath => 'Caminho de salvamento';
-
-  @override
-  String savePath_description(String path) {
-    return 'Caminho atual: $path';
-  }
-
-  @override
-  String get choosePath => 'Escolher caminho';
-
-  @override
-  String get onboardingScreen => 'Tela de integração';
-
-  @override
-  String get onboardingScreen_description =>
-      'Abre a tela de integração inicial';
-
-  @override
-  String get more => 'MAIS';
-
-  @override
-  String get less => 'MOSTRAR MENOS';
-
-  @override
-  String version(String versionNumber) {
-    return 'Versão $versionNumber';
-  }
-
-  @override
-  String get license =>
-      'O código está licenciado sob a GPLv3 no GitHub. Se você encontrar algum problema ou quiser solicitar um recurso, abra um problema no GitHub. Obrigado!';
+  String get language_description => 'Alterar o idioma do aplicativo';
 
   @override
   String get leftHandedMode => 'Modo para canhotos';
@@ -616,9 +451,158 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Quando ativado, altera o posicionamento dos controles da câmera em paisagem para o modo para canhotos';
 
   @override
-  String get captureAtVolumePress => 'Capturar ao pressionar o volume';
+  String get less => 'MOSTRAR MENOS';
 
   @override
-  String get captureAtVolumePress_description =>
-      'Quando ativado, pressionar um botão de volume captura uma fotografia ou grava um vídeo';
+  String get license =>
+      'O código está licenciado sob a GPLv3 no GitHub. Se você encontrar algum problema ou quiser solicitar um recurso, abra um problema no GitHub. Obrigado!';
+
+  @override
+  String get lockCaptureOrientation =>
+      'Travar orientação automática [NECESSÁRIO REINICIAR]';
+
+  @override
+  String get lockCaptureOrientation_description =>
+      'Travar a orientação para o modo retrato, não importando se o modo de rotação automática estiver ativado';
+
+  @override
+  String get lockedSmall => 'TRAVADO';
+
+  @override
+  String get more => 'MAIS';
+
+  @override
+  String get next => 'Seguinte';
+
+  @override
+  String get off => 'Desligado';
+
+  @override
+  String get onboardingScreen => 'Tela de integração';
+
+  @override
+  String get onboardingScreen_description =>
+      'Abre a tela de integração inicial';
+
+  @override
+  String get openCapturedPictureOrVideo => 'Abrir foto ou vídeo capturado';
+
+  @override
+  String get pauseVideo => 'Pausar vídeo';
+
+  @override
+  String get permissionsTitle => 'PERMISSÕES';
+
+  @override
+  String get permissionsTitle_description =>
+      'Para usar a câmera, você precisa dar permissão para o aplicativo utilizar sua câmera e armazenamento.';
+
+  @override
+  String get reset => 'Redefinir';
+
+  @override
+  String get resolution => 'Resolução';
+
+  @override
+  String get resolution_description => 'Alterar a resolução da câmera';
+
+  @override
+  String get resumeVideo => 'Retomar vídeo';
+
+  @override
+  String get savePath => 'Caminho de salvamento';
+
+  @override
+  String get savePathTitle => 'CAMINHO DE SALVAMENTO';
+
+  @override
+  String get savePathTitle_description =>
+      'Selecione um caminho de salvamento. Normalmente, as imagens são salvas no caminho da pasta DCIM no Android.';
+
+  @override
+  String savePath_description(String path) {
+    return 'Caminho atual: $path';
+  }
+
+  @override
+  String get saving => 'SALVANDO';
+
+  @override
+  String get selectPath => 'Selecionar caminho';
+
+  @override
+  String get settings => 'Configurações';
+
+  @override
+  String get shutterSound => 'Desativar o som do obturador';
+
+  @override
+  String get shutterSound_description =>
+      'Desativa o som do obturador ao tirar uma foto';
+
+  @override
+  String get startRecordingVideo => 'Iniciar gravação de vídeo';
+
+  @override
+  String get startWithFrontCamera => 'Começar com a câmera frontal';
+
+  @override
+  String get startWithFrontCamera_description =>
+      'Sempre começar com a câmera frontal ao abrir o aplicativo';
+
+  @override
+  String get stopVideo => 'Parar vídeo';
+
+  @override
+  String get switchToPictureMode => 'Alternar para o modo de fotografia';
+
+  @override
+  String get switchToVideoRecordingMode =>
+      'Alternar para o modo de gravação de vídeo';
+
+  @override
+  String get systemLanguage => 'Idioma do sistema';
+
+  @override
+  String get takePicture => 'Tirar fotografia';
+
+  @override
+  String get theme => 'Tema';
+
+  @override
+  String get themeBlack => 'Tema preto';
+
+  @override
+  String get themeDark => 'Tema escuro';
+
+  @override
+  String get themeLight => 'Tema claro';
+
+  @override
+  String get themeSystem => 'Tema do sistema';
+
+  @override
+  String get theme_description => 'Alterar o tema do aplicativo';
+
+  @override
+  String get timer => 'Temporizador';
+
+  @override
+  String get useMaterialYou => 'Usar Material You';
+
+  @override
+  String get useMaterialYou_description =>
+      'Usar o design Material You. Desabilite para usar o antigo Material Design';
+
+  @override
+  String version(String versionNumber) {
+    return 'Versão $versionNumber';
+  }
+
+  @override
+  String get welcomeTitle => 'BEM-VINDO(A)';
+
+  @override
+  String get welcomeTitle_description =>
+      'Parabéns! Você está pronto(a) para usar este aplicativo de câmera.';
 }

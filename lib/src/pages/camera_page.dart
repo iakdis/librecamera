@@ -98,6 +98,7 @@ class _CameraPageState extends State<CameraPage>
   MediaFile? _recentMediaFile;
 
   static const _thumbnailImageSize = 52.0;
+  static const _topControlsHeight = 64.0;
 
   //QR Code
   /*final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
@@ -253,6 +254,10 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Widget _cameraPreview(BuildContext context) {
+    final leftHandedMode =
+        Preferences.getLeftHandedMode() &&
+        MediaQuery.orientationOf(context) == Orientation.landscape;
+
     return ColoredBox(
       color: Colors.black,
       child: Stack(
@@ -261,8 +266,48 @@ class _CameraPageState extends State<CameraPage>
             key: qrKey,
             onQRViewCreated: _onQRViewCreated,
           ),*/
-          _previewWidget(),
-          _shutterBorder(),
+          Positioned(
+            top: MediaQuery.orientationOf(context) == Orientation.portrait
+                ? _topControlsHeight
+                : 0,
+            bottom: MediaQuery.orientationOf(context) == Orientation.portrait
+                ? null
+                : 0,
+            left: MediaQuery.orientationOf(context) == Orientation.portrait
+                ? 0
+                : leftHandedMode
+                ? null
+                : _topControlsHeight,
+            right: MediaQuery.orientationOf(context) == Orientation.portrait
+                ? 0
+                : leftHandedMode
+                ? _topControlsHeight
+                : null,
+
+            child: SafeArea(
+              top: MediaQuery.orientationOf(context) == Orientation.portrait,
+              bottom: MediaQuery.orientationOf(context) == Orientation.portrait,
+              left: MediaQuery.orientationOf(context) == Orientation.landscape,
+              right: MediaQuery.orientationOf(context) == Orientation.landscape,
+              child: _previewWidget(),
+            ),
+          ),
+          /* Positioned(
+            top: MediaQuery.orientationOf(context) == Orientation.portrait
+                ? _topControlsHeight
+                : 0,
+            bottom: MediaQuery.orientationOf(context) == Orientation.portrait
+                ? null
+                : 0,
+            left: MediaQuery.orientationOf(context) == Orientation.portrait
+                ? 0
+                : _topControlsHeight,
+            right: MediaQuery.orientationOf(context) == Orientation.portrait
+                ? 0
+                : null,
+            child: _previewWidget(),
+          ), */
+          SafeArea(child: _shutterBorder()),
           //?TODO when in QR-Code mode: enable, _previewWidget disable
           /*Center(
             child: (result != null)
@@ -276,10 +321,13 @@ class _CameraPageState extends State<CameraPage>
                 : const Text('Scan a code',
                     style: TextStyle(color: Colors.white)),
           ),*/
-          _timerWidget(),
+          SafeArea(child: _timerWidget()),
           _topControlsWidget(),
           _zoomWidget(context),
-          _bottomControlsWidget(),
+          SafeArea(
+            bottom: MediaQuery.orientationOf(context) == Orientation.portrait,
+            child: _bottomControlsWidget(),
+          ),
         ],
       ),
     );
@@ -386,64 +434,70 @@ class _CameraPageState extends State<CameraPage>
       bottom: MediaQuery.orientationOf(context) == Orientation.portrait
           ? null
           : 0,
-      child: RotatedBox(
-        quarterTurns: MediaQuery.orientationOf(context) == Orientation.portrait
-            ? 0
-            : 3,
-        child: ColoredBox(
-          color: Colors.black12,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              _cameraSwitchWidget(
-                enabled:
-                    _cameraController?.value.isRecordingVideo == false &&
-                    _timerStopwatch.elapsedTicks <= 1,
-              ),
-              ValueListenableBuilder(
-                valueListenable: _isVideoCameraSelectedNotifier,
-                builder: (context, isVideoCameraSelected, child) {
-                  return TimerButton(
-                    enabled:
-                        !isVideoCameraSelected &&
-                        _timerStopwatch.elapsedTicks <= 1,
-                  );
-                },
-              ),
-              ValueListenableBuilder(
-                valueListenable: _isRearCameraSelectedNotifier,
-                builder: (context, isRearCameraSelected, child) {
-                  return ValueListenableBuilder(
-                    valueListenable: _isVideoCameraSelectedNotifier,
-                    builder: (context, isVideoCameraSelected, child) {
-                      return FlashModeWidget(
-                        controller: _cameraController,
-                        isRearCameraSelected: isRearCameraSelected,
-                        isVideoCameraSelected: isVideoCameraSelected,
-                      );
-                    },
-                  );
-                },
-              ),
-              ValueListenableBuilder(
-                valueListenable: _isRearCameraSelectedNotifier,
-                builder: (context, isRearCameraSelected, child) {
-                  return ResolutionButton(
-                    isDense: true,
-                    onNewCameraSelected: _initializeCameraController,
-                    isRearCameraSelected: isRearCameraSelected,
+      child: SafeArea(
+        bottom: false,
+        child: RotatedBox(
+          quarterTurns:
+              MediaQuery.orientationOf(context) == Orientation.portrait ? 0 : 3,
+          child: SizedBox(
+            height: _topControlsHeight,
+            child: ColoredBox(
+              color: Colors.black12,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  _cameraSwitchWidget(
                     enabled:
                         _cameraController?.value.isRecordingVideo == false &&
                         _timerStopwatch.elapsedTicks <= 1,
-                  );
-                },
+                  ),
+                  ValueListenableBuilder(
+                    valueListenable: _isVideoCameraSelectedNotifier,
+                    builder: (context, isVideoCameraSelected, child) {
+                      return TimerButton(
+                        enabled:
+                            !isVideoCameraSelected &&
+                            _timerStopwatch.elapsedTicks <= 1,
+                      );
+                    },
+                  ),
+                  ValueListenableBuilder(
+                    valueListenable: _isRearCameraSelectedNotifier,
+                    builder: (context, isRearCameraSelected, child) {
+                      return ValueListenableBuilder(
+                        valueListenable: _isVideoCameraSelectedNotifier,
+                        builder: (context, isVideoCameraSelected, child) {
+                          return FlashModeWidget(
+                            controller: _cameraController,
+                            isRearCameraSelected: isRearCameraSelected,
+                            isVideoCameraSelected: isVideoCameraSelected,
+                          );
+                        },
+                      );
+                    },
+                  ),
+                  ValueListenableBuilder(
+                    valueListenable: _isRearCameraSelectedNotifier,
+                    builder: (context, isRearCameraSelected, child) {
+                      return ResolutionButton(
+                        isDense: true,
+                        onNewCameraSelected: _initializeCameraController,
+                        isRearCameraSelected: isRearCameraSelected,
+                        enabled:
+                            _cameraController?.value.isRecordingVideo ==
+                                false &&
+                            _timerStopwatch.elapsedTicks <= 1,
+                      );
+                    },
+                  ),
+                  _settingsWidget(
+                    enabled:
+                        _cameraController?.value.isRecordingVideo == false &&
+                        _timerStopwatch.elapsedTicks <= 1,
+                  ),
+                ],
               ),
-              _settingsWidget(
-                enabled:
-                    _cameraController?.value.isRecordingVideo == false &&
-                    _timerStopwatch.elapsedTicks <= 1,
-              ),
-            ],
+            ),
           ),
         ),
       ),
@@ -469,33 +523,34 @@ class _CameraPageState extends State<CameraPage>
       bottom: MediaQuery.orientationOf(context) == Orientation.portrait
           ? null
           : 0,
-      child: RotatedBox(
-        quarterTurns: MediaQuery.orientationOf(context) == Orientation.portrait
-            ? 0
-            : 3,
-        child: ValueListenableBuilder(
-          valueListenable: _showZoomSliderNotifier,
-          builder: (context, showZoomSlider, child) {
-            return Column(
-              children: [
-                //_settingsWidget(),
-                //_cameraSwitchWidget(),
-                //const SizedBox(height: 10.0),
-                //_thumbnailPreviewWidget(),
-                if (!leftHandedMode) const SizedBox(height: 64),
-                if (showZoomSlider || Preferences.getEnableZoomSlider())
-                  RotatedBox(
-                    quarterTurns:
-                        MediaQuery.orientationOf(context) ==
-                            Orientation.portrait
-                        ? 0
-                        : 2,
-                    child: _zoomSlider(),
-                  ),
-                if (leftHandedMode) const SizedBox(height: 64),
-              ],
-            );
-          },
+      child: SafeArea(
+        child: RotatedBox(
+          quarterTurns:
+              MediaQuery.orientationOf(context) == Orientation.portrait ? 0 : 3,
+          child: ValueListenableBuilder(
+            valueListenable: _showZoomSliderNotifier,
+            builder: (context, showZoomSlider, child) {
+              return Column(
+                children: [
+                  //_settingsWidget(),
+                  //_cameraSwitchWidget(),
+                  //const SizedBox(height: 10.0),
+                  //_thumbnailPreviewWidget(),
+                  if (!leftHandedMode) const SizedBox(height: 64),
+                  if (showZoomSlider || Preferences.getEnableZoomSlider())
+                    RotatedBox(
+                      quarterTurns:
+                          MediaQuery.orientationOf(context) ==
+                              Orientation.portrait
+                          ? 0
+                          : 2,
+                      child: _zoomSlider(),
+                    ),
+                  if (leftHandedMode) const SizedBox(height: 64),
+                ],
+              );
+            },
+          ),
         ),
       ),
     );
@@ -1152,16 +1207,29 @@ class _CameraPageState extends State<CameraPage>
 
   //Zoom
   Widget _zoomSlider() {
+    final leftHandedMode =
+        Preferences.getLeftHandedMode() &&
+        MediaQuery.orientationOf(context) == Orientation.landscape;
+
     return Column(
       children: [
-        if (MediaQuery.orientationOf(context) == Orientation.landscape)
+        if (!leftHandedMode &&
+            MediaQuery.orientationOf(context) == Orientation.landscape)
           _zoomResetButton(),
         Padding(
           padding: .fromLTRB(
             16,
-            MediaQuery.orientationOf(context) == Orientation.portrait ? 16 : 0,
+            MediaQuery.orientationOf(context) == Orientation.portrait
+                ? 16
+                : leftHandedMode
+                ? 16
+                : 0,
             16,
-            MediaQuery.orientationOf(context) == Orientation.portrait ? 0 : 16,
+            MediaQuery.orientationOf(context) == Orientation.portrait
+                ? 0
+                : leftHandedMode
+                ? 0
+                : 16,
           ),
           child: RotatedBox(
             quarterTurns: 3,
@@ -1203,7 +1271,8 @@ class _CameraPageState extends State<CameraPage>
             ),
           ),
         ),
-        if (MediaQuery.orientationOf(context) == Orientation.portrait)
+        if (leftHandedMode ||
+            MediaQuery.orientationOf(context) == Orientation.portrait)
           _zoomResetButton(),
       ],
     );
@@ -1241,7 +1310,7 @@ class _CameraPageState extends State<CameraPage>
     TapDownDetails details,
     BoxConstraints constraints,
   ) async {
-    if (_cameraController == null) {
+    if (_cameraController == null || _pointers >= 2) {
       return;
     }
 

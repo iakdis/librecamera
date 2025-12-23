@@ -60,11 +60,9 @@ class CameraApp extends StatelessWidget {
                 GlobalCupertinoLocalizations.delegate,
                 FallbackMaterialLocalizationsDelegate(),
               ],
-              home: SafeArea(
-                child: onboardingCompleted
-                    ? const CameraPage()
-                    : const OnboardingPage(),
-              ),
+              home: onboardingCompleted
+                  ? const CameraPage()
+                  : const OnboardingPage(),
             );
           },
         );

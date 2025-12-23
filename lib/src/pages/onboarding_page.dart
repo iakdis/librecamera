@@ -222,11 +222,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
     return ColoredBox(
       color: Colors.blue.shade100,
       child: MediaQuery.orientationOf(context) == Orientation.portrait
-          ? SingleChildScrollView(
+          ? Center(
+              child: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(vertical: 64),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [_savePathPageInfo(), _savePathPageButtons()],
+                ),
               ),
             )
           : Row(
@@ -376,7 +378,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   Widget _bottomPageIndicator() {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       height: 80,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -423,9 +425,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           colorScheme: ColorScheme.fromSeed(seedColor: seedColor),
         ),
         child: Scaffold(
-          body: Container(
-            padding: const EdgeInsets.only(bottom: 80),
-            child: PageView(
+          body: PageView(
               physics: nextEnabled()
                   ? const ScrollPhysics()
                   : const NeverScrollableScrollPhysics(),
@@ -443,10 +443,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 _welcomePageInfo(),
               ],
             ),
-          ),
-          bottomSheet: isLastPage
+          bottomNavigationBar: SafeArea(
+            left: false,
+            right: false,
+            child: isLastPage
               ? _welcomePageBottomButton()
               : _bottomPageIndicator(),
+          ),
         ),
       ),
     );

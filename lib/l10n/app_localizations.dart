@@ -168,209 +168,11 @@ abstract class AppLocalizations {
     Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hant'),
   ];
 
-  /// No description provided for @permissionsTitle.
+  /// No description provided for @appSettings.
   ///
   /// In en, this message translates to:
-  /// **'PERMISSIONS'**
-  String get permissionsTitle;
-
-  /// No description provided for @permissionsTitle_description.
-  ///
-  /// In en, this message translates to:
-  /// **'To use the camera, you need to give permission to your camera and storage.'**
-  String get permissionsTitle_description;
-
-  /// No description provided for @giveCameraPermission.
-  ///
-  /// In en, this message translates to:
-  /// **'Give camera permission'**
-  String get giveCameraPermission;
-
-  /// No description provided for @giveMicrophonePermission.
-  ///
-  /// In en, this message translates to:
-  /// **'Give microphone permission'**
-  String get giveMicrophonePermission;
-
-  /// No description provided for @giveStoragePermission.
-  ///
-  /// In en, this message translates to:
-  /// **'Give storage permission'**
-  String get giveStoragePermission;
-
-  /// No description provided for @savePathTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'SAVE PATH'**
-  String get savePathTitle;
-
-  /// No description provided for @savePathTitle_description.
-  ///
-  /// In en, this message translates to:
-  /// **'Select a save path. Typically, images get saved to the DCIM path on Android.'**
-  String get savePathTitle_description;
-
-  /// No description provided for @selectPath.
-  ///
-  /// In en, this message translates to:
-  /// **'Select path'**
-  String get selectPath;
-
-  /// No description provided for @welcomeTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'WELCOME'**
-  String get welcomeTitle;
-
-  /// No description provided for @welcomeTitle_description.
-  ///
-  /// In en, this message translates to:
-  /// **'Congratulations! You are ready to use this camera app.'**
-  String get welcomeTitle_description;
-
-  /// No description provided for @getStarted.
-  ///
-  /// In en, this message translates to:
-  /// **'Get started'**
-  String get getStarted;
-
-  /// No description provided for @switchToPictureMode.
-  ///
-  /// In en, this message translates to:
-  /// **'Switch to picture mode'**
-  String get switchToPictureMode;
-
-  /// No description provided for @switchToVideoRecordingMode.
-  ///
-  /// In en, this message translates to:
-  /// **'Switch to video recording mode'**
-  String get switchToVideoRecordingMode;
-
-  /// No description provided for @openCapturedPictureOrVideo.
-  ///
-  /// In en, this message translates to:
-  /// **'Open captured picture or video'**
-  String get openCapturedPictureOrVideo;
-
-  /// No description provided for @takePicture.
-  ///
-  /// In en, this message translates to:
-  /// **'Take picture'**
-  String get takePicture;
-
-  /// No description provided for @startRecordingVideo.
-  ///
-  /// In en, this message translates to:
-  /// **'Start recording video'**
-  String get startRecordingVideo;
-
-  /// No description provided for @pauseVideo.
-  ///
-  /// In en, this message translates to:
-  /// **'Pause video'**
-  String get pauseVideo;
-
-  /// No description provided for @resumeVideo.
-  ///
-  /// In en, this message translates to:
-  /// **'Resume video'**
-  String get resumeVideo;
-
-  /// No description provided for @stopVideo.
-  ///
-  /// In en, this message translates to:
-  /// **'Stop video'**
-  String get stopVideo;
-
-  /// No description provided for @exposureMode.
-  ///
-  /// In en, this message translates to:
-  /// **'Exposure mode'**
-  String get exposureMode;
-
-  /// No description provided for @exposureModeAuto.
-  ///
-  /// In en, this message translates to:
-  /// **'AUTO EXPOSURE'**
-  String get exposureModeAuto;
-
-  /// No description provided for @exposureModeLocked.
-  ///
-  /// In en, this message translates to:
-  /// **'LOCKED EXPOSURE'**
-  String get exposureModeLocked;
-
-  /// No description provided for @defaultExposure.
-  ///
-  /// In en, this message translates to:
-  /// **'Default exposure'**
-  String get defaultExposure;
-
-  /// No description provided for @flashlight.
-  ///
-  /// In en, this message translates to:
-  /// **'Flashlight'**
-  String get flashlight;
-
-  /// No description provided for @lockCaptureOrientation.
-  ///
-  /// In en, this message translates to:
-  /// **'Lock auto orientation [RESTART REQUIRED]'**
-  String get lockCaptureOrientation;
-
-  /// No description provided for @lockCaptureOrientation_description.
-  ///
-  /// In en, this message translates to:
-  /// **'Lock orientation to portrait mode, no matter if automatic rotation mode is activated'**
-  String get lockCaptureOrientation_description;
-
-  /// No description provided for @showNavigationBar.
-  ///
-  /// In en, this message translates to:
-  /// **'Show navigation bar [RESTART REQUIRED]'**
-  String get showNavigationBar;
-
-  /// No description provided for @showNavigationBar_description.
-  ///
-  /// In en, this message translates to:
-  /// **'Always show the Android navigation bar'**
-  String get showNavigationBar_description;
-
-  /// No description provided for @focusMode.
-  ///
-  /// In en, this message translates to:
-  /// **'Focus mode'**
-  String get focusMode;
-
-  /// No description provided for @focusModeAuto.
-  ///
-  /// In en, this message translates to:
-  /// **'AUTO FOCUS'**
-  String get focusModeAuto;
-
-  /// No description provided for @focusModeLocked.
-  ///
-  /// In en, this message translates to:
-  /// **'LOCKED FOCUS'**
-  String get focusModeLocked;
-
-  /// No description provided for @reset.
-  ///
-  /// In en, this message translates to:
-  /// **'Reset'**
-  String get reset;
-
-  /// No description provided for @flipToFrontCamera.
-  ///
-  /// In en, this message translates to:
-  /// **'Flip to front camera'**
-  String get flipToFrontCamera;
-
-  /// No description provided for @flipToRearCamera.
-  ///
-  /// In en, this message translates to:
-  /// **'Flip to rear camera'**
-  String get flipToRearCamera;
+  /// **'APP SETTINGS'**
+  String get appSettings;
 
   /// No description provided for @autoSmall.
   ///
@@ -378,101 +180,65 @@ abstract class AppLocalizations {
   /// **'AUTO'**
   String get autoSmall;
 
-  /// No description provided for @lockedSmall.
-  ///
-  /// In en, this message translates to:
-  /// **'LOCKED'**
-  String get lockedSmall;
-
-  /// No description provided for @off.
-  ///
-  /// In en, this message translates to:
-  /// **'Off'**
-  String get off;
-
-  /// No description provided for @timer.
-  ///
-  /// In en, this message translates to:
-  /// **'Timer'**
-  String get timer;
-
   /// No description provided for @back.
   ///
   /// In en, this message translates to:
   /// **'Back'**
   String get back;
 
-  /// No description provided for @next.
+  /// No description provided for @cameraBehaviour.
   ///
   /// In en, this message translates to:
-  /// **'Next'**
-  String get next;
+  /// **'CAMERA BEHAVIOUR'**
+  String get cameraBehaviour;
 
-  /// No description provided for @settings.
+  /// No description provided for @captureAtVolumePress.
   ///
   /// In en, this message translates to:
-  /// **'Settings'**
-  String get settings;
+  /// **'Capture at volume press'**
+  String get captureAtVolumePress;
 
-  /// No description provided for @appSettings.
+  /// No description provided for @captureAtVolumePress_description.
   ///
   /// In en, this message translates to:
-  /// **'APP SETTINGS'**
-  String get appSettings;
+  /// **'When enabled, pressing a volume button will capture a picture or record a video'**
+  String get captureAtVolumePress_description;
 
-  /// No description provided for @language.
+  /// No description provided for @choosePath.
   ///
   /// In en, this message translates to:
-  /// **'Language'**
-  String get language;
+  /// **'Choose path'**
+  String get choosePath;
 
-  /// No description provided for @language_description.
+  /// No description provided for @defaultExposure.
   ///
   /// In en, this message translates to:
-  /// **'Change the app language'**
-  String get language_description;
+  /// **'Default exposure'**
+  String get defaultExposure;
 
-  /// No description provided for @systemLanguage.
+  /// No description provided for @disableAudio.
   ///
   /// In en, this message translates to:
-  /// **'System language'**
-  String get systemLanguage;
+  /// **'Disable audio'**
+  String get disableAudio;
 
-  /// No description provided for @theme.
+  /// No description provided for @disableAudio_description.
   ///
   /// In en, this message translates to:
-  /// **'Theme'**
-  String get theme;
+  /// **'Disable audio when recording a video'**
+  String get disableAudio_description;
 
-  /// No description provided for @theme_description.
+  /// No description provided for @enableExposureSlider.
   ///
   /// In en, this message translates to:
-  /// **'Change the app theme'**
-  String get theme_description;
+  /// **'Enable exposure slider'**
+  String get enableExposureSlider;
 
-  /// No description provided for @themeSystem.
+  /// No description provided for @enableExposureSlider_description.
   ///
   /// In en, this message translates to:
-  /// **'System theme'**
-  String get themeSystem;
-
-  /// No description provided for @themeLight.
-  ///
-  /// In en, this message translates to:
-  /// **'Light theme'**
-  String get themeLight;
-
-  /// No description provided for @themeDark.
-  ///
-  /// In en, this message translates to:
-  /// **'Dark theme'**
-  String get themeDark;
-
-  /// No description provided for @themeBlack.
-  ///
-  /// In en, this message translates to:
-  /// **'Black theme'**
-  String get themeBlack;
+  /// **'When enabled, a slider will appear to manually adjust the exposure'**
+  String get enableExposureSlider_description;
 
   /// No description provided for @enableMaximumScreenBrightness.
   ///
@@ -510,59 +276,29 @@ abstract class AppLocalizations {
   /// **'When enabled, a slider will appear to manually adjust the zoom'**
   String get enableZoomSlider_description;
 
-  /// No description provided for @enableExposureSlider.
+  /// No description provided for @exposureMode.
   ///
   /// In en, this message translates to:
-  /// **'Enable exposure slider'**
-  String get enableExposureSlider;
+  /// **'Exposure mode'**
+  String get exposureMode;
 
-  /// No description provided for @enableExposureSlider_description.
+  /// No description provided for @exposureModeAuto.
   ///
   /// In en, this message translates to:
-  /// **'When enabled, a slider will appear to manually adjust the exposure'**
-  String get enableExposureSlider_description;
+  /// **'AUTO EXPOSURE'**
+  String get exposureModeAuto;
 
-  /// No description provided for @cameraBehaviour.
+  /// No description provided for @exposureModeLocked.
   ///
   /// In en, this message translates to:
-  /// **'CAMERA BEHAVIOUR'**
-  String get cameraBehaviour;
+  /// **'LOCKED EXPOSURE'**
+  String get exposureModeLocked;
 
-  /// No description provided for @format.
+  /// No description provided for @flashlight.
   ///
   /// In en, this message translates to:
-  /// **'Image format'**
-  String get format;
-
-  /// No description provided for @format_description.
-  ///
-  /// In en, this message translates to:
-  /// **'Change the image format (default: JPEG/JPG)'**
-  String get format_description;
-
-  /// No description provided for @resolution.
-  ///
-  /// In en, this message translates to:
-  /// **'Resolution'**
-  String get resolution;
-
-  /// No description provided for @resolution_description.
-  ///
-  /// In en, this message translates to:
-  /// **'Change the camera resolution'**
-  String get resolution_description;
-
-  /// No description provided for @shutterSound.
-  ///
-  /// In en, this message translates to:
-  /// **'Disable shutter sound'**
-  String get shutterSound;
-
-  /// No description provided for @shutterSound_description.
-  ///
-  /// In en, this message translates to:
-  /// **'Disable the shutter sound when taking a picture'**
-  String get shutterSound_description;
+  /// **'Flashlight'**
+  String get flashlight;
 
   /// No description provided for @flipPhotosFrontCamera.
   ///
@@ -576,35 +312,71 @@ abstract class AppLocalizations {
   /// **'Flip photos horizontally that were taken with front camera'**
   String get flipPhotosFrontCamera_description;
 
-  /// No description provided for @startWithFrontCamera.
+  /// No description provided for @flipToFrontCamera.
   ///
   /// In en, this message translates to:
-  /// **'Start with front camera'**
-  String get startWithFrontCamera;
+  /// **'Flip to front camera'**
+  String get flipToFrontCamera;
 
-  /// No description provided for @startWithFrontCamera_description.
+  /// No description provided for @flipToRearCamera.
   ///
   /// In en, this message translates to:
-  /// **'Always start with front camera when opening the app'**
-  String get startWithFrontCamera_description;
+  /// **'Flip to rear camera'**
+  String get flipToRearCamera;
 
-  /// No description provided for @disableAudio.
+  /// No description provided for @focusMode.
   ///
   /// In en, this message translates to:
-  /// **'Disable audio'**
-  String get disableAudio;
+  /// **'Focus mode'**
+  String get focusMode;
 
-  /// No description provided for @disableAudio_description.
+  /// No description provided for @focusModeAuto.
   ///
   /// In en, this message translates to:
-  /// **'Disable audio when recording a video'**
-  String get disableAudio_description;
+  /// **'AUTO FOCUS'**
+  String get focusModeAuto;
 
-  /// No description provided for @saving.
+  /// No description provided for @focusModeLocked.
   ///
   /// In en, this message translates to:
-  /// **'SAVING'**
-  String get saving;
+  /// **'LOCKED FOCUS'**
+  String get focusModeLocked;
+
+  /// No description provided for @format.
+  ///
+  /// In en, this message translates to:
+  /// **'Image format'**
+  String get format;
+
+  /// No description provided for @format_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Change the image format (default: JPEG/JPG)'**
+  String get format_description;
+
+  /// No description provided for @getStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Get started'**
+  String get getStarted;
+
+  /// No description provided for @giveCameraPermission.
+  ///
+  /// In en, this message translates to:
+  /// **'Give camera permission'**
+  String get giveCameraPermission;
+
+  /// No description provided for @giveMicrophonePermission.
+  ///
+  /// In en, this message translates to:
+  /// **'Give microphone permission'**
+  String get giveMicrophonePermission;
+
+  /// No description provided for @giveStoragePermission.
+  ///
+  /// In en, this message translates to:
+  /// **'Give storage permission'**
+  String get giveStoragePermission;
 
   /// No description provided for @imageCompressionQuality.
   ///
@@ -630,71 +402,17 @@ abstract class AppLocalizations {
   /// **'Save EXIF metadata of the taken picture like phone model, GPS location, etc.'**
   String get keepEXIFMetadata_description;
 
-  /// No description provided for @useMaterialYou.
+  /// No description provided for @language.
   ///
   /// In en, this message translates to:
-  /// **'Use Material You'**
-  String get useMaterialYou;
+  /// **'Language'**
+  String get language;
 
-  /// No description provided for @useMaterialYou_description.
+  /// No description provided for @language_description.
   ///
   /// In en, this message translates to:
-  /// **'Use the Material You design. Set to false for the old Material design'**
-  String get useMaterialYou_description;
-
-  /// No description provided for @savePath.
-  ///
-  /// In en, this message translates to:
-  /// **'Save path'**
-  String get savePath;
-
-  /// No description provided for @savePath_description.
-  ///
-  /// In en, this message translates to:
-  /// **'Current path: {path}'**
-  String savePath_description(String path);
-
-  /// No description provided for @choosePath.
-  ///
-  /// In en, this message translates to:
-  /// **'Choose path'**
-  String get choosePath;
-
-  /// No description provided for @onboardingScreen.
-  ///
-  /// In en, this message translates to:
-  /// **'Onboarding screen'**
-  String get onboardingScreen;
-
-  /// No description provided for @onboardingScreen_description.
-  ///
-  /// In en, this message translates to:
-  /// **'Open the initial onboarding screen'**
-  String get onboardingScreen_description;
-
-  /// No description provided for @more.
-  ///
-  /// In en, this message translates to:
-  /// **'MORE'**
-  String get more;
-
-  /// No description provided for @less.
-  ///
-  /// In en, this message translates to:
-  /// **'SHOW LESS'**
-  String get less;
-
-  /// No description provided for @version.
-  ///
-  /// In en, this message translates to:
-  /// **'Version {versionNumber}'**
-  String version(String versionNumber);
-
-  /// No description provided for @license.
-  ///
-  /// In en, this message translates to:
-  /// **'The code is licensed under the GPLv3 on GitHub. If you encounter any problems or want to request a feature, please open an issue on GitHub. Thanks!'**
-  String get license;
+  /// **'Change the app language'**
+  String get language_description;
 
   /// No description provided for @leftHandedMode.
   ///
@@ -708,17 +426,287 @@ abstract class AppLocalizations {
   /// **'When enabled, switch the position of the camera controls in landscape for left-handed mode'**
   String get leftHandedMode_description;
 
-  /// No description provided for @captureAtVolumePress.
+  /// No description provided for @less.
   ///
   /// In en, this message translates to:
-  /// **'Capture at volume press'**
-  String get captureAtVolumePress;
+  /// **'SHOW LESS'**
+  String get less;
 
-  /// No description provided for @captureAtVolumePress_description.
+  /// No description provided for @license.
   ///
   /// In en, this message translates to:
-  /// **'When enabled, pressing a volume button will capture a picture or record a video'**
-  String get captureAtVolumePress_description;
+  /// **'The code is licensed under the GPLv3 on GitHub. If you encounter any problems or want to request a feature, please open an issue on GitHub. Thanks!'**
+  String get license;
+
+  /// No description provided for @lockCaptureOrientation.
+  ///
+  /// In en, this message translates to:
+  /// **'Lock auto orientation [RESTART REQUIRED]'**
+  String get lockCaptureOrientation;
+
+  /// No description provided for @lockCaptureOrientation_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Lock orientation to portrait mode, no matter if automatic rotation mode is activated'**
+  String get lockCaptureOrientation_description;
+
+  /// No description provided for @lockedSmall.
+  ///
+  /// In en, this message translates to:
+  /// **'LOCKED'**
+  String get lockedSmall;
+
+  /// No description provided for @more.
+  ///
+  /// In en, this message translates to:
+  /// **'MORE'**
+  String get more;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @off.
+  ///
+  /// In en, this message translates to:
+  /// **'Off'**
+  String get off;
+
+  /// No description provided for @onboardingScreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Onboarding screen'**
+  String get onboardingScreen;
+
+  /// No description provided for @onboardingScreen_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Open the initial onboarding screen'**
+  String get onboardingScreen_description;
+
+  /// No description provided for @openCapturedPictureOrVideo.
+  ///
+  /// In en, this message translates to:
+  /// **'Open captured picture or video'**
+  String get openCapturedPictureOrVideo;
+
+  /// No description provided for @pauseVideo.
+  ///
+  /// In en, this message translates to:
+  /// **'Pause video'**
+  String get pauseVideo;
+
+  /// No description provided for @permissionsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'PERMISSIONS'**
+  String get permissionsTitle;
+
+  /// No description provided for @permissionsTitle_description.
+  ///
+  /// In en, this message translates to:
+  /// **'To use the camera, you need to give permission to your camera and storage.'**
+  String get permissionsTitle_description;
+
+  /// No description provided for @reset.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset'**
+  String get reset;
+
+  /// No description provided for @resolution.
+  ///
+  /// In en, this message translates to:
+  /// **'Resolution'**
+  String get resolution;
+
+  /// No description provided for @resolution_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Change the camera resolution'**
+  String get resolution_description;
+
+  /// No description provided for @resumeVideo.
+  ///
+  /// In en, this message translates to:
+  /// **'Resume video'**
+  String get resumeVideo;
+
+  /// No description provided for @savePath.
+  ///
+  /// In en, this message translates to:
+  /// **'Save path'**
+  String get savePath;
+
+  /// No description provided for @savePathTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'SAVE PATH'**
+  String get savePathTitle;
+
+  /// No description provided for @savePathTitle_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Select a save path. Typically, images get saved to the DCIM path on Android.'**
+  String get savePathTitle_description;
+
+  /// No description provided for @savePath_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Current path: {path}'**
+  String savePath_description(String path);
+
+  /// No description provided for @saving.
+  ///
+  /// In en, this message translates to:
+  /// **'SAVING'**
+  String get saving;
+
+  /// No description provided for @selectPath.
+  ///
+  /// In en, this message translates to:
+  /// **'Select path'**
+  String get selectPath;
+
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
+  /// No description provided for @shutterSound.
+  ///
+  /// In en, this message translates to:
+  /// **'Disable shutter sound'**
+  String get shutterSound;
+
+  /// No description provided for @shutterSound_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Disable the shutter sound when taking a picture'**
+  String get shutterSound_description;
+
+  /// No description provided for @startRecordingVideo.
+  ///
+  /// In en, this message translates to:
+  /// **'Start recording video'**
+  String get startRecordingVideo;
+
+  /// No description provided for @startWithFrontCamera.
+  ///
+  /// In en, this message translates to:
+  /// **'Start with front camera'**
+  String get startWithFrontCamera;
+
+  /// No description provided for @startWithFrontCamera_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Always start with front camera when opening the app'**
+  String get startWithFrontCamera_description;
+
+  /// No description provided for @stopVideo.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop video'**
+  String get stopVideo;
+
+  /// No description provided for @switchToPictureMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Switch to picture mode'**
+  String get switchToPictureMode;
+
+  /// No description provided for @switchToVideoRecordingMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Switch to video recording mode'**
+  String get switchToVideoRecordingMode;
+
+  /// No description provided for @systemLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'System language'**
+  String get systemLanguage;
+
+  /// No description provided for @takePicture.
+  ///
+  /// In en, this message translates to:
+  /// **'Take picture'**
+  String get takePicture;
+
+  /// No description provided for @theme.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get theme;
+
+  /// No description provided for @themeBlack.
+  ///
+  /// In en, this message translates to:
+  /// **'Black theme'**
+  String get themeBlack;
+
+  /// No description provided for @themeDark.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark theme'**
+  String get themeDark;
+
+  /// No description provided for @themeLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Light theme'**
+  String get themeLight;
+
+  /// No description provided for @themeSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'System theme'**
+  String get themeSystem;
+
+  /// No description provided for @theme_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Change the app theme'**
+  String get theme_description;
+
+  /// No description provided for @timer.
+  ///
+  /// In en, this message translates to:
+  /// **'Timer'**
+  String get timer;
+
+  /// No description provided for @useMaterialYou.
+  ///
+  /// In en, this message translates to:
+  /// **'Use Material You'**
+  String get useMaterialYou;
+
+  /// No description provided for @useMaterialYou_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the Material You design. Set to false for the old Material design'**
+  String get useMaterialYou_description;
+
+  /// No description provided for @version.
+  ///
+  /// In en, this message translates to:
+  /// **'Version {versionNumber}'**
+  String version(String versionNumber);
+
+  /// No description provided for @welcomeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'WELCOME'**
+  String get welcomeTitle;
+
+  /// No description provided for @welcomeTitle_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Congratulations! You are ready to use this camera app.'**
+  String get welcomeTitle_description;
 }
 
 class _AppLocalizationsDelegate

@@ -1,144 +1,85 @@
 {
-    "@_ONBOARDING_PAGE": {},
-
-
-
-    "permissionsTitle": "許可設定",
-    "permissionsTitle_description": "このアプリを使用するには、カメラとストレージの権限を付与する必要があります。",
-    "giveCameraPermission": "カメラ権限を許可する",
-    "giveMicrophonePermission": "マイク権限を許可する",
-    "giveStoragePermission": "ストレージ権限を許可する",
-
-    "savePathTitle": "保存先",
-    "savePathTitle_description": "保存先のフォルダーを設定してください。 Androidの基準ではDCIMフォルダーに保存することです。",
-    "selectPath": "フォルダー選択",
-
-    "welcomeTitle": "ようこそ",
-    "welcomeTitle_description": "初期設定が完了しました。ご利用ありがとうございました。",
-    "getStarted": "完了",
-
-
-
-    "@_CAMERA_PAGE": {},
-
-    "switchToPictureMode": "写真撮影モードに切り替え",
-    "switchToVideoRecordingMode": "ビデオ録画に切り替え",
-
-    "openCapturedPictureOrVideo": "保存した写真・動画を開く",
-
-    "takePicture": "写真を撮影する",
-
-    "startRecordingVideo": "録画を開始する",
-    "pauseVideo": "録画を一時停止する",
-    "resumeVideo": "録画を再開する",
-    "stopVideo": "録画を終了する",
-
-    "exposureMode": "露出モード",
-    "exposureModeAuto": "オート露出",
-    "exposureModeLocked": "固定露出",
-    "defaultExposure": "デフォルト",
-
-    "flashlight": "フラッシュライト",
-
-    "lockCaptureOrientation": "画面回転をロックする [再起動必須]",
-    "lockCaptureOrientation_description": "画面回転が有効のときでも、アプリ内で縦表示に固定する",
-
-    "showNavigationBar": "ナビゲーションバーを表示する [再起動必須]",
-    "showNavigationBar_description": "Androidのナビゲーションバーを常に表示する",
-
-    "focusMode": "フォーカスモード",
-    "focusModeAuto": "オートフォーカス",
-    "focusModeLocked": "固定フォーカス",
-
-    "reset": "リセット",
-
-    "flipToFrontCamera": "フロントカメラに切り替え",
-    "flipToRearCamera": "背面カメラに切り替え",
-
-    "autoSmall": "オート",
-    "lockedSmall": "固定",
-
-    "off": "オフ",
-
-    "timer": "タイマー",
-
-    
-
-    "@_SETTINGS_PAGE": {},
-
-
-
-    "back": "戻る",
-    "next": "次へ",
-    "settings": "設定",
-
-    "appSettings": "アプリ設定",
-    
-    "language": "言語設定",
-    "language_description": "アプリの言語を変更する",
-    "systemLanguage": "システム言語",
-
-    "theme": "ダークモード",
-    "theme_description": "アプリのダークモードを切り替わる",
-    "themeSystem": "システムと合わせる",
-    "themeLight": "ライトモード",
-    "themeDark": "ダークモード",
-
-    "enableMaximumScreenBrightness": "画面の最大輝度",
-    "enableMaximumScreenBrightness_description": "有効にすると、デバイスの画面の明るさが最大に設定されます",
-
-    "enableModeRow": "露出・フォーカス設定を表示",
-    "enableModeRow_description": "画面の下に露室とフォーカス設定を切り替わるボタンを表示する",
-
-    "enableZoomSlider": "ズームスライダーを表示",
-    "enableZoomSlider_description": "ズームを調整するスライダーを表示する",
-
-    "enableExposureSlider": "露出スライダーを表示",
-    "enableExposureSlider_description": "露出を手動で調整するスライダーを表示する",
-
-    "cameraBehaviour": "カメラ設定",
-
-    "format": "画像ファイル形式",
-    "format_description": "保存する画像ファイルの形式を変更する (デフォルト： JPEG/JPG)",
-
-    "resolution": "解像度",
-    "resolution_description": "カメラの解像度を変更する",
-
-    "shutterSound": "シャッター音を鳴らさないようにする",
-    "shutterSound_description": "撮影時のシャッター音を無効にする",
-
-    "flipPhotosFrontCamera": "フロントカメラ影を映す",
-    "flipPhotosFrontCamera_description": "フロントカメラで撮影した写真の影を映す",
-
-    "startWithFrontCamera": "フロントカメラに起動",
-    "startWithFrontCamera_description": "アプリを起動したときフロントカメラに切り替わる",
-
-    "disableAudio": "マイク無効",
-    "disableAudio_description": "録画するとき音声を録音しない",
-
-    "saving": "保存設定",
-
-    "imageCompressionQuality": "画質設定",
-    "imageCompressionQuality_description": "画質設定を下げるとファイルサイズが下げますが、保存した画像の画質は悪くなります。画質設定を上がると、保存した画像の画質は良くなりますが、ファイルサイズが増える。",
-
-    "keepEXIFMetadata": "EXIFデータを保存",
-    "keepEXIFMetadata_description": "機種、GPS座標などのメータデータをEXIFタグとして画像ファイルに書き込む",
-
-    "savePath": "保存先設定",
-    "savePath_description": "使用中フォルダー: {path}",
-    "choosePath": "フォルダー選択",
-
-    "onboardingScreen": "初期設定",
-    "onboardingScreen_description": "初期設定画面を起動する",
-
-
-
-    "@_ABOUT": {},
-
-
-
-    "more": "詳細設定",
-    "less": "詳細設定を閉じる",
-    "version": "バージョン {versionNumber}",
-    "license": "本アプリのソースコードはGPLv3ライセンスでGitHubにて配信されています。 ご質問・ご要望・不具合報告などがありましたら、GitHubのIssueでお問い合わせください。ご利用ありがとうございました！"
+  "appSettings": "アプリ設定",
+  "autoSmall": "オート",
+  "back": "戻る",
+  "cameraBehaviour": "カメラ設定",
+  "choosePath": "フォルダー選択",
+  "defaultExposure": "デフォルト",
+  "disableAudio": "マイク無効",
+  "disableAudio_description": "録画するとき音声を録音しない",
+  "enableExposureSlider": "露出スライダーを表示",
+  "enableExposureSlider_description": "露出を手動で調整するスライダーを表示する",
+  "enableMaximumScreenBrightness": "画面の最大輝度",
+  "enableMaximumScreenBrightness_description": "有効にすると、デバイスの画面の明るさが最大に設定されます",
+  "enableModeRow": "露出・フォーカス設定を表示",
+  "enableModeRow_description": "画面の下に露室とフォーカス設定を切り替わるボタンを表示する",
+  "enableZoomSlider": "ズームスライダーを表示",
+  "enableZoomSlider_description": "ズームを調整するスライダーを表示する",
+  "exposureMode": "露出モード",
+  "exposureModeAuto": "オート露出",
+  "exposureModeLocked": "固定露出",
+  "flashlight": "フラッシュライト",
+  "flipPhotosFrontCamera": "フロントカメラ影を映す",
+  "flipPhotosFrontCamera_description": "フロントカメラで撮影した写真の影を映す",
+  "flipToFrontCamera": "フロントカメラに切り替え",
+  "flipToRearCamera": "背面カメラに切り替え",
+  "focusMode": "フォーカスモード",
+  "focusModeAuto": "オートフォーカス",
+  "focusModeLocked": "固定フォーカス",
+  "format": "画像ファイル形式",
+  "format_description": "保存する画像ファイルの形式を変更する (デフォルト： JPEG/JPG)",
+  "getStarted": "完了",
+  "giveCameraPermission": "カメラ権限を許可する",
+  "giveMicrophonePermission": "マイク権限を許可する",
+  "giveStoragePermission": "ストレージ権限を許可する",
+  "imageCompressionQuality": "画質設定",
+  "imageCompressionQuality_description": "画質設定を下げるとファイルサイズが下げますが、保存した画像の画質は悪くなります。画質設定を上がると、保存した画像の画質は良くなりますが、ファイルサイズが増える。",
+  "keepEXIFMetadata": "EXIFデータを保存",
+  "keepEXIFMetadata_description": "機種、GPS座標などのメータデータをEXIFタグとして画像ファイルに書き込む",
+  "language": "言語設定",
+  "language_description": "アプリの言語を変更する",
+  "less": "詳細設定を閉じる",
+  "license": "本アプリのソースコードはGPLv3ライセンスでGitHubにて配信されています。 ご質問・ご要望・不具合報告などがありましたら、GitHubのIssueでお問い合わせください。ご利用ありがとうございました！",
+  "lockCaptureOrientation": "画面回転をロックする [再起動必須]",
+  "lockCaptureOrientation_description": "画面回転が有効のときでも、アプリ内で縦表示に固定する",
+  "lockedSmall": "固定",
+  "more": "詳細設定",
+  "next": "次へ",
+  "off": "オフ",
+  "onboardingScreen": "初期設定",
+  "onboardingScreen_description": "初期設定画面を起動する",
+  "openCapturedPictureOrVideo": "保存した写真・動画を開く",
+  "pauseVideo": "録画を一時停止する",
+  "permissionsTitle": "許可設定",
+  "permissionsTitle_description": "このアプリを使用するには、カメラとストレージの権限を付与する必要があります。",
+  "reset": "リセット",
+  "resolution": "解像度",
+  "resolution_description": "カメラの解像度を変更する",
+  "resumeVideo": "録画を再開する",
+  "savePath": "保存先設定",
+  "savePathTitle": "保存先",
+  "savePathTitle_description": "保存先のフォルダーを設定してください。 Androidの基準ではDCIMフォルダーに保存することです。",
+  "savePath_description": "使用中フォルダー: {path}",
+  "saving": "保存設定",
+  "selectPath": "フォルダー選択",
+  "settings": "設定",
+  "shutterSound": "シャッター音を鳴らさないようにする",
+  "shutterSound_description": "撮影時のシャッター音を無効にする",
+  "startRecordingVideo": "録画を開始する",
+  "startWithFrontCamera": "フロントカメラに起動",
+  "startWithFrontCamera_description": "アプリを起動したときフロントカメラに切り替わる",
+  "stopVideo": "録画を終了する",
+  "switchToPictureMode": "写真撮影モードに切り替え",
+  "switchToVideoRecordingMode": "ビデオ録画に切り替え",
+  "systemLanguage": "システム言語",
+  "takePicture": "写真を撮影する",
+  "theme": "ダークモード",
+  "themeDark": "ダークモード",
+  "themeLight": "ライトモード",
+  "themeSystem": "システムと合わせる",
+  "theme_description": "アプリのダークモードを切り替わる",
+  "timer": "タイマー",
+  "version": "バージョン {versionNumber}",
+  "welcomeTitle": "ようこそ",
+  "welcomeTitle_description": "初期設定が完了しました。ご利用ありがとうございました。"
 }

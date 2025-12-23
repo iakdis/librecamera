@@ -9,163 +9,42 @@ class AppLocalizationsMl extends AppLocalizations {
   AppLocalizationsMl([String locale = 'ml']) : super(locale);
 
   @override
-  String get permissionsTitle => 'അനുമതികൾ';
-
-  @override
-  String get permissionsTitle_description =>
-      'To use the camera, you need to give permission to your camera and storage.';
-
-  @override
-  String get giveCameraPermission => 'ക്യാമറ അനുമതി നൽകുക';
-
-  @override
-  String get giveMicrophonePermission => 'Give microphone permission';
-
-  @override
-  String get giveStoragePermission => 'സംഭരണ അനുമതി നൽകുക';
-
-  @override
-  String get savePathTitle => 'പാത സംരക്ഷിക്കുക';
-
-  @override
-  String get savePathTitle_description =>
-      'Select a save path. Typically, images get saved to the DCIM path on Android.';
-
-  @override
-  String get selectPath => 'പാത തിരഞ്ഞെടുക്കുക';
-
-  @override
-  String get welcomeTitle => 'സ്വാഗതം';
-
-  @override
-  String get welcomeTitle_description =>
-      'അഭിനന്ദനങ്ങൾ! ഈ ക്യാമറ പ്രയോഗം ഉപയോഗിക്കാൻ നിങ്ങൾ തയ്യാറാണ്.';
-
-  @override
-  String get getStarted => 'ആരംഭിക്കുക';
-
-  @override
-  String get switchToPictureMode => 'ചിത്ര രീതിയിലേക്ക് മാറുക';
-
-  @override
-  String get switchToVideoRecordingMode => 'Switch to video recording mode';
-
-  @override
-  String get openCapturedPictureOrVideo => 'Open captured picture or video';
-
-  @override
-  String get takePicture => 'ചിത്രം എടുക്കുക';
-
-  @override
-  String get startRecordingVideo => 'Start recording video';
-
-  @override
-  String get pauseVideo => 'Pause video';
-
-  @override
-  String get resumeVideo => 'Resume video';
-
-  @override
-  String get stopVideo => 'Stop video';
-
-  @override
-  String get exposureMode => 'Exposure mode';
-
-  @override
-  String get exposureModeAuto => 'AUTO EXPOSURE';
-
-  @override
-  String get exposureModeLocked => 'LOCKED EXPOSURE';
-
-  @override
-  String get defaultExposure => 'Default exposure';
-
-  @override
-  String get flashlight => 'Flashlight';
-
-  @override
-  String get lockCaptureOrientation =>
-      'Lock auto orientation [RESTART REQUIRED]';
-
-  @override
-  String get lockCaptureOrientation_description =>
-      'Lock orientation to portrait mode, no matter if automatic rotation mode is activated';
-
-  @override
-  String get showNavigationBar => 'Show navigation bar [RESTART REQUIRED]';
-
-  @override
-  String get showNavigationBar_description =>
-      'Always show the Android navigation bar';
-
-  @override
-  String get focusMode => 'Focus mode';
-
-  @override
-  String get focusModeAuto => 'AUTO FOCUS';
-
-  @override
-  String get focusModeLocked => 'LOCKED FOCUS';
-
-  @override
-  String get reset => 'പുനഃസജ്ജമാക്കുക';
-
-  @override
-  String get flipToFrontCamera => 'Flip to front camera';
-
-  @override
-  String get flipToRearCamera => 'Flip to rear camera';
+  String get appSettings => 'പ്രയോഗത്തിന്റെ ക്രമീകരണങ്ങൾ';
 
   @override
   String get autoSmall => 'സ്വയമേവ';
 
   @override
-  String get lockedSmall => 'LOCKED';
-
-  @override
-  String get off => 'Off';
-
-  @override
-  String get timer => 'ടൈമർ';
-
-  @override
   String get back => 'തിരികെ';
 
   @override
-  String get next => 'അടുത്തത്';
+  String get cameraBehaviour => 'ക്യാമറ പെരുമാറ്റം';
 
   @override
-  String get settings => 'ക്രമീകരണങ്ങൾ';
+  String get captureAtVolumePress => 'Capture at volume press';
 
   @override
-  String get appSettings => 'പ്രയോഗത്തിന്റെ ക്രമീകരണങ്ങൾ';
+  String get captureAtVolumePress_description =>
+      'When enabled, pressing a volume button will capture a picture or record a video';
 
   @override
-  String get language => 'ഭാഷ';
+  String get choosePath => 'പാത തിരഞ്ഞെടുക്കുക';
 
   @override
-  String get language_description => 'പ്രയോഗത്തിന്റെ ഭാഷ മാറ്റുക';
+  String get defaultExposure => 'Default exposure';
 
   @override
-  String get systemLanguage => 'System language';
+  String get disableAudio => 'ശബ്ദം പ്രവർത്തനരഹിതമാക്കുക';
 
   @override
-  String get theme => 'Theme';
+  String get disableAudio_description => 'Disable audio when recording a video';
 
   @override
-  String get theme_description => 'Change the app theme';
+  String get enableExposureSlider => 'Enable exposure slider';
 
   @override
-  String get themeSystem => 'System theme';
-
-  @override
-  String get themeLight => 'Light theme';
-
-  @override
-  String get themeDark => 'Dark theme';
-
-  @override
-  String get themeBlack => 'Black theme';
+  String get enableExposureSlider_description =>
+      'When enabled, a slider will appear to manually adjust the exposure';
 
   @override
   String get enableMaximumScreenBrightness => 'പരമാവധി സ്ക്രീൻ തെളിച്ചം';
@@ -189,34 +68,16 @@ class AppLocalizationsMl extends AppLocalizations {
       'When enabled, a slider will appear to manually adjust the zoom';
 
   @override
-  String get enableExposureSlider => 'Enable exposure slider';
+  String get exposureMode => 'Exposure mode';
 
   @override
-  String get enableExposureSlider_description =>
-      'When enabled, a slider will appear to manually adjust the exposure';
+  String get exposureModeAuto => 'AUTO EXPOSURE';
 
   @override
-  String get cameraBehaviour => 'ക്യാമറ പെരുമാറ്റം';
+  String get exposureModeLocked => 'LOCKED EXPOSURE';
 
   @override
-  String get format => 'Image format';
-
-  @override
-  String get format_description =>
-      'ചിത്രത്തിന്റെ തരം മാറ്റുക (സ്ഥിരസ്ഥിതിട്: JPEG/JPG)';
-
-  @override
-  String get resolution => 'Resolution';
-
-  @override
-  String get resolution_description => 'Change the camera resolution';
-
-  @override
-  String get shutterSound => 'അടയ്ക്കുന്ന ശബ്ദം പ്രവർത്തനരഹിതമാക്കുക';
-
-  @override
-  String get shutterSound_description =>
-      'Disable the shutter sound when taking a picture';
+  String get flashlight => 'Flashlight';
 
   @override
   String get flipPhotosFrontCamera => 'Flip photos on front camera';
@@ -226,20 +87,38 @@ class AppLocalizationsMl extends AppLocalizations {
       'Flip photos horizontally that were taken with front camera';
 
   @override
-  String get startWithFrontCamera => 'മുൻവശത്തെ ക്യാമറ ഉപയോഗിച്ച് ആരംഭിക്കുക';
+  String get flipToFrontCamera => 'Flip to front camera';
 
   @override
-  String get startWithFrontCamera_description =>
-      'പ്രയോഗം തുറക്കുമ്പോൾ എപ്പോഴും മുൻവശത്തെ ക്യാമറ ഉപയോഗിച്ച് തുടങ്ങുക';
+  String get flipToRearCamera => 'Flip to rear camera';
 
   @override
-  String get disableAudio => 'ശബ്ദം പ്രവർത്തനരഹിതമാക്കുക';
+  String get focusMode => 'Focus mode';
 
   @override
-  String get disableAudio_description => 'Disable audio when recording a video';
+  String get focusModeAuto => 'AUTO FOCUS';
 
   @override
-  String get saving => 'സംരക്ഷിക്കുന്നു';
+  String get focusModeLocked => 'LOCKED FOCUS';
+
+  @override
+  String get format => 'Image format';
+
+  @override
+  String get format_description =>
+      'ചിത്രത്തിന്റെ തരം മാറ്റുക (സ്ഥിരസ്ഥിതിട്: JPEG/JPG)';
+
+  @override
+  String get getStarted => 'ആരംഭിക്കുക';
+
+  @override
+  String get giveCameraPermission => 'ക്യാമറ അനുമതി നൽകുക';
+
+  @override
+  String get giveMicrophonePermission => 'Give microphone permission';
+
+  @override
+  String get giveStoragePermission => 'സംഭരണ അനുമതി നൽകുക';
 
   @override
   String get imageCompressionQuality => 'ചിത്രം ചുരുക്കലിന്റെ നിലവാരം';
@@ -256,44 +135,10 @@ class AppLocalizationsMl extends AppLocalizations {
       'Save EXIF metadata of the taken picture like phone model, GPS location, etc.';
 
   @override
-  String get useMaterialYou => 'Use Material You';
+  String get language => 'ഭാഷ';
 
   @override
-  String get useMaterialYou_description =>
-      'Use the Material You design. Set to false for the old Material design';
-
-  @override
-  String get savePath => 'പാത സംരക്ഷിക്കുക';
-
-  @override
-  String savePath_description(String path) {
-    return 'നിലവിലെ പാത: $path';
-  }
-
-  @override
-  String get choosePath => 'പാത തിരഞ്ഞെടുക്കുക';
-
-  @override
-  String get onboardingScreen => 'Onboarding screen';
-
-  @override
-  String get onboardingScreen_description =>
-      'Open the initial onboarding screen';
-
-  @override
-  String get more => 'കൂടുതൽ';
-
-  @override
-  String get less => 'കുറവ് കാണിക്കുക';
-
-  @override
-  String version(String versionNumber) {
-    return 'പതിപ്പ് $versionNumber';
-  }
-
-  @override
-  String get license =>
-      'GitHub-ലെ GPLv3-ന് കീഴിൽ കോഡ് അനുമതി ചെയ്‌തിരിക്കുന്നു. നിങ്ങൾക്ക് എന്തെങ്കിലും പ്രശ്‌നങ്ങൾ നേരിടുകയോ ഒരു സവിശേഷത അഭ്യർത്ഥിക്കുകയോ ചെയ്യുകയാണെങ്കിൽ, ദയവായി GitHub-ൽ ഒരു പ്രശ്നം തുറക്കുക. നന്ദി!';
+  String get language_description => 'പ്രയോഗത്തിന്റെ ഭാഷ മാറ്റുക';
 
   @override
   String get leftHandedMode => 'Left-handed mode';
@@ -303,9 +148,157 @@ class AppLocalizationsMl extends AppLocalizations {
       'When enabled, switch the position of the camera controls in landscape for left-handed mode';
 
   @override
-  String get captureAtVolumePress => 'Capture at volume press';
+  String get less => 'കുറവ് കാണിക്കുക';
 
   @override
-  String get captureAtVolumePress_description =>
-      'When enabled, pressing a volume button will capture a picture or record a video';
+  String get license =>
+      'GitHub-ലെ GPLv3-ന് കീഴിൽ കോഡ് അനുമതി ചെയ്‌തിരിക്കുന്നു. നിങ്ങൾക്ക് എന്തെങ്കിലും പ്രശ്‌നങ്ങൾ നേരിടുകയോ ഒരു സവിശേഷത അഭ്യർത്ഥിക്കുകയോ ചെയ്യുകയാണെങ്കിൽ, ദയവായി GitHub-ൽ ഒരു പ്രശ്നം തുറക്കുക. നന്ദി!';
+
+  @override
+  String get lockCaptureOrientation =>
+      'Lock auto orientation [RESTART REQUIRED]';
+
+  @override
+  String get lockCaptureOrientation_description =>
+      'Lock orientation to portrait mode, no matter if automatic rotation mode is activated';
+
+  @override
+  String get lockedSmall => 'LOCKED';
+
+  @override
+  String get more => 'കൂടുതൽ';
+
+  @override
+  String get next => 'അടുത്തത്';
+
+  @override
+  String get off => 'Off';
+
+  @override
+  String get onboardingScreen => 'Onboarding screen';
+
+  @override
+  String get onboardingScreen_description =>
+      'Open the initial onboarding screen';
+
+  @override
+  String get openCapturedPictureOrVideo => 'Open captured picture or video';
+
+  @override
+  String get pauseVideo => 'Pause video';
+
+  @override
+  String get permissionsTitle => 'അനുമതികൾ';
+
+  @override
+  String get permissionsTitle_description =>
+      'To use the camera, you need to give permission to your camera and storage.';
+
+  @override
+  String get reset => 'പുനഃസജ്ജമാക്കുക';
+
+  @override
+  String get resolution => 'Resolution';
+
+  @override
+  String get resolution_description => 'Change the camera resolution';
+
+  @override
+  String get resumeVideo => 'Resume video';
+
+  @override
+  String get savePath => 'പാത സംരക്ഷിക്കുക';
+
+  @override
+  String get savePathTitle => 'പാത സംരക്ഷിക്കുക';
+
+  @override
+  String get savePathTitle_description =>
+      'Select a save path. Typically, images get saved to the DCIM path on Android.';
+
+  @override
+  String savePath_description(String path) {
+    return 'നിലവിലെ പാത: $path';
+  }
+
+  @override
+  String get saving => 'സംരക്ഷിക്കുന്നു';
+
+  @override
+  String get selectPath => 'പാത തിരഞ്ഞെടുക്കുക';
+
+  @override
+  String get settings => 'ക്രമീകരണങ്ങൾ';
+
+  @override
+  String get shutterSound => 'അടയ്ക്കുന്ന ശബ്ദം പ്രവർത്തനരഹിതമാക്കുക';
+
+  @override
+  String get shutterSound_description =>
+      'Disable the shutter sound when taking a picture';
+
+  @override
+  String get startRecordingVideo => 'Start recording video';
+
+  @override
+  String get startWithFrontCamera => 'മുൻവശത്തെ ക്യാമറ ഉപയോഗിച്ച് ആരംഭിക്കുക';
+
+  @override
+  String get startWithFrontCamera_description =>
+      'പ്രയോഗം തുറക്കുമ്പോൾ എപ്പോഴും മുൻവശത്തെ ക്യാമറ ഉപയോഗിച്ച് തുടങ്ങുക';
+
+  @override
+  String get stopVideo => 'Stop video';
+
+  @override
+  String get switchToPictureMode => 'ചിത്ര രീതിയിലേക്ക് മാറുക';
+
+  @override
+  String get switchToVideoRecordingMode => 'Switch to video recording mode';
+
+  @override
+  String get systemLanguage => 'System language';
+
+  @override
+  String get takePicture => 'ചിത്രം എടുക്കുക';
+
+  @override
+  String get theme => 'Theme';
+
+  @override
+  String get themeBlack => 'Black theme';
+
+  @override
+  String get themeDark => 'Dark theme';
+
+  @override
+  String get themeLight => 'Light theme';
+
+  @override
+  String get themeSystem => 'System theme';
+
+  @override
+  String get theme_description => 'Change the app theme';
+
+  @override
+  String get timer => 'ടൈമർ';
+
+  @override
+  String get useMaterialYou => 'Use Material You';
+
+  @override
+  String get useMaterialYou_description =>
+      'Use the Material You design. Set to false for the old Material design';
+
+  @override
+  String version(String versionNumber) {
+    return 'പതിപ്പ് $versionNumber';
+  }
+
+  @override
+  String get welcomeTitle => 'സ്വാഗതം';
+
+  @override
+  String get welcomeTitle_description =>
+      'അഭിനന്ദനങ്ങൾ! ഈ ക്യാമറ പ്രയോഗം ഉപയോഗിക്കാൻ നിങ്ങൾ തയ്യാറാണ്.';
 }

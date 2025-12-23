@@ -1,17 +1,10 @@
 {
-  "@@locale" : "sat",
-  "permissionsTitle": "ᱟᱫᱮᱨᱠᱚ",
-  "@permissionsTitle": {},
-  "giveMicrophonePermission": "ᱢᱟᱭᱠᱨᱚᱯᱷᱚᱱ ᱟᱫᱮᱨ ᱡᱚᱜᱟᱣᱟᱭ ᱢᱮ",
-  "@giveMicrophonePermission": {},
-  "welcomeTitle": "ᱥᱟᱹᱜᱩᱱ ᱫᱟᱨᱟᱢ",
-  "@welcomeTitle": {},
+  "@@locale": "sat",
   "giveCameraPermission": "ᱠᱮᱢᱨᱟ ᱟᱫᱮᱨ ᱡᱚᱜᱟᱣᱟᱭ ᱢᱮ",
-  "@giveCameraPermission": {},
+  "giveMicrophonePermission": "ᱢᱟᱭᱠᱨᱚᱯᱷᱚᱱ ᱟᱫᱮᱨ ᱡᱚᱜᱟᱣᱟᱭ ᱢᱮ",
+  "permissionsTitle": "ᱟᱫᱮᱨᱠᱚ",
   "savePathTitle": "ᱦᱚᱨ ᱥᱟᱧᱪᱟᱣ ᱢᱮ",
-  "@savePathTitle": {},
   "selectPath": "ᱦᱚᱨ ᱵᱟᱪᱷᱟᱣ ᱢᱮ",
-  "@selectPath": {},
   "takePicture": "ᱪᱤᱛᱟᱹᱨ ᱤᱫᱤ ᱢᱮ",
-  "@takePicture": {}
+  "welcomeTitle": "ᱥᱟᱹᱜᱩᱱ ᱫᱟᱨᱟᱢ"
 }

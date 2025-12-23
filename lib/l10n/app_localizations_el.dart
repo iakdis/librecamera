@@ -9,166 +9,43 @@ class AppLocalizationsEl extends AppLocalizations {
   AppLocalizationsEl([String locale = 'el']) : super(locale);
 
   @override
-  String get permissionsTitle => 'ΑΔΕΙΕΣ';
-
-  @override
-  String get permissionsTitle_description =>
-      'Για να χρησιμοποιήσετε την κάμερα, πρέπει να δώσετε άδεια στην κάμερα και τον αποθηκευτικό χώρο.';
-
-  @override
-  String get giveCameraPermission => 'Δώστε άδεια στην κάμερα';
-
-  @override
-  String get giveMicrophonePermission => 'Δώστε άδεια στο μικρόφωνο';
-
-  @override
-  String get giveStoragePermission => 'Δώστε άδεια στον αποθηκευτικό χώρο';
-
-  @override
-  String get savePathTitle => 'ΘΕΣΗ ΑΠΟΘΗΚΕΥΣΗΣ';
-
-  @override
-  String get savePathTitle_description =>
-      'Επιλέξετε μια θέση αποθήκευσης. Συνήθως, οι εικόνες σώζονται στην θέση DCIM στο Android.';
-
-  @override
-  String get selectPath => 'Επιλέξτε θέση';
-
-  @override
-  String get welcomeTitle => 'ΚΑΛΩΣΗΛΘΑΤΕ';
-
-  @override
-  String get welcomeTitle_description =>
-      'Συγχαριτήρια! Είστε έτομοι να χρησιμοποιήσετε την εφαρμογή κάμερας.';
-
-  @override
-  String get getStarted => 'Ξεκινήστε';
-
-  @override
-  String get switchToPictureMode => 'Αλλαγή σε κατάσταση λήψης εικόνας';
-
-  @override
-  String get switchToVideoRecordingMode =>
-      'Αλλαγή σε κατάσταση εγγραφής βίντεο';
-
-  @override
-  String get openCapturedPictureOrVideo =>
-      'Άνοιξε αποθηκευμένη εικόνα ή βίντεο';
-
-  @override
-  String get takePicture => 'Λήψη εικόνας';
-
-  @override
-  String get startRecordingVideo => 'Λήψη βίντεο';
-
-  @override
-  String get pauseVideo => 'Παύση βίντεο';
-
-  @override
-  String get resumeVideo => 'Συνέχεια βίντεο';
-
-  @override
-  String get stopVideo => 'Τερματισμός βίντεο';
-
-  @override
-  String get exposureMode => 'Έκθεση';
-
-  @override
-  String get exposureModeAuto => 'ΑΥΤΟΜΑΤΗ ΕΚΘΕΣΗ';
-
-  @override
-  String get exposureModeLocked => 'ΚΛΕΙΔΩΜΕΝΗ ΕΚΘΕΣΗ';
-
-  @override
-  String get defaultExposure => 'Προεπιλεγμένη έκθεση';
-
-  @override
-  String get flashlight => 'Φλας';
-
-  @override
-  String get lockCaptureOrientation =>
-      'Κλείδωμα αυτόματου προσανατολισμού [ΧΡΕΙΑΖΕΤΑΙ ΕΠΑΝΕΚΚΙΝΗΣΗ]';
-
-  @override
-  String get lockCaptureOrientation_description =>
-      'Κλείδωμα προσανατολισμού σε πορτραίτο, δεν παίζει ρόλο αν είναι ενεργοποιημένη η αυτόματη περιστροφή';
-
-  @override
-  String get showNavigationBar =>
-      'Εμφάνιση μπάρας πλοήγησης [ΧΡΕΙΑΖΕΤΑΙ ΕΠΑΝΕΚΚΙΝΗΣΗ]';
-
-  @override
-  String get showNavigationBar_description =>
-      'Πάντα εμφανής η μπάρα πλοήγησης Android';
-
-  @override
-  String get focusMode => 'Εστίαση';
-
-  @override
-  String get focusModeAuto => 'ΑΥΤΟΜΑΤΗ ΕΣΤΙΑΣΗ';
-
-  @override
-  String get focusModeLocked => 'ΚΛΕΙΔΩΜΕΝΗ ΕΣΤΙΑΣΗ';
-
-  @override
-  String get reset => 'Καθαρισμός';
-
-  @override
-  String get flipToFrontCamera => 'Αλλαγή σε μπροστινή κάμερα';
-
-  @override
-  String get flipToRearCamera => 'Αλλαγή σε πίσω κάμερα';
+  String get appSettings => 'ΡΥΘΜΙΣΕΙΣ ΕΦΑΡΜΟΓΗΣ';
 
   @override
   String get autoSmall => 'ΑΥΤΟΜΑΤΟ';
 
   @override
-  String get lockedSmall => 'ΚΛΕΙΔΩΜΕΝΟ';
-
-  @override
-  String get off => 'Κλειστό';
-
-  @override
-  String get timer => 'Χρονοδιακόπτης';
-
-  @override
   String get back => 'Πίσω';
 
   @override
-  String get next => 'Επόμενο';
+  String get cameraBehaviour => 'ΣΥΜΠΕΡΙΦΟΡΑ ΚΑΜΕΡΑΣ';
 
   @override
-  String get settings => 'Ρυθμίσεις';
+  String get captureAtVolumePress => 'Λήψη με το πάτημα της έντασης ήχου';
 
   @override
-  String get appSettings => 'ΡΥΘΜΙΣΕΙΣ ΕΦΑΡΜΟΓΗΣ';
+  String get captureAtVolumePress_description =>
+      'Όταν είναι ενεργοποιημένο, πατώντας το κουμπί έντασης ήχου θα γίνει λήψη μιας εικόνας ή ενός βίντεο';
 
   @override
-  String get language => 'Γλώσσα';
+  String get choosePath => 'Επιλογή θέσης';
 
   @override
-  String get language_description => 'Αλλαγή γλώσσας εφαρμογής';
+  String get defaultExposure => 'Προεπιλεγμένη έκθεση';
 
   @override
-  String get systemLanguage => 'Γλώσσα συστήματος';
+  String get disableAudio => 'Απενεργοποίηση ήχου';
 
   @override
-  String get theme => 'Θέμα';
+  String get disableAudio_description =>
+      'Απενεργοποίηση ήχου κατά την εγγραφή βίντεο';
 
   @override
-  String get theme_description => 'Αλλαγή θέματος εφαρμογής';
+  String get enableExposureSlider => 'Ενεργοποίηση διακόπτη κύλισης έκθεσης';
 
   @override
-  String get themeSystem => 'Θέμα συστήματος';
-
-  @override
-  String get themeLight => 'Ανοιχτό θέμα';
-
-  @override
-  String get themeDark => 'Σκούρο θέμα';
-
-  @override
-  String get themeBlack => 'Μαύρο θέμα';
+  String get enableExposureSlider_description =>
+      'Όταν είναι ενεργοποιημένο, ένας διακόπτης κύλισης θα εμφανιστεί για την χειροκίνητη ρύθμιση της έκθεσης';
 
   @override
   String get enableMaximumScreenBrightness => 'Μέγιστη φωτεινότητα οθόνης';
@@ -192,34 +69,16 @@ class AppLocalizationsEl extends AppLocalizations {
       'Όταν είναι ενεργοποιημένο, ένας διακόπτης κύλισης θα εμφανιστεί για την χειροκίνητη ρύθμιση του ΖΟΟΜ';
 
   @override
-  String get enableExposureSlider => 'Ενεργοποίηση διακόπτη κύλισης έκθεσης';
+  String get exposureMode => 'Έκθεση';
 
   @override
-  String get enableExposureSlider_description =>
-      'Όταν είναι ενεργοποιημένο, ένας διακόπτης κύλισης θα εμφανιστεί για την χειροκίνητη ρύθμιση της έκθεσης';
+  String get exposureModeAuto => 'ΑΥΤΟΜΑΤΗ ΕΚΘΕΣΗ';
 
   @override
-  String get cameraBehaviour => 'ΣΥΜΠΕΡΙΦΟΡΑ ΚΑΜΕΡΑΣ';
+  String get exposureModeLocked => 'ΚΛΕΙΔΩΜΕΝΗ ΕΚΘΕΣΗ';
 
   @override
-  String get format => 'Τύπος εικόνας';
-
-  @override
-  String get format_description =>
-      'Αλλαγή τύπου εικόνας (προεπιλεγμένο: JPEG/JPG)';
-
-  @override
-  String get resolution => 'Ανάλυση';
-
-  @override
-  String get resolution_description => 'Αλλαγή ανάλυσης κάμερας';
-
-  @override
-  String get shutterSound => 'Απενεργοποίηση ήχου κλείστρου';
-
-  @override
-  String get shutterSound_description =>
-      'Απενεργοποίηση ήχου κλείστρου όταν γίνεται λήψη εικόνας';
+  String get flashlight => 'Φλας';
 
   @override
   String get flipPhotosFrontCamera =>
@@ -230,21 +89,38 @@ class AppLocalizationsEl extends AppLocalizations {
       'Αντιστροφή φωτογραφιών οριζόντια όταν έχουν ληφθεί με την μπροστινή κάμερα';
 
   @override
-  String get startWithFrontCamera => 'Εκκίνηση με την μπροστινή κάμερα';
+  String get flipToFrontCamera => 'Αλλαγή σε μπροστινή κάμερα';
 
   @override
-  String get startWithFrontCamera_description =>
-      'Πάντα εκκίνηση με την μπροστινή κάμερα όταν ανοίγει η εφαρμογή';
+  String get flipToRearCamera => 'Αλλαγή σε πίσω κάμερα';
 
   @override
-  String get disableAudio => 'Απενεργοποίηση ήχου';
+  String get focusMode => 'Εστίαση';
 
   @override
-  String get disableAudio_description =>
-      'Απενεργοποίηση ήχου κατά την εγγραφή βίντεο';
+  String get focusModeAuto => 'ΑΥΤΟΜΑΤΗ ΕΣΤΙΑΣΗ';
 
   @override
-  String get saving => 'ΣΩΖΕΤΑΙ';
+  String get focusModeLocked => 'ΚΛΕΙΔΩΜΕΝΗ ΕΣΤΙΑΣΗ';
+
+  @override
+  String get format => 'Τύπος εικόνας';
+
+  @override
+  String get format_description =>
+      'Αλλαγή τύπου εικόνας (προεπιλεγμένο: JPEG/JPG)';
+
+  @override
+  String get getStarted => 'Ξεκινήστε';
+
+  @override
+  String get giveCameraPermission => 'Δώστε άδεια στην κάμερα';
+
+  @override
+  String get giveMicrophonePermission => 'Δώστε άδεια στο μικρόφωνο';
+
+  @override
+  String get giveStoragePermission => 'Δώστε άδεια στον αποθηκευτικό χώρο';
 
   @override
   String get imageCompressionQuality => 'Ποιότητα συμπίεσης εικόνας';
@@ -261,44 +137,10 @@ class AppLocalizationsEl extends AppLocalizations {
       'Σώσε μεταδεδομένα EXIF της εικόνας όπως μοντέλο συσκευής, τοποθεσία GPS κλπ.';
 
   @override
-  String get useMaterialYou => 'Χρήση Material You';
+  String get language => 'Γλώσσα';
 
   @override
-  String get useMaterialYou_description =>
-      'Χρήση σχεδίου Material You. Απενεργοποιήστε το για το παλιό σχέδιο Material';
-
-  @override
-  String get savePath => 'Θέση αποθήκευσης';
-
-  @override
-  String savePath_description(String path) {
-    return 'Παρούσα θέση: $path';
-  }
-
-  @override
-  String get choosePath => 'Επιλογή θέσης';
-
-  @override
-  String get onboardingScreen => 'Οθόνη εκκίνησης';
-
-  @override
-  String get onboardingScreen_description =>
-      'Άνοιγμα της αρχικής οθόνης εκκίνησης';
-
-  @override
-  String get more => 'ΠΕΡΙΣΣΟΤΕΡΑ';
-
-  @override
-  String get less => 'ΔΕΙΞΕ ΛΙΓΟΤΕΡΑ';
-
-  @override
-  String version(String versionNumber) {
-    return 'Έκδοση $versionNumber';
-  }
-
-  @override
-  String get license =>
-      'Ο κώδικας έχει άδεια GPLv3 στο GitHub. Αν εμφανιστεί κάποιο πρόβλημα ή θέλετε να ζητήσετε μια νέα δυνατότητα, παρακαλώ ανοίξτε ένα issue  στο GitHub. Ευχαριστώ!';
+  String get language_description => 'Αλλαγή γλώσσας εφαρμογής';
 
   @override
   String get leftHandedMode => 'Κατάσταση αριστερόχειρα';
@@ -308,9 +150,159 @@ class AppLocalizationsEl extends AppLocalizations {
       'Όταν είναι ενεργοποιημένο, αλλαγή θέσης των ελέγχων της κάμερας σε τοπίο για την κατάσταση αριστερόχειρα';
 
   @override
-  String get captureAtVolumePress => 'Λήψη με το πάτημα της έντασης ήχου';
+  String get less => 'ΔΕΙΞΕ ΛΙΓΟΤΕΡΑ';
 
   @override
-  String get captureAtVolumePress_description =>
-      'Όταν είναι ενεργοποιημένο, πατώντας το κουμπί έντασης ήχου θα γίνει λήψη μιας εικόνας ή ενός βίντεο';
+  String get license =>
+      'Ο κώδικας έχει άδεια GPLv3 στο GitHub. Αν εμφανιστεί κάποιο πρόβλημα ή θέλετε να ζητήσετε μια νέα δυνατότητα, παρακαλώ ανοίξτε ένα issue  στο GitHub. Ευχαριστώ!';
+
+  @override
+  String get lockCaptureOrientation =>
+      'Κλείδωμα αυτόματου προσανατολισμού [ΧΡΕΙΑΖΕΤΑΙ ΕΠΑΝΕΚΚΙΝΗΣΗ]';
+
+  @override
+  String get lockCaptureOrientation_description =>
+      'Κλείδωμα προσανατολισμού σε πορτραίτο, δεν παίζει ρόλο αν είναι ενεργοποιημένη η αυτόματη περιστροφή';
+
+  @override
+  String get lockedSmall => 'ΚΛΕΙΔΩΜΕΝΟ';
+
+  @override
+  String get more => 'ΠΕΡΙΣΣΟΤΕΡΑ';
+
+  @override
+  String get next => 'Επόμενο';
+
+  @override
+  String get off => 'Κλειστό';
+
+  @override
+  String get onboardingScreen => 'Οθόνη εκκίνησης';
+
+  @override
+  String get onboardingScreen_description =>
+      'Άνοιγμα της αρχικής οθόνης εκκίνησης';
+
+  @override
+  String get openCapturedPictureOrVideo =>
+      'Άνοιξε αποθηκευμένη εικόνα ή βίντεο';
+
+  @override
+  String get pauseVideo => 'Παύση βίντεο';
+
+  @override
+  String get permissionsTitle => 'ΑΔΕΙΕΣ';
+
+  @override
+  String get permissionsTitle_description =>
+      'Για να χρησιμοποιήσετε την κάμερα, πρέπει να δώσετε άδεια στην κάμερα και τον αποθηκευτικό χώρο.';
+
+  @override
+  String get reset => 'Καθαρισμός';
+
+  @override
+  String get resolution => 'Ανάλυση';
+
+  @override
+  String get resolution_description => 'Αλλαγή ανάλυσης κάμερας';
+
+  @override
+  String get resumeVideo => 'Συνέχεια βίντεο';
+
+  @override
+  String get savePath => 'Θέση αποθήκευσης';
+
+  @override
+  String get savePathTitle => 'ΘΕΣΗ ΑΠΟΘΗΚΕΥΣΗΣ';
+
+  @override
+  String get savePathTitle_description =>
+      'Επιλέξετε μια θέση αποθήκευσης. Συνήθως, οι εικόνες σώζονται στην θέση DCIM στο Android.';
+
+  @override
+  String savePath_description(String path) {
+    return 'Παρούσα θέση: $path';
+  }
+
+  @override
+  String get saving => 'ΣΩΖΕΤΑΙ';
+
+  @override
+  String get selectPath => 'Επιλέξτε θέση';
+
+  @override
+  String get settings => 'Ρυθμίσεις';
+
+  @override
+  String get shutterSound => 'Απενεργοποίηση ήχου κλείστρου';
+
+  @override
+  String get shutterSound_description =>
+      'Απενεργοποίηση ήχου κλείστρου όταν γίνεται λήψη εικόνας';
+
+  @override
+  String get startRecordingVideo => 'Λήψη βίντεο';
+
+  @override
+  String get startWithFrontCamera => 'Εκκίνηση με την μπροστινή κάμερα';
+
+  @override
+  String get startWithFrontCamera_description =>
+      'Πάντα εκκίνηση με την μπροστινή κάμερα όταν ανοίγει η εφαρμογή';
+
+  @override
+  String get stopVideo => 'Τερματισμός βίντεο';
+
+  @override
+  String get switchToPictureMode => 'Αλλαγή σε κατάσταση λήψης εικόνας';
+
+  @override
+  String get switchToVideoRecordingMode =>
+      'Αλλαγή σε κατάσταση εγγραφής βίντεο';
+
+  @override
+  String get systemLanguage => 'Γλώσσα συστήματος';
+
+  @override
+  String get takePicture => 'Λήψη εικόνας';
+
+  @override
+  String get theme => 'Θέμα';
+
+  @override
+  String get themeBlack => 'Μαύρο θέμα';
+
+  @override
+  String get themeDark => 'Σκούρο θέμα';
+
+  @override
+  String get themeLight => 'Ανοιχτό θέμα';
+
+  @override
+  String get themeSystem => 'Θέμα συστήματος';
+
+  @override
+  String get theme_description => 'Αλλαγή θέματος εφαρμογής';
+
+  @override
+  String get timer => 'Χρονοδιακόπτης';
+
+  @override
+  String get useMaterialYou => 'Χρήση Material You';
+
+  @override
+  String get useMaterialYou_description =>
+      'Χρήση σχεδίου Material You. Απενεργοποιήστε το για το παλιό σχέδιο Material';
+
+  @override
+  String version(String versionNumber) {
+    return 'Έκδοση $versionNumber';
+  }
+
+  @override
+  String get welcomeTitle => 'ΚΑΛΩΣΗΛΘΑΤΕ';
+
+  @override
+  String get welcomeTitle_description =>
+      'Συγχαριτήρια! Είστε έτομοι να χρησιμοποιήσετε την εφαρμογή κάμερας.';
 }

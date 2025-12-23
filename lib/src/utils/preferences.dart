@@ -114,14 +114,6 @@ class Preferences {
   }) async => _preferences.setBool(prefKeepEXIFMetadata, keepEXIFMetadata);
   static bool getKeepEXIFMetadata() =>
       _preferences.getBool(prefKeepEXIFMetadata) ?? false;
-
-  // Capture Orientation Locked
-  static Future<void> setShowNavigationBar({
-    required bool showNavigationBar,
-  }) async => _preferences.setBool(prefShowNavigationBar, showNavigationBar);
-  static bool getShowNavigationBar() =>
-      _preferences.getBool(prefShowNavigationBar) ?? false;
-
   // Timer
   static Future<void> setTimerDuration(int durationInSeconds) async =>
       _preferences.setInt(prefTimerDuration, durationInSeconds);
