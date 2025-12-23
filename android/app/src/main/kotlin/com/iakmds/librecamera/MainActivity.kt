@@ -17,13 +17,13 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import android.view.KeyEvent
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
 import java.io.File
-import dev.darttools.flutter_android_volume_keydown.FlutterAndroidVolumeKeydownActivity
 
-class MainActivity : FlutterAndroidVolumeKeydownActivity() {
+class MainActivity : FlutterActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
@@ -36,6 +36,10 @@ class MainActivity : FlutterAndroidVolumeKeydownActivity() {
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
+        
+        // Register volume button plugin
+        flutterEngine.plugins.add(VolumeButtonPlugin())
+        
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "media_store")
                 .setMethodCallHandler { call, result ->
                     when (call.method) {
@@ -145,6 +149,20 @@ class MainActivity : FlutterAndroidVolumeKeydownActivity() {
     private fun startVideoSound() {
         val sound = MediaActionSound()
         sound.play(MediaActionSound.START_VIDEO_RECORDING)
+    }
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
+        return when (keyCode) {
+            KeyEvent.KEYCODE_VOLUME_DOWN -> {
+                VolumeButtonPlugin.sendVolumeEvent(true)
+                true
+            }
+            KeyEvent.KEYCODE_VOLUME_UP -> {
+                VolumeButtonPlugin.sendVolumeEvent(false)
+                true
+            }
+            else -> super.onKeyDown(keyCode, event)
+        }
     }
 }
 

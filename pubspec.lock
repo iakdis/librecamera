@@ -214,14 +214,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_android_volume_keydown:
-    dependency: "direct main"
-    description:
-      name: flutter_android_volume_keydown
-      sha256: bf7fed0be85541b939d9deb97b375cb12e6e703aa013754441318b0b9014e711
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.1"
   flutter_image_compress:
     dependency: "direct main"
     description:

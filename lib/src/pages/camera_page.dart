@@ -6,7 +6,6 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_android_volume_keydown/flutter_android_volume_keydown.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:image/image.dart' as img;
 import 'package:intl/intl.dart';
@@ -16,6 +15,7 @@ import 'package:librecamera/src/models/media_file.dart';
 import 'package:librecamera/src/pages/settings_page.dart';
 import 'package:librecamera/src/provider/theme_provider.dart';
 import 'package:librecamera/src/utils/preferences.dart';
+import 'package:librecamera/src/volume_button_listener.dart';
 import 'package:librecamera/src/widgets/capture_control.dart';
 import 'package:librecamera/src/widgets/exposure.dart';
 import 'package:librecamera/src/widgets/flash.dart';
@@ -86,7 +86,7 @@ class _CameraPageState extends State<CameraPage>
   DateTime _timeOfLastChange = DateTime.now();
 
   //Volume buttons
-  StreamSubscription<HardwareButton>? volumeSubscription;
+  StreamSubscription<VolumeButton>? volumeSubscription;
   bool canPressVolume = true;
 
   //Zoom slider auto-hide
@@ -171,7 +171,7 @@ class _CameraPageState extends State<CameraPage>
   }
 
   void _subscribeVolumeButtons() {
-    volumeSubscription = FlutterAndroidVolumeKeydown.stream.listen((
+    volumeSubscription = VolumeButtonListener.stream.listen((
       event,
     ) async {
       if (canPressVolume) {
