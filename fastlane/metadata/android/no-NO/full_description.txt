@@ -1,6 +1,6 @@
 Libre Camera er et fritt kamera-app for å ta bilder og spille inn videoer, skrevet i Flutter og Dart.
 
-Hvis du trenger et fritt kameraprogram med flere funksjoner, bør dette programmet være noe for deg. Fra lommelykt, fokus og eksponeringskontroller til endring av drakter, språk og komprimeringsmengde — dette programmet har alt du trenger. Hvis ikke, kan du åpne en feilrapport på <a href="https://github.com/iakmds/librecamera">GitHub</a> og be om en funksjon. Nedenfor kan du se en liste over funksjonene, og flere vil komme til i fremtiden.
+Hvis du trenger et fritt kameraprogram med flere funksjoner, bør dette programmet være noe for deg. Fra lommelykt, fokus og eksponeringskontroller til endring av drakter, språk og komprimeringsmengde — dette programmet har alt du trenger. Hvis ikke, kan du åpne en feilrapport på <a href="https://github.com/iakdis/librecamera">GitHub</a> og be om en funksjon. Nedenfor kan du se en liste over funksjonene, og flere vil komme til i fremtiden.
 
 <b>Funksjoner</b>
     * Ta bilder og ta opp videoer med bak- og frontkameraet ditt
@@ -20,6 +20,6 @@ Hvis du trenger et fritt kameraprogram med flere funksjoner, bør dette programm
     * Kan tilpasses: Åpne innstillingene for å tilpasse programmet etter eget ønske
 
 <b>Kontakt</b>
-Ta en titt på GitHub-kodelageret, som inkluderer veikartet: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+Ta en titt på GitHub-kodelageret, som inkluderer veikartet: <a href="https://github.com/iakdis/librecamera">https://github.com/iakdis/librecamera</a>
 
-Hvis du finner en feil eller har en funksjonsforespørsel, kan du sende inn en feilrapport på GitHub: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
+Hvis du finner en feil eller har en funksjonsforespørsel, kan du sende inn en feilrapport på GitHub: <a href="https://github.com/iakdis/librecamera/issues">https://github.com/iakdis/librecamera/issues</a>

@@ -1,6 +1,6 @@
 Libre Camera (Bezmaksas kamera) – bezmaksas un atvērtā pirmkoda kameras lietotne fotoattēlu uzņemšanai un video ierakstīšanai, kas kodēta Flutter un Dart programmēšanas valodās.
 
-Ja jums nepieciešama atvērtā pirmkoda kameras lietotne ar pietiekamu funkcionalitāti, tad šī lietotne ir paredzēta jums. Sākot ar zibspuldzes (lukturīša), fokusa un ekspozīcijas vadību un beidzot ar motīvu, valodu un saspiešanas līmeņa maiņu – šai lietotnei vajadzētu jūs nodrošināt visām dzīves situācijām. Taču, ja tas tā nav, tad variet droši atvērt problēmu <a href="https://github.com/iakmds/librecamera/issues">GitHub</a> vietnē un pieprasīt vēlamo funkcionalitāti. Zemāk variet apskatīt funkcionalitātes sarakstu, un vēl vairāk funkciju būs pieejamas nākotnē!
+Ja jums nepieciešama atvērtā pirmkoda kameras lietotne ar pietiekamu funkcionalitāti, tad šī lietotne ir paredzēta jums. Sākot ar zibspuldzes (lukturīša), fokusa un ekspozīcijas vadību un beidzot ar motīvu, valodu un saspiešanas līmeņa maiņu – šai lietotnei vajadzētu jūs nodrošināt visām dzīves situācijām. Taču, ja tas tā nav, tad variet droši atvērt problēmu <a href="https://github.com/iakdis/librecamera/issues">GitHub</a> vietnē un pieprasīt vēlamo funkcionalitāti. Zemāk variet apskatīt funkcionalitātes sarakstu, un vēl vairāk funkciju būs pieejamas nākotnē!
 
 <b>Funkcionalitāte</b>
     * Iespējams uzņemt fotoattēlus un ierakstīt video ar aizmugurējo un priekšējo kameru
@@ -20,6 +20,6 @@ Ja jums nepieciešama atvērtā pirmkoda kameras lietotne ar pietiekamu funkcion
     * Pielāgojams: Atveriet iestatījumus, lai pielāgotu lietotni savām vēlmēm!
 
 <b>Kontakti</b>
-Apskatiet GitHub pirmkoda repozitoriju, kurā ir iekļauts attīstības plāns: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+Apskatiet GitHub pirmkoda repozitoriju, kurā ir iekļauts attīstības plāns: <a href="https://github.com/iakdis/librecamera">https://github.com/iakdis/librecamera</a>
 
-Ja jūs atrodiet kļūdu vai vēlaties jaunu funkcionalitāti, droši iesniedziet problēmu GitHub vietnē: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
+Ja jūs atrodiet kļūdu vai vēlaties jaunu funkcionalitāti, droši iesniedziet problēmu GitHub vietnē: <a href="https://github.com/iakdis/librecamera/issues">https://github.com/iakdis/librecamera/issues</a>

@@ -1,6 +1,6 @@
 Libre Camera adalah aplikasi kamera gratis dan open source untuk mengambil gambar dan merekam video yang ditulis dalam Flutter dan Dart.
 
-Jika Anda membutuhkan aplikasi kamera open source dengan beberapa fitur, aplikasi ini cocok untuk Anda. Mulai dari senter, kontrol fokus dan eksposur hingga mengubah tema, bahasa, dan jumlah kompresi - aplikasi ini seharusnya bisa memenuhi kebutuhan Anda. Dan jika tidak, jangan ragu untuk membuka masalah di <a href="https://github.com/iakmds/librecamera">GitHub</a> dan meminta fitur. Di bawah ini Anda dapat melihat daftar fitur yang ada, dan akan ada lebih banyak lagi yang akan ditambahkan di masa mendatang!
+Jika Anda membutuhkan aplikasi kamera open source dengan beberapa fitur, aplikasi ini cocok untuk Anda. Mulai dari senter, kontrol fokus dan eksposur hingga mengubah tema, bahasa, dan jumlah kompresi - aplikasi ini seharusnya bisa memenuhi kebutuhan Anda. Dan jika tidak, jangan ragu untuk membuka masalah di <a href="https://github.com/iakdis/librecamera">GitHub</a> dan meminta fitur. Di bawah ini Anda dapat melihat daftar fitur yang ada, dan akan ada lebih banyak lagi yang akan ditambahkan di masa mendatang!
 
 <b>Fitur</b>
     * Memotret gambar dan mengambil video dengan kamera belakang dan depan
@@ -20,6 +20,6 @@ Jika Anda membutuhkan aplikasi kamera open source dengan beberapa fitur, aplikas
     * Dapat disesuaikan: Buka pengaturan untuk menyesuaikan aplikasi sesuai keinginan Anda!
 
 <b>Kontak</b>
-Lihat repositori GitHub, yang mencakup Peta Jalan: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+Lihat repositori GitHub, yang mencakup Peta Jalan: <a href="https://github.com/iakdis/librecamera">https://github.com/iakdis/librecamera</a>
 
-Jika Anda menemukan bug atau memiliki permintaan fitur, jangan ragu untuk membuat issue di GitHub: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
+Jika Anda menemukan bug atau memiliki permintaan fitur, jangan ragu untuk membuat issue di GitHub: <a href="https://github.com/iakdis/librecamera/issues">https://github.com/iakdis/librecamera/issues</a>

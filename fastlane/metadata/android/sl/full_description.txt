@@ -1,6 +1,6 @@
 Libre Camera je brezplačna in odprtokodna aplikacija za fotografiranje in snemanje videoposnetkov, napisana v Flutterju in Dartu.
 
-Če potrebujete odprtokodno aplikacijo za kamero z več funkcijami, bi morala biti ta aplikacija za vas. Od svetilke, nadzora ostrenja in osvetlitve do spreminjanja tem, jezikov in nastavitvi stopnje kompresije slike – ta aplikacija bi morala zadostiti vašim potrebam. In če ne, odprite težavo ali podajte svoj predlog izboljšave funkcionalosti na <a href="https://github.com/iakmds/librecamera">GitHub</a>. Spodaj si lahko ogledate obstoječi seznam funkcij, v prihodnosti pa jih lahko pričakujete še več!
+Če potrebujete odprtokodno aplikacijo za kamero z več funkcijami, bi morala biti ta aplikacija za vas. Od svetilke, nadzora ostrenja in osvetlitve do spreminjanja tem, jezikov in nastavitvi stopnje kompresije slike – ta aplikacija bi morala zadostiti vašim potrebam. In če ne, odprite težavo ali podajte svoj predlog izboljšave funkcionalosti na <a href="https://github.com/iakdis/librecamera">GitHub</a>. Spodaj si lahko ogledate obstoječi seznam funkcij, v prihodnosti pa jih lahko pričakujete še več!
 
 <b>Funkcije in druge lastnosti</b>
     * Fotografirajte in snemajte videoposnetke z zadnjo in sprednjo kamero
@@ -20,6 +20,6 @@ Libre Camera je brezplačna in odprtokodna aplikacija za fotografiranje in snema
     * Prilagodljiva: odprite nastavitve, da aplikacijo prilagodite svojim željam!
 
 <b>Kontakt</b>
-Oglejte si repozitorij na portalu GitHub, kjer so napisani prihodnji cilji razvoja aplikacije: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+Oglejte si repozitorij na portalu GitHub, kjer so napisani prihodnji cilji razvoja aplikacije: <a href="https://github.com/iakdis/librecamera">https://github.com/iakdis/librecamera</a>
 
-V primeru, da ste našli napako ali imate zahtevo po dodatni funkciji, vas prosimo, da prijavite težavo ali podate predlog na portal GitHub: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
+V primeru, da ste našli napako ali imate zahtevo po dodatni funkciji, vas prosimo, da prijavite težavo ali podate predlog na portal GitHub: <a href="https://github.com/iakdis/librecamera/issues">https://github.com/iakdis/librecamera/issues</a>

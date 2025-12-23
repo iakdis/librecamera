@@ -1,6 +1,6 @@
 Libre Camera 以 Flutter 和 Dart 编写，是可以拍摄图片、录制视频的开源相机应用。
 
-如果您想要找个带些功能的开源相机应用，可以试试本软件。Libre Camera 有闪光灯、对焦和调整曝光的功能，应用主题、界面语言和图像压缩程度也可以更改，希望能够包含到您想要的功能。您如果需要别的功能，可以在 <a href="https://github.com/iakmds/librecamera">GitHub</a> 上提出 issue。下面是功能列表，以后还准备增加更多功能。
+如果您想要找个带些功能的开源相机应用，可以试试本软件。Libre Camera 有闪光灯、对焦和调整曝光的功能，应用主题、界面语言和图像压缩程度也可以更改，希望能够包含到您想要的功能。您如果需要别的功能，可以在 <a href="https://github.com/iakdis/librecamera">GitHub</a> 上提出 issue。下面是功能列表，以后还准备增加更多功能。
 
 <b>功能、特点</b>
         * 前置摄像头和后置摄像头的拍照、录像
@@ -20,6 +20,6 @@ Libre Camera 以 Flutter 和 Dart 编写，是可以拍摄图片、录制视频�
         * 界面自定义：设置中有自定义界面的选项
 
 <b>联系开发者</b>
-查看 GitHub 上的 repository，软件开发路线也在上面：<a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+查看 GitHub 上的 repository，软件开发路线也在上面：<a href="https://github.com/iakdis/librecamera">https://github.com/iakdis/librecamera</a>
 
-如果您碰到什么问题或者想要某种功能，可以在 GitHub 上提出 issue：<a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
+如果您碰到什么问题或者想要某种功能，可以在 GitHub 上提出 issue：<a href="https://github.com/iakdis/librecamera/issues">https://github.com/iakdis/librecamera/issues</a>

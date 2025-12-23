@@ -1,6 +1,6 @@
 Libre Camera è un'applicazione gratuita ed open source per scattare foto e registrare video scritta in Flutter e Dart.
 
-Se hai bisogno di un'applicazione open source per la fotocamera con diverse funzioni, questa farà al caso tuo. Dai controlli della torcia, della messa a fuoco e dell'esposizione alla possibilità di cambiare i temi, le lingue e la qualità di compressione, questa app dovrebbe essere adatta a te. In caso contrario, puoi aprire un issue su <a href="https://github.com/iakmds/librecamera">GitHub</a> e richiedere una nuova funzionalità. Di seguito è riportato un elenco delle funzionalità, con altre in arrivo in futuro!
+Se hai bisogno di un'applicazione open source per la fotocamera con diverse funzioni, questa farà al caso tuo. Dai controlli della torcia, della messa a fuoco e dell'esposizione alla possibilità di cambiare i temi, le lingue e la qualità di compressione, questa app dovrebbe essere adatta a te. In caso contrario, puoi aprire un issue su <a href="https://github.com/iakdis/librecamera">GitHub</a> e richiedere una nuova funzionalità. Di seguito è riportato un elenco delle funzionalità, con altre in arrivo in futuro!
 
 <b>Funzionalità</b>
     * Take pictures and record videos with your rear and front camera
@@ -20,6 +20,6 @@ Se hai bisogno di un'applicazione open source per la fotocamera con diverse funz
     * Customizable: Open the settings to customize the app to your liking!
 
 <b>Contatti</b>
-Consulta il repository GitHub, che include la roadmap: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+Consulta il repository GitHub, che include la roadmap: <a href="https://github.com/iakdis/librecamera">https://github.com/iakdis/librecamera</a>
 
-Nel caso tu abbia trovato un bug o voglia richiedere una funzionalità, sentiti libero di aprire un issue su GitHub: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
+Nel caso tu abbia trovato un bug o voglia richiedere una funzionalità, sentiti libero di aprire un issue su GitHub: <a href="https://github.com/iakdis/librecamera/issues">https://github.com/iakdis/librecamera/issues</a>

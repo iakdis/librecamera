@@ -1,6 +1,6 @@
 Libre Camera é unha app de cámara de código aberto e libre para facer fotos e gravar vídeos, escrita en Flutter e Dart.
 
-Se precisas unha cámara de código aberto con múltiples características, esta podería valerche. Ten luz flash, controis para enfocar e expoñer e podes cambiar o decorado, o idioma así como o nivel de compresión - esta app pode ser do teu interese. Se non fose así, podes abrir un issue en <a href="https://github.com/iakmds/librecamera">GitHub</a> e solicitar unha nova función. Aquí embaixo tes unha lista das súas características, con moitas máis en camiño!
+Se precisas unha cámara de código aberto con múltiples características, esta podería valerche. Ten luz flash, controis para enfocar e expoñer e podes cambiar o decorado, o idioma así como o nivel de compresión - esta app pode ser do teu interese. Se non fose así, podes abrir un issue en <a href="https://github.com/iakdis/librecamera">GitHub</a> e solicitar unha nova función. Aquí embaixo tes unha lista das súas características, con moitas máis en camiño!
 
 <b>Características</b>
     * Facer fotos e gravar vídeos coas cámaras anterior e posterior
@@ -20,6 +20,6 @@ Se precisas unha cámara de código aberto con múltiples características, esta
     * Personalizable: Abre os Axustes e personaliza a app ao teu gusto!
     
 <b>Contacto</b>
-Vai ao repositorio GitHub, que inclúe a Planificación: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+Vai ao repositorio GitHub, que inclúe a Planificación: <a href="https://github.com/iakdis/librecamera">https://github.com/iakdis/librecamera</a>
 
-Se atopas un fallo o queres facer unha petición dunha nova característica, podes facelo nun issue en GitHub: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
+Se atopas un fallo o queres facer unha petición dunha nova característica, podes facelo nun issue en GitHub: <a href="https://github.com/iakdis/librecamera/issues">https://github.com/iakdis/librecamera/issues</a>

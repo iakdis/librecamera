@@ -1,6 +1,6 @@
 Libre Camera es un application de camera libere e de codice aperte pro prender photos e registrar videos scribite in Flutter e Dart.
 
-Si tu besonia un application de camera de codice aperte con alcun functionalitates, iste app pote esser pro te. De luce flash, controlos de foco e exposition a cambios de thema, linguas e quantitate de compression – iste app deberea haber lo. E si non, tu pote aperir un issue sur <a href="https://github.com/iakmds/librecamera">GitHub</a> e demandar un characteristica. Infra tu pote videl un lista de functionalitates, con multe plus a venir in le futur!
+Si tu besonia un application de camera de codice aperte con alcun functionalitates, iste app pote esser pro te. De luce flash, controlos de foco e exposition a cambios de thema, linguas e quantitate de compression – iste app deberea haber lo. E si non, tu pote aperir un issue sur <a href="https://github.com/iakdis/librecamera">GitHub</a> e demandar un characteristica. Infra tu pote videl un lista de functionalitates, con multe plus a venir in le futur!
 
 <b>Functionalitates</b>
     * Prender imagines e registrar videos con le cameras frontal e posterior
@@ -20,6 +20,6 @@ Si tu besonia un application de camera de codice aperte con alcun functionalitat
     * Customizable: Open the settings to customize the app to your liking!
 
 <b>Contacto</b>
-Check out the GitHub repository, which includes the Roadmap: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+Check out the GitHub repository, which includes the Roadmap: <a href="https://github.com/iakdis/librecamera">https://github.com/iakdis/librecamera</a>
 
-In case you found a bug or have a feature request, feel free to file an issue on GitHub: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
+In case you found a bug or have a feature request, feel free to file an issue on GitHub: <a href="https://github.com/iakdis/librecamera/issues">https://github.com/iakdis/librecamera/issues</a>

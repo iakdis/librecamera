@@ -1,6 +1,6 @@
 A Libre Camera egy Flutterben és Dartban írt nyilt forráskódú, szabad szoftver kamera alkalmazás, képek és videó felvételek készítésére.
 Ha sok funkcióval rendelkező nyílt forráskódú kamera alkalmazásra van szüksége, akkor ez az alkalmazásnak az Ön számára készült.
-A vaku, a fókusz és az expozíció-kontrolltól, a téma, a nyelv és a tömörítés mértékének a váltásáig, ez az alkalmazás mind tudja. És ha mégsem, akkor jelentse a problémát a <a href="https://github.com/iakmds/librecamera">GitHub-on</a> és kérje a hiányzó funkciót. Az alábbiakban láthatja a funkciók listáját, a jövőben megvalósulókkal együtt!
+A vaku, a fókusz és az expozíció-kontrolltól, a téma, a nyelv és a tömörítés mértékének a váltásáig, ez az alkalmazás mind tudja. És ha mégsem, akkor jelentse a problémát a <a href="https://github.com/iakdis/librecamera">GitHub-on</a> és kérje a hiányzó funkciót. Az alábbiakban láthatja a funkciók listáját, a jövőben megvalósulókkal együtt!
 
 <b>Jellemzők</b>
     * képek és videó felvételek készítése az első és a hátsó kamerával
@@ -20,6 +20,6 @@ A vaku, a fókusz és az expozíció-kontrolltól, a téma, a nyelv és a tömö
     * Testreszabható: Nyissa meg a beállításokat, az alkalmazásnak az Ön tetszésének megfelelő testreszabásához!
 
 <b>Kapcsolat</b>
-Tekintse meg a Github tárolót, ahol megtalálja az ütemtervet: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+Tekintse meg a Github tárolót, ahol megtalálja az ütemtervet: <a href="https://github.com/iakdis/librecamera">https://github.com/iakdis/librecamera</a>
 
-Abban az esetben, ha hibát talált vagy kér egy funkciót, nyugodtan nyújtsa be a problémát a GitHub-on: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
+Abban az esetben, ha hibát talált vagy kér egy funkciót, nyugodtan nyújtsa be a problémát a GitHub-on: <a href="https://github.com/iakdis/librecamera/issues">https://github.com/iakdis/librecamera/issues</a>

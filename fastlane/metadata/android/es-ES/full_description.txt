@@ -1,6 +1,6 @@
 Libre Camera es una aplicación de cámara gratuita y de código abierto para tomar fotografías y grabar videos escritos en Flutter y Dart.
 
-Si necesita una aplicación de cámara de código abierto con varias funciones, esta aplicación debería ser para usted. Desde la linterna, los controles de enfoque y exposición hasta el cambio de temas, idiomas y la cantidad de compresión, esta aplicación debería tenerlo cubierto. No dude en abrir un problema en <a href="https://github.com/iakmds/librecamera">GitHub</a> y solicitar una función. A continuación puede ver una lista de las características, ¡y habrá más en el futuro!
+Si necesita una aplicación de cámara de código abierto con varias funciones, esta aplicación debería ser para usted. Desde la linterna, los controles de enfoque y exposición hasta el cambio de temas, idiomas y la cantidad de compresión, esta aplicación debería tenerlo cubierto. No dude en abrir un problema en <a href="https://github.com/iakdis/librecamera">GitHub</a> y solicitar una función. A continuación puede ver una lista de las características, ¡y habrá más en el futuro!
 
 <b>Características</b>
     * Toma fotos y graba videos con tu cámara trasera y delantera
@@ -20,6 +20,6 @@ Si necesita una aplicación de cámara de código abierto con varias funciones, 
     * Personalizable: ¡Abre la configuración para personalizar la aplicación a tu gusto!
 
 <b>Contacto</b>
-Consulte el repositorio de GitHub, que incluye la hoja de ruta: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+Consulte el repositorio de GitHub, que incluye la hoja de ruta: <a href="https://github.com/iakdis/librecamera">https://github.com/iakdis/librecamera</a>
 
-En caso de que haya encontrado un error o tenga una solicitud de función, no dude en presentar un problema en GitHub: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds /librecamera/problemas</a>
+En caso de que haya encontrado un error o tenga una solicitud de función, no dude en presentar un problema en GitHub: <a href="https://github.com/iakdis/librecamera/issues">https://github.com/iakdis /librecamera/problemas</a>

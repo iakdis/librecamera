@@ -1,41 +1,41 @@
 
 # 🌟 New release: v1.9.1 🌟
-### Take a look at what has changed [here](https://github.com/iakmds/librecamera/releases/tag/v1.9.1)!
+### Take a look at what has changed [here](https://github.com/iakdis/librecamera/releases/tag/v1.9.1)!
 
 <br><br>
 
 <p>
-  <a href="https://github.com/iakmds/librecamera/releases/latest" alt="Release">
-  <img src="https://img.shields.io/github/v/release/iakmds/librecamera?style=flat-square" /></a>
+  <a href="https://github.com/iakdis/librecamera/releases/latest" alt="Release">
+  <img src="https://img.shields.io/github/v/release/iakdis/librecamera?style=flat-square" /></a>
 
   <a href="https://f-droid.org/packages/com.iakmds.librecamera" alt="F-Droid">
   <img src="https://img.shields.io/f-droid/v/com.iakmds.librecamera?style=flat-square" /></a>
 
-  <a href="https://github.com/iakmds/librecamera/issues" alt="Issues">
-  <img src="https://img.shields.io/github/issues/iakmds/librecamera?style=flat-square" /></a>
+  <a href="https://github.com/iakdis/librecamera/issues" alt="Issues">
+  <img src="https://img.shields.io/github/issues/iakdis/librecamera?style=flat-square" /></a>
 
-  <a href="https://github.com/iakmds/librecamera/pulls" alt="Pull requests">
-  <img src="https://img.shields.io/github/issues-pr/iakmds/librecamera?style=flat-square" /></a>
+  <a href="https://github.com/iakdis/librecamera/pulls" alt="Pull requests">
+  <img src="https://img.shields.io/github/issues-pr/iakdis/librecamera?style=flat-square" /></a>
 
-  <a href="https://github.com/iakmds/librecamera/contributors" alt="Contributors">
-  <img src="https://img.shields.io/github/contributors/iakmds/librecamera?style=flat-square" /></a>
+  <a href="https://github.com/iakdis/librecamera/contributors" alt="Contributors">
+  <img src="https://img.shields.io/github/contributors/iakdis/librecamera?style=flat-square" /></a>
 
-  <a href="https://github.com/iakmds/librecamera/network/members" alt="Forks">
-  <img src="https://img.shields.io/github/forks/iakmds/librecamera?style=flat-square" /></a>
+  <a href="https://github.com/iakdis/librecamera/network/members" alt="Forks">
+  <img src="https://img.shields.io/github/forks/iakdis/librecamera?style=flat-square" /></a>
 
-  <a href="https://github.com/iakmds/librecamera/stargazers" alt="Stars">
-  <img src="https://img.shields.io/github/stars/iakmds/librecamera?style=flat-square" /></a>
+  <a href="https://github.com/iakdis/librecamera/stargazers" alt="Stars">
+  <img src="https://img.shields.io/github/stars/iakdis/librecamera?style=flat-square" /></a>
 
-  <a href="https://github.com/iakmds/librecamera/blob/master/LICENSE" alt="License">
-  <img src="https://img.shields.io/github/license/iakmds/librecamera?style=flat-square" /></a>
+  <a href="https://github.com/iakdis/librecamera/blob/master/LICENSE" alt="License">
+  <img src="https://img.shields.io/github/license/iakdis/librecamera?style=flat-square" /></a>
   
   <a href="https://hosted.weblate.org/engage/librecamera/">
   <img src="https://hosted.weblate.org/widgets/librecamera/-/svg-badge.svg" alt="Translation status" /></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/iakmds/librecamera">
-    <img src="https://github.com/iakmds/librecamera/blob/master/fastlane/metadata/android/en-US/images/icon.png" alt="Libre Camera app icon" height="128">
+  <a href="https://github.com/iakdis/librecamera">
+    <img src="https://github.com/iakdis/librecamera/blob/master/fastlane/metadata/android/en-US/images/icon.png" alt="Libre Camera app icon" height="128">
   </a>
 </p>
 
@@ -77,22 +77,22 @@
 
 # Screenshots
 <p float="left">
-  <img src="https://github.com/iakmds/librecamera/blob/master/fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" alt="Screenshot 1" height="420">
-  <img src="https://github.com/iakmds/librecamera/blob/master/fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" alt="Screenshot 2" height="420">
-  <img src="https://github.com/iakmds/librecamera/blob/master/fastlane/metadata/android/en-US/images/phoneScreenshots/3.png" alt="Screenshot 3" height="420">
-  <img src="https://github.com/iakmds/librecamera/blob/master/fastlane/metadata/android/en-US/images/phoneScreenshots/4.png" alt="Screenshot 4" height="420">
+  <img src="https://github.com/iakdis/librecamera/blob/master/fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" alt="Screenshot 1" height="420">
+  <img src="https://github.com/iakdis/librecamera/blob/master/fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" alt="Screenshot 2" height="420">
+  <img src="https://github.com/iakdis/librecamera/blob/master/fastlane/metadata/android/en-US/images/phoneScreenshots/3.png" alt="Screenshot 3" height="420">
+  <img src="https://github.com/iakdis/librecamera/blob/master/fastlane/metadata/android/en-US/images/phoneScreenshots/4.png" alt="Screenshot 4" height="420">
 </p>
 
 # Download
 
-You can download Libre Camera on [F-Droid](https://f-droid.org/packages/com.iakmds.librecamera) by tapping on the badge below. Alternatively, download and install the apk directly from the GitHub [releases](https://github.com/iakmds/librecamera/releases) page. Downloading directly from the GitHub releases page will likely download a more recent version (if a new version was published recently) – notice though that the F-Droid and the GitHub versions aren't compatible with one another. You will need to reinstall the app; make sure you remember your settings.
+You can download Libre Camera on [F-Droid](https://f-droid.org/packages/com.iakmds.librecamera) by tapping on the badge below. Alternatively, download and install the apk directly from the GitHub [releases](https://github.com/iakdis/librecamera/releases) page. Downloading directly from the GitHub releases page will likely download a more recent version (if a new version was published recently) – notice though that the F-Droid and the GitHub versions aren't compatible with one another. You will need to reinstall the app; make sure you remember your settings.
 
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
     alt="Get it on F-Droid"
     height="80">](https://f-droid.org/packages/com.iakmds.librecamera)
-[<img src="https://raw.githubusercontent.com/iakmds/librecamera/master/.github/get-it-on-github.png"
+[<img src="https://raw.githubusercontent.com/iakdis/librecamera/master/.github/get-it-on-github.png"
     alt="Get it on GitHub"
-    height="80">](https://github.com/iakmds/librecamera/releases/latest)
+    height="80">](https://github.com/iakdis/librecamera/releases/latest)
 
 # Features
 
@@ -115,12 +115,12 @@ You can download Libre Camera on [F-Droid](https://f-droid.org/packages/com.iakm
 # Roadmap
 
 - [ ] More supported languages (See [#translate](#translate) below)
-- [ ] [Your features](https://github.com/iakmds/librecamera/issues)
-- [ ] Flutter issue: [Allow custom resolution and aspect ratio](https://github.com/flutter/flutter/issues/45665) (Fix [#21](https://github.com/iakmds/librecamera/issues/21))
-- [ ] Flutter issue: [Set custom frame rate and bit rate](https://github.com/flutter/flutter/issues/54339) (Fix [#21](https://github.com/iakmds/librecamera/issues/21))
-- [ ] Flutter issue: [Switch between multiple cameras](https://github.com/flutter/flutter/issues/91247) (Fix [#18](https://github.com/iakmds/librecamera/issues/18))
-- [ ] Flutter issue: [Manual focus distance](https://github.com/flutter/flutter/issues/111476) (Fix [#3](https://github.com/iakmds/librecamera/issues/3))
-- [ ] Feature: Add integrated QR-Scanner (Fix [#32](https://github.com/iakmds/librecamera/issues/32))
+- [ ] [Your features](https://github.com/iakdis/librecamera/issues)
+- [ ] Flutter issue: [Allow custom resolution and aspect ratio](https://github.com/flutter/flutter/issues/45665) (Fix [#21](https://github.com/iakdis/librecamera/issues/21))
+- [ ] Flutter issue: [Set custom frame rate and bit rate](https://github.com/flutter/flutter/issues/54339) (Fix [#21](https://github.com/iakdis/librecamera/issues/21))
+- [ ] Flutter issue: [Switch between multiple cameras](https://github.com/flutter/flutter/issues/91247) (Fix [#18](https://github.com/iakdis/librecamera/issues/18))
+- [ ] Flutter issue: [Manual focus distance](https://github.com/flutter/flutter/issues/111476) (Fix [#3](https://github.com/iakdis/librecamera/issues/3))
+- [ ] Feature: Add integrated QR-Scanner (Fix [#32](https://github.com/iakdis/librecamera/issues/32))
 - [ ] Settings: Add a search bar for the settings page
 - [x] (Included in version 1.9.0) Theme: Add a black Dark mode for AMOLED screens
 - [x] (Included in version 1.8.0) Feature: Add "photo capture at phone volume button press" as an option in settings
@@ -147,13 +147,13 @@ Before using Weblate you had to translate Libre Camera manually via pull request
 
 ## Bug Reporting or Feature Requests
 
-Open an issue on GitHub: [Open issue](https://github.com/iakmds/librecamera/issues)
+Open an issue on GitHub: [Open issue](https://github.com/iakdis/librecamera/issues)
 
 Remember to check for duplicates and try to give important information such as the app version, Android version, etc.
 
 ## Code
 
-Feel free to send in a [pull request](https://github.com/iakmds/librecamera/pulls)! To get started with Flutter, follow this link: [https://docs.flutter.dev/get-started/install](https://docs.flutter.dev/get-started/install)
+Feel free to send in a [pull request](https://github.com/iakdis/librecamera/pulls)! To get started with Flutter, follow this link: [https://docs.flutter.dev/get-started/install](https://docs.flutter.dev/get-started/install)
 
 1. Clone this repository
 2. Switch to the project's directory and run `flutter pub get` to get all necessary packages. To test the app, run the project in debug mode by selecting an Android device or emulator in your preferred Flutter IDE and running the app in debug mode

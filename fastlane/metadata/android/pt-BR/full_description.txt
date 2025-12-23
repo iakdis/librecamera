@@ -1,7 +1,7 @@
 Libre Camera (Câmera Livre) é um aplicativo de câmera gratuito e de código aberto para tirar fotos e gravar vídeos escritos em Flutter e Dart.
 
 Se você precisa de um aplicativo de câmera de código aberto com vários recursos, este aplicativo deve ser para você. Desde controles de lanterna, foco e 
-da exposição até alteração de temas, idiomas e quantidade de compactação - este aplicativo deve ajudá-lo. Caso contrário, sinta-se à vontade para abrir um problema no <a href="https://github.com/iakmds/librecamera">GitHub</a> e solicitar um recurso. Abaixo você pode ver uma lista dos recursos, com mais vindo no futuro!
+da exposição até alteração de temas, idiomas e quantidade de compactação - este aplicativo deve ajudá-lo. Caso contrário, sinta-se à vontade para abrir um problema no <a href="https://github.com/iakdis/librecamera">GitHub</a> e solicitar um recurso. Abaixo você pode ver uma lista dos recursos, com mais vindo no futuro!
 
 <b>Recursos</b>
      * Tire fotos e grave vídeos com sua câmera traseira e frontal
@@ -21,6 +21,6 @@ da exposição até alteração de temas, idiomas e quantidade de compactação 
      * Personalizável: abre as configurações para personalizar o aplicativo ao seu gosto!
 
 <b>Contato</b>
-Confira o repositório GitHub, que inclui o roteiro: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+Confira o repositório GitHub, que inclui o roteiro: <a href="https://github.com/iakdis/librecamera">https://github.com/iakdis/librecamera</a>
 
-Caso você encontre um bug ou tenha uma solicitação de recurso, sinta-se à vontade para registrar um problema no GitHub: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds /librecamera/issues</a>
+Caso você encontre um bug ou tenha uma solicitação de recurso, sinta-se à vontade para registrar um problema no GitHub: <a href="https://github.com/iakdis/librecamera/issues">https://github.com/iakdis /librecamera/issues</a>

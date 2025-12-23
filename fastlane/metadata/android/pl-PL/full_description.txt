@@ -1,6 +1,6 @@
 Libre Camera to darmowa i otwarto źródłowa aplikacja do robienia zdjęć i nagrywania filmów napisana we Flutterze i Dart.
 
-Jeśli potrzebujesz otwarto źródłowej aplikacji aparatu ze specjalnymi funkcjami, ta aplikacja powinna być dla Ciebie. Od latarki, kontroli ekspozycji i ostrości, po zmianę motywów, języków i siły kompresji - ta aplikacja powinna Cię zadowolić. A jeśli nie, nie krępuj się zgłosić sugestii na <a href="https://github.com/iakmds/librecamera">GitHubie</a>. Poniżej możesz zobaczyć listę funkcji, więcej funkcji pojawi się w przyszłości!
+Jeśli potrzebujesz otwarto źródłowej aplikacji aparatu ze specjalnymi funkcjami, ta aplikacja powinna być dla Ciebie. Od latarki, kontroli ekspozycji i ostrości, po zmianę motywów, języków i siły kompresji - ta aplikacja powinna Cię zadowolić. A jeśli nie, nie krępuj się zgłosić sugestii na <a href="https://github.com/iakdis/librecamera">GitHubie</a>. Poniżej możesz zobaczyć listę funkcji, więcej funkcji pojawi się w przyszłości!
 
 <b>Funkcje</b>
     * Rób zdjęcia i nagrywaj filmy za pomocą tylnej i przedniej kamery
@@ -20,6 +20,6 @@ Jeśli potrzebujesz otwarto źródłowej aplikacji aparatu ze specjalnymi funkcj
     * Personalizacja: Otwórz ustawienia, aby dostosować aplikację do swoich upodobań!
 
 <b>Kontakt</b>
-Sprawdź repozytorium GitHub, które zawiera plan rozwoju aplikacji: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+Sprawdź repozytorium GitHub, które zawiera plan rozwoju aplikacji: <a href="https://github.com/iakdis/librecamera">https://github.com/iakdis/librecamera</a>
 
-Jeśli znalazłeś błąd lub chcesz poprosić o jakąś funkcję, możesz to zrobić na GitHubie: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
+Jeśli znalazłeś błąd lub chcesz poprosić o jakąś funkcję, możesz to zrobić na GitHubie: <a href="https://github.com/iakdis/librecamera/issues">https://github.com/iakdis/librecamera/issues</a>

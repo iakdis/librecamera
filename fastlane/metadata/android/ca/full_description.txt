@@ -1,6 +1,6 @@
 Libre Camera és una aplicació de càmera gratuïta i de codi obert per a fer fotos i gravar vídeos, creada en Flutter i Dart.
 
-Si necessiteu una aplicació de càmera de codi obert amb diverses funcions, segurament no cal que cerqueu més. Amb opcions com ara la llanterna, els controls d'enfocament i exposició, fins a una varietat de temes i llengües, aquesta càmera la trobareu molt completa. I, si us cal res addicional, no dubteu a obrir una incidència al <a href="https://github.com/iakmds/librecamera">GitHub</a> on suggerir una funcionalitat. A continuació teniu un llistat de les característiques actuals, amb més que estaran disponibles en un futur!
+Si necessiteu una aplicació de càmera de codi obert amb diverses funcions, segurament no cal que cerqueu més. Amb opcions com ara la llanterna, els controls d'enfocament i exposició, fins a una varietat de temes i llengües, aquesta càmera la trobareu molt completa. I, si us cal res addicional, no dubteu a obrir una incidència al <a href="https://github.com/iakdis/librecamera">GitHub</a> on suggerir una funcionalitat. A continuació teniu un llistat de les característiques actuals, amb més que estaran disponibles en un futur!
 
 <b>Característiques</b>
     * Fotos i vídeos mitjançant la càmera frontal i posterior
@@ -20,6 +20,6 @@ Si necessiteu una aplicació de càmera de codi obert amb diverses funcions, seg
     * Personalitzable: Feu-la vostra mitjançant la resta d'opcions de configuració!
 
 <b>Contacte</b>
-Al nostre GitHub trobareu un full de ruta: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+Al nostre GitHub trobareu un full de ruta: <a href="https://github.com/iakdis/librecamera">https://github.com/iakdis/librecamera</a>
 
-Si voleu suggerir una funcionalitat  o bé teniu cap problema, podeu contactar amb nosaltres via GitHub: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
+Si voleu suggerir una funcionalitat  o bé teniu cap problema, podeu contactar amb nosaltres via GitHub: <a href="https://github.com/iakdis/librecamera/issues">https://github.com/iakdis/librecamera/issues</a>

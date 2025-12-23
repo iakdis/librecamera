@@ -1,6 +1,6 @@
 Libre Camera er frjálst og opið myndavélarforrit til að taka ljósmyndir og myndskeið, skrifað í Flutter og Dart.
 
-Ef þú ert að leita að myndavélarforriti sem hafi marga eiginleika og sé opinn og frjáls hugbúnaður, þá gæti þetta verið fyrir þig. Stýringar fyrir leifturljós, fókus og lýsingu, auk þess að geta breytt þemum, tungumálum og styrk þjöppunar – þetta forrit uppfyllir slíkar óskir. Og ef þér finnst eitthvað vanta, er þér frjálst að fara á <a href="https://github.com/iakmds/librecamera">GitHub</a> og biðja um nýja eiginleika. Hér fyrir neðan geturðu séð yfirlit yfir eiginleikana sem þegar eru til staðar, með fleira væntanlegt!
+Ef þú ert að leita að myndavélarforriti sem hafi marga eiginleika og sé opinn og frjáls hugbúnaður, þá gæti þetta verið fyrir þig. Stýringar fyrir leifturljós, fókus og lýsingu, auk þess að geta breytt þemum, tungumálum og styrk þjöppunar – þetta forrit uppfyllir slíkar óskir. Og ef þér finnst eitthvað vanta, er þér frjálst að fara á <a href="https://github.com/iakdis/librecamera">GitHub</a> og biðja um nýja eiginleika. Hér fyrir neðan geturðu séð yfirlit yfir eiginleikana sem þegar eru til staðar, með fleira væntanlegt!
 
 <b>Eiginleikar</b>
     * Taka ljósmyndir og myndskeið með fram- og bakmyndavél
@@ -20,6 +20,6 @@ Ef þú ert að leita að myndavélarforriti sem hafi marga eiginleika og sé op
     * Sérsníðanlegt: Opnaðu stillingarnar til að sérsníða forritið eins og þér sýnist!
 
 <b>Hafa samband</b>
-Skoðaðu GitHub kóðasafnið, þar má t.d. finna verkáætlun í Roadmap-skránni: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+Skoðaðu GitHub kóðasafnið, þar má t.d. finna verkáætlun í Roadmap-skránni: <a href="https://github.com/iakdis/librecamera">https://github.com/iakdis/librecamera</a>
 
-Hafirðu fundið galla eða sért með beiðni um eiginleika, þá er þér frjálst að senda inn verkbeiðni á GitHub: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
+Hafirðu fundið galla eða sért með beiðni um eiginleika, þá er þér frjálst að senda inn verkbeiðni á GitHub: <a href="https://github.com/iakdis/librecamera/issues">https://github.com/iakdis/librecamera/issues</a>

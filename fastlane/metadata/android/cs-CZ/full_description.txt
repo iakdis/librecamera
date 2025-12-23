@@ -1,6 +1,6 @@
 Libre Camera je bezplatná aplikace fotoaparátu s otevřeným zdrojovým kódem pro pořizování snímků a nahrávání videí napsaná v jazycích Flutter a Dart.
 
-Pokud potřebujete open-source aplikaci fotoaparátu s několika funkcemi, pak je tato aplikace určena právě vám. Od svítilny, ovládání zaostření a expozice až po změnu motivů, jazyků a množství komprese - tato aplikace by měla pokrýt všechny vaše potřeby. A pokud ne, neváhejte otevřít problém na <a href="https://github.com/iakmds/librecamera">GitHubu</a> a požádat o nějakou funkci. Níže si můžete prohlédnout seznam funkcí, přičemž v budoucnu přibudou další!
+Pokud potřebujete open-source aplikaci fotoaparátu s několika funkcemi, pak je tato aplikace určena právě vám. Od svítilny, ovládání zaostření a expozice až po změnu motivů, jazyků a množství komprese - tato aplikace by měla pokrýt všechny vaše potřeby. A pokud ne, neváhejte otevřít problém na <a href="https://github.com/iakdis/librecamera">GitHubu</a> a požádat o nějakou funkci. Níže si můžete prohlédnout seznam funkcí, přičemž v budoucnu přibudou další!
 
 <b>Funkce</b>
     * Pořizování fotografií a nahrávání videí pomocí zadního a předního fotoaparátu
@@ -20,6 +20,6 @@ Pokud potřebujete open-source aplikaci fotoaparátu s několika funkcemi, pak j
     * Možnost přizpůsobení: otevřete nastavení a přizpůsobte si aplikaci podle svých představ!
 
 <b>Kontakt</b>
-Podívejte se na repozitář na GitHubu, který obsahuje roadmapu: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+Podívejte se na repozitář na GitHubu, který obsahuje roadmapu: <a href="https://github.com/iakdis/librecamera">https://github.com/iakdis/librecamera</a>
 
-V případě, že jste našli chybu nebo máte požadavek na funkci, neváhejte přidat problém na GitHub: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
+V případě, že jste našli chybu nebo máte požadavek na funkci, neváhejte přidat problém na GitHub: <a href="https://github.com/iakdis/librecamera/issues">https://github.com/iakdis/librecamera/issues</a>

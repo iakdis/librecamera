@@ -1,6 +1,6 @@
 Libre Camera este o aplicație gratuită și open source pentru a face fotografii și a înregistra videoclipuri scrise în Flutter și Dart.
 
-Dacă aveți nevoie de o aplicație pentru cameră open source cu mai multe funcții, această aplicație ar trebui să fie pentru dvs. De la lanternă, focalizare și controale de expunere până la schimbarea temelor, limbilor și valoarea compresiei - această aplicație ar trebui să vă acopere. Și dacă nu, nu ezitați să deschideți o problemă pe <a href="https://github.com/iakmds/librecamera">GitHub</a> și să solicitați o funcție. Mai jos puteți vedea o listă a caracteristicilor, urmând să apară mai multe în viitor!
+Dacă aveți nevoie de o aplicație pentru cameră open source cu mai multe funcții, această aplicație ar trebui să fie pentru dvs. De la lanternă, focalizare și controale de expunere până la schimbarea temelor, limbilor și valoarea compresiei - această aplicație ar trebui să vă acopere. Și dacă nu, nu ezitați să deschideți o problemă pe <a href="https://github.com/iakdis/librecamera">GitHub</a> și să solicitați o funcție. Mai jos puteți vedea o listă a caracteristicilor, urmând să apară mai multe în viitor!
 
 <b>Funcții</b>
     * Faceți fotografii și înregistrați videoclipuri cu camera dvs. din spate și din față
@@ -20,6 +20,6 @@ Dacă aveți nevoie de o aplicație pentru cameră open source cu mai multe func
     * Personalizabil: deschideți setările pentru a personaliza aplicația după bunul plac!
 
 <b>Contact</b>
-Consultați depozitul GitHub, care include foaia de parcurs: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+Consultați depozitul GitHub, care include foaia de parcurs: <a href="https://github.com/iakdis/librecamera">https://github.com/iakdis/librecamera</a>
 
-În cazul în care ați găsit o eroare sau aveți o solicitare de funcție, nu ezitați să trimiteți o problemă pe GitHub: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
+În cazul în care ați găsit o eroare sau aveți o solicitare de funcție, nu ezitați să trimiteți o problemă pe GitHub: <a href="https://github.com/iakdis/librecamera/issues">https://github.com/iakdis/librecamera/issues</a>

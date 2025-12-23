@@ -1,6 +1,6 @@
 Libre Kamera ist eine freie und quelloffene Kamera-App zum Aufnehmen von Fotos und Videos, geschrieben in Flutter und Dart.
 
-Wenn du auf der Suche nach einer quelloffenen Kamera-App mit vielen Funktionen bist, sollte diese App richtig für dich sein. Von Taschenlampen-, Fokus- und Belichtungsmodi bis hin zum Ändern des Themas, der Sprache und der Komprimierungsqualität – diese App sollte alles haben, was du brauchst. Und falls nicht, öffne gerne ein Issue auf <a href="https://github.com/iakmds/librecamera">GitHub</a> und schlage eine Funktion vor. Unten ist eine Liste der Funktionen zu finden, weitere kommen in naher Zukunft!
+Wenn du auf der Suche nach einer quelloffenen Kamera-App mit vielen Funktionen bist, sollte diese App richtig für dich sein. Von Taschenlampen-, Fokus- und Belichtungsmodi bis hin zum Ändern des Themas, der Sprache und der Komprimierungsqualität – diese App sollte alles haben, was du brauchst. Und falls nicht, öffne gerne ein Issue auf <a href="https://github.com/iakdis/librecamera">GitHub</a> und schlage eine Funktion vor. Unten ist eine Liste der Funktionen zu finden, weitere kommen in naher Zukunft!
 
 <b>Funktionen</b>
     * Aufnahme von Fotos und Videos mit der Rück- und Frontkamera
@@ -20,6 +20,6 @@ Wenn du auf der Suche nach einer quelloffenen Kamera-App mit vielen Funktionen b
     * Anpassbar: Öffne die Einstellungen, um die App nach deinen Wünschen anzupassen!
 
 <b>Kontakt</b>
-Besuche das GitHub Repository, das auch die Roadmap beinhaltet: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a>
+Besuche das GitHub Repository, das auch die Roadmap beinhaltet: <a href="https://github.com/iakdis/librecamera">https://github.com/iakdis/librecamera</a>
 
-Falls du einen Fehler gefunden hast oder eine Funktion vorschlagen möchtest, kannst du ein Issue auf GitHub melden: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
+Falls du einen Fehler gefunden hast oder eine Funktion vorschlagen möchtest, kannst du ein Issue auf GitHub melden: <a href="https://github.com/iakdis/librecamera/issues">https://github.com/iakdis/librecamera/issues</a>

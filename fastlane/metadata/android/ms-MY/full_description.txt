@@ -1,6 +1,6 @@
 Libre Camera adalah sebuah apl kamera percuma dan sumber terbuka untuk mengambil gambar dan merekod video ditulis dalam Flutter dan Dart.
 
-Jika anda memerlukan apl kamera sumber terbuka dengan beberapa ciri, aplikasi ini adalah untuk anda. Daripada lampu suluh, fokus dan kawalan pendedahan kepada menukar tema, bahasa dan jumlah pemampatan – aplikasi ini memang untuk anda. Dan jika tidak, rasa bebas untuk buka isu di<a href="https://github.com/iakmds/librecamera">GitHub</a> dan meminta ciri. Di bawah anda boleh lihat senarai ciri-ciri, dengan lebih banyak akan datang pada masa akan datang!
+Jika anda memerlukan apl kamera sumber terbuka dengan beberapa ciri, aplikasi ini adalah untuk anda. Daripada lampu suluh, fokus dan kawalan pendedahan kepada menukar tema, bahasa dan jumlah pemampatan – aplikasi ini memang untuk anda. Dan jika tidak, rasa bebas untuk buka isu di<a href="https://github.com/iakdis/librecamera">GitHub</a> dan meminta ciri. Di bawah anda boleh lihat senarai ciri-ciri, dengan lebih banyak akan datang pada masa akan datang!
 
 <b>Ciri-ciri</b>
     * Ambil gambar dan rekod video dengan kamera hadapan dan belakang anda
@@ -20,6 +20,6 @@ Jika anda memerlukan apl kamera sumber terbuka dengan beberapa ciri, aplikasi in
     * Terubah suai: Buka tetapan untuk mengubah suai aplikasi mengikut cita rasa anda!
 
 <b>Kenalan</b>
-Lihat repositori GitHub, yang merangkumi peta tuju: <a href="https://github.com/iakmds/librecamera">https://github.com/iakmds/librecamera</a> 
+Lihat repositori GitHub, yang merangkumi peta tuju: <a href="https://github.com/iakdis/librecamera">https://github.com/iakdis/librecamera</a> 
 
-Sekiranya anda menemui pepijat atau ada permintaan ciri, jangan ragu untuk failkan isu di GitHub: <a href="https://github.com/iakmds/librecamera/issues">https://github.com/iakmds/librecamera/issues</a>
+Sekiranya anda menemui pepijat atau ada permintaan ciri, jangan ragu untuk failkan isu di GitHub: <a href="https://github.com/iakdis/librecamera/issues">https://github.com/iakdis/librecamera/issues</a>
