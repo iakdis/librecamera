@@ -60,7 +60,7 @@ class _ResolutionButtonState extends State<ResolutionButton> {
           ? _textForPreset(resolutionPreset).short
           : _textForPreset(resolutionPreset).long,
       style: TextStyle(
-        color: widget.isDense ? Colors.blue : null,
+        color: widget.isDense ? null : null,
         fontWeight: widget.isDense ? FontWeight.w500 : null,
       ),
     );

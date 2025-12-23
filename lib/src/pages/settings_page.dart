@@ -115,7 +115,6 @@ class _SettingsPageState extends State<SettingsPage> {
           onPressed: launchGitHubURL,
           label: SelectableText(
             'https://github.com/iakmds/librecamera',
-            style: const TextStyle(color: Colors.blue),
             onTap: launchGitHubURL,
           ),
         ),
@@ -422,35 +421,25 @@ class _SettingsPageState extends State<SettingsPage> {
       title: Text(AppLocalizations.of(context)!.theme),
       subtitle: Text(AppLocalizations.of(context)!.theme_description),
       trailing: DropdownButton(
-        icon: Preferences.getThemeMode() == CustomThemeMode.system.name
-            ? const Icon(Icons.settings_display)
-            : Preferences.getThemeMode() == CustomThemeMode.light.name
-            ? const Icon(Icons.light_mode)
-            : const Icon(Icons.dark_mode),
+        icon: switch (CustomThemeMode.values.byName(
+          Preferences.getThemeMode(),
+        )) {
+          CustomThemeMode.system => const Icon(Icons.settings_display),
+          CustomThemeMode.light => const Icon(Icons.light_mode),
+          CustomThemeMode.dark => const Icon(Icons.dark_mode),
+          CustomThemeMode.black => const Icon(Icons.dark_mode),
+        },
         value: CustomThemeMode.values.byName(Preferences.getThemeMode()),
         items: [
-          DropdownMenuItem(
-            value: CustomThemeMode.system,
-            onTap: () => themeProvider.setTheme(CustomThemeMode.system),
-            child: Padding(
-              padding: const EdgeInsets.only(right: 8),
-              child: Text(AppLocalizations.of(context)!.themeSystem),
+          ...CustomThemeMode.values.map(
+            (customThemeMode) => DropdownMenuItem(
+              value: customThemeMode,
+              onTap: () => themeProvider.setTheme(customThemeMode),
+              child: Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: Text(_nameByCustomThemeMode(customThemeMode)),
+              ),
             ),
-          ),
-          DropdownMenuItem(
-            value: CustomThemeMode.light,
-            onTap: () => themeProvider.setTheme(CustomThemeMode.light),
-            child: Text(AppLocalizations.of(context)!.themeLight),
-          ),
-          DropdownMenuItem(
-            value: CustomThemeMode.dark,
-            onTap: () => themeProvider.setTheme(CustomThemeMode.dark),
-            child: Text(AppLocalizations.of(context)!.themeDark),
-          ),
-          DropdownMenuItem(
-            value: CustomThemeMode.black,
-            onTap: () => themeProvider.setTheme(CustomThemeMode.black),
-            child: Text(AppLocalizations.of(context)!.themeBlack),
           ),
         ],
         onChanged: (_) {},
@@ -596,4 +585,12 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
     );
   }
+
+  String _nameByCustomThemeMode(CustomThemeMode customThemeMode) =>
+      switch (customThemeMode) {
+        CustomThemeMode.system => AppLocalizations.of(context)!.themeSystem,
+        CustomThemeMode.light => AppLocalizations.of(context)!.themeLight,
+        CustomThemeMode.dark => AppLocalizations.of(context)!.themeDark,
+        CustomThemeMode.black => AppLocalizations.of(context)!.themeBlack,
+      };
 }

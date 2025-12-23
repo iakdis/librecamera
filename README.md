@@ -183,7 +183,7 @@ Package | Use case
 [shared_preferences](https://pub.dev/packages/shared_preferences) | Saving app data like settings
 [smooth_page_indicator](https://pub.dev/packages/smooth_page_indicator) | Page indicator in the onboarding screen
 [url_launcher](https://pub.dev/packages/url_launcher) | Open the GitHub repository link inside the about menu
-[video_thumbnail](https://pub.dev/packages/video_thumbnail) | Displaying a captured video inside the thumbnail
+[video_player](https://pub.dev/packages/video_player) | Displaying a captured video inside the thumbnail
 [wakelock](https://pub.dev/packages/wakelock) | Keeping the display always on
 
 # License

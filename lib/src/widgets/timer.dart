@@ -73,7 +73,7 @@ class _TimerButtonState extends State<TimerButton> {
                   await Preferences.setTimerDuration(duration.inSeconds);
                   setState(() {});
                 },
-                child: Text(name, style: const TextStyle(color: Colors.blue)),
+                child: Text(name),
               );
             }).toList()..insert(
               0,
@@ -85,7 +85,6 @@ class _TimerButtonState extends State<TimerButton> {
                 },
                 child: Text(
                   AppLocalizations.of(context)!.off,
-                  style: const TextStyle(color: Colors.blue),
                 ),
               ),
             ),

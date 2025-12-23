@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:librecamera/src/utils/preferences.dart';
 
 class ThemeProvider extends ChangeNotifier {
-  CustomThemeMode _themeMode = CustomThemeMode.system;
+  CustomThemeMode _themeMode = CustomThemeMode.values.byName(
+    Preferences.getThemeMode(),
+  );
   CustomThemeMode get themeMode => _themeMode;
 
   ThemeData theme({required ColorScheme colorScheme}) {
@@ -45,3 +47,6 @@ enum CustomThemeMode {
   dark,
   black,
 }
+
+const Color seedColor = Color(0xFF1E88E5);
+const Color primaryColor = Color.fromARGB(255, 255, 255, 255);

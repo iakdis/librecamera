@@ -2,6 +2,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:librecamera/l10n/app_localizations.dart' show AppLocalizations;
+import 'package:librecamera/src/provider/theme_provider.dart';
 
 class FocusModeControlWidget extends StatefulWidget {
   const FocusModeControlWidget({required this.controller, super.key});
@@ -46,7 +47,7 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
       message: AppLocalizations.of(context)!.focusMode,
       child: Row(
         children: [
-          const Icon(Icons.filter_center_focus, color: Colors.blue),
+          const Icon(Icons.filter_center_focus, color: primaryColor),
           const SizedBox(width: 6),
           DropdownButtonHideUnderline(
             child: ValueListenableBuilder(
@@ -54,7 +55,7 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
               builder: (context, selectedFocusMode, child) {
                 return DropdownButton(
                   menuWidth: 250,
-                  iconEnabledColor: Colors.blue,
+                  iconEnabledColor: primaryColor,
                   value: selectedFocusMode,
                   /*selectedItemBuilder: (context) => [
                     for (final item in focusModes)
@@ -63,7 +64,7 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
                         child: Text(
                           item.name.toUpperCase(),
                           style: const TextStyle(
-                              color: Colors.blue, fontWeight: FontWeight.w500),
+                              color: primaryColor, fontWeight: FontWeight.w500),
                         ),
                       ),
                   ],*/
@@ -73,7 +74,7 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
                       child: Text(
                         AppLocalizations.of(context)!.autoSmall,
                         style: const TextStyle(
-                          color: Colors.blue,
+                          color: primaryColor,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -83,7 +84,7 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
                       child: Text(
                         AppLocalizations.of(context)!.lockedSmall,
                         style: const TextStyle(
-                          color: Colors.blue,
+                          color: primaryColor,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -95,7 +96,6 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
                       child: Text(
                         AppLocalizations.of(context)!.focusModeAuto,
                         style: const TextStyle(
-                          color: Colors.blue,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -105,7 +105,6 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
                       child: Text(
                         AppLocalizations.of(context)!.focusModeLocked,
                         style: const TextStyle(
-                          color: Colors.blue,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -118,7 +117,7 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
                           child: Text(
                             '${item.name.toUpperCase()} FOCUS',
                             style: const TextStyle(
-                                color: Colors.blue, fontWeight: FontWeight.w500),
+                                color: primaryColor, fontWeight: FontWeight.w500),
                           ),
                         ),
                       )

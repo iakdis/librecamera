@@ -12,6 +12,7 @@ import 'package:image/image.dart' as img;
 import 'package:intl/intl.dart';
 import 'package:librecamera/l10n/app_localizations.dart';
 import 'package:librecamera/main.dart';
+import 'package:librecamera/src/models/media_file.dart';
 import 'package:librecamera/src/pages/settings_page.dart';
 import 'package:librecamera/src/utils/preferences.dart';
 import 'package:librecamera/src/widgets/capture_control.dart';
@@ -22,8 +23,8 @@ import 'package:librecamera/src/widgets/resolution.dart';
 import 'package:librecamera/src/widgets/timer.dart';
 import 'package:native_device_orientation/native_device_orientation.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:video_player/video_player.dart';
 //import 'package:qr_code_scanner/qr_code_scanner.dart' as qr;
-import 'package:video_thumbnail/video_thumbnail.dart' as video_thumbnail;
 
 /// Camera example home widget.
 class CameraPage extends StatefulWidget {
@@ -39,9 +40,9 @@ class CameraPage extends StatefulWidget {
 class _CameraPageState extends State<CameraPage>
     with WidgetsBindingObserver, TickerProviderStateMixin {
   //Controllers
-  File? capturedFile;
-  CameraController? controller;
-  Uint8List? videoThumbnailUint8list;
+  File? _capturedFile;
+  CameraController? _cameraController;
+  VideoPlayerController? _videoPlayerController;
 
   //Zoom
   double _minAvailableZoom = 1;
@@ -85,6 +86,10 @@ class _CameraPageState extends State<CameraPage>
 
   final ValueNotifier<bool> _showPreviewNotifier = ValueNotifier(true);
 
+  MediaFile? _recentMediaFile;
+
+  static const _thumbnailImageSize = 52.0;
+
   //QR Code
   /*final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
   qr.Barcode? result;
@@ -122,6 +127,7 @@ class _CameraPageState extends State<CameraPage>
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
+    unawaited(_videoPlayerController?.dispose());
     //qrController?.dispose();
 
     super.dispose();
@@ -129,7 +135,7 @@ class _CameraPageState extends State<CameraPage>
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    final cameraController = controller;
+    final cameraController = _cameraController;
 
     // App state changed before we got the chance to initialize.
     if (cameraController == null || !cameraController.value.isInitialized) {
@@ -137,20 +143,19 @@ class _CameraPageState extends State<CameraPage>
     }
 
     if (state == AppLifecycleState.inactive) {
-      unawaited(_hideCamera());
+      unawaited(_hideCamera(cameraController));
     } else if (state == AppLifecycleState.resumed) {
-      unawaited(_showCamera());
+      unawaited(_showCamera(cameraController));
     }
   }
 
-  Future<void> _hideCamera() async {
+  Future<void> _hideCamera(CameraController cameraController) async {
     if (mounted) _showPreviewNotifier.value = false;
-    await controller?.dispose();
+    await cameraController.dispose();
   }
 
-  Future<void> _showCamera() async {
-    if (controller == null) return;
-    await _initializeCameraController(controller!.description);
+  Future<void> _showCamera(CameraController cameraController) async {
+    await _initializeCameraController(cameraController.description);
     if (mounted) _showPreviewNotifier.value = true;
   }
 
@@ -162,7 +167,7 @@ class _CameraPageState extends State<CameraPage>
         final int delay;
         if (_isVideoCameraSelectedNotifier.value) {
           delay = 2;
-          await (controller?.value.isRecordingVideo ?? false
+          await (_cameraController?.value.isRecordingVideo ?? false
               ? onStopButtonPressed()
               : onVideoRecordButtonPressed());
         } else {
@@ -315,7 +320,7 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Widget _previewWidget() {
-    final cameraController = controller;
+    final cameraController = _cameraController;
 
     return ValueListenableBuilder(
       valueListenable: _showPreviewNotifier,
@@ -378,7 +383,7 @@ class _CameraPageState extends State<CameraPage>
             children: [
               _cameraSwitchWidget(
                 enabled:
-                    controller?.value.isRecordingVideo == false &&
+                    _cameraController?.value.isRecordingVideo == false &&
                     _timerStopwatch.elapsedTicks <= 1,
               ),
               ValueListenableBuilder(
@@ -398,7 +403,7 @@ class _CameraPageState extends State<CameraPage>
                     valueListenable: _isVideoCameraSelectedNotifier,
                     builder: (context, isVideoCameraSelected, child) {
                       return FlashModeWidget(
-                        controller: controller,
+                        controller: _cameraController,
                         isRearCameraSelected: isRearCameraSelected,
                         isVideoCameraSelected: isVideoCameraSelected,
                       );
@@ -414,14 +419,14 @@ class _CameraPageState extends State<CameraPage>
                     onNewCameraSelected: _initializeCameraController,
                     isRearCameraSelected: isRearCameraSelected,
                     enabled:
-                        controller?.value.isRecordingVideo == false &&
+                        _cameraController?.value.isRecordingVideo == false &&
                         _timerStopwatch.elapsedTicks <= 1,
                   );
                 },
               ),
               _settingsWidget(
                 enabled:
-                    controller?.value.isRecordingVideo == false &&
+                    _cameraController?.value.isRecordingVideo == false &&
                     _timerStopwatch.elapsedTicks <= 1,
               ),
             ],
@@ -502,11 +507,12 @@ class _CameraPageState extends State<CameraPage>
                         await Permission.microphone.request();
                       } else {
                         await _initializeCameraController(
-                          controller!.description,
+                          _cameraController!.description,
                         );
                         _isVideoCameraSelectedNotifier.value = true;
                       }
-                    } else if (!(controller?.value.isRecordingVideo ?? false)) {
+                    } else if (!(_cameraController?.value.isRecordingVideo ??
+                        false)) {
                       _isVideoCameraSelectedNotifier.value = false;
                     }
                   }
@@ -536,22 +542,23 @@ class _CameraPageState extends State<CameraPage>
                 _stopVolumeButtons();
                 await Navigator.of(context).push(
                   MaterialPageRoute<void>(
-                    builder: (context) => SettingsPage(controller: controller),
+                    builder: (context) =>
+                        SettingsPage(controller: _cameraController),
                   ),
                 );
                 await _initializeCameraController(
-                  controller!.description,
+                  _cameraController!.description,
                 );
               }
             : null,
-        controller: controller,
+        controller: _cameraController,
       ),
     );
   }
 
   Widget _thumbnailPreviewWidget() {
     return _timerStopwatch.elapsedTicks > 1 ||
-            (controller?.value.isRecordingVideo ?? false)
+            (_cameraController?.value.isRecordingVideo ?? false)
         ? const SizedBox(height: 60, width: 60)
         : AnimatedRotation(
             duration: const Duration(milliseconds: 400),
@@ -563,8 +570,8 @@ class _CameraPageState extends State<CameraPage>
               child: Padding(
                 padding: const EdgeInsets.only(right: 8),
                 child: SizedBox(
-                  width: 52,
-                  height: 52,
+                  width: _thumbnailImageSize,
+                  height: _thumbnailImageSize,
                   child: GestureDetector(
                     onTap: () async {
                       final deviceInfo = DeviceInfoPlugin();
@@ -572,7 +579,7 @@ class _CameraPageState extends State<CameraPage>
                       final sdkInt = androidInfo.version.sdkInt;
 
                       final String mimeType;
-                      if (capturedFile!.path.split('.').last == 'mp4') {
+                      if (_capturedFile!.path.split('.').last == 'mp4') {
                         mimeType = 'video/mp4';
                       } else {
                         final format = CompressFormat.values.firstWhere(
@@ -594,7 +601,7 @@ class _CameraPageState extends State<CameraPage>
 
                       final methodChannel = AndroidMethodChannel();
                       await methodChannel.openItem(
-                        file: capturedFile!,
+                        file: _capturedFile!,
                         mimeType: mimeType,
                         openInGallery: !(sdkInt > 27),
                       );
@@ -614,7 +621,7 @@ class _CameraPageState extends State<CameraPage>
 
     final cameraControls = <Widget>[
       if (Preferences.getEnableModeRow()) _cameraModesWidget(),
-      if (Preferences.getEnableModeRow()) const Divider(color: Colors.blue),
+      if (Preferences.getEnableModeRow()) const Divider(),
       if (Preferences.getEnableExposureSlider())
         ValueListenableBuilder(
           valueListenable: _currentExposureOffsetNotifier,
@@ -627,8 +634,7 @@ class _CameraPageState extends State<CameraPage>
             );
           },
         ),
-      if (Preferences.getEnableExposureSlider())
-        const Divider(color: Colors.blue),
+      if (Preferences.getEnableExposureSlider()) const Divider(),
       Container(
         padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
         child: ValueListenableBuilder(
@@ -638,7 +644,7 @@ class _CameraPageState extends State<CameraPage>
               valueListenable: _isVideoCameraSelectedNotifier,
               builder: (context, isVideoCameraSelected, child) {
                 return CaptureControlWidget(
-                  controller: controller,
+                  controller: _cameraController,
                   onTakePictureButtonPressed: onTakePictureButtonPressed,
                   onVideoRecordButtonPressed: onVideoRecordButtonPressed,
                   onResumeButtonPressed: onResumeButtonPressed,
@@ -647,7 +653,7 @@ class _CameraPageState extends State<CameraPage>
                   onNewCameraSelected: onNewCameraSelected,
                   isVideoCameraSelected: isVideoCameraSelected,
                   isRecordingInProgress:
-                      controller?.value.isRecordingVideo ?? false,
+                      _cameraController?.value.isRecordingVideo ?? false,
                   /*flashWidget: FlashModeControlRowWidget(
                         controller: controller,
                         isRearCameraSelected: isRearCameraSelected,
@@ -669,9 +675,9 @@ class _CameraPageState extends State<CameraPage>
       ValueListenableBuilder(
         valueListenable: _isVideoCameraSelectedNotifier,
         builder: (context, isVideoCameraSelected, child) {
-          if (controller != null &&
+          if (_cameraController != null &&
               isVideoCameraSelected &&
-              controller!.value.isRecordingVideo) {
+              _cameraController!.value.isRecordingVideo) {
             return Center(
               child: Padding(
                 padding: const EdgeInsets.all(8),
@@ -736,16 +742,16 @@ class _CameraPageState extends State<CameraPage>
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
-        ExposureModeControlWidget(controller: controller),
-        FocusModeControlWidget(controller: controller),
+        ExposureModeControlWidget(controller: _cameraController),
+        FocusModeControlWidget(controller: _cameraController),
       ],
     );
   }
 
   //Selecting camera
   Future<void> onNewCameraSelected(CameraDescription cameraDescription) async {
-    if (controller != null) {
-      return controller!.setDescription(cameraDescription);
+    if (_cameraController != null) {
+      return _cameraController!.setDescription(cameraDescription);
     } else {
       return _initializeCameraController(cameraDescription);
     }
@@ -765,7 +771,7 @@ class _CameraPageState extends State<CameraPage>
       imageFormatGroup: ImageFormatGroup.jpeg,
     );
 
-    controller = cameraController;
+    _cameraController = cameraController;
 
     // If the controller is updated then update the UI.
     cameraController.addListener(() {
@@ -837,12 +843,6 @@ class _CameraPageState extends State<CameraPage>
   //Camera button functions
   Future<void> onTakePictureButtonPressed() async {
     await takePicture();
-
-    if (mounted) {
-      setState(() {
-        videoThumbnailUint8list = null;
-      });
-    }
   }
 
   Future<void> onVideoRecordButtonPressed() async {
@@ -864,19 +864,19 @@ class _CameraPageState extends State<CameraPage>
       setState(() {});
     }
     if (file != null) {
-      capturedFile = File(file.path);
+      _capturedFile = File(file.path);
 
       final directory = Preferences.getSavePath();
 
-      final fileFormat = capturedFile!.path.split('.').last;
+      final fileFormat = _capturedFile!.path.split('.').last;
       final path = '$directory/VID_${timestamp()}.$fileFormat';
 
       try {
-        final tempFile = capturedFile!.copySync(path);
+        final tempFile = await _capturedFile!.copy(path);
 
         final methodChannel = AndroidMethodChannel();
         await methodChannel.updateItem(file: tempFile);
-        capturedFile = File(path);
+        _capturedFile = File(path);
       } catch (e) {
         if (mounted) showSnackbar(text: e.toString());
       }
@@ -893,9 +893,6 @@ class _CameraPageState extends State<CameraPage>
   Future<void> onPauseButtonPressed() async {
     await pauseVideoRecording();
 
-    if (mounted) {
-      setState(() {});
-    }
     if (kDebugMode) {
       print('Video recording paused');
     }
@@ -904,9 +901,6 @@ class _CameraPageState extends State<CameraPage>
   Future<void> onResumeButtonPressed() async {
     await resumeVideoRecording();
 
-    if (mounted) {
-      setState(() {});
-    }
     if (kDebugMode) {
       print('Video recording resumed');
     }
@@ -932,7 +926,7 @@ class _CameraPageState extends State<CameraPage>
         ..reset();
     });
 
-    final cameraController = controller;
+    final cameraController = _cameraController;
     if (cameraController == null || !cameraController.value.isInitialized) {
       if (kDebugMode) {
         print('Error: select a camera first.');
@@ -953,7 +947,7 @@ class _CameraPageState extends State<CameraPage>
         await AndroidMethodChannel().shutterSound();
       }
 
-      capturedFile = File(file.path);
+      _capturedFile = File(file.path);
 
       final directory = Preferences.getSavePath();
 
@@ -978,11 +972,11 @@ class _CameraPageState extends State<CameraPage>
 
       if (!_isRearCameraSelectedNotifier.value &&
           Preferences.getFlipFrontCameraPhoto()) {
-        final imageBytes = await capturedFile!.readAsBytes();
+        final imageBytes = await _capturedFile!.readAsBytes();
         final originalImage = img.decodeImage(imageBytes);
         final fixedImage = img.flipHorizontal(originalImage!);
 
-        await capturedFile!.writeAsBytes(
+        await _capturedFile!.writeAsBytes(
           img.encodeJpg(fixedImage),
           flush: true,
         );
@@ -995,7 +989,7 @@ class _CameraPageState extends State<CameraPage>
       }*/
 
       final newFileBytes = await FlutterImageCompress.compressWithFile(
-        capturedFile!.path,
+        _capturedFile!.path,
         quality: Preferences.getCompressQuality(),
         keepExif: Preferences.getKeepEXIFMetadata(),
         format: format,
@@ -1003,12 +997,12 @@ class _CameraPageState extends State<CameraPage>
 
       //var tempFile = capturedFile!.copySync('$directory/IMG_${timestamp()}.$fileFormat');
       try {
-        final tempFile = capturedFile!.copySync(path);
+        final tempFile = await _capturedFile!.copy(path);
         await tempFile.writeAsBytes(newFileBytes!);
 
         final methodChannel = AndroidMethodChannel();
         await methodChannel.updateItem(file: tempFile);
-        capturedFile = File(path);
+        _capturedFile = File(path);
       } catch (e) {
         if (mounted) showSnackbar(text: e.toString());
       }
@@ -1053,7 +1047,7 @@ class _CameraPageState extends State<CameraPage>
       _stopwatch.start();
     });
 
-    final cameraController = controller;
+    final cameraController = _cameraController;
 
     if (cameraController == null || !cameraController.value.isInitialized) {
       if (kDebugMode) {
@@ -1084,7 +1078,7 @@ class _CameraPageState extends State<CameraPage>
         ..reset();
     });
 
-    final cameraController = controller;
+    final cameraController = _cameraController;
 
     if (cameraController == null || !cameraController.value.isRecordingVideo) {
       return null;
@@ -1103,7 +1097,7 @@ class _CameraPageState extends State<CameraPage>
   Future<void> pauseVideoRecording() async {
     setState(_stopwatch.stop);
 
-    final cameraController = controller;
+    final cameraController = _cameraController;
 
     if (cameraController == null || !cameraController.value.isRecordingVideo) {
       return;
@@ -1122,7 +1116,7 @@ class _CameraPageState extends State<CameraPage>
   Future<void> resumeVideoRecording() async {
     setState(_stopwatch.start);
 
-    final cameraController = controller;
+    final cameraController = _cameraController;
 
     if (cameraController == null || !cameraController.value.isRecordingVideo) {
       return;
@@ -1160,7 +1154,7 @@ class _CameraPageState extends State<CameraPage>
                   _minAvailableZoom,
                   _maxAvailableZoom,
                 );
-                await controller!.setZoomLevel(value);
+                await _cameraController!.setZoomLevel(value);
               },
             );
           },
@@ -1177,11 +1171,11 @@ class _CameraPageState extends State<CameraPage>
     TapDownDetails details,
     BoxConstraints constraints,
   ) async {
-    if (controller == null) {
+    if (_cameraController == null) {
       return;
     }
 
-    final cameraController = controller!;
+    final cameraController = _cameraController!;
 
     _circlePosX = details.localPosition.dx;
     _circlePosY = details.localPosition.dy;
@@ -1239,7 +1233,7 @@ class _CameraPageState extends State<CameraPage>
 
   Future<void> _handleScaleUpdate(ScaleUpdateDetails details) async {
     // When there are not exactly two fingers on screen don't scale
-    if (controller == null || _pointers != 2) {
+    if (_cameraController == null || _pointers != 2) {
       return;
     }
 
@@ -1250,19 +1244,19 @@ class _CameraPageState extends State<CameraPage>
 
     _zoomSlider();
 
-    await controller!.setZoomLevel(_currentScaleNotifier.value);
+    await _cameraController!.setZoomLevel(_currentScaleNotifier.value);
   }
 
   //Exposure
   Future<void> _setExposureOffset(double offset) async {
-    if (controller == null) {
+    if (_cameraController == null) {
       return;
     }
 
     _currentExposureOffsetNotifier.value = offset;
 
     try {
-      await controller!.setExposureOffset(offset);
+      await _cameraController!.setExposureOffset(offset);
     } on CameraException catch (e) {
       if (kDebugMode) {
         print('$e: ${e.description}');
@@ -1271,61 +1265,52 @@ class _CameraPageState extends State<CameraPage>
   }
 
   //Thumbnail
-  Widget _thumbnailWidget() {
-    if (videoThumbnailUint8list == null && capturedFile == null) {
-      return const Center(); //child: CircularProgressIndicator(),
-    } else {
-      if (videoThumbnailUint8list == null) {
-        return Container(
-          decoration: BoxDecoration(
+  Widget _thumbnailWidget() => switch (_recentMediaFile) {
+    VideoMediaFile()
+        when (_videoPlayerController?.value.isInitialized ?? false) =>
+      Stack(
+        alignment: Alignment.center,
+        children: [
+          ClipRRect(
             borderRadius: BorderRadius.circular(7),
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: FileImage(File(capturedFile!.path)),
-            ),
-          ),
-        );
-      } else {
-        return Stack(
-          alignment: Alignment.center,
-          children: [
-            SizedBox(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(7),
-                child: SizedBox.expand(
-                  child: FittedBox(
-                    fit: BoxFit.cover,
-                    child: SizedBox(
-                      width: 42,
-                      height: 42,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(7),
-                          image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: MemoryImage(videoThumbnailUint8list!),
-                          ),
-                        ),
-                      ),
+            child: SizedBox.expand(
+              child: FittedBox(
+                fit: BoxFit.cover,
+                child: SizedBox(
+                  width: _thumbnailImageSize,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(7),
+                    ),
+                    child: AspectRatio(
+                      aspectRatio: _videoPlayerController!.value.aspectRatio,
+                      child: VideoPlayer(_videoPlayerController!),
                     ),
                   ),
                 ),
               ),
             ),
-            const CircleAvatar(
-              radius: 15,
-              backgroundColor: Colors.black45,
-              child: Icon(Icons.play_arrow, size: 20, color: Colors.white),
-            ),
-          ],
-        );
-      }
-    }
-  }
+          ),
+          const CircleAvatar(
+            radius: 15,
+            backgroundColor: Colors.black45,
+            child: Icon(Icons.play_arrow, size: 20, color: Colors.white),
+          ),
+        ],
+      ),
+    ImageMediaFile() when _capturedFile != null => Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(7),
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: FileImage(File(_capturedFile!.path)),
+        ),
+      ),
+    ),
+    _ => const Center(), //child: CircularProgressIndicator(),
+  };
 
   Future<void> _refreshGalleryImages() async {
-    final allFileList = <File>[];
-
     final directory = Directory(Preferences.getSavePath());
 
     var fileList = <FileSystemEntity>[];
@@ -1336,61 +1321,51 @@ class _CameraPageState extends State<CameraPage>
       return;
     }
 
-    final fileNames = <String>[];
-    final dateTimes = <DateTime>[];
-
-    var recentFileName = '';
-
-    for (final file in fileList) {
-      if (file.path.contains('.jpg') ||
-          file.path.contains('.png') ||
-          file.path.contains('.webp') ||
-          file.path.contains('.mp4')) {
-        allFileList.add(File(file.path));
-        final name = file.path.split('/').last; //.split('.').first;
-        final stat = FileStat.statSync(file.path);
-
-        dateTimes.add(stat.modified);
-
-        fileNames.add(name);
+    // Collect valid media files with their modification times
+    final mediaFiles =
+        <({File file, DateTime modifiedTime, MediaFile mediaFile})>[];
+    for (final fileEntity in fileList) {
+      final mediaFile = fileEntity.path.mediaFileByEnding();
+      if (mediaFile is ImageMediaFile || mediaFile is VideoMediaFile) {
+        final stat = await FileStat.stat(fileEntity.path);
+        mediaFiles.add((
+          file: File(fileEntity.path),
+          modifiedTime: stat.modified,
+          mediaFile: mediaFile!,
+        ));
       }
     }
 
-    if (fileNames.isNotEmpty) {
-      for (final name in fileNames) {
-        final now = DateTime.now();
-        final mostRecentDateTimeToNow = dateTimes.reduce(
-          (a, b) => a.difference(now).abs() < b.difference(now).abs() ? a : b,
-        );
+    if (mediaFiles.isNotEmpty) {
+      // Sort by modification time descending (most recent first)
+      mediaFiles.sort((a, b) => b.modifiedTime.compareTo(a.modifiedTime));
 
-        final file = File('${directory.path}/$name');
+      // Pick the most recent file
+      final mostRecent = mediaFiles.first;
+      _recentMediaFile = mostRecent.mediaFile;
+      _capturedFile = mostRecent.file;
 
-        final stat = FileStat.statSync(file.path);
-        if (stat.changed.isAtSameMomentAs(mostRecentDateTimeToNow)) {
-          recentFileName = name;
-        }
+      // Initialize video player if it's a video
+      if (_recentMediaFile is VideoMediaFile) {
+        await _initializeVideoThumbnail();
       }
-
-      capturedFile = File('${directory.path}/$recentFileName');
-
-      if (recentFileName.contains('.mp4')) {
-        await _showVideoPlayer();
-      }
+    } else {
+      // No media files found
+      _recentMediaFile = null;
+      _capturedFile = null;
     }
   }
 
-  Future<void> _showVideoPlayer() async {
-    if (capturedFile == null) {
+  Future<void> _initializeVideoThumbnail() async {
+    if (_capturedFile == null) {
       return;
     }
 
-    videoThumbnailUint8list =
-        await video_thumbnail.VideoThumbnail.thumbnailData(
-          video: 'file://${capturedFile?.path}',
-          imageFormat: video_thumbnail.ImageFormat.JPEG,
-          maxWidth: 100,
-          quality: 20,
-        );
+    await _videoPlayerController?.dispose();
+    _videoPlayerController = VideoPlayerController.file(
+      File(_capturedFile!.path),
+    );
+    await _videoPlayerController!.initialize();
 
     setState(() {});
   }

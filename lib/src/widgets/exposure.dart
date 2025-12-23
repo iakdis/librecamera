@@ -2,6 +2,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:librecamera/l10n/app_localizations.dart';
+import 'package:librecamera/src/provider/theme_provider.dart';
 
 class ExposureModeControlWidget extends StatefulWidget {
   const ExposureModeControlWidget({required this.controller, super.key});
@@ -50,7 +51,7 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
           message: AppLocalizations.of(context)!.exposureMode,
           child: Row(
             children: [
-              const Icon(Icons.exposure, color: Colors.blue),
+              const Icon(Icons.exposure, color: primaryColor),
               const SizedBox(width: 6),
               DropdownButtonHideUnderline(
                 child: ValueListenableBuilder(
@@ -58,7 +59,7 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
                   builder: (context, selectedExposureMode, child) {
                     return DropdownButton(
                       menuWidth: 250,
-                      iconEnabledColor: Colors.blue,
+                      iconEnabledColor: primaryColor,
                       value: selectedExposureMode,
                       selectedItemBuilder: (context) => [
                         DropdownMenuItem(
@@ -66,7 +67,7 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
                           child: Text(
                             AppLocalizations.of(context)!.autoSmall,
                             style: const TextStyle(
-                              color: Colors.blue,
+                              color: primaryColor,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -76,7 +77,7 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
                           child: Text(
                             AppLocalizations.of(context)!.lockedSmall,
                             style: const TextStyle(
-                              color: Colors.blue,
+                              color: primaryColor,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -89,7 +90,7 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
                             child: Text(
                               item.name.toUpperCase(),
                               style: const TextStyle(
-                                  color: Colors.blue, fontWeight: FontWeight.w500),
+                                  color: primaryColor, fontWeight: FontWeight.w500),
                             ),
                           ),
                       ],*/
@@ -100,7 +101,7 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
                               child: Text(
                                 "${item.name.toUpperCase()} EXPOSURE",
                                 style: const TextStyle(
-                                    color: Colors.blue,
+                                    color: primaryColor,
                                     fontWeight: FontWeight.w500),
                               ),
                             ),
@@ -112,7 +113,6 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
                           child: Text(
                             AppLocalizations.of(context)!.exposureModeAuto,
                             style: const TextStyle(
-                              color: Colors.blue,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -122,7 +122,6 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
                           child: Text(
                             AppLocalizations.of(context)!.exposureModeLocked,
                             style: const TextStyle(
-                              color: Colors.blue,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -195,9 +194,12 @@ class _ExposureSliderState extends State<ExposureSlider> {
             },
             child: Row(
               children: [
-                const Icon(Icons.restore),
+                const Icon(Icons.restore, color: primaryColor),
                 const SizedBox(width: 8),
-                Text(AppLocalizations.of(context)!.reset),
+                Text(
+                  AppLocalizations.of(context)!.reset,
+                  style: const TextStyle(color: primaryColor),
+                ),
               ],
             ),
           ),
@@ -207,7 +209,7 @@ class _ExposureSliderState extends State<ExposureSlider> {
           children: [
             Text(
               widget.minAvailableExposureOffset.toString(),
-              style: const TextStyle(color: Colors.blue),
+              style: const TextStyle(color: primaryColor),
             ),
             SliderTheme(
               data: SliderThemeData(
@@ -228,7 +230,7 @@ class _ExposureSliderState extends State<ExposureSlider> {
             ),
             Text(
               widget.maxAvailableExposureOffset.toString(),
-              style: const TextStyle(color: Colors.blue),
+              style: const TextStyle(color: primaryColor),
             ),
           ],
         ),

@@ -9,8 +9,6 @@ import 'package:librecamera/src/provider/locale_provider.dart';
 import 'package:librecamera/src/provider/theme_provider.dart';
 import 'package:provider/provider.dart';
 
-const defaultThemeColour = Color(0xFF1E88E5);
-
 /// CameraApp is the Main Application.
 class CameraApp extends StatelessWidget {
   /// Default Constructor
@@ -40,10 +38,10 @@ class CameraApp extends StatelessWidget {
               darkColorScheme = darkDynamic.harmonized();
             } else {
               lightColorScheme = ColorScheme.fromSeed(
-                seedColor: defaultThemeColour,
+                seedColor: seedColor,
               );
               darkColorScheme = ColorScheme.fromSeed(
-                seedColor: defaultThemeColour,
+                seedColor: seedColor,
                 brightness: Brightness.dark,
               );
             }
