@@ -63,16 +63,14 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
 
     return AnimatedRotation(
       duration: const Duration(milliseconds: 400),
-      turns: MediaQuery.orientationOf(context) == Orientation.portrait
-          ? 0
-          : 0.25,
+      turns: MediaQuery.orientationOf(context) == .portrait ? 0 : 0.25,
       child: IconButton(
-        padding: EdgeInsets.zero,
+        padding: .zero,
         onPressed: () => cameraController.value.isRecordingPaused
             ? widget.onResumeButtonPressed()
             : widget.onPauseButtonPressed(),
         icon: Stack(
-          alignment: Alignment.center,
+          alignment: .center,
           children: [
             const Icon(Icons.circle, color: Colors.black38, size: 60),
             if (cameraController!.value.isRecordingPaused)
@@ -92,18 +90,16 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
   Widget captureButton() {
     return AnimatedRotation(
       duration: const Duration(milliseconds: 400),
-      turns: MediaQuery.orientationOf(context) == Orientation.portrait
-          ? 0
-          : 0.25,
+      turns: MediaQuery.orientationOf(context) == .portrait ? 0 : 0.25,
       child: IconButton(
-        padding: EdgeInsets.zero,
+        padding: .zero,
         onPressed: widget.isVideoCameraSelected
             ? () => widget.isRecordingInProgress
                   ? widget.onStopButtonPressed()
                   : widget.onVideoRecordButtonPressed()
             : () => widget.onTakePictureButtonPressed(),
         icon: Stack(
-          alignment: Alignment.center,
+          alignment: .center,
           children: [
             Icon(
               Icons.circle,
@@ -141,11 +137,9 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
   Widget switchButton() {
     return AnimatedRotation(
       duration: const Duration(milliseconds: 400),
-      turns: MediaQuery.orientationOf(context) == Orientation.portrait
-          ? 0
-          : 0.25,
+      turns: MediaQuery.orientationOf(context) == .portrait ? 0 : 0.25,
       child: IconButton(
-        padding: EdgeInsets.zero,
+        padding: .zero,
         onPressed: () async {
           widget.onNewCameraSelected(
             cameras[widget.isRearCameraSelected ? 1 : 0],
@@ -156,14 +150,14 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
           await animationController.forward();
         },
         icon: Stack(
-          alignment: Alignment.center,
+          alignment: .center,
           children: [
             const Icon(Icons.circle, color: Colors.black38, size: 60),
             AnimatedBuilder(
               animation: animationController,
               builder: (context, child) {
                 return Transform(
-                  alignment: Alignment.center,
+                  alignment: .center,
                   transform: Matrix4.identity()
                     ..setEntry(3, 2, 0.001)
                     ..rotateY(animationController.value * 6),
@@ -191,7 +185,7 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: .spaceEvenly,
       children: [
         if (widget.isRecordingInProgress)
           pauseResumeButton()

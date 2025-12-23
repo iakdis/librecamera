@@ -82,17 +82,15 @@ class _FlashModeWidgetState extends State<FlashModeWidget> {
   Widget build(BuildContext context) {
     return AnimatedRotation(
       duration: const Duration(milliseconds: 400),
-      turns: MediaQuery.orientationOf(context) == Orientation.portrait
-          ? 0
-          : 0.25,
+      turns: MediaQuery.orientationOf(context) == .portrait ? 0 : 0.25,
       child: IconButton(
-        padding: EdgeInsets.zero,
+        padding: .zero,
         onPressed: widget.isRearCameraSelected ? _toggleFlashMode : null,
         disabledColor: Colors.white24,
         color: Colors.white,
         iconSize: 60,
         icon: Stack(
-          alignment: Alignment.center,
+          alignment: .center,
           children: [
             /*const Icon(
                     Icons.circle,
@@ -105,7 +103,7 @@ class _FlashModeWidgetState extends State<FlashModeWidget> {
                     ? widget.controller!.value.isInitialized
                           ? widget.controller!.value.flashMode
                           : getFlashMode()
-                    : FlashMode.off,
+                    : .off,
               ),
               size: 30,
             ),
@@ -119,13 +117,13 @@ class _FlashModeWidgetState extends State<FlashModeWidget> {
 
 IconData _getFlashlightIcon({required FlashMode flashMode}) {
   switch (flashMode) {
-    case FlashMode.always:
+    case .always:
       return Icons.flash_on;
-    case FlashMode.off:
+    case .off:
       return Icons.flash_off;
-    case FlashMode.auto:
+    case .auto:
       return Icons.flash_auto;
-    case FlashMode.torch:
+    case .torch:
       return Icons.highlight;
   }
 }

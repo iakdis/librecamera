@@ -156,13 +156,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
   Widget _permissionsPage() {
     return ColoredBox(
       color: Colors.orange.shade100,
-      child: MediaQuery.orientationOf(context) == Orientation.portrait
+      child: MediaQuery.orientationOf(context) == .portrait
           ? Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: .center,
               children: [_permissionsPageInfo(), _permissionsPageButtons()],
             )
           : Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: .center,
               children: [
                 Expanded(child: _permissionsPageInfo()),
                 Expanded(child: _permissionsPageButtons()),
@@ -173,33 +173,33 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   Widget _permissionsPageInfo() {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: .center,
       children: [
         Text(
           AppLocalizations.of(context)!.permissionsTitle,
           style: TextStyle(
             color: Colors.teal.shade700,
             fontSize: 24,
-            fontWeight: FontWeight.bold,
+            fontWeight: .bold,
           ),
         ),
         const SizedBox(height: 24),
-        if (MediaQuery.orientationOf(context) == Orientation.portrait)
+        if (MediaQuery.orientationOf(context) == .portrait)
           const Icon(Icons.settings, size: 100, color: Colors.white)
         else
           Container(),
-        if (MediaQuery.orientationOf(context) == Orientation.portrait)
+        if (MediaQuery.orientationOf(context) == .portrait)
           const SizedBox(height: 24)
         else
           Container(),
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 64),
+          padding: const .symmetric(horizontal: 64),
           child: Text(
             AppLocalizations.of(context)!.permissionsTitle_description,
             style: TextStyle(
               color: Colors.teal.shade700,
               fontSize: 17,
-              fontWeight: FontWeight.w500,
+              fontWeight: .w500,
             ),
           ),
         ),
@@ -209,7 +209,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   Widget _permissionsPageButtons() {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: .center,
       children: [
         const SizedBox(height: 24),
         ElevatedButton(
@@ -228,18 +228,18 @@ class _OnboardingPageState extends State<OnboardingPage> {
   Widget _savePathPage() {
     return ColoredBox(
       color: Colors.blue.shade100,
-      child: MediaQuery.orientationOf(context) == Orientation.portrait
+      child: MediaQuery.orientationOf(context) == .portrait
           ? Center(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(vertical: 64),
+                padding: const .symmetric(vertical: 64),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: .center,
                   children: [_savePathPageInfo(), _savePathPageButtons()],
                 ),
               ),
             )
           : Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: .center,
               children: [
                 Expanded(child: _savePathPageInfo()),
                 Expanded(child: _savePathPageButtons()),
@@ -250,33 +250,33 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   Widget _savePathPageInfo() {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: .center,
       children: [
         Text(
           AppLocalizations.of(context)!.savePathTitle,
           style: TextStyle(
             color: Colors.teal.shade700,
             fontSize: 24,
-            fontWeight: FontWeight.bold,
+            fontWeight: .bold,
           ),
         ),
         const SizedBox(height: 24),
-        if (MediaQuery.orientationOf(context) == Orientation.portrait)
+        if (MediaQuery.orientationOf(context) == .portrait)
           const Icon(Icons.save_as, size: 100, color: Colors.white)
         else
           Container(),
-        if (MediaQuery.orientationOf(context) == Orientation.portrait)
+        if (MediaQuery.orientationOf(context) == .portrait)
           const SizedBox(height: 24)
         else
           Container(),
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 64),
+          padding: const .symmetric(horizontal: 64),
           child: Text(
             AppLocalizations.of(context)!.savePathTitle_description,
             style: TextStyle(
               color: Colors.teal.shade700,
               fontSize: 17,
-              fontWeight: FontWeight.w500,
+              fontWeight: .w500,
             ),
           ),
         ),
@@ -286,7 +286,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   Widget _savePathPageButtons() {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: .center,
       children: [
         const SizedBox(height: 24),
         ElevatedButton(
@@ -313,7 +313,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               hintText: 'storage/emulated/0/DCIM',
               hintStyle: TextStyle(
                 color: Colors.grey[500],
-                fontStyle: FontStyle.italic,
+                fontStyle: .italic,
               ),
             ),
           ),
@@ -326,33 +326,33 @@ class _OnboardingPageState extends State<OnboardingPage> {
     return ColoredBox(
       color: Colors.green.shade100,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: .center,
         children: [
           Text(
             AppLocalizations.of(context)!.welcomeTitle,
             style: TextStyle(
               color: Colors.teal.shade700,
               fontSize: 36,
-              fontWeight: FontWeight.bold,
+              fontWeight: .bold,
             ),
           ),
           const SizedBox(height: 24),
-          if (MediaQuery.orientationOf(context) == Orientation.portrait)
+          if (MediaQuery.orientationOf(context) == .portrait)
             const Icon(Icons.handshake, size: 100, color: Colors.white)
           else
             Container(),
-          if (MediaQuery.orientationOf(context) == Orientation.portrait)
+          if (MediaQuery.orientationOf(context) == .portrait)
             const SizedBox(height: 24)
           else
             Container(),
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 64),
+            padding: const .symmetric(horizontal: 64),
             child: Text(
               AppLocalizations.of(context)!.welcomeTitle_description,
               style: TextStyle(
                 color: Colors.teal.shade700,
                 fontSize: 17,
-                fontWeight: FontWeight.w500,
+                fontWeight: .w500,
               ),
             ),
           ),
@@ -365,7 +365,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
     return TextButton(
       style: TextButton.styleFrom(
         foregroundColor: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
+        shape: RoundedRectangleBorder(borderRadius: .circular(0)),
         backgroundColor: Colors.teal.shade700,
         minimumSize: const Size.fromHeight(80),
       ),
@@ -385,10 +385,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   Widget _bottomPageIndicator() {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: const .symmetric(horizontal: 16),
       height: 80,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: .spaceBetween,
         children: [
           TextButton(
             onPressed: previousPage,

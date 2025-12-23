@@ -60,12 +60,12 @@ class _SettingsPageState extends State<SettingsPage> {
 
   TextStyle style = const TextStyle(
     fontSize: 16,
-    fontWeight: FontWeight.bold,
+    fontWeight: .bold,
   );
 
   Widget _moreTile() {
     return Padding(
-      padding: const EdgeInsets.only(left: 32),
+      padding: const .only(left: 32),
       child: Column(
         children: [
           _useMaterial3Tile(),
@@ -184,7 +184,7 @@ class _SettingsPageState extends State<SettingsPage> {
           style: style,
         ),
         trailing: Padding(
-          padding: const EdgeInsets.all(8),
+          padding: const .all(8),
           child: Icon(
             isMoreOptions ? Icons.expand_less : Icons.expand_more,
             size: 35,
@@ -271,18 +271,18 @@ class _SettingsPageState extends State<SettingsPage> {
         AppLocalizations.of(context)!.imageCompressionQuality,
       ),
       subtitle: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: .start,
         children: [
           Text(
             AppLocalizations.of(context)!.imageCompressionQuality_description,
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+            padding: const .fromLTRB(16, 0, 16, 0),
             child: Row(
               children: [
                 const Text(
                   '10',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(fontWeight: .bold),
                 ),
                 Flexible(
                   child: Slider(
@@ -300,7 +300,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
                 const Text(
                   '100',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(fontWeight: .bold),
                 ),
               ],
             ),
@@ -448,7 +448,7 @@ class _SettingsPageState extends State<SettingsPage> {
               value: customThemeMode,
               onTap: () => themeProvider.setTheme(customThemeMode),
               child: Padding(
-                padding: const EdgeInsets.only(right: 8),
+                padding: const .only(right: 8),
                 child: Text(_nameByCustomThemeMode(customThemeMode)),
               ),
             ),
@@ -513,7 +513,7 @@ class _SettingsPageState extends State<SettingsPage> {
               DropdownMenuItem<String>(
                 onTap: localeProvider.clearLocale,
                 child: Padding(
-                  padding: const EdgeInsets.only(right: 8),
+                  padding: const .only(right: 8),
                   child: Text(AppLocalizations.of(context)!.systemLanguage),
                 ),
               ),
@@ -553,7 +553,7 @@ class _SettingsPageState extends State<SettingsPage> {
       body: SafeArea(
         child: ListView(
           controller: listScrollController,
-          padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+          padding: const .fromLTRB(0, 8, 0, 8),
           children: <Widget>[
             _headingTile(AppLocalizations.of(context)!.appSettings),
             _languageTile(),
@@ -606,9 +606,9 @@ class _SettingsPageState extends State<SettingsPage> {
 
   String _nameByCustomThemeMode(CustomThemeMode customThemeMode) =>
       switch (customThemeMode) {
-        CustomThemeMode.system => AppLocalizations.of(context)!.themeSystem,
-        CustomThemeMode.light => AppLocalizations.of(context)!.themeLight,
-        CustomThemeMode.dark => AppLocalizations.of(context)!.themeDark,
-        CustomThemeMode.black => AppLocalizations.of(context)!.themeBlack,
+        .system => AppLocalizations.of(context)!.themeSystem,
+        .light => AppLocalizations.of(context)!.themeLight,
+        .dark => AppLocalizations.of(context)!.themeDark,
+        .black => AppLocalizations.of(context)!.themeBlack,
       };
 }

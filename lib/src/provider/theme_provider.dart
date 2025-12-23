@@ -22,12 +22,12 @@ class ThemeProvider extends ChangeNotifier {
 
   ThemeMode getMaterialThemeMode() {
     switch (themeMode) {
-      case CustomThemeMode.system:
+      case .system:
         return ThemeMode.system;
-      case CustomThemeMode.light:
+      case .light:
         return ThemeMode.light;
-      case CustomThemeMode.dark:
-      case CustomThemeMode.black:
+      case .dark:
+      case .black:
         return ThemeMode.dark;
     }
   }

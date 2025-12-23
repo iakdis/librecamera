@@ -26,32 +26,32 @@ class _ResolutionButtonState extends State<ResolutionButton> {
   ({String long, String middle, String short}) _textForPreset(
     ResolutionPreset resolutionPreset,
   ) => switch (resolutionPreset) {
-    ResolutionPreset.low => (
+    .low => (
       long: 'LOW (~240p)',
       middle: 'LOW',
       short: '~240p',
     ),
-    ResolutionPreset.medium => (
+    .medium => (
       long: 'MEDIUM (~480p)',
       middle: 'MEDIUM',
       short: '~480p',
     ),
-    ResolutionPreset.high => (
+    .high => (
       long: 'HIGH (~720p)',
       middle: 'HIGH',
       short: '~720p',
     ),
-    ResolutionPreset.veryHigh => (
+    .veryHigh => (
       long: 'VERY HIGH (~1080p)',
       middle: 'VERY HIGH',
       short: '~1080p',
     ),
-    ResolutionPreset.ultraHigh => (
+    .ultraHigh => (
       long: 'ULTRA HIGH (~2160p)',
       middle: 'ULTRA HIGH',
       short: '~2160p',
     ),
-    ResolutionPreset.max => (long: 'MAX', middle: 'MAX', short: 'MAX'),
+    .max => (long: 'MAX', middle: 'MAX', short: 'MAX'),
   };
 
   Widget _itemText(ResolutionPreset resolutionPreset) {
@@ -61,7 +61,7 @@ class _ResolutionButtonState extends State<ResolutionButton> {
           : _textForPreset(resolutionPreset).long,
       style: TextStyle(
         color: widget.isDense ? null : null,
-        fontWeight: widget.isDense ? FontWeight.w500 : null,
+        fontWeight: widget.isDense ? .w500 : null,
       ),
     );
   }
@@ -71,7 +71,7 @@ class _ResolutionButtonState extends State<ResolutionButton> {
       _textForPreset(resolutionPreset).middle,
       style: TextStyle(
         color: widget.enabled ? Colors.white : Colors.white24,
-        fontWeight: FontWeight.w500,
+        fontWeight: .w500,
       ),
     );
   }
@@ -82,7 +82,7 @@ class _ResolutionButtonState extends State<ResolutionButton> {
       message: AppLocalizations.of(context)!.resolution,
       child: DropdownButton(
         icon: Padding(
-          padding: const EdgeInsets.only(left: 4),
+          padding: const .only(left: 4),
           child: Icon(
             Icons.aspect_ratio,
             color: widget.enabled

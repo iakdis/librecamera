@@ -52,8 +52,7 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
           child: Row(
             children: [
               RotatedBox(
-                quarterTurns:
-                    MediaQuery.orientationOf(context) == Orientation.portrait
+                quarterTurns: MediaQuery.orientationOf(context) == .portrait
                     ? 0
                     : 1,
                 child: const Icon(Icons.exposure, color: primaryColor),
@@ -74,7 +73,7 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
                             AppLocalizations.of(context)!.autoSmall,
                             style: const TextStyle(
                               color: primaryColor,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: .w500,
                             ),
                           ),
                         ),
@@ -84,7 +83,7 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
                             AppLocalizations.of(context)!.lockedSmall,
                             style: const TextStyle(
                               color: primaryColor,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: .w500,
                             ),
                           ),
                         ),
@@ -96,7 +95,7 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
                             child: Text(
                               item.name.toUpperCase(),
                               style: const TextStyle(
-                                  color: primaryColor, fontWeight: FontWeight.w500),
+                                  color: primaryColor, fontWeight: .w500),
                             ),
                           ),
                       ],*/
@@ -108,7 +107,7 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
                                 "${item.name.toUpperCase()} EXPOSURE",
                                 style: const TextStyle(
                                     color: primaryColor,
-                                    fontWeight: FontWeight.w500),
+                                    fontWeight: .w500),
                               ),
                             ),
                           )
@@ -119,7 +118,7 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
                           child: Text(
                             AppLocalizations.of(context)!.exposureModeAuto,
                             style: const TextStyle(
-                              fontWeight: FontWeight.w500,
+                              fontWeight: .w500,
                             ),
                           ),
                         ),
@@ -128,7 +127,7 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
                           child: Text(
                             AppLocalizations.of(context)!.exposureModeLocked,
                             style: const TextStyle(
-                              fontWeight: FontWeight.w500,
+                              fontWeight: .w500,
                             ),
                           ),
                         ),
@@ -147,7 +146,7 @@ class _ExposureModeControlWidgetState extends State<ExposureModeControlWidget> {
           ),
         ),
         /*Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: .spaceEvenly,
           children: <Widget>[
             Text(widget.minAvailableExposureOffset.toString()),
             Slider(
@@ -190,7 +189,7 @@ class _ExposureSliderState extends State<ExposureSlider> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: .spaceAround,
       children: <Widget>[
         Tooltip(
           message: AppLocalizations.of(context)!.defaultExposure,
@@ -201,8 +200,7 @@ class _ExposureSliderState extends State<ExposureSlider> {
             child: Row(
               children: [
                 RotatedBox(
-                  quarterTurns:
-                      MediaQuery.orientationOf(context) == Orientation.portrait
+                  quarterTurns: MediaQuery.orientationOf(context) == .portrait
                       ? 0
                       : 1,
                   child: const Icon(Icons.restore, color: primaryColor),
@@ -217,7 +215,7 @@ class _ExposureSliderState extends State<ExposureSlider> {
           ),
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: .center,
           children: [
             Text(
               widget.minAvailableExposureOffset.toString(),

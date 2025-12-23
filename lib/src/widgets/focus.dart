@@ -48,8 +48,7 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
       child: Row(
         children: [
           RotatedBox(
-            quarterTurns:
-                MediaQuery.orientationOf(context) == Orientation.portrait
+            quarterTurns: MediaQuery.orientationOf(context) == .portrait
                 ? 0
                 : 1,
             child: const Icon(Icons.filter_center_focus, color: primaryColor),
@@ -70,7 +69,7 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
                         child: Text(
                           item.name.toUpperCase(),
                           style: const TextStyle(
-                              color: primaryColor, fontWeight: FontWeight.w500),
+                              color: primaryColor, fontWeight: .w500),
                         ),
                       ),
                   ],*/
@@ -81,7 +80,7 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
                         AppLocalizations.of(context)!.autoSmall,
                         style: const TextStyle(
                           color: primaryColor,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: .w500,
                         ),
                       ),
                     ),
@@ -91,7 +90,7 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
                         AppLocalizations.of(context)!.lockedSmall,
                         style: const TextStyle(
                           color: primaryColor,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: .w500,
                         ),
                       ),
                     ),
@@ -102,7 +101,7 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
                       child: Text(
                         AppLocalizations.of(context)!.focusModeAuto,
                         style: const TextStyle(
-                          fontWeight: FontWeight.w500,
+                          fontWeight: .w500,
                         ),
                       ),
                     ),
@@ -111,7 +110,7 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
                       child: Text(
                         AppLocalizations.of(context)!.focusModeLocked,
                         style: const TextStyle(
-                          fontWeight: FontWeight.w500,
+                          fontWeight: .w500,
                         ),
                       ),
                     ),
@@ -123,7 +122,7 @@ class _FocusModeControlWidgetState extends State<FocusModeControlWidget> {
                           child: Text(
                             '${item.name.toUpperCase()} FOCUS',
                             style: const TextStyle(
-                                color: primaryColor, fontWeight: FontWeight.w500),
+                                color: primaryColor, fontWeight: .w500),
                           ),
                         ),
                       )

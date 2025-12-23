@@ -12,10 +12,10 @@ class FormatButton extends StatefulWidget {
 class _FormatButtonState extends State<FormatButton> {
   CompressFormat? _compressFormat;
   String _nameByCompressFormat(CompressFormat format) => switch (format) {
-    CompressFormat.jpeg => 'JPEG/JPG',
-    CompressFormat.png => 'PNG',
-    CompressFormat.heic => 'HEIC',
-    CompressFormat.webp => 'WebP',
+    .jpeg => 'JPEG/JPG',
+    .png => 'PNG',
+    .heic => 'HEIC',
+    .webp => 'WebP',
   };
 
   @override
@@ -32,7 +32,7 @@ class _FormatButtonState extends State<FormatButton> {
   Widget build(BuildContext context) {
     return DropdownButton(
       icon: const Padding(
-        padding: EdgeInsets.only(left: 4),
+        padding: .only(left: 4),
         child: Icon(Icons.image),
       ),
       value: _compressFormat,

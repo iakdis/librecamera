@@ -33,8 +33,7 @@ class _TimerButtonState extends State<TimerButton> {
         isDense: true,
         menuMaxHeight: 384,
         icon: RotatedBox(
-          quarterTurns:
-              MediaQuery.orientationOf(context) == Orientation.portrait ? 0 : 1,
+          quarterTurns: MediaQuery.orientationOf(context) == .portrait ? 0 : 1,
           child: const Icon(Icons.av_timer),
         ),
         iconEnabledColor: Colors.white,

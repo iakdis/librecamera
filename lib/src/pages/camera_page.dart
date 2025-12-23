@@ -256,7 +256,7 @@ class _CameraPageState extends State<CameraPage>
   Widget _cameraPreview(BuildContext context) {
     final leftHandedMode =
         Preferences.getLeftHandedMode() &&
-        MediaQuery.orientationOf(context) == Orientation.landscape;
+        MediaQuery.orientationOf(context) == .landscape;
 
     return ColoredBox(
       color: Colors.black,
@@ -267,42 +267,40 @@ class _CameraPageState extends State<CameraPage>
             onQRViewCreated: _onQRViewCreated,
           ),*/
           Positioned(
-            top: MediaQuery.orientationOf(context) == Orientation.portrait
+            top: MediaQuery.orientationOf(context) == .portrait
                 ? _topControlsHeight
                 : 0,
-            bottom: MediaQuery.orientationOf(context) == Orientation.portrait
-                ? null
-                : 0,
-            left: MediaQuery.orientationOf(context) == Orientation.portrait
+            bottom: MediaQuery.orientationOf(context) == .portrait ? null : 0,
+            left: MediaQuery.orientationOf(context) == .portrait
                 ? 0
                 : leftHandedMode
                 ? null
                 : _topControlsHeight,
-            right: MediaQuery.orientationOf(context) == Orientation.portrait
+            right: MediaQuery.orientationOf(context) == .portrait
                 ? 0
                 : leftHandedMode
                 ? _topControlsHeight
                 : null,
 
             child: SafeArea(
-              top: MediaQuery.orientationOf(context) == Orientation.portrait,
-              bottom: MediaQuery.orientationOf(context) == Orientation.portrait,
-              left: MediaQuery.orientationOf(context) == Orientation.landscape,
-              right: MediaQuery.orientationOf(context) == Orientation.landscape,
+              top: MediaQuery.orientationOf(context) == .portrait,
+              bottom: MediaQuery.orientationOf(context) == .portrait,
+              left: MediaQuery.orientationOf(context) == .landscape,
+              right: MediaQuery.orientationOf(context) == .landscape,
               child: _previewWidget(),
             ),
           ),
           /* Positioned(
-            top: MediaQuery.orientationOf(context) == Orientation.portrait
+            top: MediaQuery.orientationOf(context) == .portrait
                 ? _topControlsHeight
                 : 0,
-            bottom: MediaQuery.orientationOf(context) == Orientation.portrait
+            bottom: MediaQuery.orientationOf(context) == .portrait
                 ? null
                 : 0,
-            left: MediaQuery.orientationOf(context) == Orientation.portrait
+            left: MediaQuery.orientationOf(context) == .portrait
                 ? 0
                 : _topControlsHeight,
-            right: MediaQuery.orientationOf(context) == Orientation.portrait
+            right: MediaQuery.orientationOf(context) == .portrait
                 ? 0
                 : null,
             child: _previewWidget(),
@@ -314,7 +312,7 @@ class _CameraPageState extends State<CameraPage>
                 ? Container(
                     color: Colors.black54,
                     height: 200,
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const .all(8.0),
                     child: SelectableText('Link: ${result!.code}',
                         style: const TextStyle(color: Colors.white)),
                   )
@@ -325,7 +323,7 @@ class _CameraPageState extends State<CameraPage>
           _topControlsWidget(),
           _zoomWidget(context),
           SafeArea(
-            bottom: MediaQuery.orientationOf(context) == Orientation.portrait,
+            bottom: MediaQuery.orientationOf(context) == .portrait,
             child: _bottomControlsWidget(),
           ),
         ],
@@ -338,12 +336,12 @@ class _CameraPageState extends State<CameraPage>
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         decoration: BoxDecoration(
-          border: Border.all(
+          border: .all(
             color: takingPicture
                 ? const Color(0xFFFFFFFF)
                 : const Color.fromARGB(0, 255, 255, 255),
             width: 4,
-          ), //Border.all
+          ), //.all
         ),
       ),
     );
@@ -368,7 +366,7 @@ class _CameraPageState extends State<CameraPage>
                 style: const TextStyle(
                   color: Colors.red,
                   fontSize: 64,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: .w600,
                 ),
               ),
             ),
@@ -420,7 +418,7 @@ class _CameraPageState extends State<CameraPage>
   Widget _topControlsWidget() {
     final leftHandedMode =
         Preferences.getLeftHandedMode() &&
-        MediaQuery.orientationOf(context) == Orientation.landscape;
+        MediaQuery.orientationOf(context) == .landscape;
 
     final left = leftHandedMode ? null : 0.0;
     final right = leftHandedMode ? 0.0 : null;
@@ -428,23 +426,18 @@ class _CameraPageState extends State<CameraPage>
     return Positioned(
       top: 0,
       left: left,
-      right: MediaQuery.orientationOf(context) == Orientation.portrait
-          ? 0
-          : right,
-      bottom: MediaQuery.orientationOf(context) == Orientation.portrait
-          ? null
-          : 0,
+      right: MediaQuery.orientationOf(context) == .portrait ? 0 : right,
+      bottom: MediaQuery.orientationOf(context) == .portrait ? null : 0,
       child: SafeArea(
         bottom: false,
         child: RotatedBox(
-          quarterTurns:
-              MediaQuery.orientationOf(context) == Orientation.portrait ? 0 : 3,
+          quarterTurns: MediaQuery.orientationOf(context) == .portrait ? 0 : 3,
           child: SizedBox(
             height: _topControlsHeight,
             child: ColoredBox(
               color: Colors.black12,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: .spaceEvenly,
                 children: [
                   _cameraSwitchWidget(
                     enabled:
@@ -507,26 +500,19 @@ class _CameraPageState extends State<CameraPage>
   Widget _zoomWidget(BuildContext context) {
     final leftHandedMode =
         Preferences.getLeftHandedMode() &&
-        MediaQuery.orientationOf(context) == Orientation.landscape;
+        MediaQuery.orientationOf(context) == .landscape;
 
     final left = leftHandedMode ? null : 0.0;
     final right = leftHandedMode ? 0.0 : null;
 
     return Positioned(
-      top: MediaQuery.orientationOf(context) == Orientation.portrait ? 0 : null,
-      right: MediaQuery.orientationOf(context) == Orientation.portrait
-          ? 0
-          : right,
-      left: MediaQuery.orientationOf(context) == Orientation.portrait
-          ? null
-          : left,
-      bottom: MediaQuery.orientationOf(context) == Orientation.portrait
-          ? null
-          : 0,
+      top: MediaQuery.orientationOf(context) == .portrait ? 0 : null,
+      right: MediaQuery.orientationOf(context) == .portrait ? 0 : right,
+      left: MediaQuery.orientationOf(context) == .portrait ? null : left,
+      bottom: MediaQuery.orientationOf(context) == .portrait ? null : 0,
       child: SafeArea(
         child: RotatedBox(
-          quarterTurns:
-              MediaQuery.orientationOf(context) == Orientation.portrait ? 0 : 3,
+          quarterTurns: MediaQuery.orientationOf(context) == .portrait ? 0 : 3,
           child: ValueListenableBuilder(
             valueListenable: _showZoomSliderNotifier,
             builder: (context, showZoomSlider, child) {
@@ -540,8 +526,7 @@ class _CameraPageState extends State<CameraPage>
                   if (showZoomSlider || Preferences.getEnableZoomSlider())
                     RotatedBox(
                       quarterTurns:
-                          MediaQuery.orientationOf(context) ==
-                              Orientation.portrait
+                          MediaQuery.orientationOf(context) == .portrait
                           ? 0
                           : 2,
                       child: _zoomSlider(),
@@ -559,9 +544,7 @@ class _CameraPageState extends State<CameraPage>
   Widget _cameraSwitchWidget({required bool enabled}) {
     return AnimatedRotation(
       duration: const Duration(milliseconds: 400),
-      turns: MediaQuery.orientationOf(context) == Orientation.portrait
-          ? 0
-          : 0.25,
+      turns: MediaQuery.orientationOf(context) == .portrait ? 0 : 0.25,
       child: ValueListenableBuilder(
         valueListenable: _isVideoCameraSelectedNotifier,
         builder: (context, isVideoCameraSelected, child) {
@@ -603,9 +586,7 @@ class _CameraPageState extends State<CameraPage>
   Widget _settingsWidget({required bool enabled}) {
     return AnimatedRotation(
       duration: const Duration(milliseconds: 400),
-      turns: MediaQuery.orientationOf(context) == Orientation.portrait
-          ? 0
-          : 0.25,
+      turns: MediaQuery.orientationOf(context) == .portrait ? 0 : 0.25,
       child: SettingsButton(
         onPressed: enabled
             ? () async {
@@ -632,13 +613,11 @@ class _CameraPageState extends State<CameraPage>
         ? const SizedBox(height: 60, width: 60)
         : AnimatedRotation(
             duration: const Duration(milliseconds: 400),
-            turns: MediaQuery.orientationOf(context) == Orientation.portrait
-                ? 0
-                : 0.25,
+            turns: MediaQuery.orientationOf(context) == .portrait ? 0 : 0.25,
             child: Tooltip(
               message: AppLocalizations.of(context)!.openCapturedPictureOrVideo,
               child: Padding(
-                padding: const EdgeInsets.only(right: 8),
+                padding: const .only(right: 8),
                 child: SizedBox(
                   width: _thumbnailImageSize,
                   height: _thumbnailImageSize,
@@ -655,16 +634,16 @@ class _CameraPageState extends State<CameraPage>
                         final format = CompressFormat.values.firstWhere(
                           (format) =>
                               format.name == Preferences.getCompressFormat(),
-                          orElse: () => CompressFormat.jpeg,
+                          orElse: () => .jpeg,
                         );
                         switch (format) {
-                          case CompressFormat.jpeg:
+                          case .jpeg:
                             mimeType = 'image/jpeg';
-                          case CompressFormat.png:
+                          case .png:
                             mimeType = 'image/png';
-                          case CompressFormat.webp:
+                          case .webp:
                             mimeType = 'image/webp';
-                          case CompressFormat.heic:
+                          case .heic:
                             mimeType = 'image/heic';
                         }
                       }
@@ -687,7 +666,7 @@ class _CameraPageState extends State<CameraPage>
   Widget _bottomControlsWidget() {
     final leftHandedMode =
         Preferences.getLeftHandedMode() &&
-        MediaQuery.orientationOf(context) == Orientation.landscape;
+        MediaQuery.orientationOf(context) == .landscape;
 
     final cameraControls = <Widget>[
       if (Preferences.getEnableModeRow()) _cameraModesWidget(),
@@ -706,7 +685,7 @@ class _CameraPageState extends State<CameraPage>
         ),
       if (Preferences.getEnableExposureSlider()) const Divider(),
       Container(
-        padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+        padding: const .fromLTRB(0, 8, 0, 8),
         child: ValueListenableBuilder(
           valueListenable: _isRearCameraSelectedNotifier,
           builder: (context, isRearCameraSelected, child) {
@@ -750,18 +729,17 @@ class _CameraPageState extends State<CameraPage>
               _cameraController!.value.isRecordingVideo) {
             return Center(
               child: Padding(
-                padding: const EdgeInsets.all(8),
+                padding: const .all(8),
                 child: AnimatedRotation(
                   duration: const Duration(milliseconds: 400),
-                  turns:
-                      MediaQuery.orientationOf(context) == Orientation.portrait
+                  turns: MediaQuery.orientationOf(context) == .portrait
                       ? 0
                       : 0.25,
                   child: Container(
-                    padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
+                    padding: const .fromLTRB(8, 4, 8, 4),
                     decoration: BoxDecoration(
                       color: Colors.black38,
-                      borderRadius: BorderRadius.circular(4),
+                      borderRadius: .circular(4),
                     ),
                     child: Text(
                       _stopwatch.elapsed.inSeconds < 60
@@ -770,7 +748,7 @@ class _CameraPageState extends State<CameraPage>
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 24,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: .w600,
                       ),
                     ),
                   ),
@@ -794,13 +772,9 @@ class _CameraPageState extends State<CameraPage>
     ];
 
     return RotatedBox(
-      quarterTurns: MediaQuery.orientationOf(context) == Orientation.portrait
-          ? 0
-          : 3,
+      quarterTurns: MediaQuery.orientationOf(context) == .portrait ? 0 : 3,
       child: Column(
-        mainAxisAlignment: leftHandedMode
-            ? MainAxisAlignment.start
-            : MainAxisAlignment.end,
+        mainAxisAlignment: leftHandedMode ? .start : .end,
         children: leftHandedMode
             ? bottomControls.reversed.toList()
             : bottomControls,
@@ -810,7 +784,7 @@ class _CameraPageState extends State<CameraPage>
 
   Widget _cameraModesWidget() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: .spaceEvenly,
       children: <Widget>[
         ExposureModeControlWidget(controller: _cameraController),
         FocusModeControlWidget(controller: _cameraController),
@@ -1029,17 +1003,17 @@ class _CameraPageState extends State<CameraPage>
       //String fileFormat = capturedFile!.path.split('.').last;
       final format = CompressFormat.values.firstWhere(
         (format) => format.name == Preferences.getCompressFormat(),
-        orElse: () => CompressFormat.jpeg,
+        orElse: () => .jpeg,
       );
       final String fileFormat;
       switch (format) {
-        case CompressFormat.jpeg:
+        case .jpeg:
           fileFormat = 'jpg';
-        case CompressFormat.png:
+        case .png:
           fileFormat = 'png';
-        case CompressFormat.webp:
+        case .webp:
           fileFormat = 'webp';
-        case CompressFormat.heic:
+        case .heic:
           fileFormat = 'heic';
       }
 
@@ -1218,23 +1192,22 @@ class _CameraPageState extends State<CameraPage>
   Widget _zoomSlider() {
     final leftHandedMode =
         Preferences.getLeftHandedMode() &&
-        MediaQuery.orientationOf(context) == Orientation.landscape;
+        MediaQuery.orientationOf(context) == .landscape;
 
     return Column(
       children: [
-        if (!leftHandedMode &&
-            MediaQuery.orientationOf(context) == Orientation.landscape)
+        if (!leftHandedMode && MediaQuery.orientationOf(context) == .landscape)
           _zoomResetButton(),
         Padding(
           padding: .fromLTRB(
             16,
-            MediaQuery.orientationOf(context) == Orientation.portrait
+            MediaQuery.orientationOf(context) == .portrait
                 ? 16
                 : leftHandedMode
                 ? 16
                 : 0,
             16,
-            MediaQuery.orientationOf(context) == Orientation.portrait
+            MediaQuery.orientationOf(context) == .portrait
                 ? 0
                 : leftHandedMode
                 ? 0
@@ -1280,8 +1253,7 @@ class _CameraPageState extends State<CameraPage>
             ),
           ),
         ),
-        if (leftHandedMode ||
-            MediaQuery.orientationOf(context) == Orientation.portrait)
+        if (leftHandedMode || MediaQuery.orientationOf(context) == .portrait)
           _zoomResetButton(),
       ],
     );
@@ -1293,8 +1265,7 @@ class _CameraPageState extends State<CameraPage>
       if (currentScale < _defaultZoomLevel ||
           currentScale > _defaultZoomLevel) {
         return RotatedBox(
-          quarterTurns:
-              MediaQuery.orientationOf(context) == Orientation.portrait ? 0 : 3,
+          quarterTurns: MediaQuery.orientationOf(context) == .portrait ? 0 : 3,
           child: IconButton(
             onPressed: () async {
               _peekZoomSlider();
@@ -1363,8 +1334,8 @@ class _CameraPageState extends State<CameraPage>
               },
               child: Container(
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.white),
-                  borderRadius: BorderRadius.circular(50),
+                  border: .all(color: Colors.white),
+                  borderRadius: .circular(50),
                 ),
                 child: const Icon(
                   Icons.circle,
@@ -1431,10 +1402,10 @@ class _CameraPageState extends State<CameraPage>
     VideoMediaFile()
         when (_videoPlayerController?.value.isInitialized ?? false) =>
       Stack(
-        alignment: Alignment.center,
+        alignment: .center,
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(7),
+            borderRadius: .circular(7),
             child: SizedBox.expand(
               child: FittedBox(
                 fit: BoxFit.cover,
@@ -1442,7 +1413,7 @@ class _CameraPageState extends State<CameraPage>
                   width: _thumbnailImageSize,
                   child: Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(7),
+                      borderRadius: .circular(7),
                     ),
                     child: AspectRatio(
                       aspectRatio: _videoPlayerController!.value.aspectRatio,
@@ -1462,7 +1433,7 @@ class _CameraPageState extends State<CameraPage>
       ),
     ImageMediaFile() when _capturedFile != null => Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(7),
+        borderRadius: .circular(7),
         image: DecorationImage(
           fit: BoxFit.cover,
           image: FileImage(File(_capturedFile!.path)),
