@@ -1,3 +1,4 @@
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -33,13 +34,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
     textController.text = currentSavePath;
     textController
       ..addListener(() async {
-      currentSavePath = textController.text;
+        currentSavePath = textController.text;
         await Preferences.setSavePath(currentSavePath);
       })
       ..selection = TextSelection(
-      baseOffset: textController.text.length,
-      extentOffset: textController.text.length,
-    );
+        baseOffset: textController.text.length,
+        extentOffset: textController.text.length,
+      );
     focusNode = FocusNode();
     super.initState();
   }
@@ -67,8 +68,14 @@ class _OnboardingPageState extends State<OnboardingPage> {
   }
 
   Future<void> storagePermission() async {
-    await Permission.storage.request();
-    final status = await Permission.storage.status;
+    final androidInfo = await DeviceInfoPlugin().androidInfo;
+    PermissionStatus? status;
+
+    if (androidInfo.version.sdkInt <= 32) {
+      status = await Permission.storage.request();
+    } else {
+      status = await Permission.photos.request();
+    }
 
     if (status.isGranted) {
       if (kDebugMode) {
@@ -224,10 +231,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
       child: MediaQuery.orientationOf(context) == Orientation.portrait
           ? Center(
               child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(vertical: 64),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [_savePathPageInfo(), _savePathPageButtons()],
+                padding: const EdgeInsets.symmetric(vertical: 64),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [_savePathPageInfo(), _savePathPageButtons()],
                 ),
               ),
             )
@@ -426,29 +433,29 @@ class _OnboardingPageState extends State<OnboardingPage> {
         ),
         child: Scaffold(
           body: PageView(
-              physics: nextEnabled()
-                  ? const ScrollPhysics()
-                  : const NeverScrollableScrollPhysics(),
-              controller: controller,
-              onPageChanged: (index) async {
-                setState(() {
-                  isLastPage = index == 2;
-                  currentPage = index;
-                });
-                await unfocusAndRestore();
-              },
-              children: [
-                _permissionsPage(),
-                _savePathPage(),
-                _welcomePageInfo(),
-              ],
-            ),
+            physics: nextEnabled()
+                ? const ScrollPhysics()
+                : const NeverScrollableScrollPhysics(),
+            controller: controller,
+            onPageChanged: (index) async {
+              setState(() {
+                isLastPage = index == 2;
+                currentPage = index;
+              });
+              await unfocusAndRestore();
+            },
+            children: [
+              _permissionsPage(),
+              _savePathPage(),
+              _welcomePageInfo(),
+            ],
+          ),
           bottomNavigationBar: SafeArea(
             left: false,
             right: false,
             child: isLastPage
-              ? _welcomePageBottomButton()
-              : _bottomPageIndicator(),
+                ? _welcomePageBottomButton()
+                : _bottomPageIndicator(),
           ),
         ),
       ),

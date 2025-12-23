@@ -575,12 +575,12 @@ class _CameraPageState extends State<CameraPage>
 
                       if (!status.isGranted) {
                         await Permission.microphone.request();
-                      } else {
-                        await _initializeCameraController(
-                          _cameraController!.description,
-                        );
-                        _isVideoCameraSelectedNotifier.value = true;
                       }
+
+                      await _initializeCameraController(
+                        _cameraController!.description,
+                      );
+                      _isVideoCameraSelectedNotifier.value = true;
                     } else if (!(_cameraController?.value.isRecordingVideo ??
                         false)) {
                       _isVideoCameraSelectedNotifier.value = false;
