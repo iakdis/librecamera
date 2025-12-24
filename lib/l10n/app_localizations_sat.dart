@@ -116,6 +116,13 @@ class AppLocalizationsSat extends AppLocalizations {
       'Change the image compression format (default: JPEG/JPG)';
 
   @override
+  String get fps => 'ᱵᱤᱰᱤᱳ ᱯᱨᱮᱱ ᱟᱢᱤ';
+
+  @override
+  String get fps_description =>
+      'ᱚᱫᱤᱟ 60 fps ᱵᱟᱦᱟᱣ ᱨᱟᱢ ᱟᱠᱥ ᱟᱢᱟᱨᱢᱟ ᱟᱢᱟᱭᱟ ᱟᱞᱤ ᱨᱩᱴᱟ ᱠᱚ ᱞᱤᱠᱟ ᱟᱨᱮ ᱫᱚᱯᱞᱟᱦ ᱟᱢᱚ ᱰᱷᱚᱠᱚ';
+
+  @override
   String get getStarted => 'Get started';
 
   @override

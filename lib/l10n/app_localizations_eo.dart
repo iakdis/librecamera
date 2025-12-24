@@ -116,6 +116,13 @@ class AppLocalizationsEo extends AppLocalizations {
       'Ŝanĝi la bildan kunpremadan formaton (implicite: JPEG/JPG)';
 
   @override
+  String get fps => 'Videoframfrekvenco';
+
+  @override
+  String get fps_description =>
+      'Altaj kadraj rapidoj super 60 fps dependas de via aparato kaj la elektita rezolucio';
+
+  @override
   String get getStarted => 'Get started';
 
   @override

@@ -116,6 +116,13 @@ class AppLocalizationsIs extends AppLocalizations {
   String get format_description => 'Breyta myndsniðinu (sjálfgefið: JPEG/JPG)';
 
   @override
+  String get fps => 'Myndbands fótatíðni';
+
+  @override
+  String get fps_description =>
+      'Háar myndatíðnir yfir 60 fps ráðast af tækinu þínu og valinni upplausn';
+
+  @override
   String get getStarted => 'Hefjumst handa';
 
   @override

@@ -116,6 +116,13 @@ class AppLocalizationsLv extends AppLocalizations {
       'Change the image compression format (default: JPEG/JPG)';
 
   @override
+  String get fps => 'Video kadru ātrums';
+
+  @override
+  String get fps_description =>
+      'Augsts kadru ātrums virs 60 fps ir atkarīgs no jūsu ierīces un izvēlētā izšķirtspējas';
+
+  @override
   String get getStarted => 'Get started';
 
   @override

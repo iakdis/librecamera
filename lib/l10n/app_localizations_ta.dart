@@ -118,6 +118,13 @@ class AppLocalizationsTa extends AppLocalizations {
       'பட வடிவமைப்பை மாற்றவும் (இயல்புநிலை: JPEG/JPG)';
 
   @override
+  String get fps => 'வீடியோ ஃப்ரேம் விகிதம்';
+
+  @override
+  String get fps_description =>
+      '60 fps க்கும் மேற்பட்ட அதிக ஃப்ரேம் வீதம் உங்கள் சாதனத்தையும் தேர்ந்தெடுக்கப்பட்ட தீர்மானத்தையும் பொறுத்தது';
+
+  @override
   String get getStarted => 'தொடங்கவும்';
 
   @override

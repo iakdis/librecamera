@@ -46,6 +46,8 @@
   "focusModeLocked": "BLOKUJ OSTROŚĆ",
   "format": "Format zdjęć",
   "format_description": "Zmienia format zdjęć (Domyślnie: JPEG/JPG)",
+  "fps": "Częstotliwość klatek wideo",
+  "fps_description": "Wysokie liczby klatek powyżej 60 fps zależą od twojego urządzenia i wybranej rozdzielczości",
   "getStarted": "Rozpocznij",
   "giveCameraPermission": "Zezwól na dostęp do kamery",
   "giveMicrophonePermission": "Zezwól na dostęp do mikrofonu",

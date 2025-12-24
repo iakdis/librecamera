@@ -117,6 +117,13 @@ class AppLocalizationsCa extends AppLocalizations {
       'Canvia el format d\'imatge (per defecte: JPEG/JPG)';
 
   @override
+  String get fps => 'Velocitat de fotogrames de vídeo';
+
+  @override
+  String get fps_description =>
+      'Les altes taxes de fotogrames per sobre de 60 fps depenen del teu dispositiu i de la resolució seleccionada';
+
+  @override
   String get getStarted => 'Inicia';
 
   @override

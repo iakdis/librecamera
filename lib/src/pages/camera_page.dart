@@ -809,6 +809,7 @@ class _CameraPageState extends State<CameraPage>
   ) async {
     final flashMode = getFlashMode();
     final resolution = getResolution();
+    final fps = Preferences.getVideoFps();
 
     final cameraController = CameraController(
       cameraDescription,
@@ -816,6 +817,7 @@ class _CameraPageState extends State<CameraPage>
       enableAudio:
           _isVideoCameraSelectedNotifier.value && Preferences.getEnableAudio(),
       imageFormatGroup: ImageFormatGroup.jpeg,
+      fps: fps,
     );
 
     _cameraController = cameraController;

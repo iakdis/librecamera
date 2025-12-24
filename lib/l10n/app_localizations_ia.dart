@@ -117,6 +117,13 @@ class AppLocalizationsIa extends AppLocalizations {
       'Cambiar le formato de imagine (predefinite: JPEG/JPG)';
 
   @override
+  String get fps => 'Velocitate de frames video';
+
+  @override
+  String get fps_description =>
+      'Altas taxas de frames super 60 fps depende del tu dispositivo e del resolution seligite';
+
+  @override
   String get getStarted => 'Comenciar';
 
   @override

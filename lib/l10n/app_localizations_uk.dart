@@ -119,6 +119,13 @@ class AppLocalizationsUk extends AppLocalizations {
       'Змінити формат зображення (за замовчуванням: JPEG/JPG)';
 
   @override
+  String get fps => 'Частота кадрів відео';
+
+  @override
+  String get fps_description =>
+      'Високі частоти кадрів понад 60 fps залежать від вашого пристрою та вибраної роздільної здатності';
+
+  @override
   String get getStarted => 'Розпочнемо';
 
   @override

@@ -113,6 +113,12 @@ class AppLocalizationsKo extends AppLocalizations {
   String get format_description => '이미지 압축 형식을 변경합니다 (기본값: JPEG/JPG)';
 
   @override
+  String get fps => '비디오 프레임 속도';
+
+  @override
+  String get fps_description => '60 fps를 초과하는 높은 프레임률은 기기와 선택한 해상도에 따라 다릅니다';
+
+  @override
   String get getStarted => '시작하기';
 
   @override

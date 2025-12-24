@@ -118,6 +118,13 @@ class AppLocalizationsEs extends AppLocalizations {
       'Cambiar el formato de compresión de imagen (por defecto: JPEG/JPG)';
 
   @override
+  String get fps => 'Velocidad de fotogramas de vídeo';
+
+  @override
+  String get fps_description =>
+      'Las altas tasas de fotogramas por encima de 60 fps dependen de tu dispositivo y de la resolución seleccionada';
+
+  @override
   String get getStarted => 'Iniciar';
 
   @override

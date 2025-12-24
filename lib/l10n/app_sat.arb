@@ -1,5 +1,7 @@
 {
   "@@locale": "sat",
+  "fps": "ᱵᱤᱰᱤᱳ ᱯᱨᱮᱱ ᱟᱢᱤ",
+  "fps_description": "ᱚᱫᱤᱟ 60 fps ᱵᱟᱦᱟᱣ ᱨᱟᱢ ᱟᱠᱥ ᱟᱢᱟᱨᱢᱟ ᱟᱢᱟᱭᱟ ᱟᱞᱤ ᱨᱩᱴᱟ ᱠᱚ ᱞᱤᱠᱟ ᱟᱨᱮ ᱫᱚᱯᱞᱟᱦ ᱟᱢᱚ ᱰᱷᱚᱠᱚ",
   "giveCameraPermission": "ᱠᱮᱢᱨᱟ ᱟᱫᱮᱨ ᱡᱚᱜᱟᱣᱟᱭ ᱢᱮ",
   "giveMicrophonePermission": "ᱢᱟᱭᱠᱨᱚᱯᱷᱚᱱ ᱟᱫᱮᱨ ᱡᱚᱜᱟᱣᱟᱭ ᱢᱮ",
   "permissionsTitle": "ᱟᱫᱮᱨᱠᱚ",

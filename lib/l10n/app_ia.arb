@@ -46,6 +46,8 @@
   "focusModeLocked": "FOCALISATION BLOCATE",
   "format": "Formato de imagine",
   "format_description": "Cambiar le formato de imagine (predefinite: JPEG/JPG)",
+  "fps": "Velocitate de frames video",
+  "fps_description": "Altas taxas de frames super 60 fps depende del tu dispositivo e del resolution seligite",
   "getStarted": "Comenciar",
   "giveCameraPermission": "Dar permission de camera",
   "giveMicrophonePermission": "Dar permission de microphono",

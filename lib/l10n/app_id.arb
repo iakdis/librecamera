@@ -46,6 +46,8 @@
   "focusModeLocked": "FOKUS TERKUNCI",
   "format": "Format gambar",
   "format_description": "Mengubah format gambar (default: JPEG/JPG)",
+  "fps": "Kecepatan frame video",
+  "fps_description": "Tingkat bingkai tinggi di atas 60 fps bergantung pada perangkat Anda dan resolusi yang dipilih",
   "getStarted": "Mulai",
   "giveCameraPermission": "Beri perijinan kamera",
   "giveMicrophonePermission": "Beri perijinan mikrofon",

@@ -116,6 +116,13 @@ class AppLocalizationsBe extends AppLocalizations {
       'Змяніць фармат выявы (па змаўчанні: JPEG/JPG)';
 
   @override
+  String get fps => 'Частата кадраў відэа';
+
+  @override
+  String get fps_description =>
+      'Высокія паказчыкі кадраў звыш 60 fps залежаць ад вашай прылады і абранага дазволу';
+
+  @override
   String get getStarted => 'Давайце пачнем';
 
   @override

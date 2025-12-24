@@ -32,6 +32,8 @@
   "focusModeLocked": "KİLİTLİ ODAK",
   "format": "Görüntü sıkıştırma formatı",
   "format_description": "Görüntü sıkıştırma formatını değiştirin (öntanımlı: JPEG/JPG)",
+  "fps": "Video kare hızı",
+  "fps_description": "60 fps üzerindeki yüksek kare hızları, cihazınıza ve seçilen çözünürlüğe bağlıdır",
   "getStarted": "Başlayın",
   "giveCameraPermission": "Kamera izni ver",
   "giveMicrophonePermission": "Mikrofon izni ver",

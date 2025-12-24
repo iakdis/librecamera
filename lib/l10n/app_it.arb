@@ -46,6 +46,8 @@
   "focusModeLocked": "FUOCO BLOCCATO",
   "format": "Formato di compressione immagine",
   "format_description": "Modifica il formato di compressione dell'immagine (predefinito: JPEG/JPG)",
+  "fps": "Frequenza fotogrammi video",
+  "fps_description": "Frame rate elevati oltre 60 fps dipendono dal tuo dispositivo e dalla risoluzione selezionata",
   "getStarted": "Inizia",
   "giveCameraPermission": "Consenti l'accesso alla fotocamera",
   "giveMicrophonePermission": "Consenti l'accesso al microfono",

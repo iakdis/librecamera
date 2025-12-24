@@ -119,6 +119,13 @@ class AppLocalizationsNl extends AppLocalizations {
       'Wijzig het afbeeldingscompressieformaat (standaard: JPEG/JPG)';
 
   @override
+  String get fps => 'Videoframesnelheid';
+
+  @override
+  String get fps_description =>
+      'Hoge framerates boven 60 fps zijn afhankelijk van je apparaat en de geselecteerde resolutie';
+
+  @override
   String get getStarted => 'Aan de slag';
 
   @override

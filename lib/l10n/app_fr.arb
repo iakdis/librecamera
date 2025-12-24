@@ -30,6 +30,8 @@
   "focusModeLocked": "FOCUS VERROUILLÉ",
   "format": "Format de compression d'image",
   "format_description": "Changer le format de compression d'image (par défaut : JPEG/JPG)",
+  "fps": "Fréquence d'images vidéo",
+  "fps_description": "Les fréquences d'images élevées supérieures à 60 fps dépendent de votre appareil et de la résolution sélectionnée",
   "getStarted": "Commencer",
   "giveCameraPermission": "Donner la permission d'accès à la caméra",
   "giveMicrophonePermission": "Donner la permission d'accès au microphone",

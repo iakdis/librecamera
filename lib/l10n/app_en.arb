@@ -46,6 +46,8 @@
   "focusModeLocked": "LOCKED FOCUS",
   "format": "Image compression format",
   "format_description": "Change the image compression format (default: JPEG/JPG)",
+  "fps": "Video frame rate",
+  "fps_description": "High frame rates above 60 fps depend on your device and the selected resolution",
   "getStarted": "Get started",
   "giveCameraPermission": "Give camera permission",
   "giveMicrophonePermission": "Give microphone permission",

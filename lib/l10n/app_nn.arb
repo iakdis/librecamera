@@ -1,6 +1,8 @@
 {
   "enableCompression": "Slå på komprimering",
   "enableCompression_description": "Bruk komprimering når du lagrar bilete for å spare lagringsplass.",
+  "fps": "Videobildefrekvens",
+  "fps_description": "Høge bildefrekvensar over 60 fps avheng av eininga di og vald oppløysing",
   "getStarted": "Byrj",
   "giveCameraPermission": "Gje tilgjenge til kamera",
   "giveMicrophonePermission": "Gje tilgjenge til mikrofonar",

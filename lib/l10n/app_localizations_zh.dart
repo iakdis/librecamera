@@ -108,6 +108,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get format_description => '更改图像压缩格式（默认：JPEG/JPG）';
 
   @override
+  String get fps => '视频帧率';
+
+  @override
+  String get fps_description => '高帧率（超过 60 fps）取决于您的设备和所选分辨率';
+
+  @override
   String get getStarted => '开始使用';
 
   @override
@@ -395,6 +401,12 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
 
   @override
   String get format_description => '變更圖像壓縮格式（預設：JPEG/JPG）';
+
+  @override
+  String get fps => '影片幀率';
+
+  @override
+  String get fps_description => '高幀率（超過 60 fps）取決於您的裝置與所選解析度';
 
   @override
   String get getStarted => '開始使用';

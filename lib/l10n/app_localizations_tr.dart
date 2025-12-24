@@ -117,6 +117,13 @@ class AppLocalizationsTr extends AppLocalizations {
       'Görüntü sıkıştırma formatını değiştirin (öntanımlı: JPEG/JPG)';
 
   @override
+  String get fps => 'Video kare hızı';
+
+  @override
+  String get fps_description =>
+      '60 fps üzerindeki yüksek kare hızları, cihazınıza ve seçilen çözünürlüğe bağlıdır';
+
+  @override
   String get getStarted => 'Başlayın';
 
   @override

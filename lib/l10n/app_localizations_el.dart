@@ -118,6 +118,13 @@ class AppLocalizationsEl extends AppLocalizations {
       'Αλλαγή τύπου εικόνας (προεπιλεγμένο: JPEG/JPG)';
 
   @override
+  String get fps => 'Ρυθμός καρέ βίντεο';
+
+  @override
+  String get fps_description =>
+      'Οι υψηλοί ρυθμοί καρέ άνω των 60 fps εξαρτώνται από τη συσκευή σας και την επιλεγμένη ανάλυση';
+
+  @override
   String get getStarted => 'Ξεκινήστε';
 
   @override

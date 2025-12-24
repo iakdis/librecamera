@@ -117,6 +117,13 @@ class AppLocalizationsPl extends AppLocalizations {
   String get format_description => 'Zmienia format zdjęć (Domyślnie: JPEG/JPG)';
 
   @override
+  String get fps => 'Częstotliwość klatek wideo';
+
+  @override
+  String get fps_description =>
+      'Wysokie liczby klatek powyżej 60 fps zależą od twojego urządzenia i wybranej rozdzielczości';
+
+  @override
   String get getStarted => 'Rozpocznij';
 
   @override

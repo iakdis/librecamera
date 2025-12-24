@@ -24,6 +24,8 @@
   "focusModeLocked": "ŜLOSITA FOKUSO",
   "format": "Bilda kunpremada formato",
   "format_description": "Ŝanĝi la bildan kunpremadan formaton (implicite: JPEG/JPG)",
+  "fps": "Videoframfrekvenco",
+  "fps_description": "Altaj kadraj rapidoj super 60 fps dependas de via aparato kaj la elektita rezolucio",
   "keepEXIFMetadata": "Konservi EXIF-datenojn",
   "language": "Lingvo",
   "language_description": "Ŝanĝi la programan lingvon",

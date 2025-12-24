@@ -118,6 +118,13 @@ class AppLocalizationsBg extends AppLocalizations {
       'Промяна на формата на изображението (по подразбиране: JPEG/JPG)';
 
   @override
+  String get fps => 'Честота на видеокадрите';
+
+  @override
+  String get fps_description =>
+      'Високите кадри над 60 fps зависят от вашето устройство и избраната резолюция';
+
+  @override
   String get getStarted => 'Първи стъпки';
 
   @override

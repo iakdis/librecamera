@@ -46,6 +46,8 @@
   "focusModeLocked": "ΚΛΕΙΔΩΜΕΝΗ ΕΣΤΙΑΣΗ",
   "format": "Τύπος εικόνας",
   "format_description": "Αλλαγή τύπου εικόνας (προεπιλεγμένο: JPEG/JPG)",
+  "fps": "Ρυθμός καρέ βίντεο",
+  "fps_description": "Οι υψηλοί ρυθμοί καρέ άνω των 60 fps εξαρτώνται από τη συσκευή σας και την επιλεγμένη ανάλυση",
   "getStarted": "Ξεκινήστε",
   "giveCameraPermission": "Δώστε άδεια στην κάμερα",
   "giveMicrophonePermission": "Δώστε άδεια στο μικρόφωνο",

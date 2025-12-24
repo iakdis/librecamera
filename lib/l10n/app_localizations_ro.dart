@@ -120,6 +120,13 @@ class AppLocalizationsRo extends AppLocalizations {
       'Schimbați formatul imaginii (implicit: JPEG/JPG)';
 
   @override
+  String get fps => 'Rată cadru video';
+
+  @override
+  String get fps_description =>
+      'Ratele de cadre ridicate peste 60 fps depind de dispozitivul tău și de rezoluția selectată';
+
+  @override
   String get getStarted => 'Începeți';
 
   @override

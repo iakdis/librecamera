@@ -117,6 +117,13 @@ class AppLocalizationsMs extends AppLocalizations {
       'Tukar format pemampatan imej (lalai: JPEG/JPG)';
 
   @override
+  String get fps => 'Kadar bingkai video';
+
+  @override
+  String get fps_description =>
+      'Kadar bingkai tinggi melebihi 60 fps bergantung pada peranti anda dan resolusi yang dipilih';
+
+  @override
   String get getStarted => 'Mulakan';
 
   @override

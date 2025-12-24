@@ -46,6 +46,8 @@
   "focusModeLocked": "FOCUS BLOCAT",
   "format": "Format imagine",
   "format_description": "Schimbați formatul imaginii (implicit: JPEG/JPG)",
+  "fps": "Rată cadru video",
+  "fps_description": "Ratele de cadre ridicate peste 60 fps depind de dispozitivul tău și de rezoluția selectată",
   "getStarted": "Începeți",
   "giveCameraPermission": "Acordați permisiunea camerei",
   "giveMicrophonePermission": "Acordați permisiunea microfonului",

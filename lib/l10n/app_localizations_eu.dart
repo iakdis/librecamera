@@ -118,6 +118,13 @@ class AppLocalizationsEu extends AppLocalizations {
       'Aldatu irudiaren formatua (lehenetsita: JPEG/JPG)';
 
   @override
+  String get fps => 'Bideo fotograma-tasa';
+
+  @override
+  String get fps_description =>
+      '60 fps baino gehiagoko irudi-tasa altuak zure gailuaren eta hautatutako bereizmenaren araberakoak dira';
+
+  @override
   String get getStarted => 'Hasi';
 
   @override

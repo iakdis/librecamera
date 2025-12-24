@@ -116,6 +116,13 @@ class AppLocalizationsAr extends AppLocalizations {
       'Change the image compression format (default: JPEG/JPG)';
 
   @override
+  String get fps => 'معدل إطارات الفيديو';
+
+  @override
+  String get fps_description =>
+      'معدلات الإطارات العالية فوق 60 إطارًا في الثانية تعتمد على جهازك والدقة المحددة';
+
+  @override
   String get getStarted => 'البدء';
 
   @override

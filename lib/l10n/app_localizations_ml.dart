@@ -116,6 +116,13 @@ class AppLocalizationsMl extends AppLocalizations {
       'ചിത്രത്തിന്റെ ചുരുക്കൽ ഫോർമാറ്റ് മാറ്റുക (സ്ഥിരസ്ഥിതിട്: JPEG/JPG)';
 
   @override
+  String get fps => 'വീഡിയോ ഫ്രെയിം നിരക്ക്';
+
+  @override
+  String get fps_description =>
+      '60 fps-നു മുണ്ടുള്ള ഉയർന്ന ഫ്രെയിംനിരക്ക് നിങ്ങളുടെ ഉപകരണത്തെയും തിരഞ്ഞെടുക്കപ്പെട്ട റെസല്യൂഷനിനെയും ആശ്രയിക്കുന്നു';
+
+  @override
   String get getStarted => 'ആരംഭിക്കുക';
 
   @override

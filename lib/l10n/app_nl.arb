@@ -46,6 +46,8 @@
   "focusModeLocked": "VERGRENDELDE FOCUS",
   "format": "Afbeeldingscompressieformaat",
   "format_description": "Wijzig het afbeeldingscompressieformaat (standaard: JPEG/JPG)",
+  "fps": "Videoframesnelheid",
+  "fps_description": "Hoge framerates boven 60 fps zijn afhankelijk van je apparaat en de geselecteerde resolutie",
   "getStarted": "Aan de slag",
   "giveCameraPermission": "Toestemming geven voor camera",
   "giveMicrophonePermission": "Toestemming geven voor microfoon",

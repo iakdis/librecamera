@@ -30,6 +30,8 @@
   "focusModeLocked": "FOKURATZE BLOKEATUA",
   "format": "Irudiaren formatua",
   "format_description": "Aldatu irudiaren formatua (lehenetsita: JPEG/JPG)",
+  "fps": "Bideo fotograma-tasa",
+  "fps_description": "60 fps baino gehiagoko irudi-tasa altuak zure gailuaren eta hautatutako bereizmenaren araberakoak dira",
   "getStarted": "Hasi",
   "giveCameraPermission": "Kamera-baimenak eman",
   "giveMicrophonePermission": "Mikrofono-baimenak eman",

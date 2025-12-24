@@ -46,6 +46,8 @@
   "focusModeLocked": "焦点不动",
   "format": "图像压缩格式",
   "format_description": "更改图像压缩格式（默认：JPEG/JPG）",
+  "fps": "视频帧率",
+  "fps_description": "高帧率（超过 60 fps）取决于您的设备和所选分辨率",
   "getStarted": "开始使用",
   "giveCameraPermission": "给予摄像头权限",
   "giveMicrophonePermission": "给予麦克风权限",

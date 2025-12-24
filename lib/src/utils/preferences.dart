@@ -150,4 +150,9 @@ class Preferences {
   }) async => _preferences.setBool(prefEnableCompression, value);
   static bool getEnableCompression() =>
       _preferences.getBool(prefEnableCompression) ?? true;
+
+  // Video FPS
+  static Future<void> setVideoFps(int fps) async =>
+      _preferences.setInt(prefVideoFps, fps);
+  static int getVideoFps() => _preferences.getInt(prefVideoFps) ?? 30;
 }

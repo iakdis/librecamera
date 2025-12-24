@@ -117,6 +117,13 @@ class AppLocalizationsRu extends AppLocalizations {
       'Выбрать формат сжатия изображения (по умолчанию: JPEG/JPG)';
 
   @override
+  String get fps => 'Частота кадров видео';
+
+  @override
+  String get fps_description =>
+      'Высокие частоты кадров выше 60 fps зависят от вашего устройства и выбранного разрешения';
+
+  @override
   String get getStarted => 'Начать';
 
   @override

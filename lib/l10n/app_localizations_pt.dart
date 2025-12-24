@@ -118,6 +118,13 @@ class AppLocalizationsPt extends AppLocalizations {
       'Altere o formato de compressão da imagem (padrão: JPEG/JPG)';
 
   @override
+  String get fps => 'Taxa de quadros de vídeo';
+
+  @override
+  String get fps_description =>
+      'Altas taxas de quadros acima de 60 fps dependem do seu dispositivo e da resolução selecionada';
+
+  @override
   String get getStarted => 'Iniciar';
 
   @override
@@ -424,6 +431,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get format_description =>
       'Altere o formato de compressão da imagem (padrão: JPEG/JPG)';
+
+  @override
+  String get fps => 'Taxa de quadros de vídeo';
+
+  @override
+  String get fps_description =>
+      'Taxas de quadros altas acima de 60 fps dependem do seu dispositivo e da resolução selecionada';
 
   @override
   String get getStarted => 'Começar';

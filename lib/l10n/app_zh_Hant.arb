@@ -46,6 +46,8 @@
   "focusModeLocked": "已鎖定焦點",
   "format": "圖像壓縮格式",
   "format_description": "變更圖像壓縮格式（預設：JPEG/JPG）",
+  "fps": "影片幀率",
+  "fps_description": "高幀率（超過 60 fps）取決於您的裝置與所選解析度",
   "getStarted": "開始使用",
   "giveCameraPermission": "授予相機權限",
   "giveMicrophonePermission": "授予麥克風權限",

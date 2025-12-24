@@ -46,6 +46,8 @@
   "focusModeLocked": "ENFOCAMENT BLOCAT",
   "format": "Format d'imatge",
   "format_description": "Canvia el format d'imatge (per defecte: JPEG/JPG)",
+  "fps": "Velocitat de fotogrames de vídeo",
+  "fps_description": "Les altes taxes de fotogrames per sobre de 60 fps depenen del teu dispositiu i de la resolució seleccionada",
   "getStarted": "Inicia",
   "giveCameraPermission": "Permet l'accés a la càmera",
   "giveMicrophonePermission": "Permet l'accés al micròfon",

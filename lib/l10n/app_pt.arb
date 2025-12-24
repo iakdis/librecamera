@@ -32,6 +32,8 @@
   "focusModeLocked": "FOCO TRAVADO",
   "format": "Formato de compressão da imagem",
   "format_description": "Altere o formato de compressão da imagem (padrão: JPEG/JPG)",
+  "fps": "Taxa de quadros de vídeo",
+  "fps_description": "Altas taxas de quadros acima de 60 fps dependem do seu dispositivo e da resolução selecionada",
   "getStarted": "Iniciar",
   "giveCameraPermission": "Permitir uso da câmera",
   "giveMicrophonePermission": "Permitir uso do microfone",

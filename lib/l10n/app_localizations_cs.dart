@@ -116,6 +116,13 @@ class AppLocalizationsCs extends AppLocalizations {
   String get format_description => 'Změnit formát obrázků (výchozí: JPEG/JPG)';
 
   @override
+  String get fps => 'Frekvence snímků videa';
+
+  @override
+  String get fps_description =>
+      'Vysoké snímkové frekvence nad 60 fps závisí na vašem zařízení a zvolené rozlišení';
+
+  @override
   String get getStarted => 'Začít';
 
   @override

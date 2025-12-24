@@ -116,6 +116,13 @@ class AppLocalizationsEn extends AppLocalizations {
       'Change the image compression format (default: JPEG/JPG)';
 
   @override
+  String get fps => 'Video frame rate';
+
+  @override
+  String get fps_description =>
+      'High frame rates above 60 fps depend on your device and the selected resolution';
+
+  @override
   String get getStarted => 'Get started';
 
   @override

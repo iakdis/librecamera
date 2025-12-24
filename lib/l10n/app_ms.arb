@@ -44,6 +44,8 @@
   "focusModeLocked": "FOKUS TERKUNCI",
   "format": "Format pemampatan imej",
   "format_description": "Tukar format pemampatan imej (lalai: JPEG/JPG)",
+  "fps": "Kadar bingkai video",
+  "fps_description": "Kadar bingkai tinggi melebihi 60 fps bergantung pada peranti anda dan resolusi yang dipilih",
   "getStarted": "Mulakan",
   "giveCameraPermission": "Beri kebenaran kepada kamera",
   "giveMicrophonePermission": "Beri kebenaran kepada mikrofon",

@@ -118,6 +118,13 @@ class AppLocalizationsHu extends AppLocalizations {
       'Módosítsa a kép tömörítési formátumát (alapértelmezett: JPEG/JPG)';
 
   @override
+  String get fps => 'Videó képkockasebesség';
+
+  @override
+  String get fps_description =>
+      '60 fps feletti magas képkockasebesség az eszköztől és a kiválasztott felbontástól függ';
+
+  @override
   String get getStarted => 'Kezdjen hozzá';
 
   @override

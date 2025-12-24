@@ -46,6 +46,8 @@
   "focusModeLocked": "Låst fokus",
   "format": "Bildekomprimeringsformat",
   "format_description": "Endre bildet komprimeringsformat (standard: JPEG/JPG)",
+  "fps": "Videobildefrekvens",
+  "fps_description": "Høye bildefrekvenser over 60 fps avhenger av enheten din og den valgte oppløsningen",
   "getStarted": "Begynn",
   "giveCameraPermission": "Innvilg kameratilgang",
   "giveMicrophonePermission": "Innvilg mikrofontilgang",

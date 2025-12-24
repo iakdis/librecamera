@@ -2,6 +2,8 @@
   "appSettings": "LIETOTNES IESTATĪJUMI",
   "enableCompression": "Iespējot saspiešanu",
   "enableCompression_description": "Izmantojiet saspiešanu, saglabājot attēlus, lai ietaupītu vietu krātuvē.",
+  "fps": "Video kadru ātrums",
+  "fps_description": "Augsts kadru ātrums virs 60 fps ir atkarīgs no jūsu ierīces un izvēlētā izšķirtspējas",
   "giveCameraPermission": "Atļaut piekļuvi kamerai",
   "giveMicrophonePermission": "Atļaut piekļuvi mikrofonam",
   "giveStoragePermission": "Atļaut piekļuvi krātuvei",

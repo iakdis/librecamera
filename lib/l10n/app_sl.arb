@@ -46,6 +46,8 @@
   "focusModeLocked": "OSTRITEV ZAKLENJENA",
   "format": "Format slike",
   "format_description": "Spremenite format slike (privzeto: JPEG/JPG)",
+  "fps": "Hitrost sličic videa",
+  "fps_description": "Visoke hitrosti sličic nad 60 fps so odvisne od vaše naprave in izbrane ločljivosti",
   "getStarted": "Začnite",
   "giveCameraPermission": "Dovoljenje za uporabo kamere",
   "giveMicrophonePermission": "Dovoljenje za uporabo mikrofona",

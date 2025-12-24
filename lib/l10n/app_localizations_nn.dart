@@ -116,6 +116,13 @@ class AppLocalizationsNn extends AppLocalizations {
       'Change the image compression format (default: JPEG/JPG)';
 
   @override
+  String get fps => 'Videobildefrekvens';
+
+  @override
+  String get fps_description =>
+      'Høge bildefrekvensar over 60 fps avheng av eininga di og vald oppløysing';
+
+  @override
   String get getStarted => 'Byrj';
 
   @override

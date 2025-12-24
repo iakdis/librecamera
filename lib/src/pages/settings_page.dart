@@ -398,6 +398,34 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
+  Widget _videoFpsTile() {
+    final options = <int>[24, 25, 30, 60, 120];
+
+    return ListTile(
+      title: Text(AppLocalizations.of(context)!.fps),
+      subtitle: Text(AppLocalizations.of(context)!.fps_description),
+      trailing: DropdownButton<int>(
+        value: Preferences.getVideoFps(),
+        items: options
+            .map(
+              (option) => DropdownMenuItem(
+                value: option,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 8),
+                  child: Text('$option fps'),
+                ),
+              ),
+            )
+            .toList(),
+        onChanged: (v) async {
+          if (v == null) return;
+          await Preferences.setVideoFps(v);
+          setState(() {});
+        },
+      ),
+    );
+  }
+
   Widget _enableExposureSliderTile() {
     return SwitchListTile(
       title: Text(AppLocalizations.of(context)!.enableExposureSlider),
@@ -436,10 +464,10 @@ class _SettingsPageState extends State<SettingsPage> {
         icon: switch (CustomThemeMode.values.byName(
           Preferences.getThemeMode(),
         )) {
-          CustomThemeMode.system => const Icon(Icons.settings_display),
-          CustomThemeMode.light => const Icon(Icons.light_mode),
-          CustomThemeMode.dark => const Icon(Icons.dark_mode),
-          CustomThemeMode.black => const Icon(Icons.dark_mode),
+          .system => const Icon(Icons.settings_display),
+          .light => const Icon(Icons.light_mode),
+          .dark => const Icon(Icons.dark_mode),
+          .black => const Icon(Icons.dark_mode),
         },
         value: CustomThemeMode.values.byName(Preferences.getThemeMode()),
         items: [
@@ -578,6 +606,8 @@ class _SettingsPageState extends State<SettingsPage> {
             _disableShutterSoundTile(),
             const Divider(),
             _startWithFrontCameraTile(),
+            const Divider(),
+            _videoFpsTile(),
             const Divider(),
             _disableAudioTile(),
             const Divider(),

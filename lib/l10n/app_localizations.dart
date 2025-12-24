@@ -366,6 +366,18 @@ abstract class AppLocalizations {
   /// **'Change the image compression format (default: JPEG/JPG)'**
   String get format_description;
 
+  /// No description provided for @fps.
+  ///
+  /// In en, this message translates to:
+  /// **'Video frame rate'**
+  String get fps;
+
+  /// No description provided for @fps_description.
+  ///
+  /// In en, this message translates to:
+  /// **'High frame rates above 60 fps depend on your device and the selected resolution'**
+  String get fps_description;
+
   /// No description provided for @getStarted.
   ///
   /// In en, this message translates to:

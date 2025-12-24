@@ -32,6 +32,8 @@
   "focusModeLocked": "ENFOQUE BLOQUEADO",
   "format": "Formato de compresión de imagen",
   "format_description": "Cambiar el formato de compresión de imagen (por defecto: JPEG/JPG)",
+  "fps": "Velocidad de fotogramas de vídeo",
+  "fps_description": "Las altas tasas de fotogramas por encima de 60 fps dependen de tu dispositivo y de la resolución seleccionada",
   "getStarted": "Iniciar",
   "giveCameraPermission": "Otorgar permisos de cámara",
   "giveMicrophonePermission": "Otorgar permisos de micrófono",

@@ -118,6 +118,13 @@ class AppLocalizationsSl extends AppLocalizations {
       'Spremenite format slike (privzeto: JPEG/JPG)';
 
   @override
+  String get fps => 'Hitrost sličic videa';
+
+  @override
+  String get fps_description =>
+      'Visoke hitrosti sličic nad 60 fps so odvisne od vaše naprave in izbrane ločljivosti';
+
+  @override
   String get getStarted => 'Začnite';
 
   @override

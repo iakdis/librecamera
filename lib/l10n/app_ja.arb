@@ -30,6 +30,8 @@
   "focusModeLocked": "固定フォーカス",
   "format": "画像圧縮フォーマット",
   "format_description": "画像の圧縮フォーマットを変更します（デフォルト：JPEG/JPG）",
+  "fps": "ビデオのフレームレート",
+  "fps_description": "60 fps を超える高いフレームレートは、端末および選択した解像度に依存します",
   "getStarted": "完了",
   "giveCameraPermission": "カメラ権限を許可する",
   "giveMicrophonePermission": "マイク権限を許可する",

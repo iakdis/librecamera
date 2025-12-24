@@ -46,6 +46,8 @@
   "focusModeLocked": "ZÁROLT FÓKUSZ",
   "format": "Kép tömörítési formátuma",
   "format_description": "Módosítsa a kép tömörítési formátumát (alapértelmezett: JPEG/JPG)",
+  "fps": "Videó képkockasebesség",
+  "fps_description": "60 fps feletti magas képkockasebesség az eszköztől és a kiválasztott felbontástól függ",
   "getStarted": "Kezdjen hozzá",
   "giveCameraPermission": "Kamera engedély megadása",
   "giveMicrophonePermission": "Mikrofon engedély megadása",

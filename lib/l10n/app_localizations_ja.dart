@@ -110,6 +110,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get format_description => '画像の圧縮フォーマットを変更します（デフォルト：JPEG/JPG）';
 
   @override
+  String get fps => 'ビデオのフレームレート';
+
+  @override
+  String get fps_description => '60 fps を超える高いフレームレートは、端末および選択した解像度に依存します';
+
+  @override
   String get getStarted => '完了';
 
   @override

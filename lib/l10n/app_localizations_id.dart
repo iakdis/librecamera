@@ -115,6 +115,13 @@ class AppLocalizationsId extends AppLocalizations {
   String get format_description => 'Mengubah format gambar (default: JPEG/JPG)';
 
   @override
+  String get fps => 'Kecepatan frame video';
+
+  @override
+  String get fps_description =>
+      'Tingkat bingkai tinggi di atas 60 fps bergantung pada perangkat Anda dan resolusi yang dipilih';
+
+  @override
   String get getStarted => 'Mulai';
 
   @override

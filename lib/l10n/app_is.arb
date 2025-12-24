@@ -46,6 +46,8 @@
   "focusModeLocked": "LÆSTUR FÓKUS",
   "format": "Myndskráarsnið",
   "format_description": "Breyta myndsniðinu (sjálfgefið: JPEG/JPG)",
+  "fps": "Myndbands fótatíðni",
+  "fps_description": "Háar myndatíðnir yfir 60 fps ráðast af tækinu þínu og valinni upplausn",
   "getStarted": "Hefjumst handa",
   "giveCameraPermission": "Gefðu heimild til að nota myndavél",
   "giveMicrophonePermission": "Gefðu heimild til að nota hljóðnema",
