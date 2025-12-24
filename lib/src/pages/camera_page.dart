@@ -305,7 +305,7 @@ class _CameraPageState extends State<CameraPage>
                 : null,
             child: _previewWidget(),
           ), */
-          SafeArea(child: _shutterBorder()),
+          _shutterBorder(),
           //?TODO when in QR-Code mode: enable, _previewWidget disable
           /*Center(
             child: (result != null)
