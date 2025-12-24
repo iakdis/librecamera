@@ -68,7 +68,7 @@ class _CameraPageState extends State<CameraPage>
   final ValueNotifier<bool> _isVideoCameraSelectedNotifier = ValueNotifier(
     false,
   );
-  bool takingPicture = false;
+  final ValueNotifier<bool> _takingPictureNotifier = ValueNotifier(false);
 
   //Circle position
   double _circlePosX = 0;
@@ -333,16 +333,21 @@ class _CameraPageState extends State<CameraPage>
 
   Widget _shutterBorder() {
     return IgnorePointer(
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
-        decoration: BoxDecoration(
-          border: .all(
-            color: takingPicture
-                ? const Color(0xFFFFFFFF)
-                : const Color.fromARGB(0, 255, 255, 255),
-            width: 4,
-          ), //.all
-        ),
+      child: ValueListenableBuilder(
+        valueListenable: _takingPictureNotifier,
+        builder: (context, takingPicture, child) {
+          return AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            decoration: BoxDecoration(
+              border: .all(
+                color: takingPicture
+                    ? const Color(0xFFFFFFFF)
+                    : const Color.fromARGB(0, 255, 255, 255),
+                width: 4,
+              ), //.all
+            ),
+          );
+        },
       ),
     );
   }
@@ -553,16 +558,15 @@ class _CameraPageState extends State<CameraPage>
             disabledColor: Colors.white24,
             onPressed: enabled
                 ? () async {
+                    HapticFeedback.heavyImpact().ignore();
                     if (!_isVideoCameraSelectedNotifier.value) {
                       final status = await Permission.microphone.status;
 
                       if (!status.isGranted) {
                         await Permission.microphone.request();
+                        await _showCamera(_cameraController!);
                       }
 
-                      await _initializeCameraController(
-                        _cameraController!.description,
-                      );
                       _isVideoCameraSelectedNotifier.value = true;
                     } else if (!(_cameraController?.value.isRecordingVideo ??
                         false)) {
@@ -913,19 +917,19 @@ class _CameraPageState extends State<CameraPage>
       setState(() {});
     }
     if (file != null) {
-      _capturedFile = File(file.path);
+      var capturedFile = File(file.path);
 
       final directory = Preferences.getSavePath();
 
-      final fileFormat = _capturedFile!.path.split('.').last;
+      final fileFormat = capturedFile.path.split('.').last;
       final path = '$directory/VID_${timestamp()}.$fileFormat';
 
       try {
-        final tempFile = await _capturedFile!.copy(path);
+        final tempFile = await capturedFile.copy(path);
 
         final methodChannel = AndroidMethodChannel();
         await methodChannel.updateItem(file: tempFile);
-        _capturedFile = File(path);
+        capturedFile = File(path);
       } catch (e) {
         if (mounted) showSnackbar(text: e.toString());
       }
@@ -935,7 +939,11 @@ class _CameraPageState extends State<CameraPage>
       if (kDebugMode) {
         print('Video recorded to $path');
       }
-      await _refreshGalleryImages();
+
+      _recentMediaFile = capturedFile.path.mediaFileByEnding();
+      _capturedFile = capturedFile;
+
+      await _initializeVideoThumbnail();
     }
   }
 
@@ -989,20 +997,18 @@ class _CameraPageState extends State<CameraPage>
     }
 
     try {
-      final file = await cameraController.takePicture();
-      takingPicture = true;
+      final capturedXFile = await cameraController.takePicture();
+      _takingPictureNotifier.value = true;
 
       if (!Preferences.getDisableShutterSound()) {
         await AndroidMethodChannel().shutterSound();
       }
 
-      _capturedFile = File(file.path);
-      final imageBytes = await _capturedFile!.readAsBytes();
-      var decodedImage = img.decodeImage(imageBytes);
+      var capturedFile = File(capturedXFile.path);
+      final imageBytes = await capturedFile.readAsBytes();
 
       final directory = Preferences.getSavePath();
 
-      //String fileFormat = capturedFile!.path.split('.').last;
       final format = CompressFormat.values.firstWhere(
         (format) => format.name == Preferences.getCompressFormat(),
         orElse: () => .jpeg,
@@ -1021,17 +1027,20 @@ class _CameraPageState extends State<CameraPage>
 
       final path = '$directory/IMG_${timestamp()}.$fileFormat';
 
+      var decodedImage = await compute(img.decodeImage, imageBytes);
+
       if (!_isRearCameraSelectedNotifier.value &&
           Preferences.getFlipFrontCameraPhoto()) {
         decodedImage = img.flipHorizontal(decodedImage!);
       }
 
       if (!Preferences.getKeepEXIFMetadata()) {
-        decodedImage!.exif = img.ExifData();
+        decodedImage?.exif = img.ExifData();
       }
 
-      await _capturedFile!.writeAsBytes(
-        img.encodeJpg(decodedImage!),
+      final encodedImage = await compute(img.encodeJpg, decodedImage!);
+      await capturedFile.writeAsBytes(
+        encodedImage,
         flush: true,
       );
 
@@ -1039,7 +1048,7 @@ class _CameraPageState extends State<CameraPage>
 
       if (Preferences.getEnableCompression()) {
         fileBytes = await FlutterImageCompress.compressWithFile(
-          _capturedFile!.path,
+          capturedFile.path,
           minHeight: decodedImage.height,
           minWidth: decodedImage.width,
           quality: Preferences.getCompressQuality(),
@@ -1047,7 +1056,7 @@ class _CameraPageState extends State<CameraPage>
           format: format,
         );
       } else {
-        fileBytes = await _capturedFile!.readAsBytes();
+        fileBytes = await capturedFile.readAsBytes();
       }
 
       try {
@@ -1055,42 +1064,33 @@ class _CameraPageState extends State<CameraPage>
           throw Exception('Failed to compress image.');
         }
 
-        final file = await _capturedFile!.copy(path);
-        await file.writeAsBytes(fileBytes);
+        final savedFile = await capturedFile.copy(path);
+        await savedFile.writeAsBytes(fileBytes);
 
         final methodChannel = AndroidMethodChannel();
-        await methodChannel.updateItem(file: file);
-        _capturedFile = File(path);
+        await methodChannel.updateItem(file: savedFile);
+        capturedFile = File(path);
       } catch (e) {
         if (mounted) showSnackbar(text: e.toString());
       }
 
-      /*Uint8List? newFileBytes = await FlutterImageCompress.compressWithFile(
-          capturedFile!.path,
-          quality: Preferences.getCompressQuality(),
-          keepExif: Preferences.getKeepEXIFMetadata());
-      File? newFile = await File(path).create();
-      newFile.writeAsBytesSync(newFileBytes!);*/
-
-      /*Directory? finalPath = await getExternalStorageDirectory();
-      await FlutterImageCompress.compressAndGetFile(
-          capturedFile!.path, finalPath!.path,
-          quality: Preferences.getCompressQuality(),
-          keepExif: Preferences.getKeepEXIFMetadata());*/
-
-      //OLD without compression and removal of EXIF data: await capturedFile!.copy(path);
-
       if (kDebugMode) {
         print('Picture saved to $path');
       }
+      _takingPictureNotifier.value = false;
 
-      takingPicture = false;
+      _recentMediaFile = capturedFile.path.mediaFileByEnding();
+      _capturedFile = capturedFile;
 
-      await _refreshGalleryImages();
+      try {
+        await File(capturedXFile.path).delete();
+      } catch (e) {
+        if (kDebugMode) {
+          print('takePicture: failed to delete temp file: $e');
+        }
+      }
 
-      await File(file.path).delete();
-
-      return file;
+      return capturedXFile;
     } on CameraException catch (e) {
       if (kDebugMode) {
         print('$e: ${e.description}');

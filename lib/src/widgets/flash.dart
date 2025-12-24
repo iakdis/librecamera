@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:librecamera/l10n/app_localizations.dart' show AppLocalizations;
 import 'package:librecamera/src/utils/preferences.dart';
 
@@ -24,6 +25,7 @@ class FlashModeWidget extends StatefulWidget {
 
 class _FlashModeWidgetState extends State<FlashModeWidget> {
   Future<void> _toggleFlashMode() async {
+    HapticFeedback.heavyImpact().ignore();
     if (widget.controller != null) {
       if (widget.controller?.value.flashMode == FlashMode.off) {
         await _onSetFlashModeButtonPressed(
