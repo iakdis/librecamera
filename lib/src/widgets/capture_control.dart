@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:librecamera/l10n/app_localizations.dart';
 import 'package:librecamera/main.dart';
 
@@ -66,9 +67,14 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
       turns: MediaQuery.orientationOf(context) == .portrait ? 0 : 0.25,
       child: IconButton(
         padding: .zero,
-        onPressed: () => cameraController.value.isRecordingPaused
-            ? widget.onResumeButtonPressed()
-            : widget.onPauseButtonPressed(),
+        onPressed: () {
+          HapticFeedback.heavyImpact().ignore();
+          if (cameraController.value.isRecordingPaused) {
+            widget.onResumeButtonPressed();
+          } else {
+            widget.onPauseButtonPressed();
+          }
+        },
         icon: Stack(
           alignment: .center,
           children: [
@@ -93,11 +99,18 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
       turns: MediaQuery.orientationOf(context) == .portrait ? 0 : 0.25,
       child: IconButton(
         padding: .zero,
-        onPressed: widget.isVideoCameraSelected
-            ? () => widget.isRecordingInProgress
-                  ? widget.onStopButtonPressed()
-                  : widget.onVideoRecordButtonPressed()
-            : () => widget.onTakePictureButtonPressed(),
+        onPressed: () {
+          HapticFeedback.heavyImpact().ignore();
+          if (widget.isVideoCameraSelected) {
+            if (widget.isRecordingInProgress) {
+              widget.onStopButtonPressed();
+            } else {
+              widget.onVideoRecordButtonPressed();
+            }
+          } else {
+            widget.onTakePictureButtonPressed();
+          }
+        },
         icon: Stack(
           alignment: .center,
           children: [
@@ -141,6 +154,7 @@ class _CaptureControlWidgetState extends State<CaptureControlWidget>
       child: IconButton(
         padding: .zero,
         onPressed: () async {
+          HapticFeedback.heavyImpact().ignore();
           widget.onNewCameraSelected(
             cameras[widget.isRearCameraSelected ? 1 : 0],
           );
