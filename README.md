@@ -1,9 +1,3 @@
-
-# 🌟 New release: v1.9.1 🌟
-### Take a look at what has changed [here](https://github.com/iakdis/librecamera/releases/tag/v1.9.1)!
-
-<br><br>
-
 <p>
   <a href="https://github.com/iakdis/librecamera/releases/latest" alt="Release">
   <img src="https://img.shields.io/github/v/release/iakdis/librecamera?style=flat-square" /></a>
@@ -98,7 +92,7 @@ You can download Libre Camera on [F-Droid](https://f-droid.org/packages/com.iakm
 
 - Take pictures and record videos with your rear and front camera
 - Privacy: No EXIF metadata saved by default when taking pictures (enable optionally in settings) – without ads, tracking, or unnecessary permissions
-- Themes: Material Design with a Dark, Light or system theme
+- Themes: Material Design with a Dark, Light, Black or system theme
 - Multiple languages supported – [Contribute translating your language!](#translate)
 - Zoom: Zoom with 2 fingers or with an optional slider
 - Timer/Delay: Select a photo capture timer to get ready for your photo
@@ -106,8 +100,9 @@ You can download Libre Camera on [F-Droid](https://f-droid.org/packages/com.iakm
 - Focus: Auto focus, locked focus and manual focus by touching the screen
 - Exposure: Auto exposure, locked exposure and manual exposure with an optional slider
 - Image compression: Set the compression amount in the settings
-- Formats: Switch between 3 camera formats (JPEG, PNG, WebP)
+- Formats: Switch between 4 compression formats (JPEG, PNG, WebP, HEIC)
 - Resolutions: Switch between different camera resolutions
+- FPS: Switch between different video frame rates
 - Save location: Choose your preferred save location
 - Small size (<20 MB)
 - Customizable: Open the settings to customize the app to your liking!
@@ -170,7 +165,6 @@ Package | Use case
 [dynamic_color](https://pub.dev/packages/dynamic_color) | Getting the Android Material 3 dynamic color
 [file_picker](https://pub.dev/packages/file_picker) | Picking the save path
 [flutter](https://pub.dev/packages/flutter) | Flutter SDK
-[flutter_android_volume_keydown](https://pub.dev/packages/flutter/flutter_android_volume_keydown) | Capture photo/video on volume button press
 [flutter_image_compress](https://pub.dev/packages/flutter_image_compress) | Image compression and EXIF metadata removal
 [flutter_localizations](https://pub.dev/packages/flutter_localizations) | Localization
 [image](https://pub.dev/packages/image) | Ability to flip captured photos horizontally
@@ -184,7 +178,7 @@ Package | Use case
 [smooth_page_indicator](https://pub.dev/packages/smooth_page_indicator) | Page indicator in the onboarding screen
 [url_launcher](https://pub.dev/packages/url_launcher) | Open the GitHub repository link inside the about menu
 [video_player](https://pub.dev/packages/video_player) | Displaying a captured video inside the thumbnail
-[wakelock](https://pub.dev/packages/wakelock) | Keeping the display always on
+[wakelock_plus](https://pub.dev/packages/wakelock_plus) | Keeping the display always on
 
 # License
 
