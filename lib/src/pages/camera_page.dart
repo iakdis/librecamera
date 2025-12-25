@@ -82,8 +82,8 @@ class _CameraPageState extends State<CameraPage>
   //Photo capture timer
   final Stopwatch _timerStopwatch = Stopwatch();
 
-  //Orientation
-  DateTime _timeOfLastChange = DateTime.now();
+  // Orientation
+  bool _orientationLockedDuringRecording = false;
 
   //Volume buttons
   StreamSubscription<VolumeButton>? volumeSubscription;
@@ -112,10 +112,6 @@ class _CameraPageState extends State<CameraPage>
 
     /*final methodChannel = AndroidMethodChannel();
     methodChannel.disableIntentCamera(disable: true);*/
-
-    if (!Preferences.getIsCaptureOrientationLocked()) {
-      _subscribeOrientationChangeStream();
-    }
 
     unawaited(
       onNewCameraSelected(
@@ -150,6 +146,12 @@ class _CameraPageState extends State<CameraPage>
 
     // App state changed before we got the chance to initialize.
     if (cameraController == null || !cameraController.value.isInitialized) {
+      return;
+    }
+
+    // Pause video recording if in progress.
+    if (cameraController.value.isRecordingVideo) {
+      unawaited(pauseVideoRecording());
       return;
     }
 
@@ -210,43 +212,6 @@ class _CameraPageState extends State<CameraPage>
       });
     });
   }*/
-
-  void _subscribeOrientationChangeStream() {
-    final nativeDeviceOrientationCommunicator =
-        NativeDeviceOrientationCommunicator();
-
-    nativeDeviceOrientationCommunicator
-        .onOrientationChanged(
-          useSensor: true,
-        )
-        .listen((event) {
-          final orientation = nativeDeviceOrientationCommunicator.orientation(
-            useSensor: true,
-          );
-
-          _timeOfLastChange = DateTime.now();
-          Future.delayed(const Duration(milliseconds: 500), () async {
-            if (DateTime.now().difference(_timeOfLastChange).inMilliseconds >
-                500) {
-              if (await orientation == NativeDeviceOrientation.portraitUp) {
-                await SystemChrome.setPreferredOrientations([
-                  DeviceOrientation.portraitUp,
-                ]);
-              } else if (await orientation ==
-                  NativeDeviceOrientation.landscapeLeft) {
-                await SystemChrome.setPreferredOrientations([
-                  DeviceOrientation.landscapeLeft,
-                ]);
-              } else if (await orientation ==
-                  NativeDeviceOrientation.landscapeRight) {
-                await SystemChrome.setPreferredOrientations([
-                  DeviceOrientation.landscapeRight,
-                ]);
-              }
-            }
-          });
-        });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -1120,6 +1085,27 @@ class _CameraPageState extends State<CameraPage>
     }
 
     try {
+      if (!Preferences.getIsCaptureOrientationLocked()) {
+        // Lock orientation to avoid rotation during recording.
+        final nativeOrientation = await NativeDeviceOrientationCommunicator()
+            .orientation(
+              useSensor: true,
+            );
+        final lockOrientation = switch (nativeOrientation) {
+          .portraitUp => DeviceOrientation.portraitUp,
+          .portraitDown => DeviceOrientation.portraitDown,
+          .landscapeLeft => DeviceOrientation.landscapeLeft,
+          .landscapeRight => DeviceOrientation.landscapeRight,
+          .unknown =>
+            MediaQuery.orientationOf(context) == .portrait
+                ? DeviceOrientation.portraitUp
+                : DeviceOrientation.landscapeLeft,
+        };
+
+        await SystemChrome.setPreferredOrientations([lockOrientation]);
+        _orientationLockedDuringRecording = true;
+      }
+
       await cameraController.startVideoRecording();
     } on CameraException catch (e) {
       if (kDebugMode) {
@@ -1143,7 +1129,16 @@ class _CameraPageState extends State<CameraPage>
     }
 
     try {
-      return cameraController.stopVideoRecording();
+      final file = await cameraController.stopVideoRecording();
+
+      if (!Preferences.getIsCaptureOrientationLocked()) {
+        // Restore orientation.
+        if (_orientationLockedDuringRecording) {
+          await SystemChrome.setPreferredOrientations(DeviceOrientation.values);
+          _orientationLockedDuringRecording = false;
+        }
+      }
+      return file;
     } on CameraException catch (e) {
       if (kDebugMode) {
         print('$e: ${e.description}');
