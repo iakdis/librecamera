@@ -1,0 +1,6 @@
+* nýtt: Hnappur til að endurstilla aðdrátt, stillingar á rammatíðni myndskeiða, svörun með titringi, HEIC-þjöppun
+* endurbætt: Minnkað ýmislegt hökt í myndavél, bætt kynning fyrir nýbyrjaða, hegðun stillinga og stöðustiku/flakkstiku
+* lagfært: Lagfæringar fyrir nýrri útgáfur Android, stuðningur við einlituð tákn
+* l10n: Bætt við ýmsum tungumálum (ar, ca, el, eo, hu, ia, is, ko, lv, ml, nl, nn, sat, sl, ta, zh_Hant)
+
+Lestu meira um þetta í tilkynningunni á GitHub!
