@@ -45,7 +45,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get enableCompression_description =>
-      'Képek mentésekor a tárhely megtakarítása érdekében tömörítést használjon';
+      'A képek mentésekor a tárhelytakarékosság érdekében használjon tömörítést.';
 
   @override
   String get enableExposureSlider => 'Expozíciós csúszka engedélyezése';
@@ -118,7 +118,7 @@ class AppLocalizationsHu extends AppLocalizations {
       'Módosítsa a kép tömörítési formátumát (alapértelmezett: JPEG/JPG)';
 
   @override
-  String get fps => 'Videó képkockasebesség';
+  String get fps => 'Videó képkockasebessége';
 
   @override
   String get fps_description =>
@@ -128,13 +128,14 @@ class AppLocalizationsHu extends AppLocalizations {
   String get getStarted => 'Kezdjen hozzá';
 
   @override
-  String get giveCameraPermission => 'Kamera engedély megadása';
+  String get giveCameraPermission => 'Kamerahasználat engedélyének megadása';
 
   @override
-  String get giveMicrophonePermission => 'Mikrofon engedély megadása';
+  String get giveMicrophonePermission =>
+      'Mikrofonhasznáat engedélyének megadása';
 
   @override
-  String get giveStoragePermission => 'Tárhely engedély megadása';
+  String get giveStoragePermission => 'Tárhelyhozzáférés engedélyének megadása';
 
   @override
   String get imageCompressionQuality => 'Képtömörítés minősége';
@@ -262,7 +263,7 @@ class AppLocalizationsHu extends AppLocalizations {
       'Mindig az első kamerát használja az alkalmazás megnyitásakor';
 
   @override
-  String get stopVideo => 'Leállít';
+  String get stopVideo => 'Felvétel leállítása';
 
   @override
   String get switchToPictureMode => 'Fényképezésmódba váltás';
