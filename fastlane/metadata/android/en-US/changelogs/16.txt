@@ -1,0 +1,7 @@
+
+* new: Add zoom reset button, video FPS settings, haptic feedback, HEIC compression
+* improved: Reduce various capture stutters, refined onboarding, settings and status/navigation bar behavior
+* fixed: Fixes for newer Android versions, support Monochrome icon
+* l10n: Add various languages (ar, ca, el, eo, hu, ia, is, ko, lv, ml, nl, nn, sat, sl, ta, zh_Hant)
+
+Read about all the changes in the GitHub releases announcement!

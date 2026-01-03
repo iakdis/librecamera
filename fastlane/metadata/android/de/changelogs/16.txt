@@ -1,0 +1,6 @@
+* new: Knopf fürs Zoom‑Zurücksetzen, Video‑FPS‑Einstellungen, haptisches Feedback, HEIC‑Kompression
+* improved: Verschiedene Ruckler reduziert, überarbeitetes Onboarding, Einstellungen und Status-/Navigationsleisten
+* fixed: Fehlerbehebungen für neuere Android‑Versionen, Unterstützung für monochromes Icon
+* l10n: Verschiedene Sprachen hinzugefügt (ar, ca, el, eo, hu, ia, is, ko, lv, ml, nl, nn, sat, sl, ta, zh_Hant)
+
+Alle Änderungen sind in der GitHub‑Releases‑Ankündigung zu finden!

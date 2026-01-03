@@ -1,0 +1,6 @@
+* új: Nagyítás visszaállítás gomb, videó FPS beállítások, haptikus visszajelzés, HEIC tömörítés hozzáadása
+* javítás: A különböző rögzítési akadozások csökkentése, finomított bevezetés, beállítások és állapot/navigációs sáv viselkedése
+* javítások: Javítások az újabb Android verziókhoz, monokróm ikon támogatása
+* l10n: Különböző nyelvek hozzáadása (ar, ca, el, eo, hu, ia, is, ko, lv, ml, nl, nn, sat, sl, ta, zh_Hant)
+
+Olvassa el az összes változást a GitHub kiadási közleményében!

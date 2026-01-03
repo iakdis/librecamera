@@ -1,0 +1,6 @@
+* novidade: engadido botón para restablecer o aumento, axuste FPS do vídeo, resposta háptica, compresión HEIC
+* melloras: redución de problemas ao disparar, melloras na benvida, comportamento e axustes de estado e barra de navegación
+* arranxo: adaptación a novas versións de Android, compatible con icona monocroma
+* l10n: novos idiomas (ar, ca, el, eo, hu, ia, is, ko, lv, ml, nl, nn, sat, sl, ta, zh_Hant)
+
+Podes ver todos os cambios no anuncio da versión en GitHub!

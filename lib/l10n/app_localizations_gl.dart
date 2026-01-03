@@ -44,7 +44,7 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get enableCompression_description =>
-      'Utilizar compresión ao gardar imaxes para aforrar espazo de almacenamento';
+      'Utilizar compresión ao gardar imaxes para aforrar espazo na almacenaxe.';
 
   @override
   String get enableExposureSlider => 'Activar barra de exposición';
