@@ -1,0 +1,25 @@
+Libre Camera est une application libre et open source pour prendre des photos et enregistrer des vidéos écrite en Dart avec Flutter.
+
+Si vous avez besoin d'une application open source de caméra avec de nombreuses fonctionnalités, cette appli est faite pour vous. Du flash et du contrôle d'exposition et de la mise au point, au changement de thèmes, de langue et de taux de compression - cette application devrait vous satisfaire. Et si ce n'était pas le cas, n'hésitez pas à ouvrir un ticket sur  <a href="https://github.com/iakdis/librecamera">GitHub</a> pour proposer une fonctionnalité. Ci-dessous, vous avez la liste de l'ensemble des fonctionnalités, avec d'autres à prévoir dans le futur !
+
+<b>Fonctionnalités</b>
+	* Prendre des photos et enregistrer des vidéos depuis votre caméra arrière ou frontale
+	* Confidentialité : Aucune métadonnée EXIF n'est enregistrée par défaut lorsque vous prenez des photos (activation optionnelle dans les paramètres) - pas de publicité, de trackers, ou de permissions non nécessaires
+	* Thèmes :  Material Design avec mode sombre, clair ou système
+	* Plusieurs langues supportées – Contribuez à traduire votre langue !
+	* Zoom : Zoomez avec 2 doigts ou avec un curseur optionnel
+	* Compte à rebours : Sélectionnez un compte à rebours avant de prendre une photo pour avoir le temps de vous préparer
+	* Flash : Activé à la capture, automatique, désactivé ou toujours activé
+	* Mise au point : Mise au point automatique, verrouillée ou manuelle en touchant l'écran
+	* Exposition : Exposition automatique, verrouillée ou manuelle via un curseur optionnel
+	* Compression d'image : Réglez le taux de compression dans les réglages
+	* Formats : Choisissez entre 3 formats d'image (JPEG, PNG, WebP)
+	* Résolutions : Choisissez entre différentes résolutions de la caméra
+	* Emplacement de stockage : Choisissez votre emplacement préféré
+	* Petite taille d'environ 21 Mo
+	* Personnalisation : Ouvrez les paramètres pour personnaliser l'application selon vos goûts !
+	
+<b>Contact</b>
+Consultez le dépôt GitHub, qui comprend la feuille de route : <a href="https://github.com/iakdis/librecamera">https://github.com/iakdis/librecamera</a>
+
+Si vous trouvez un bug ou avez une proposition de fonctionnalité, n'hésitez pas à écrire un ticket sur GitHub : <a href="https://github.com/iakdis/librecamera/issues">https://github.com/iakdis/librecamera/issues</a>

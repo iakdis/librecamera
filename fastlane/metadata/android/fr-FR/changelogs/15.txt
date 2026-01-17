@@ -1,0 +1,6 @@
+* nouveautés : Bouton reset du zoom, réglages FPS (vidéo), retour haptique, compression HEIC
+* améliorations : Réduction de saccade, affinement de l'accueil, des paramètres et barres d'état et de navigation
+* corrections : Correctifs pour les versions récentes d'Android, prise en charge du logo monochrome
+* langues : Ajout de plusieurs langues (ar, ca, el, eo, hu, ia, is, ko, lv, ml, nl, nn, sat, sl, ta, zh_Hant)
+
+Retrouvez le détail de tous les changements dans l'annonce de version sur GitHub !

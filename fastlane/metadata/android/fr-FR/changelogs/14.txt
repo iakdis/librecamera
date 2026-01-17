@@ -1,0 +1,3 @@
+langues : Ajout de la traduction indonésienne
+
+code : Utilisation des informations du paquet pour obtenir le numéro de version au lieu d'un texte manuel
