@@ -1,0 +1,49 @@
+Libre Camera on ilmainen ja avoimen lähdekoodin kamerasovellus, jolla voi ottaa kuvia ja tallentaa videoita. Sovellus on kirjoitettu Flutterilla ja Dartilla.
+
+
+
+Jos tarvitset avoimen lähdekoodin kamerasovellusta, jossa on useita ominaisuuksia, tämä sovellus on sinua varten. Taskulampusta, tarkennus- ja valotuksen säätömahdollisuuksista aina teemojen, kielten ja pakkausmäärän vaihtamiseen — sovellus kattaa nämä. Jos jokin puuttuu, avaa issue GitHubissa (https://github.com/iakdis/librecamera) ja pyydä ominaisuutta. Alta löytyy lista ominaisuuksista; lisää on tulossa!
+
+
+
+<b>Ominaisuudet</b>
+
+    * Ota kuvia ja tallenna videoita takaa- ja etukameralla
+
+    * Yksityisyys: EXIF-metatietoja ei tallenneta kuvaamisen yhteydessä oletuksena (voi ottaa käyttöön asetuksista) — ilman mainoksia, seurantaa tai tarpeettomia oikeuksia
+
+    * Teemat: Material Design -tyyli, tumma, vaalea tai järjestelmän teema
+
+    * Useita kieliä tuettuna — auta kääntämällä oma kielesi!
+
+    * Zoom: Sormien nipistyszoomaus tai valinnainen liukusäädin
+
+    * Ajastin/viive: Valitse valokuvausajastin valmistautumista varten
+
+    * Salaman tilat: Salama päälle kuvaushetkellä, pois, automaatti, aina päällä
+
+    * Tarkennus: Autom. tarkennus, lukittu tarkennus ja manuaalinen tarkennus napauttamalla näyttöä
+
+    * Valotus: Autom. valotus, lukittu valotus ja manuaalinen valotus valinnaisella liukusäätimellä
+
+    * Kuvapakkaus: Aseta pakkausmäärä asetuksissa
+
+    * Muodot: Vaihda kolmen kuvaformaatin välillä (JPEG, PNG, WebP)
+
+    * Resoluutio: Vaihda eri kameran resoluutioiden välillä
+
+    * Tallennussijainti: Valitse haluamasi tallennuspaikka
+
+    * Pieni koko, noin 21 Mt
+
+    * Muokattavissa: Avaa asetukset ja mukauta sovellusta mielesi mukaan!
+
+
+
+<b>Yhteystiedot</b>
+
+Tutustu GitHub-repositorioon, joka sisältää myös tiekartan: <a href="https://github.com/iakdis/librecamera">https://github.com/iakdis/librecamera</a>
+
+
+
+Löysitkö bugin tai haluatko ominaisuuspyynnön? Avaa issue täällä: <a href="https://github.com/iakdis/librecamera/issues">https://github.com/iakdis/librecamera/issues</a>
