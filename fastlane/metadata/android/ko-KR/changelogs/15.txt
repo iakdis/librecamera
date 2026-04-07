@@ -1,0 +1,6 @@
+* 신규: 줌 리셋 버튼, 비디오 FPS 설정, 햅틱 피드백, HEIC 압축 추가
+* 개선: 캡처 끊김 현상 감소, 온보딩 및 설정, 스테이터스/네비게이션 바 행동 개선
+* 수정: 최신 Android 버전 대응, Monochrome 아이콘 지원
+* l10n: 언어 추가 (ar, ca, el, eo, hu, ia, is, ko, lv, ml, nl, nn, sat, sl, ta, zh_Hant)
+
+GitHub 릴리즈 공지에서 전체 변경사항을 확인하세요!
