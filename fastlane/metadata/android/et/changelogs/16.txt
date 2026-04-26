@@ -1,0 +1,6 @@
+* uus: Lisandus suumi lähtestamise nupp, video kaadrisageduse valik, haptiline tagasiside, pakkimine HEIC koodekiga
+* täiendus: Vähendatud on erinevad pildikatkestused, täiustatud sissejuhatav vaade, seadistused ning oleku- ja liikumisribade toimimine
+* parandis: Uuemate Androidi versioonidega seotud vead, mustvalgete ikoonide tugi
+* l10n: Lisandusid uued keeled (ar, ca, el, eo, hu, ia, is, ko, lv, ml, nl, nn, sat, sl, ta, zh_Hant)
+
+Kogu muudatuste logi leidub GitHubis!
