@@ -1,0 +1,25 @@
+Libre Camera on Flutteris ja Dartis kirjutatud tasuta ja avatud lähtekoodiga kaamerarakendus, mis võimaldab pildistada ja videoid salvestada.
+
+Kui vajad avatud lähtekoodiga ja paljude võimalustega kaamerarakendust, siis see rakendus peaks olema just sinule. Alates välklambi, fookuse ja särituse juhtimisest kuni kujunduste, keelevalikute ja pakkimise taseme muutmiseni – see rakendus peaks katma kõik sinu vajadused. Ja kui mitte, siis võid vabalt koostada <a href="https://github.com/iakdis/librecamera">GitHubis</a> veateate ja paluda uue funktsionaalsuse lisamist. Allpool on loetelu omadustest, millele tulevikus lisandub veel nii mõndagi!
+
+<b>Funktsionaalsus</b>
+* Pildista ja jäädvusta videoid nii tagumise kui ka esikaameraga
+* Privaatsus: Pildistamisel ei salvesta vaikimisi EXIF metaandmeid (saad seada seadistustest lubada), lisaks pole reklaame, jälgimist või tarbetute õiguste eeldamist
+* Kujundused: Material Designi kujunduskeel tumeda, heleda või süsteemi kujundustega
+* Mitmete keelte tugi ja saad aidata tõlkida oma keelde!
+* Suum: Suumi kahe sõrmega või valikulise liugurnupuga
+* Taimer/viivitus: Fotoks valmistumiseks vali pildistamise taimer
+* Välklambi režiimid: Sisselülitamine pildistamiseks, väljas, automaatne, alati sees
+* Fookus: Automaatne fookus, lukustatud fookus ja käsitsi fookus ekraani puudutamisega
+* Säritus: Automaatne säritus, lukustatud säritus ja käsitsi säritus valikulise liugurnupuga
+* Piltide pakkimine: Seadistustes saad määrata pakkimise taseme
+* Vormingud: Saad valida kolme failivormingu vahel (JPEG, PNG, WebP)
+* Eraldusvõime: Saad valida erinevate kaamera eraldusvõimete vahel
+* Salvestuskoht: Saad valida oma eelistatud salvestuskoha
+* Väike paigalduse maht: umbes 21MB
+* Kohandatav: Ava seadistused ja kohanda rakendust oma maitse järgi!
+
+<b>Kontakt</b>
+Uuri lähtekoodi hoidlast GitHubis, mis sisaldab ka meie arendusplaani: <a href="https://github.com/iakdis/librecamera">https://github.com/iakdis/librecamera</a>
+
+Kui leidsid vea või soovid uut funktsionaalsust, võid koostada GitHubis veateate: <a href="https://github.com/iakdis/librecamera/issues">https://github.com/iakdis/librecamera/issues</a>
