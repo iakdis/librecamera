@@ -30,5 +30,47 @@
     "giveCameraPermission": "Anna õigused kaamera kasutamiseks",
     "giveMicrophonePermission": "Anna õigused mikrofoni kasutamiseks",
     "giveStoragePermission": "Anna õigused andmeruumi kasutamiseks",
-    "imageCompressionQuality": "Piltide pakkimise kvaliteet"
+    "imageCompressionQuality": "Piltide pakkimise kvaliteet",
+    "imageCompressionQuality_description": "Väiksem pakkimise kvaliteet tähendab väiksemaid faile, kuid kehvemat kvaliteeti ning vastavalt väiksem pakkimise kvaliteet tähendab suuremaid faile, kuid paremat kvaliteeti",
+    "keepEXIFMetadata": "Salvesta EXIF-andmed",
+    "keepEXIFMetadata_description": "Salvesta pildifaili EXIF-metaandmed nagu telefonimudel, koordinaadid, jmt.",
+    "language": "Keel",
+    "language_description": "Vali rakenduse keel",
+    "leftHandedMode": "Režiim kasutamiseks vasaku käega",
+    "leftHandedMode_description": "Sisselülitamisel muutub juhtnuppude asukoht rõhtvaates sobilikuks kasutamiseks vasaku käega",
+    "less": "NÄITA VÄHEM",
+    "license": "Rakenduse lähtekood on litsentseeritud GPLv3 alusel ja avaldatud GitHubis. Kui märkad vigu või sooviksid lisada uut funktsionaalsust, siis koosta vastav teade GitHubis. Tänud!",
+    "lockCaptureOrientation": "Lukusta vaade [EELDAB UUESTI KÄIVITAMIST]",
+    "lockCaptureOrientation_description": "Vaade lukustub püstvaatena ega sõltu sellest, kas vaate automaatne pööramine on lubatud või mitte",
+    "lockedSmall": "LUKUS",
+    "more": "VEEL",
+    "next": "Edasi",
+    "off": "Väljas",
+    "onboardingScreen": "Tervitusvaade",
+    "onboardingScreen_description": "Käivita rakenduse tervitusvaade",
+    "openCapturedPictureOrVideo": "Ava salvestatud pilt või video",
+    "pauseVideo": "Peata video",
+    "permissionsTitle": "ÕIGUSED",
+    "permissionsTitle_description": "Rakenduse toimimiseks pead lubama tal kasutada kaamerat ja andmeruumi.",
+    "reset": "Lähtesta",
+    "resolution": "Eraldusvõime",
+    "resolution_description": "Muuda kaamera eraldusvõimet",
+    "resumeVideo": "Jätka videot",
+    "savePath": "Salvestuse asukoht",
+    "savePathTitle": "SALVESTUSE ASUKOHT",
+    "savePathTitle_description": "Vali salvestuse asukoht. Androidis on see tavaliselt DCIM-kaust.",
+    "savePath_description": "Praegune asukoht: {path}",
+    "@savePath_description": {
+        "placeholders": {
+            "path": {
+                "type": "String"
+            }
+        }
+    },
+    "saving": "SALVESTAN",
+    "selectPath": "Vali asukoht",
+    "settings": "Seadistused",
+    "shutterSound": "Kasuta katiku heli",
+    "shutterSound_description": "Anna pildistamise hetkest märku traditsioonilise katiku heliga",
+    "startRecordingVideo": "Alusta video salvestamist"
 }
