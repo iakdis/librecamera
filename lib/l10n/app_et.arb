@@ -72,5 +72,39 @@
     "settings": "Seadistused",
     "shutterSound": "Kasuta katiku heli",
     "shutterSound_description": "Anna pildistamise hetkest märku traditsioonilise katiku heliga",
-    "startRecordingVideo": "Alusta video salvestamist"
+    "startRecordingVideo": "Alusta video salvestamist",
+    "systemLanguage": "Süsteemi keel",
+    "takePicture": "Pildista",
+    "theme": "Kujundus",
+    "themeBlack": "Must kujundus",
+    "themeDark": "Tume kujundus",
+    "themeLight": "Hele kujundus",
+    "themeSystem": "Süsteemi kujundus",
+    "theme_description": "Muuda rakenduse kujundust",
+    "timer": "Taimer",
+    "useMaterialYou": "Kasuta Material You kujunduskeelt",
+    "useMaterialYou_description": "Kasuta tänapäevast Material You kujunduskeelt. Kui valik pole aktiivne, siis on kasutusel vana Material kujundusekeel",
+    "version": "Versioon {versionNumber}",
+    "@version": {
+        "placeholders": {
+            "versionNumber": {
+                "type": "String"
+            }
+        }
+    },
+    "welcomeTitle": "TERE TULEMAST",
+    "welcomeTitle_description": "Õnnitlused! Võidki asuda kasutama seda kaamerarakendust.",
+    "enableZoomSlider": "Kasuta suumi liugurnuppu",
+    "enableZoomSlider_description": "Selle eelistusega kuvatakse pildistusvaates liugur, millega saad suumi kohendada",
+    "flipToFrontCamera": "Vaheta kasutama eeskaamerat",
+    "flipToRearCamera": "Vaheta kasutama tagakaamerat",
+    "focusMode": "Fookusrežiim",
+    "startWithFrontCamera": "Alusta eeskaameraga",
+    "startWithFrontCamera_description": "Rakenduse käivitamisel kasuta alati eeskaamerat",
+    "stopVideo": "Lõpeta video",
+    "switchToPictureMode": "Kasuta pildistusrežiimi",
+    "switchToVideoRecordingMode": "Kasuta videosalvestusrežiimi",
+    "exposureMode": "Säritusrežiim",
+    "enableModeRow": "Näita fookuse ja särituse juhtimisriba",
+    "enableModeRow_description": "Näita salvestusvaate alumises ääres riba, kust saad juhtida fookust ja säritust"
 }
