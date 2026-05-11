@@ -1,0 +1,6 @@
+* baru: Menambahkan tombol reset zoom, pengaturan FPS video, umpan balik haptik, dan kompresi HEIC
+* ditingkatkan: Mengurangi berbagai stutter saat pengambilan gambar, menyempurnakan onboarding, serta perilaku bilah status/navigasi dan pengaturan
+* diperbaiki: Perbaikan untuk versi Android terbaru, mendukung ikon Monochrome
+* l10n: Menambahkan berbagai bahasa (ar, ca, el, eo, hu, ia, is, ko, lv, ml, nl, nn, sat, sl, ta, zh_Hant)
+
+Baca semua perubahan di pengumuman rilis GitHub!
