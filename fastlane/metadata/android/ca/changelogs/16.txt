@@ -1,0 +1,6 @@
+* nou: Botó de reinici del zoom, configuració dels FPS, resposta hàptica, compressió HEIC
+* millorat: Reducció de salts de captura, millora d'integració de la configuració i el comportament de la barra d'estat/navegació
+* corregit: Correccions en versions més noves d'Android, icona Monocrom
+* l10n: S'han afegit idiomes nous (ar, ca, el, eo, hu, ia, is, ko, lv, ml, nl, nn, sat, sl, ta, zh_Hant)
+
+Teniu el llistat de canvis a l'anunci de llançaments del GitHub!
