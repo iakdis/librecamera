@@ -44,7 +44,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get enableCompression_description =>
-      '이미지를 저장할 때 압축을 사용하여 저장 공간을 절약합니다';
+      '이미지를 저장할 때 압축을 사용하여 저장 공간을 절약합니다.';
 
   @override
   String get enableExposureSlider => '노출 슬라이더 활성화';

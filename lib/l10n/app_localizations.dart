@@ -15,7 +15,9 @@ import 'app_localizations_el.dart';
 import 'app_localizations_en.dart';
 import 'app_localizations_eo.dart';
 import 'app_localizations_es.dart';
+import 'app_localizations_et.dart';
 import 'app_localizations_eu.dart';
+import 'app_localizations_fi.dart';
 import 'app_localizations_fr.dart';
 import 'app_localizations_gl.dart';
 import 'app_localizations_grc.dart';
@@ -41,6 +43,7 @@ import 'app_localizations_sl.dart';
 import 'app_localizations_ta.dart';
 import 'app_localizations_tr.dart';
 import 'app_localizations_uk.dart';
+import 'app_localizations_vi.dart';
 import 'app_localizations_zh.dart';
 
 // ignore_for_file: type=lint
@@ -139,7 +142,9 @@ abstract class AppLocalizations {
     Locale('en'),
     Locale('eo'),
     Locale('es'),
+    Locale('et'),
     Locale('eu'),
+    Locale('fi'),
     Locale('fr'),
     Locale('gl'),
     Locale('grc'),
@@ -166,6 +171,7 @@ abstract class AppLocalizations {
     Locale('ta'),
     Locale('tr'),
     Locale('uk'),
+    Locale('vi'),
     Locale('zh'),
     Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hant'),
   ];
@@ -756,7 +762,9 @@ class _AppLocalizationsDelegate
     'en',
     'eo',
     'es',
+    'et',
     'eu',
+    'fi',
     'fr',
     'gl',
     'grc',
@@ -782,6 +790,7 @@ class _AppLocalizationsDelegate
     'ta',
     'tr',
     'uk',
+    'vi',
     'zh',
   ].contains(locale.languageCode);
 
@@ -836,8 +845,12 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsEo();
     case 'es':
       return AppLocalizationsEs();
+    case 'et':
+      return AppLocalizationsEt();
     case 'eu':
       return AppLocalizationsEu();
+    case 'fi':
+      return AppLocalizationsFi();
     case 'fr':
       return AppLocalizationsFr();
     case 'gl':
@@ -888,6 +901,8 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsTr();
     case 'uk':
       return AppLocalizationsUk();
+    case 'vi':
+      return AppLocalizationsVi();
     case 'zh':
       return AppLocalizationsZh();
   }
