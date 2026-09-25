@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 class Localization {
   static final supportedLocales = [
@@ -13,9 +14,12 @@ class Localization {
     const Locale('el', ''),
     const Locale('eo', ''),
     const Locale('es', ''),
+    const Locale('et', ''),
     const Locale('eu', ''),
+    const Locale('fi', ''),
     const Locale('fr', ''),
     const Locale('gl', ''),
+    const Locale('grc', ''),
     const Locale('hu', ''),
     const Locale('ia', ''),
     const Locale('id', ''),
@@ -39,6 +43,7 @@ class Localization {
     const Locale('ta', ''),
     const Locale('tr', ''),
     const Locale('uk', ''),
+    const Locale('vi', ''),
     const Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hans'),
     const Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hant'),
   ];
@@ -63,12 +68,18 @@ class Localization {
         return 'Esperanto';
       case 'es':
         return 'Español';
+      case 'et':
+        return 'Eesti';
       case 'eu':
         return 'Euskara';
+      case 'fi':
+        return 'Suomi';
       case 'fr':
         return 'Français';
       case 'gl':
         return 'Galego';
+      case 'grc':
+        return 'Ἀρχαία ἑλληνικὴ';
       case 'hu':
         return 'Magyar';
       case 'ia':
@@ -117,6 +128,8 @@ class Localization {
         return 'Türkçe';
       case 'uk':
         return 'Українська';
+      case 'vi':
+        return 'Tiếng Việt';
       case 'zh':
         if (locale.scriptCode == 'Hant' || locale.countryCode == 'Hant') {
           return '中文 (繁體)';
@@ -135,7 +148,7 @@ class FallbackMaterialLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) {
-    return ['sat', 'ia', 'eo', 'nn'].contains(locale.languageCode);
+    return !GlobalMaterialLocalizations.delegate.isSupported(locale);
   }
 
   @override
