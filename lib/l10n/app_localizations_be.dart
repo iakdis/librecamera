@@ -9,7 +9,7 @@ class AppLocalizationsBe extends AppLocalizations {
   AppLocalizationsBe([String locale = 'be']) : super(locale);
 
   @override
-  String get appSettings => 'НАЛАДЫ ДАДАТКА';
+  String get appSettings => 'НАЛАДЫ ПРАГРАМЫ';
 
   @override
   String get autoSmall => 'АЎТАМАТЫЧНА';
@@ -21,11 +21,11 @@ class AppLocalizationsBe extends AppLocalizations {
   String get cameraBehaviour => 'ПАВОДЗІНЫ КАМЕРЫ';
 
   @override
-  String get captureAtVolumePress => 'Здымаць калі націснута кнопка гуку';
+  String get captureAtVolumePress => 'Здымаць пры націску кнопкі гучнасці';
 
   @override
   String get captureAtVolumePress_description =>
-      'Калі ўключана, націсканне кнопкі гуку будзе здямаць выяву або запісваць відэа';
+      'Калі ўключана, то націск на кнопку гучнасці зробіць здымак або запіша відэа';
 
   @override
   String get choosePath => 'Выбраць шлях';
@@ -34,67 +34,68 @@ class AppLocalizationsBe extends AppLocalizations {
   String get defaultExposure => 'Прадвызначаная экспазіцыя';
 
   @override
-  String get disableAudio => 'Адключыць аўдыё';
+  String get disableAudio => 'Адключыць аўдыя';
 
   @override
-  String get disableAudio_description => 'Адключае аўдыё пад час запісу відэа';
+  String get disableAudio_description => 'Адключае аўдыя пры запісе відэа';
 
   @override
   String get enableCompression => 'Уключыць сціск';
 
   @override
   String get enableCompression_description =>
-      'Выкарыстоўваць сціск пры захаванні малюнкаў, каб эканоміць месца на дыску.';
+      'Выкарыстоўваць сціск пры захаванні відарысаў, каб эканоміць месца на дыску.';
 
   @override
-  String get enableExposureSlider => 'Уключыць экспазіцыйны прагортвальнік';
+  String get enableExposureSlider => 'Уключыць паўзунок экспазіцыі';
 
   @override
   String get enableExposureSlider_description =>
-      'Калі ўключана, прагортвальнік можна выкарыстоўваць каб ўласна экспазіцыянаваць камеру';
+      'Калі ўключана, то паўзунок можна выкарыстоўваць, каб уручную адрэгуляваць экспазіцыю';
 
   @override
-  String get enableMaximumScreenBrightness => 'Максімальная яркасць экрану';
+  String get enableMaximumScreenBrightness => 'Максімальная яркасць экрана';
 
   @override
   String get enableMaximumScreenBrightness_description =>
-      'Калі ўключана, яркасць экрану на вашай прыладзе будзе максімальнай';
+      'Калі ўключана, то яркасць экрана на вашай прыладзе будзе максімальнай';
 
   @override
-  String get enableModeRow => 'Уключыць факусіроўку і рэжым экспазіцыі';
+  String get enableModeRow => 'Уключыць радок рэжыму факусіроўку і экспазіцыі';
 
   @override
   String get enableModeRow_description =>
-      'Выкарыстоўвайце пераключальнік унізе каб пераключацца паміж экспазіцыйным і факусіровачным рэжымамі';
+      'Уключыце радок знізу, каб пераключаць рэжымы экспазіцыі і факусіроўкі';
 
   @override
-  String get enableZoomSlider => 'Уключыць прагортвальнік для набліжэння';
+  String get enableZoomSlider => 'Уключыць паўзунок маштабавання';
 
   @override
   String get enableZoomSlider_description =>
-      'Калі ўключана, прагортвальнік можна выкарыстоўваць каб ўласна набліжаць камеру';
+      'Калі ўключана, то з\'явіцца паўзунок для ручной рэгуліроўкі маштабу';
 
   @override
   String get exposureMode => 'Рэжым экспазіцыі';
 
   @override
-  String get exposureModeAuto => 'АУТАМАТЫЧНАЯ ЭКСПАЗІЦЫЯ';
+  String get exposureModeAuto => 'АЎТАМАТЫЧНАЯ ЭКСПАЗІЦЫЯ';
 
   @override
-  String get exposureModeLocked => 'ЗАБЛАКАВАЦЬ ЭКСПАЗІЦЫЮ';
+  String get exposureModeLocked => 'ЗАБЛАКІРАВАЦЬ ЭКСПАЗІЦЫЮ';
 
   @override
-  String get flashlight => 'Падсветка';
+  String get flashlight => 'Ліхтарык';
 
   @override
-  String get flipPhotosFrontCamera => 'Перавярнуць фота з франтальнай камеры';
+  String get flipPhotosFrontCamera =>
+      'Адлюстраваць фатаграфіі на пярэдняй камеры';
 
   @override
   String get flipPhotosFrontCamera_description =>
-      'Пераварачвае фота гарызантальна знятыя франтальнай камерай';
+      'Адлюстроўвае фатаграфіі гарызантальна, якія зроблены пярэдняй камерай';
 
   @override
-  String get flipToFrontCamera => 'Пераключыцца на франтальную камеру';
+  String get flipToFrontCamera => 'Пераключыцца на пярэднюю камеру';
 
   @override
   String get flipToRearCamera => 'Пераключыцца на заднюю камеру';
@@ -106,132 +107,132 @@ class AppLocalizationsBe extends AppLocalizations {
   String get focusModeAuto => 'АЎТАМАТЫЧНАЯ ФАКУСІРОЎКА';
 
   @override
-  String get focusModeLocked => 'ЗАБЛАКАВАНАЯ ФАКУСІРОЎКА';
+  String get focusModeLocked => 'ЗАБЛАКІРАВАНАЯ ФАКУСІРОЎКА';
 
   @override
-  String get format => 'Фармат выявы';
+  String get format => 'Фармат сціску відарыса';
 
   @override
   String get format_description =>
-      'Змяніць фармат выявы (па змаўчанні: JPEG/JPG)';
+      'Змяніць фармат сціску відарыса (прадвызначана: JPEG/JPG)';
 
   @override
   String get fps => 'Частата кадраў відэа';
 
   @override
   String get fps_description =>
-      'Высокія паказчыкі кадраў звыш 60 fps залежаць ад вашай прылады і абранага дазволу';
+      'Высокая частата кадраў (больш за 60 fps) залежыць ад вашай прылады і выбранай раздзяляльнасці';
 
   @override
-  String get getStarted => 'Давайце пачнем';
+  String get getStarted => 'Пачаць';
 
   @override
-  String get giveCameraPermission => 'Дазвольце выкарыстоўваць камеру';
+  String get giveCameraPermission => 'Дазволіць доступ да камеры';
 
   @override
-  String get giveMicrophonePermission => 'Дазвольце выкарыстоўваць мікрафон';
+  String get giveMicrophonePermission => 'Дазволіць доступ да мікрафона';
 
   @override
-  String get giveStoragePermission => 'Дазвольце выкарыстоўваць сховішча';
+  String get giveStoragePermission => 'Дазволіць выкарыстоўваць сховішча';
 
   @override
-  String get imageCompressionQuality => 'Якасць сціскання выявы';
+  String get imageCompressionQuality => 'Якасць сціску відарыса';
 
   @override
   String get imageCompressionQuality_description =>
-      'Нізкая якасць сціскання азначае маленькі размер за кошт нізкай якасцьі здымку, большая якасць сціскання азначае большы размер выявы з палепшанай якасццю';
+      'Больш нізкая якасць сціску азначае меншы памер, але горшую якасць, а больш высокая якасць сціску азначае большы памер, але лепшую якасць';
 
   @override
-  String get keepEXIFMetadata => 'Захоўваць метаданныя EXIF';
+  String get keepEXIFMetadata => 'Захоўваць метаданыя EXIF';
 
   @override
   String get keepEXIFMetadata_description =>
-      'Захоўвае метаданныя EXIF аб выяве такія як мадэль тэлефона, GPS месцазнаходжанне, і т. д.';
+      'Захоўваць такія метаданыя EXIF аб зробленых фатаграфіях, як мадэль прылады, каардынаты GPS і іншыя звесткі';
 
   @override
   String get language => 'Мова';
 
   @override
-  String get language_description => 'Змяніць мову дадатка';
+  String get language_description => 'Змяніць мову праграмы';
 
   @override
-  String get leftHandedMode => 'Рэжым для ляўшы';
+  String get leftHandedMode => 'Рэжым для левай рукі';
 
   @override
   String get leftHandedMode_description =>
-      'Калі ўключана, змяняе пазіцыю кнопак для кантралявання камерай у вертыкальнай арыентацыі для рэжыму ляўшы';
+      'Калі ўключана, то адбываецца пераключэнне пазіцыі кнопак кантролю камеры ў альбомнай арыентацыі для рэжыму левай рукі';
 
   @override
-  String get less => 'ПАКАЗВАЦЬ МЕНЕЙ';
+  String get less => 'ПАКАЗВАЦЬ МЕНШ';
 
   @override
   String get license =>
-      'Зыходны код знаходзіцца пад ліцэнзіяй GPLv3 на GitHub. Калі вы знайшлі праблемму або хочаце прапанаваць асаблівасць, калі ласка адкройце праблемму на GitHub. Дзякуй!';
+      'Зыходны код распаўсюджваецца па ліцэнзіі GPLv3 на GitHub. Калі вы сутыкнуліся з нейкай праблемай або хочаце запытаць функцыю, то для гэтага дастаткова адкрыць раздзел з праблемамі на GitHub. Дзякуй!';
 
   @override
   String get lockCaptureOrientation =>
-      'Заблакаваць аўтаматычную змену арыентацыі [ПАТРАБУЕЦЦА ПЕРАЗАПУСК]';
+      'Заблакіраваць аўтаматычную змену арыентацыі [ПАТРАБУЕЦЦА ПЕРАЗАПУСК]';
 
   @override
   String get lockCaptureOrientation_description =>
-      'Арыентацыя толькі ў вертыкальным рэжыме, не мае сэнсу калі ўключана аўтаматычная арыентацыя';
+      'Арыентацыя толькі ў кніжным рэжыме. Не дзейнічае, калі актываваны рэжым аўтаматычнай арыентацыі';
 
   @override
-  String get lockedSmall => 'ЗАБЛАКАВАНА';
+  String get lockedSmall => 'ЗАБЛАКІРАВАНА';
 
   @override
   String get more => 'БОЛЬШ';
 
   @override
-  String get next => 'Наперад';
+  String get next => 'Далей';
 
   @override
-  String get off => 'Адключыць';
+  String get off => 'Выключана';
 
   @override
-  String get onboardingScreen => 'Пачатковая старонка';
+  String get onboardingScreen => 'Першапачатковы экран';
 
   @override
-  String get onboardingScreen_description => 'Адчыняе пачатковую старонку';
+  String get onboardingScreen_description => 'Адкрывае першапачатковы экран';
 
   @override
-  String get openCapturedPictureOrVideo => 'Зрабіце фотаздымак або відэа';
+  String get openCapturedPictureOrVideo => 'Зрабіце фатаграфію або відэа';
 
   @override
-  String get pauseVideo => 'Прыпыніце запісваць відэа';
+  String get pauseVideo => 'Прыпыніць відэа';
 
   @override
   String get permissionsTitle => 'ДАЗВОЛЫ';
 
   @override
   String get permissionsTitle_description =>
-      'Каб выкарыстоўваць камеру, вам патрэбна даць дазволы да камеры і сховішча.';
+      'Неабходны дазвол на выкарыстанне сховішча камерай, каб выкарыстоўваць яе.';
 
   @override
   String get reset => 'Скід';
 
   @override
-  String get resolution => 'Разрозненне';
+  String get resolution => 'Раздзяляльнасць';
 
   @override
-  String get resolution_description => 'Змяніць разрозненне камеры';
+  String get resolution_description => 'Змяніць раздзяляльнасць камеры';
 
   @override
-  String get resumeVideo => 'Працягніце запісваць відэа';
+  String get resumeVideo => 'Узнавіць відэа';
 
   @override
   String get savePath => 'Шлях захавання';
 
   @override
-  String get savePathTitle => 'ШЛЯХ ЗАХОУВАННЯЎ';
+  String get savePathTitle => 'ШЛЯХ ЗАХАВАННЯ';
 
   @override
   String get savePathTitle_description =>
-      'Выбкрыце шлях захоўванняў. Звычайна, выявы захоўваюцца ў DCIM шляху ў Андройд.';
+      'Выберыце шлях захавання. Прадвызначанай папкай з\'яўляецца DCIM у Android.';
 
   @override
   String savePath_description(String path) {
-    return 'Выкарыстоўваецца шлях: $path';
+    return 'Бягучы шлях: $path';
   }
 
   @override
@@ -244,35 +245,36 @@ class AppLocalizationsBe extends AppLocalizations {
   String get settings => 'Налады';
 
   @override
-  String get shutterSound => 'Адключыць звук пад час здымку';
+  String get shutterSound => 'Уключыць гук затвора';
 
   @override
-  String get shutterSound_description => 'Адключае звук пад час здымання фота';
+  String get shutterSound_description =>
+      'Уключае гук затвора пры здымцы фатаграфіі';
 
   @override
-  String get startRecordingVideo => 'Пачніце запісваць відэа';
+  String get startRecordingVideo => 'Пачаць запіс відэа';
 
   @override
-  String get startWithFrontCamera => 'Пачынаць з франтальнай камеры';
+  String get startWithFrontCamera => 'Пачынаць з пярэдняй камеры';
 
   @override
   String get startWithFrontCamera_description =>
-      'Адкрываць дадатак пачынаючы з франтальнай камеры';
+      'Заўсёды пачынаць з пярэдняй камеры пры адкрыцці праграмы';
 
   @override
-  String get stopVideo => 'Завяршыце запісваць відэа';
+  String get stopVideo => 'Спыніць запіс відэа';
 
   @override
-  String get switchToPictureMode => 'Перайдзіце ў рэжым фота';
+  String get switchToPictureMode => 'Пераключыцца ў рэжым фатаграфіі';
 
   @override
-  String get switchToVideoRecordingMode => 'Перайдзіце ў рэжым відэа';
+  String get switchToVideoRecordingMode => 'Пераключыцца ў рэжым запісу відэа';
 
   @override
   String get systemLanguage => 'Сістэмная мова';
 
   @override
-  String get takePicture => 'Зрабіце фотаздымак';
+  String get takePicture => 'Сфатаграфаваць';
 
   @override
   String get theme => 'Тэма';
@@ -290,17 +292,17 @@ class AppLocalizationsBe extends AppLocalizations {
   String get themeSystem => 'Сістэмная тэма';
 
   @override
-  String get theme_description => 'Змяніць тэму дадатка';
+  String get theme_description => 'Змяніць тэму праграмы';
 
   @override
   String get timer => 'Таймер';
 
   @override
-  String get useMaterialYou => 'Выкарыстоўвць матэрыяльны інтэрфейс';
+  String get useMaterialYou => 'Выкарыстоўваць Material You';
 
   @override
   String get useMaterialYou_description =>
-      'Выкарыстоўвае матэрыяльны дызайн інэрфейсу. Адключае стары варыянт інтэрфейсу';
+      'Выкарыстоўваць дызайн Material You. Адключае стары дызайн інтэрфейсу';
 
   @override
   String version(String versionNumber) {
@@ -312,5 +314,5 @@ class AppLocalizationsBe extends AppLocalizations {
 
   @override
   String get welcomeTitle_description =>
-      'Віншуем! Вы гатовы да карыстання гэтай камеры.';
+      'Віншуем! Усё гатова, каб выкарыстоўваць гэту праграму.';
 }

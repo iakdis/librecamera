@@ -21,11 +21,11 @@ class AppLocalizationsFr extends AppLocalizations {
   String get cameraBehaviour => 'COMPORTEMENT CAMÉRA';
 
   @override
-  String get captureAtVolumePress => 'Capture at volume press';
+  String get captureAtVolumePress => 'Capture via les boutons de volume';
 
   @override
   String get captureAtVolumePress_description =>
-      'When enabled, pressing a volume button will capture a picture or record a video';
+      'Quand activé, appuyer sur un bouton de volume prendra une photo ou enregistrera une vidéo';
 
   @override
   String get choosePath => 'Choisir l\'emplacement';
@@ -45,7 +45,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get enableCompression_description =>
-      'Utiliser la compression lors de l\'enregistrement des images pour économiser de l\'espace de stockage';
+      'Utiliser la compression lors de l\'enregistrement des images pour économiser de l\'espace de stockage.';
 
   @override
   String get enableExposureSlider => 'Activer le curseur d\'exposition';
