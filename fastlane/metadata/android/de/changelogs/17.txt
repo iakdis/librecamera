@@ -1,0 +1,3 @@
+* fixed: Schwarze Ansicht nach Rückkehr in die App (z. B. nach Öffnen der Benachrichtigungsleiste)
+* code: Gradle, AGP und Kotlin für aktuelle Flutter‑Versionen aktualisiert
+* l10n: Estnisch, Finnisch und Vietnamesisch hinzugefügt; be, ca, cs, fr, id, ko, ta, tr aktualisiert

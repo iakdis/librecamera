@@ -1,0 +1,3 @@
+* fixed: Black view after returning to the app (e.g. after opening the notification shade)
+* code: Update Gradle, AGP and Kotlin for current Flutter versions
+* l10n: Add Estonian, Finnish and Vietnamese; update be, ca, cs, fr, id, ko, ta, tr
