@@ -19,7 +19,6 @@ class Localization {
     const Locale('fi', ''),
     const Locale('fr', ''),
     const Locale('gl', ''),
-    const Locale('grc', ''),
     const Locale('hu', ''),
     const Locale('ia', ''),
     const Locale('id', ''),
@@ -78,8 +77,6 @@ class Localization {
         return 'Français';
       case 'gl':
         return 'Galego';
-      case 'grc':
-        return 'Ἀρχαία ἑλληνικὴ';
       case 'hu':
         return 'Magyar';
       case 'ia':
