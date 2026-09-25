@@ -45,6 +45,15 @@ class _CameraPageState extends State<CameraPage>
   CameraController? _cameraController;
   VideoPlayerController? _videoPlayerController;
 
+  // Last camera used, so the preview can be rebuilt after the controller has
+  // been disposed (e.g. while the app is backgrounded).
+  CameraDescription? _lastCameraDescription;
+
+  // Serializes camera teardown/bring-up triggered by app lifecycle changes so
+  // an overlapping dispose()/initialize() pair can't leave the native preview
+  // surface detached (black viewfinder while capture still works).
+  Future<void> _cameraLifecycleQueue = Future<void>.value();
+
   //Zoom
   static const _defaultZoomLevel = 1.0;
   double _minAvailableZoom = 1;
@@ -144,32 +153,73 @@ class _CameraPageState extends State<CameraPage>
   void didChangeAppLifecycleState(AppLifecycleState state) {
     final cameraController = _cameraController;
 
-    // App state changed before we got the chance to initialize.
-    if (cameraController == null || !cameraController.value.isInitialized) {
-      return;
-    }
-
-    // Pause video recording if in progress.
-    if (cameraController.value.isRecordingVideo) {
+    // Pause video recording if in progress while we're being backgrounded.
+    if (cameraController != null &&
+        cameraController.value.isInitialized &&
+        cameraController.value.isRecordingVideo &&
+        state != AppLifecycleState.resumed) {
       unawaited(pauseVideoRecording());
       return;
     }
 
-    if (state == AppLifecycleState.inactive) {
-      unawaited(_hideCamera(cameraController));
-    } else if (state == AppLifecycleState.resumed) {
-      unawaited(_showCamera(cameraController));
+    // Only tear the camera down on a real background transition (`paused` /
+    // `hidden`). `inactive` also fires for transient interruptions such as
+    // pulling down the notification shade or a system dialog; disposing the
+    // camera for those caused overlapping dispose()/initialize() cycles that
+    // left the preview permanently black.
+    switch (state) {
+      case AppLifecycleState.paused:
+      case AppLifecycleState.hidden:
+        _queueCameraLifecycleOp(_hideCamera);
+      case AppLifecycleState.resumed:
+        _queueCameraLifecycleOp(_showCamera);
+      case AppLifecycleState.inactive:
+      case AppLifecycleState.detached:
+        break;
     }
   }
 
-  Future<void> _hideCamera(CameraController cameraController) async {
-    if (mounted) _showPreviewNotifier.value = false;
-    await cameraController.dispose();
+  /// Runs [op] after any previously queued lifecycle operation completes, so
+  /// camera teardown and bring-up never overlap.
+  void _queueCameraLifecycleOp(Future<void> Function() op) {
+    _cameraLifecycleQueue = _cameraLifecycleQueue.then((_) async {
+      if (!mounted) return;
+      try {
+        await op();
+      } catch (e) {
+        if (kDebugMode) {
+          print('Camera lifecycle operation failed: $e');
+        }
+      }
+    });
+    unawaited(_cameraLifecycleQueue);
   }
 
-  Future<void> _showCamera(CameraController cameraController) async {
-    await _initializeCameraController(cameraController.description);
-    if (mounted) _showPreviewNotifier.value = true;
+  Future<void> _hideCamera() async {
+    if (mounted) _showPreviewNotifier.value = false;
+
+    final cameraController = _cameraController;
+    _cameraController = null;
+    if (mounted) setState(() {});
+
+    await cameraController?.dispose();
+  }
+
+  Future<void> _showCamera({bool forceReinitialize = false}) async {
+    try {
+      final cameraController = _cameraController;
+      if (forceReinitialize ||
+          cameraController == null ||
+          !cameraController.value.isInitialized) {
+        final description =
+            cameraController?.description ??
+            _lastCameraDescription ??
+            cameras[Preferences.getStartWithRearCamera() ? 0 : 1];
+        await _initializeCameraController(description);
+      }
+    } finally {
+      if (mounted) _showPreviewNotifier.value = true;
+    }
   }
 
   void _subscribeVolumeButtons() {
@@ -345,11 +395,13 @@ class _CameraPageState extends State<CameraPage>
   }
 
   Widget _previewWidget() {
-    final cameraController = _cameraController;
-
     return ValueListenableBuilder(
       valueListenable: _showPreviewNotifier,
       builder: (context, showPreview, child) {
+        // Read the controller here (not in the enclosing method) so the preview
+        // always binds to the current controller after a resume, never a stale
+        // disposed one.
+        final cameraController = _cameraController;
         if (showPreview &&
             (cameraController != null &&
                 cameraController.value.isInitialized)) {
@@ -359,6 +411,9 @@ class _CameraPageState extends State<CameraPage>
               onPointerUp: (_) => _pointers--,
               child: CameraPreview(
                 cameraController,
+                // A new controller means a new native texture; force a fresh
+                // subtree so the preview surface is rebuilt.
+                key: ValueKey<int>(cameraController.cameraId),
                 child: LayoutBuilder(
                   builder: (BuildContext context, BoxConstraints constraints) {
                     return Stack(
@@ -529,7 +584,7 @@ class _CameraPageState extends State<CameraPage>
 
                       if (!status.isGranted) {
                         await Permission.microphone.request();
-                        await _showCamera(_cameraController!);
+                        await _showCamera(forceReinitialize: true);
                       }
 
                       _isVideoCameraSelectedNotifier.value = true;
@@ -763,9 +818,12 @@ class _CameraPageState extends State<CameraPage>
 
   //Selecting camera
   Future<void> onNewCameraSelected(CameraDescription cameraDescription) async {
-    if (_cameraController != null) {
-      await _cameraController!.setDescription(cameraDescription);
+    final cameraController = _cameraController;
+    if (cameraController != null && cameraController.value.isInitialized) {
+      await cameraController.setDescription(cameraDescription);
     } else {
+      // No usable controller (e.g. the preview was torn down): rebuild it fully
+      // rather than calling setDescription on a dead controller.
       await _initializeCameraController(cameraDescription);
     }
 
@@ -790,6 +848,7 @@ class _CameraPageState extends State<CameraPage>
     );
 
     _cameraController = cameraController;
+    _lastCameraDescription = cameraDescription;
 
     // If the controller is updated then update the UI.
     cameraController.addListener(() {
@@ -840,7 +899,15 @@ class _CameraPageState extends State<CameraPage>
     }
 
     if (mounted) {
-      await _refreshGalleryImages();
+      // A failure here must not abort camera bring-up (which would leave the
+      // preview hidden).
+      try {
+        await _refreshGalleryImages();
+      } catch (e) {
+        if (kDebugMode) {
+          print('Failed to refresh gallery images: $e');
+        }
+      }
 
       setState(() {});
     }
