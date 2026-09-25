@@ -1,0 +1,3 @@
+* opraveno: černá obrazovka po návratu do aplikace (např. po otevření oznamovací lišty)
+* kód: aktualizace Gradle, AGP a Kotlinu pro aktuální verze Flutteru
+* l10n: přidána estonština, finština a vietnamština; aktualizace be, ca, cs, fr, id, ko, ta, tr
