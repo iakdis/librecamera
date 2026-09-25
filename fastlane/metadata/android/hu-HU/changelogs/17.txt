@@ -1,0 +1,3 @@
+* javítva: Fekete képernyő az alkalmazásba való visszatérés után (pl. az értesítési sáv megnyitása után)
+* kód: A Gradle, az AGP és a Kotlin frissítése a jelenlegi Flutter-verziókhoz
+* l10n: Észt, finn és vietnámi nyelv hozzáadása; a be, ca, cs, fr, id, ko, ta, tr nyelvek frissítése
