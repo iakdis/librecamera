@@ -1,0 +1,3 @@
+* parandused: must vaade peale rakendusse naasmist (nt. teavitusest)
+* uus kood: Gradle'i, AGP ja Kotlini uuendus viimase Flutteri versiooni jaoks
+* tõlge: lisandusid eesti, soome ja vietnami keeled; täienesid be, ca, cs, fr, id, ko, ta, tr
