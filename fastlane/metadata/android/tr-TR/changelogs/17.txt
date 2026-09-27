@@ -1,0 +1,3 @@
+* düzeltildi: Uygulamaya geri döndükten sonra (örn. bildirim panosunu açtıktan sonra) ekranın siyah görünmesi
+* kod: Güncel Flutter sürümleri için Gradle, AGP ve Kotlin güncellendi
+* l10n: Estonca, Fince ve Vietnamca dilleri eklendi; be, ca, cs, fr, id, ko, ta, tr dilleri güncellendi
