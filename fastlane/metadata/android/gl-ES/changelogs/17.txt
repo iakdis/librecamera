@@ -1,0 +1,3 @@
+* solucionado: visualización en negro ao volver á app (ex. despois de abrir a notificación)
+* código: actualización de Gradle, AGP e Kotlin para as versións actuais de Fluter
+* l10n: engadíronse os idiomas Estonio, Finés e Vietnamita; actualización de be, ca, cs, fr, id, ko, ta, tr
