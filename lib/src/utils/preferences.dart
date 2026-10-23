@@ -155,4 +155,11 @@ class Preferences {
   static Future<void> setVideoFps(int fps) async =>
       _preferences.setInt(prefVideoFps, fps);
   static int getVideoFps() => _preferences.getInt(prefVideoFps) ?? 30;
+
+  // No post-processing (skip the app's own image processing and turn off the
+  // sensor/ISP processing of the phone's camera)
+  static Future<void> setNoPostProcessing({required bool enable}) async =>
+      _preferences.setBool(prefNoPostProcessing, enable);
+  static bool getNoPostProcessing() =>
+      _preferences.getBool(prefNoPostProcessing) ?? false;
 }

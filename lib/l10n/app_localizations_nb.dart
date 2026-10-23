@@ -295,6 +295,9 @@ class AppLocalizationsNb extends AppLocalizations {
   String get timer => 'Tidsur';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => 'Anvend Materiell Deig';
 
   @override

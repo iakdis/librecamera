@@ -299,6 +299,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get timer => 'Таймер';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => 'Используйте материал Вы';
 
   @override

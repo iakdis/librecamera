@@ -302,6 +302,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get timer => 'Temporizador';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => 'Usar o Material You';
 
   @override
@@ -614,6 +617,9 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get timer => 'Temporizador';
+
+  @override
+  String get noPostProcessing => 'No post-processing';
 
   @override
   String get useMaterialYou => 'Usar Material You';

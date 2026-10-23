@@ -299,6 +299,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get timer => 'Ajastin';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => 'Käytä Material You -teemaa';
 
   @override

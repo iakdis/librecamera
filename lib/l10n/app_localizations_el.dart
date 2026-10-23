@@ -302,6 +302,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get timer => 'Χρονοδιακόπτης';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => 'Χρήση Material You';
 
   @override

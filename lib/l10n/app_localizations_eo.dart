@@ -298,6 +298,9 @@ class AppLocalizationsEo extends AppLocalizations {
   String get timer => 'Tempumilo';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => 'Use Material You';
 
   @override

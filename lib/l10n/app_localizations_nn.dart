@@ -298,6 +298,9 @@ class AppLocalizationsNn extends AppLocalizations {
   String get timer => 'Timer';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => 'Use Material You';
 
   @override

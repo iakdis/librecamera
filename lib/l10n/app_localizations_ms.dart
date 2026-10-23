@@ -299,6 +299,9 @@ class AppLocalizationsMs extends AppLocalizations {
   String get timer => 'Pemasa';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => 'Guna Material You';
 
   @override

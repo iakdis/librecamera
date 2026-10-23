@@ -298,6 +298,9 @@ class AppLocalizationsIs extends AppLocalizations {
   String get timer => 'Niðurteljari';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => 'Nota Material You';
 
   @override

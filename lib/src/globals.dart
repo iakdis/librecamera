@@ -23,3 +23,4 @@ const String prefLeftHandedMode = 'leftHandedMode';
 const String prefCaptureAtVolumePress = 'captureAtVolumePress';
 const String prefEnableCompression = 'enableCompression';
 const String prefVideoFps = 'videoFps';
+const String prefNoPostProcessing = 'noPostProcessing';

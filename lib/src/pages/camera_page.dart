@@ -14,6 +14,7 @@ import 'package:librecamera/main.dart';
 import 'package:librecamera/src/models/media_file.dart';
 import 'package:librecamera/src/pages/settings_page.dart';
 import 'package:librecamera/src/provider/theme_provider.dart';
+import 'package:librecamera/src/utils/post_processing.dart';
 import 'package:librecamera/src/utils/preferences.dart';
 import 'package:librecamera/src/volume_button_listener.dart';
 import 'package:librecamera/src/widgets/capture_control.dart';
@@ -336,6 +337,12 @@ class _CameraPageState extends State<CameraPage>
           ),*/
           SafeArea(child: _timerWidget()),
           _topControlsWidget(),
+          _noPostProcessingWidget(
+            context,
+            enabled:
+                _cameraController?.value.isRecordingVideo == false &&
+                _timerStopwatch.elapsedTicks <= 1,
+          ),
           _zoomWidget(context),
           SafeArea(
             bottom: MediaQuery.orientationOf(context) == .portrait,
@@ -631,6 +638,96 @@ class _CameraPageState extends State<CameraPage>
     );
   }
 
+  /// Switch on the camera screen that turns all post-processing off: the
+  /// app's own image processing after capture and the phone's sensor/ISP
+  /// processing (noise reduction, sharpening, ...).
+  Widget _noPostProcessingWidget(
+    BuildContext context, {
+    required bool enabled,
+  }) {
+    final portrait = MediaQuery.orientationOf(context) == Orientation.portrait;
+    final leftHandedMode = Preferences.getLeftHandedMode() && !portrait;
+    final noPostProcessing = Preferences.getNoPostProcessing();
+    final label = AppLocalizations.of(context)!.noPostProcessing;
+
+    return SafeArea(
+      child: Align(
+        alignment: leftHandedMode ? Alignment.topRight : Alignment.topLeft,
+        child: Padding(
+          padding: EdgeInsets.only(
+            top: portrait ? _topControlsHeight + 8 : 8,
+            left: portrait ? 12 : (leftHandedMode ? 0 : _topControlsHeight + 12),
+            right: leftHandedMode ? _topControlsHeight + 12 : 0,
+          ),
+          child: AnimatedRotation(
+            duration: const Duration(milliseconds: 400),
+            turns: portrait ? 0 : 0.25,
+            child: Tooltip(
+              message: label,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.black54,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 12),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.auto_fix_off,
+                        size: 18,
+                        color: noPostProcessing ? Colors.amber : Colors.white,
+                      ),
+                      const SizedBox(width: 6),
+                      Text(
+                        label,
+                        style: TextStyle(
+                          color: enabled ? Colors.white : Colors.white24,
+                          fontSize: 12,
+                        ),
+                      ),
+                      Transform.scale(
+                        scale: 0.75,
+                        child: Switch(
+                          value: noPostProcessing,
+                          materialTapTargetSize:
+                              MaterialTapTargetSize.shrinkWrap,
+                          activeThumbColor: Colors.white,
+                          activeTrackColor: Colors.amber,
+                          inactiveThumbColor: Colors.white70,
+                          inactiveTrackColor: Colors.black38,
+                          onChanged: enabled
+                              ? (value) => unawaited(
+                                  _toggleNoPostProcessing(value: value),
+                                )
+                              : null,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Future<void> _toggleNoPostProcessing({required bool value}) async {
+    HapticFeedback.selectionClick().ignore();
+    await Preferences.setNoPostProcessing(enable: value);
+    if (mounted) setState(() {});
+
+    // The phone's sensor/ISP settings are applied when the camera use cases
+    // are built, so rebuild the camera for the change to take effect.
+    _queueCameraLifecycleOp(() async {
+      await _hideCamera();
+      await _showCamera(forceReinitialize: true);
+    });
+  }
+
   Widget _thumbnailPreviewWidget() {
     return _timerStopwatch.elapsedTicks > 1 ||
             (_cameraController?.value.isRecordingVideo ?? false)
@@ -837,6 +934,10 @@ class _CameraPageState extends State<CameraPage>
     final flashMode = getFlashMode();
     final resolution = getResolution();
     final fps = Preferences.getVideoFps();
+
+    // The native camera plugin reads the "no post-processing" switch while it
+    // builds the camera use cases, so it has to be set before initializing.
+    await PostProcessing.syncWithPreference();
 
     final cameraController = CameraController(
       cameraDescription,
@@ -1057,38 +1158,48 @@ class _CameraPageState extends State<CameraPage>
           fileFormat = 'heic';
       }
 
-      final path = '$directory/IMG_${timestamp()}.$fileFormat';
-
-      var decodedImage = await compute(img.decodeImage, imageBytes);
-
-      if (!_isRearCameraSelectedNotifier.value &&
-          Preferences.getFlipFrontCameraPhoto()) {
-        decodedImage = img.flipHorizontal(decodedImage!);
-      }
-
-      if (!Preferences.getKeepEXIFMetadata()) {
-        decodedImage?.exif = img.ExifData();
-      }
-
-      final encodedImage = await compute(img.encodeJpg, decodedImage!);
-      await capturedFile.writeAsBytes(
-        encodedImage,
-        flush: true,
-      );
+      // With "no post-processing" the JPEG from the camera is saved untouched,
+      // so it always keeps the .jpg extension whatever the compress format is.
+      final noPostProcessing = Preferences.getNoPostProcessing();
+      final path = noPostProcessing
+          ? '$directory/IMG_${timestamp()}.jpg'
+          : '$directory/IMG_${timestamp()}.$fileFormat';
 
       Uint8List? fileBytes;
 
-      if (Preferences.getEnableCompression()) {
-        fileBytes = await FlutterImageCompress.compressWithFile(
-          capturedFile.path,
-          minHeight: decodedImage.height,
-          minWidth: decodedImage.width,
-          quality: Preferences.getCompressQuality(),
-          keepExif: Preferences.getKeepEXIFMetadata(),
-          format: format,
-        );
+      if (noPostProcessing) {
+        // No decoding, flipping, EXIF stripping, re-encoding or compression.
+        fileBytes = imageBytes;
       } else {
-        fileBytes = await capturedFile.readAsBytes();
+        var decodedImage = await compute(img.decodeImage, imageBytes);
+
+        if (!_isRearCameraSelectedNotifier.value &&
+            Preferences.getFlipFrontCameraPhoto()) {
+          decodedImage = img.flipHorizontal(decodedImage!);
+        }
+
+        if (!Preferences.getKeepEXIFMetadata()) {
+          decodedImage?.exif = img.ExifData();
+        }
+
+        final encodedImage = await compute(img.encodeJpg, decodedImage!);
+        await capturedFile.writeAsBytes(
+          encodedImage,
+          flush: true,
+        );
+
+        if (Preferences.getEnableCompression()) {
+          fileBytes = await FlutterImageCompress.compressWithFile(
+            capturedFile.path,
+            minHeight: decodedImage.height,
+            minWidth: decodedImage.width,
+            quality: Preferences.getCompressQuality(),
+            keepExif: Preferences.getKeepEXIFMetadata(),
+            format: format,
+          );
+        } else {
+          fileBytes = await capturedFile.readAsBytes();
+        }
       }
 
       try {

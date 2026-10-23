@@ -298,6 +298,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get timer => 'Zamanlayıcı';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => 'Material You kullan';
 
   @override

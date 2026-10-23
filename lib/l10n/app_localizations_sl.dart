@@ -301,6 +301,9 @@ class AppLocalizationsSl extends AppLocalizations {
   String get timer => 'Časovnik';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => 'Uporabi oblikovanje Material You';
 
   @override

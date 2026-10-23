@@ -301,6 +301,9 @@ class AppLocalizationsIa extends AppLocalizations {
   String get timer => 'Temporisator';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => 'Usar Material You';
 
   @override

@@ -302,6 +302,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get timer => 'Таймер';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => 'Використовувати Material You';
 
   @override
