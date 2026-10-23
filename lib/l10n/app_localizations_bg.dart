@@ -302,6 +302,9 @@ class AppLocalizationsBg extends AppLocalizations {
   String get timer => 'Таймер';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => 'Use Material You';
 
   @override

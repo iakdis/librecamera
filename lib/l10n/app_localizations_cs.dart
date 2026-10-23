@@ -298,6 +298,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get timer => 'Časovač';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => 'Použít Material You';
 
   @override

@@ -304,6 +304,9 @@ class AppLocalizationsRo extends AppLocalizations {
   String get timer => 'Temporizator';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => 'Utilizați Material You';
 
   @override

@@ -286,6 +286,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get timer => 'タイマー';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => 'Use Material You';
 
   @override

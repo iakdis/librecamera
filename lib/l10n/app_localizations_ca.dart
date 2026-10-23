@@ -299,6 +299,9 @@ class AppLocalizationsCa extends AppLocalizations {
   String get timer => 'Temporitzador';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => 'Interfície «Material You»';
 
   @override

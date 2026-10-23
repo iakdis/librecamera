@@ -299,6 +299,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get timer => 'Temporizador';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => 'Utilizar Material You';
 
   @override

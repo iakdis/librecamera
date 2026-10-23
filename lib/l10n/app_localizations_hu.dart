@@ -299,6 +299,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get timer => 'Időzítő';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => '„Material You” téma használata';
 
   @override

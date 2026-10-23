@@ -301,6 +301,9 @@ class AppLocalizationsTa extends AppLocalizations {
   String get timer => 'நேரங்குறிகருவி';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => 'நீங்கள் பொருளைப் பயன்படுத்துங்கள்';
 
   @override

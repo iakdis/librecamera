@@ -281,6 +281,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get timer => '倒计时';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => '“Material You”界面设计';
 
   @override
@@ -574,6 +577,9 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
 
   @override
   String get timer => '計時器';
+
+  @override
+  String get noPostProcessing => 'No post-processing';
 
   @override
   String get useMaterialYou => '使用 Material You';

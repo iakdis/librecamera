@@ -102,6 +102,7 @@
   "themeSystem": "Tema sistem",
   "theme_description": "Rubah tema app",
   "timer": "Pengatur waktu",
+  "noPostProcessing": "Tanpa post-processing",
   "useMaterialYou": "Gunakan Material You",
   "useMaterialYou_description": "Menggunakan desain Material You. Matikan untuk menggunakan desain Material lama",
   "version": "Versi {versionNumber}",

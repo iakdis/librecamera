@@ -289,6 +289,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get timer => '타이머';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => '머티리얼 디자인 사용';
 
   @override

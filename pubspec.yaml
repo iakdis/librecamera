@@ -50,6 +50,12 @@ dependencies:
   wakelock_plus: ^1.2.5
 
 
+# Local copy of camera_android_camerax 0.6.26+2 with a switch that turns off the
+# phone's sensor/ISP post-processing (see packages/camera_android_camerax/README.librecamera.md).
+dependency_overrides:
+  camera_android_camerax:
+    path: packages/camera_android_camerax
+
 dev_dependencies:
   flutter_launcher_icons: ^0.14.4
   flutter_lints: ^6.0.0

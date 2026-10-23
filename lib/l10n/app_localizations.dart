@@ -710,6 +710,12 @@ abstract class AppLocalizations {
   /// **'Timer'**
   String get timer;
 
+  /// No description provided for @noPostProcessing.
+  ///
+  /// In en, this message translates to:
+  /// **'No post-processing'**
+  String get noPostProcessing;
+
   /// No description provided for @useMaterialYou.
   ///
   /// In en, this message translates to:

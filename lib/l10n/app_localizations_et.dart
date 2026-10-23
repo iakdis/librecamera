@@ -298,6 +298,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get timer => 'Taimer';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => 'Kasuta Material You kujunduskeelt';
 
   @override

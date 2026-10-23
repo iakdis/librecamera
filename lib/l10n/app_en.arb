@@ -102,6 +102,7 @@
   "themeSystem": "System theme",
   "theme_description": "Change the app theme",
   "timer": "Timer",
+  "noPostProcessing": "No post-processing",
   "useMaterialYou": "Use Material You",
   "useMaterialYou_description": "Use the Material You design. Set to false for the old Material design",
   "version": "Version {versionNumber}",

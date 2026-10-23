@@ -298,6 +298,9 @@ class AppLocalizationsBe extends AppLocalizations {
   String get timer => 'Таймер';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => 'Выкарыстоўваць Material You';
 
   @override

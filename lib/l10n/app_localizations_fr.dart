@@ -305,6 +305,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get timer => 'Minuterie';
 
   @override
+  String get noPostProcessing => 'No post-processing';
+
+  @override
   String get useMaterialYou => 'Utiliser Material You';
 
   @override

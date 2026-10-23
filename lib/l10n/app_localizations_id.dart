@@ -296,6 +296,9 @@ class AppLocalizationsId extends AppLocalizations {
   String get timer => 'Pengatur waktu';
 
   @override
+  String get noPostProcessing => 'Tanpa post-processing';
+
+  @override
   String get useMaterialYou => 'Gunakan Material You';
 
   @override
