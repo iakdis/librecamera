@@ -4,11 +4,14 @@ import android.app.PendingIntent
 import android.content.ComponentName
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.media.MediaActionSound
 import android.media.MediaScannerConnection
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
 import android.service.quicksettings.TileService
 import android.util.Log
 import androidx.annotation.RequiresApi
@@ -65,6 +68,13 @@ class MainActivity : FlutterActivity() {
                         }
                         "startVideoSound" -> {
                             startVideoSound()
+                            result.success(null)
+                        }
+                        "isCaptureRequest" -> {
+                            result.success(isCaptureRequest())
+                        }
+                        "finishCapture" -> {
+                            finishCapture(call.argument("bytes")!!)
                             result.success(null)
                         }
                     }
@@ -139,6 +149,43 @@ class MainActivity : FlutterActivity() {
                     PackageManager.DONT_KILL_APP
             )
         }
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+    }
+
+    private fun isCaptureRequest(): Boolean {
+        return intent?.action == MediaStore.ACTION_IMAGE_CAPTURE ||
+                intent?.action == MediaStore.ACTION_IMAGE_CAPTURE_SECURE
+    }
+
+    // Hands the captured JPEG back to the app that sent the IMAGE_CAPTURE intent
+    private fun finishCapture(bytes: ByteArray) {
+        try {
+            @Suppress("DEPRECATION")
+            val output = intent?.getParcelableExtra<Uri>(MediaStore.EXTRA_OUTPUT)
+            if (output != null) {
+                contentResolver.openOutputStream(output, "wt")!!.use { it.write(bytes) }
+                setResult(RESULT_OK)
+            } else {
+                // Without EXTRA_OUTPUT the caller expects a small bitmap in the "data" extra
+                val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
+                val scale = 256f / maxOf(bitmap.width, bitmap.height)
+                val thumbnail = Bitmap.createScaledBitmap(
+                        bitmap,
+                        (bitmap.width * scale).toInt(),
+                        (bitmap.height * scale).toInt(),
+                        true
+                )
+                setResult(RESULT_OK, Intent().putExtra("data", thumbnail))
+            }
+        } catch (e: Exception) {
+            Log.e("librecamera", "finishCapture failed", e)
+            setResult(RESULT_CANCELED)
+        }
+        finish()
     }
 
     private fun shutterSound() {
