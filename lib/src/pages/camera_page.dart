@@ -1071,6 +1071,18 @@ class _CameraPageState extends State<CameraPage>
       }
 
       final encodedImage = await compute(img.encodeJpg, decodedImage!);
+
+      // Started by another app via IMAGE_CAPTURE, so return the photo to it
+      if (await AndroidMethodChannel().isCaptureRequest()) {
+        _takingPictureNotifier.value = false;
+        await File(capturedXFile.path).delete();
+        // Release the camera first, otherwise late preview frames hit the
+        // detached engine once the activity finishes
+        await _hideCamera();
+        await AndroidMethodChannel().finishCapture(encodedImage);
+        return capturedXFile;
+      }
+
       await capturedFile.writeAsBytes(
         encodedImage,
         flush: true,
@@ -1611,5 +1623,13 @@ class AndroidMethodChannel {
 
   Future<void> startVideoSound() async {
     await _channel.invokeMethod('startVideoSound', <String, dynamic>{});
+  }
+
+  Future<bool> isCaptureRequest() async {
+    return await _channel.invokeMethod<bool>('isCaptureRequest') ?? false;
+  }
+
+  Future<void> finishCapture(Uint8List bytes) async {
+    await _channel.invokeMethod('finishCapture', {'bytes': bytes});
   }
 }
